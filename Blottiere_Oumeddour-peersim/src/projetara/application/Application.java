@@ -16,15 +16,12 @@ import projetara.application.InternalEvent.TypeEvent;
 import projetara.util.Message;
 
 public class Application implements EDProtocol {
-	
-		
 		
 		//Nom des arguments du fichiers de configuration
 		private static final String PAR_TRANSPORT = "transport";
 		private static final String PAR_TIME_CS = "timeCS";
 		private static final String PAR_TIME_BETWEEN_CS = "timeBetweenCS";
 		
-			
 		//constantes de l'algorithme
 		public static final long initial_owner=0L;
 		public static final long nil=-2L;
@@ -48,18 +45,16 @@ public class Application implements EDProtocol {
 		protected long last;
 		protected int nb_cs=0;//permet de compter le nombre de section critiques exécutées par le noeud
 
-		protected int global_counter=0; // compteur qui sera inclu dans le message jeton, sa valeur est égale à la dernière valeur connue 
-		                                // (i.e. depuis la dernière fois où le noeud a vu passer le jeton) 
-		                                // ATTENTION, cette variable n'est pas globale, elle est propre à chaque noeud mais ils ne peuvent
-		                                // la modifier uniquement lorsqu'ils possèdent le jeton
+		// compteur qui sera inclu dans le message jeton, sa valeur est égale à la dernière valeur connue 
+		// (i.e. depuis la dernière fois où le noeud a vu passer le jeton) 
+		// ATTENTION, cette variable n'est pas globale, elle est propre à chaque noeud mais ils ne peuvent
+		// la modifier uniquement lorsqu'ils possèdent le jeton
+		protected int global_counter=0;
+
 		
-		
-		protected int id_execution;//permet d'identifier l'id d'exécution, incrémenter si l'application est suspendue 
-		                           //(toujours constant dans cette classe)
-		
-		
-			
-		
+		protected int id_execution; // permet d'identifier l'id d'exécution, incrémenter si
+		// l'application est suspendue (toujours constant dans cette classe)
+				
 		public Application(String prefix) {
 			String tmp[]=prefix.split("\\.");
 			protocol_id=Configuration.lookupPid(tmp[tmp.length-1]);
@@ -67,9 +62,6 @@ public class Application implements EDProtocol {
 			transport_id=Configuration.getPid(prefix+"."+PAR_TRANSPORT);
 			timeCS=Configuration.getLong(prefix+"."+PAR_TIME_CS);
 			timeBetweenCS=Configuration.getLong(prefix+"."+PAR_TIME_BETWEEN_CS);
-				
-			
-			
 		}
 		
 		public Object clone(){
@@ -119,10 +111,7 @@ public class Application implements EDProtocol {
 			}else {
 				throw new RuntimeException("Receive unknown type event");
 			}
-			
-
 		}
-		
 		
 		
 		/////////////////////////////////////////// METHODES DE L'ALGORITHME////////////////////////////////////////////
@@ -131,7 +120,6 @@ public class Application implements EDProtocol {
 			global_counter++;
 			log.info("Node "+host.getID()+" global counter = "+global_counter);
 		}
-		
 		
 		private void initialisation(Node host) {
 			changestate(host,State.tranquil);
@@ -143,7 +131,6 @@ public class Application implements EDProtocol {
 			}
 			
 		}
-
 		
 		private void requestCS(Node host){
 			log.fine("Node "+host.getID()+" requestCS");
@@ -183,13 +170,17 @@ public class Application implements EDProtocol {
 					
 				}else{
 					Node dest = Network.get((int)requester);
-					tr.send(host, dest,new TokenMessage(host.getID(), dest.getID(), new ArrayDeque<Long>(), global_counter, protocol_id)   , protocol_id);
+					tr.send(host, dest,
+							new TokenMessage(host.getID(), dest.getID(), new ArrayDeque<Long>(), global_counter, protocol_id),
+							protocol_id);
 					log.fine("Node "+host.getID()+" send token("+next+") to "+dest.getID()+" (no need)");
 					last=requester;
 				}
 			}else{
 				Node dest = Network.get((int)last);
-				tr.send(host,dest, new Message(host.getID(), dest.getID(),  REQUEST_TAG, requester, protocol_id), protocol_id);
+				tr.send(host, dest,
+						new Message(host.getID(), dest.getID(),  REQUEST_TAG, requester, protocol_id),
+						protocol_id);
 				last=requester;
 			}
 		}
@@ -199,15 +190,13 @@ public class Application implements EDProtocol {
 			global_counter=counter;
 			remote_queue.addAll(next);
 			next=remote_queue;
-			changestate(host,State.inCS);
+			changestate(host, State.inCS);
 		}
-		
-		
 		
 		
         /////////////////////////////////////////// METHODES UTILITAIRES////////////////////////////////////////////
 		protected void changestate(Node host, State s) {
-			this.state=s;
+			this.state = s;
 			switch(this.state){
 			case inCS:
 				executeCS(host);
@@ -229,6 +218,7 @@ public class Application implements EDProtocol {
 			long min = (long )(timeCS * 0.8);
 			long max = (long )(timeCS * 1.2);
 			long res = CommonState.r.nextLong(max+min)+min;
+			
 			EDSimulator.add(res, new InternalEvent(TypeEvent.release_cs, id_execution), host, protocol_id);
 			
 		}
@@ -239,6 +229,5 @@ public class Application implements EDProtocol {
 			long res = CommonState.r.nextLong(max+min)+min;
 			
 			EDSimulator.add(res, new InternalEvent(TypeEvent.request_cs, id_execution), host, protocol_id);
-			
 		}
 }

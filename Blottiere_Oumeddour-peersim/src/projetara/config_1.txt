@@ -1,0 +1,15 @@
+simulation.experiments 1
+random.seed 5
+network.size 5
+simulation.endtime 100000
+
+protocol.reliableTransport UniformRandomTransport
+protocol.reliableTransport.mindelay 5
+protocol.reliableTransport.maxdelay 500
+protocol.basicbroadcast.transport reliableTransport
+protocol.applicative Application
+protocol.applicative.transport basicbroadcast
+
+init.initialisation application.Application
+control.end EndControler
+control.end.at -1

@@ -1,4 +1,4 @@
-Blottière-Mayo Robin
-Oumeddour Pierre
+Project Peersim by :
 
-3100478
+Blottière-Mayo Robin  3200248
+Oumeddour Pierre      3100478
