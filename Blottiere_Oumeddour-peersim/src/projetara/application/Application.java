@@ -66,7 +66,7 @@ public class Application implements EDProtocol {
 		
 		public Object clone(){
 			Application res= null;
-			try { res = (Application) super.clone();}
+			try { res = (Application) super.clone(); }
 			catch( CloneNotSupportedException e ) {} // never happens
 			res.initialisation(CommonState.getNode());
 			
@@ -128,24 +128,29 @@ public class Application implements EDProtocol {
 			next=new ArrayDeque<Long>();
 			if(host.getID() == initial_owner){
 				last=nil;
+				log.fine("Node "+host.getID()+" last=nil");
 			}else{
 				last=initial_owner;
+				log.fine("Node "+host.getID()+" last=initial_owner");
 			}
-			
 		}
 		
 		private void requestCS(Node host){
-			log.fine("Node "+host.getID()+" requestCS");
+			log.fine("Node "+host.getID()+" BEGIN");
 			changestate(host,State.requesting);
 			if(last != nil){
+				log.fine("Node "+host.getID()+" requestCS");
 				Transport tr= (Transport) host.getProtocol(transport_id);
 				Node dest = Network.get((int)last);
-				tr.send(host,dest, new Message(host.getID(), dest.getID(),  REQUEST_TAG, host.getID(), protocol_id), protocol_id);
+				tr.send(host,dest, new Message(host.getID(), dest.getID(),  REQUEST_TAG,
+						host.getID(), protocol_id), protocol_id);
 				last=nil;
 				return;//on simule un wait ici
 			}
 			changestate(host,State.inCS);
 			//DEBUT CS
+			log.fine("Node "+host.getID()+" ***** BEGIN CS ! *****");
+			log.fine("Node "+host.getID()+" END");
 		}
 		
 		private void releaseCS(Node host){
@@ -161,6 +166,8 @@ public class Application implements EDProtocol {
 				log.fine("Node "+host.getID()+" send token("+next+") to "+dest.getID());
 				next.clear();
 			}
+			log.fine("Node "+host.getID()+" ***** END CS ! *****");
+			log.fine("Node "+host.getID()+" END");
 		}
 		
 		
@@ -224,7 +231,6 @@ public class Application implements EDProtocol {
 			long res = CommonState.r.nextLong(max+min)+min;
 			
 			EDSimulator.add(res, new InternalEvent(TypeEvent.release_cs, id_execution), host, protocol_id);
-			
 		}
 		
 		private void schedule_request(Node host) {

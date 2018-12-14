@@ -1,7 +1,7 @@
 simulation.experiments 1
 random.seed 5
 network.size 5
-simulation.endtime 100000
+simulation.endtime 10000
 
 protocol.reliableTransport UniformRandomTransport
 protocol.reliableTransport.mindelay 5
@@ -14,3 +14,6 @@ protocol.basicbroadcast.transport reliableTransport
 
 init.initialisation projetara.checkpointing.CrashControler
 init.initialisation.probacrash 0.1
+
+#init.initialisation projetara.util.Constantes
+#init.initialisation.loglevel FINE
