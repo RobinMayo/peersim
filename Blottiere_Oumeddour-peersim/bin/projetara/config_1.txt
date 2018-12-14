@@ -6,10 +6,11 @@ simulation.endtime 100000
 protocol.reliableTransport UniformRandomTransport
 protocol.reliableTransport.mindelay 5
 protocol.reliableTransport.maxdelay 500
-protocol.basicbroadcast.transport reliableTransport
-protocol.applicative Application
-protocol.applicative.transport basicbroadcast
 
-init.initialisation application.Application
-control.end EndControler
-control.end.at -1
+protocol.basicbroadcast Application
+protocol.basicbroadcast.timeCS 20
+protocol.basicbroadcast.timeBetweenCS 10
+protocol.basicbroadcast.transport reliableTransport
+
+init.initialisation projetara.checkpointing.CrashControler
+init.initialisation.probacrash 0.1

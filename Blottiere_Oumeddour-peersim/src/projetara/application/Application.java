@@ -101,7 +101,9 @@ public class Application implements EDProtocol {
 				if(m.getTag().equals(REQUEST_TAG)){
 					this.receive_request(node, m.getIdSrc(), (Long)m.getContent());
 				}else if(m.getTag().equals(TOKEN_TAG)){
-					if(! (m instanceof TokenMessage)) throw new RuntimeException("Receive a message with tag token but it is not an instance of TokenMessage");
+					if(! (m instanceof TokenMessage))
+						throw new RuntimeException("Receive a message with tag token but it is not"
+								+ "an instance of TokenMessage");
 					TokenMessage tm= (TokenMessage)m;
 					this.receive_token(node, tm.getIdSrc(), tm.getNext(),tm.getCounter());
 				}else{
@@ -114,7 +116,7 @@ public class Application implements EDProtocol {
 		}
 		
 		
-		/////////////////////////////////////////// METHODES DE L'ALGORITHME////////////////////////////////////////////
+		/////////////////////////////////////////// METHODES DE L'ALGORITHME ///////////////////////
 		private void executeCS(Node host){
 			log.info("Node "+host.getID()+" executing its CS num "+nb_cs+" : next= "+next.toString());
 			global_counter++;
@@ -154,7 +156,8 @@ public class Application implements EDProtocol {
 				long next_holder = next.poll();//dequeue
 				Transport tr= (Transport) host.getProtocol(transport_id);
 				Node dest = Network.get((int)next_holder);
-				tr.send(host, dest,new TokenMessage(host.getID(), dest.getID(), new ArrayDeque<Long>(next), global_counter, protocol_id)   , protocol_id);
+				tr.send(host, dest,new TokenMessage(host.getID(), dest.getID(),
+						new ArrayDeque<Long>(next), global_counter, protocol_id)   , protocol_id);
 				log.fine("Node "+host.getID()+" send token("+next+") to "+dest.getID());
 				next.clear();
 			}
@@ -171,8 +174,8 @@ public class Application implements EDProtocol {
 				}else{
 					Node dest = Network.get((int)requester);
 					tr.send(host, dest,
-							new TokenMessage(host.getID(), dest.getID(), new ArrayDeque<Long>(), global_counter, protocol_id),
-							protocol_id);
+							new TokenMessage(host.getID(), dest.getID(), new ArrayDeque<Long>(),
+									global_counter, protocol_id), protocol_id);
 					log.fine("Node "+host.getID()+" send token("+next+") to "+dest.getID()+" (no need)");
 					last=requester;
 				}
@@ -186,7 +189,8 @@ public class Application implements EDProtocol {
 		}
 		
 		private void receive_token(Node host, long from,  Queue<Long> remote_queue, int counter){
-			log.fine("Node "+host.getID()+" receive token message ("+remote_queue.toString()+", counter = "+counter+") from Node "+from+" next ="+next.toString());
+			log.fine("Node "+host.getID()+" receive token message ("+remote_queue.toString()+
+					", counter = "+counter+") from Node "+from+" next ="+next.toString());
 			global_counter=counter;
 			remote_queue.addAll(next);
 			next=remote_queue;
@@ -194,7 +198,7 @@ public class Application implements EDProtocol {
 		}
 		
 		
-        /////////////////////////////////////////// METHODES UTILITAIRES////////////////////////////////////////////
+        /////////////////////////////////////////// METHODES UTILITAIRES ///////////////////////////
 		protected void changestate(Node host, State s) {
 			this.state = s;
 			switch(this.state){
