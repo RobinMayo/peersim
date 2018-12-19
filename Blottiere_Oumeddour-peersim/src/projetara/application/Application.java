@@ -75,6 +75,8 @@ public class Application implements EDProtocol {
 		
 		@Override
 		public void processEvent(Node node, int pid, Object event) {
+			log.fine("Node "+node.getID()+" BEGIN");
+			
 			if(protocol_id != pid){
 				throw new RuntimeException("Receive an event for wrong protocol");
 			}

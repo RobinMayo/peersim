@@ -16,4 +16,4 @@ init.initialisation projetara.checkpointing.CrashControler
 init.initialisation.probacrash 0.1
 
 #init.initialisation projetara.util.Constantes
-#init.initialisation.loglevel FINE
+init.initialisation.loglevel FINE

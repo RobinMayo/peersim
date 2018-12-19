@@ -2,9 +2,26 @@ EXERCICE I
 
 Question 1 :
 
+L'algorithme de verrouillage utilisé dans la classe Application est un algorithme dérivé de celui de Naimi-Tréhel utilisant la notion de jeton.
+Ainsi tout les sites se partagent le même jeton et seul le site possédant le jeton peut entrer en section critique. Dans la classe Application, les constantes initial_owner et nil servent à discriminer le site possédant le jeton des autres.
+
+Chaque processus connaît le processus suivant dans la file d'attente sauf quand il n'y a pas de suivant. La tête est le processus qui possède le jeton. La queue est le dernier processus qui a demandé la file d'attente, (sauf s'il y a un seul processus dans cette file). Un chemin est organisé de sorte que, quand un processus demande la section critique, sa demande est transmise à la queue. Quand elle y arrive, il y a deux cas:
+
+Variables de chaque noeud :
+state : State
+next : Queue<Long>
+last : long
+nb_cs : int = 0
+
+function initialisation(Node host)
+begin
+	next = Queue<Long>()
+	
+end
+
 function requestCS(Node host)
 begin
-	EDSimulator.add(request_cs)
+	EDSimulator.add(State.requesting)
 	
 	IF (last not equal nil)
 	begin
@@ -12,4 +29,33 @@ begin
 		last = nil
 		return
 	end
+	executeCS(Node host)
 end
+
+function releaseCS(Node host)
+begin
+end
+
+function receive_request(Node host, long from, long requester)
+begin
+
+end
+
+function receive_token(Node host, long from,  Queue<Long> remote_queue, int counter)
+begin
+
+end
+
+
+Question 2 :
+
+Machine à état :
+
+
+Question 3 :
+
+𝛂 étant le temps moyen qu'un processus passe en section critique et 𝛃 le temps passé entre les sections critique.
+
+Le ratio 𝛒 = 𝛂 / 𝛃 représente la charge du réseau.
+
+Plus ce ratio est élevé plus le réseau est ralenti.
