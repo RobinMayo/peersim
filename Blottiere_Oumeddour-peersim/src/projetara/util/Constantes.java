@@ -8,12 +8,21 @@ import java.util.logging.Level;
 import java.util.logging.LogRecord;
 
 import peersim.config.Configuration;
+import peersim.core.Control;
 
-public final class Constantes {
-
+public final class Constantes implements Control {
+	
 	/*Ne peut être ni instanciée ni étendue*/
-	private Constantes() {}
-
+	public Constantes(String prefix) {
+		log.setLevel(Level.parse(Configuration.getString(prefix + "." + PAR_LOG_LEVEL)));
+	}
+	
+	//private Constantes() {}
+	
+	@Override
+	public boolean execute() {
+		return false;
+	}
 
 	//Logger pour le debug : niveau INFO = affiche les sections critiques, niveau FINE = affiche les évenements
 	public static final java.util.logging.Logger log = java.util.logging.Logger.getLogger("log");
@@ -30,7 +39,7 @@ public final class Constantes {
 			public String format(LogRecord record) {
 				//initial was "%1$tb %1$td, %1$tY %1$tl:%1$tM:%1$tS %1$Tp %2$s%n%4$s: %5$s%6$s%n" 
 				//"%4$s : %5$s  (%2$s)%n"
-				String format="%2$-30s %7$4s %4$1s : %5$s%n";
+				String format="%2$-30s %7$4s %4$-5s : %5$s%n";
 				String source;
 				String lineNumber = 
 						String.valueOf(Thread.currentThread().getStackTrace()[8].getLineNumber());
@@ -59,6 +68,5 @@ public final class Constantes {
 		});
 
 		log.addHandler(handlerObj);
-		log.setLevel(Level.parse(Configuration.getString(PAR_LOG_LEVEL, Level.INFO.getName())));
 	}
 }

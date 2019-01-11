@@ -75,7 +75,7 @@ public class Application implements EDProtocol {
 		
 		@Override
 		public void processEvent(Node node, int pid, Object event) {
-			log.fine("Node "+node.getID()+" BEGIN");
+			log.finer("Node "+node.getID()+" BEGIN");
 			
 			if(protocol_id != pid){
 				throw new RuntimeException("Receive an event for wrong protocol");
@@ -84,6 +84,7 @@ public class Application implements EDProtocol {
 			if(event instanceof InternalEvent){
 				InternalEvent ev= (InternalEvent) event;
 				if(ev.getDate() == id_execution){
+					log.finer("Node "+node.getID()+" ev.getType() : " + ev.getType());
 					switch(ev.getType()) {
 					case release_cs:
 						nb_cs++;
@@ -100,6 +101,7 @@ public class Application implements EDProtocol {
 				}
 			}else if(event instanceof Message) {
 				Message m = (Message) event;
+				
 				if(m.getTag().equals(REQUEST_TAG)){
 					this.receive_request(node, m.getIdSrc(), (Long)m.getContent());
 				}else if(m.getTag().equals(TOKEN_TAG)){
@@ -111,7 +113,6 @@ public class Application implements EDProtocol {
 				}else{
 					throw new RuntimeException("Receive unknown type Message");
 				}
-				
 			}else {
 				throw new RuntimeException("Receive unknown type event");
 			}
@@ -120,12 +121,14 @@ public class Application implements EDProtocol {
 		
 		/////////////////////////////////////////// METHODES DE L'ALGORITHME ///////////////////////
 		private void executeCS(Node host){
+			log.finer("Node "+host.getID()+" BEGIN");
 			log.info("Node "+host.getID()+" executing its CS num "+nb_cs+" : next= "+next.toString());
 			global_counter++;
 			log.info("Node "+host.getID()+" global counter = "+global_counter);
 		}
 		
 		private void initialisation(Node host) {
+			log.finer("Node "+host.getID()+" BEGIN");
 			changestate(host,State.tranquil);
 			next=new ArrayDeque<Long>();
 			if(host.getID() == initial_owner){
@@ -138,10 +141,10 @@ public class Application implements EDProtocol {
 		}
 		
 		private void requestCS(Node host){
-			log.fine("Node "+host.getID()+" BEGIN");
+			log.finer("Node "+host.getID()+" BEGIN");
 			changestate(host,State.requesting);
 			if(last != nil){
-				log.fine("Node "+host.getID()+" requestCS");
+				log.fine("Node "+host.getID()+" last : "+last);
 				Transport tr= (Transport) host.getProtocol(transport_id);
 				Node dest = Network.get((int)last);
 				tr.send(host,dest, new Message(host.getID(), dest.getID(),  REQUEST_TAG,
@@ -156,17 +159,21 @@ public class Application implements EDProtocol {
 		}
 		
 		private void releaseCS(Node host){
-			log.fine("Node "+host.getID()+" releaseCS next="+next);
+			log.finer("Node "+host.getID()+" BEGIN");
+			log.fine("Node "+host.getID()+" next="+next);
 			changestate(host,State.tranquil);
+			
 			if(!next.isEmpty()){
 				last=getLast(next);
 				long next_holder = next.poll();//dequeue
 				Transport tr= (Transport) host.getProtocol(transport_id);
 				Node dest = Network.get((int)next_holder);
+				log.finer("Node "+host.getID()+" last : "+last+", next_holder : "+next_holder);
 				tr.send(host, dest,new TokenMessage(host.getID(), dest.getID(),
 						new ArrayDeque<Long>(next), global_counter, protocol_id)   , protocol_id);
 				log.fine("Node "+host.getID()+" send token("+next+") to "+dest.getID());
 				next.clear();
+				log.fine("Node "+host.getID()+" next="+next);
 			}
 			log.fine("Node "+host.getID()+" ***** END CS ! *****");
 			log.fine("Node "+host.getID()+" END");
@@ -174,8 +181,10 @@ public class Application implements EDProtocol {
 		
 		
 		private void  receive_request(Node host, long from, long requester){
+			log.finer("Node "+host.getID()+" BEGIN");
 			log.fine("Node "+host.getID()+" receive request message from Node "+from+" for Node "+requester);
 			Transport tr= (Transport) host.getProtocol(transport_id);
+			
 			if(last == nil){
 				if(state != State.tranquil){
 					next.add(requester);
@@ -185,7 +194,8 @@ public class Application implements EDProtocol {
 					tr.send(host, dest,
 							new TokenMessage(host.getID(), dest.getID(), new ArrayDeque<Long>(),
 									global_counter, protocol_id), protocol_id);
-					log.fine("Node "+host.getID()+" send token("+next+") to "+dest.getID()+" (no need)");
+					log.fine("Node "+host.getID()+" send token("+next+") to "+dest.getID()
+							+" (no need)");
 					last=requester;
 				}
 			}else{
@@ -193,22 +203,28 @@ public class Application implements EDProtocol {
 				tr.send(host, dest,
 						new Message(host.getID(), dest.getID(),  REQUEST_TAG, requester, protocol_id),
 						protocol_id);
+				log.fine("Node "+host.getID()+" send Message("+REQUEST_TAG+") to "+dest.getID());
 				last=requester;
 			}
 		}
 		
 		private void receive_token(Node host, long from,  Queue<Long> remote_queue, int counter){
+			log.finer("Node "+host.getID()+" BEGIN");
 			log.fine("Node "+host.getID()+" receive token message ("+remote_queue.toString()+
 					", counter = "+counter+") from Node "+from+" next ="+next.toString());
 			global_counter=counter;
+			log.finer("Node "+host.getID()+" next="+next);
 			remote_queue.addAll(next);
 			next=remote_queue;
+			log.finer("Node "+host.getID()+" next="+next);
 			changestate(host, State.inCS);
 		}
 		
 		
         /////////////////////////////////////////// METHODES UTILITAIRES ///////////////////////////
 		protected void changestate(Node host, State s) {
+			log.finer("Node "+host.getID()+" BEGIN");
+			log.fine("Node "+host.getID()+" state : "+s.toString());
 			this.state = s;
 			switch(this.state){
 			case inCS:
@@ -228,6 +244,7 @@ public class Application implements EDProtocol {
 		}
 		
 		private void schedule_release(Node host) {
+			log.finer("Node "+host.getID()+" BEGIN");
 			long min = (long )(timeCS * 0.8);
 			long max = (long )(timeCS * 1.2);
 			long res = CommonState.r.nextLong(max+min)+min;
@@ -236,6 +253,7 @@ public class Application implements EDProtocol {
 		}
 		
 		private void schedule_request(Node host) {
+			log.finer("Node "+host.getID()+" BEGIN");
 			long min = (long )(timeBetweenCS * 0.8);
 			long max = (long )(timeBetweenCS * 1.2);
 			long res = CommonState.r.nextLong(max+min)+min;

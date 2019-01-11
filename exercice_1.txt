@@ -5,51 +5,114 @@ Question 1 :
 L'algorithme de verrouillage utilisé dans la classe Application est un algorithme dérivé de celui de Naimi-Tréhel utilisant la notion de jeton.
 Ainsi tout les sites se partagent le même jeton et seul le site possédant le jeton peut entrer en section critique. Dans la classe Application, les constantes initial_owner et nil servent à discriminer le site possédant le jeton des autres.
 
+<WIKIPEDIA>
 Chaque processus connaît le processus suivant dans la file d'attente sauf quand il n'y a pas de suivant. La tête est le processus qui possède le jeton. La queue est le dernier processus qui a demandé la file d'attente, (sauf s'il y a un seul processus dans cette file). Un chemin est organisé de sorte que, quand un processus demande la section critique, sa demande est transmise à la queue. Quand elle y arrive, il y a deux cas:
+- si le processus qui est à la queue a le jeton et n'est pas en section critique, il envoie le jeton au demandeur, qui est alors autorisé à entrer en section critique.
+- si le processus qui est à la queue soit a le jeton et est en section critique soit l'attend, le demandeur devient le suivant de cette queue et devient la nouvelle queue.
+</WIKIPEDIA>
 
 Variables de chaque noeud :
-state : State
+état : State
 next : Queue<Long>
-last : long
+jeton : long // last
 nb_cs : int = 0
+global_counter : int = 0 // Compteur partagé
 
-function initialisation(Node host)
+function initialisation()
 begin
 	next = Queue<Long>()
-	
+	attendNouvelEvènementInterne(request_cs)
 end
 
-function requestCS(Node host)
+function attendNouvelEvènementInterne(évènement : Objet)
 begin
-	EDSimulator.add(State.requesting)
-	
-	IF (last not equal nil)
+	SI (évènement est un évènement)
 	begin
-		SEND(host, dest, new Message(), protocol_id)
-		last = nil
+		switch(évènement) {
+		case release_cs:
+			nb_cs++;
+			releaseCS();
+			break;
+		case request_cs:
+			requestCS();
+			break;
+		default:
+			Exception("Évènement de type inconnue")
+	
+	SINON SI (évènement est un message)
+		SI (évènement == REQUEST_TAG)
+		begin
+			receive_request(évènement.queue, évènement.neudAppelant)
+		SINON SI (évènement == TOKEN_TAG)
+			receive_token(évènement.queue, évènement.conteur)
+		end
+	end
+end
+
+function requestCS(host : Node)
+begin
+	état = State.requesting
+	
+	SI (jeton déjà attribué)
+	begin
+		ENVOI(host, dest, nouveau Message(), protocol_id)
+		jeton = nil
 		return
 	end
-	executeCS(Node host)
+	
+	// Début de la section critique :
+	global_counter += 1
+	état = State.inCS
+	wait(random)
+	attendNouvelEvènementInterne(release_cs : ÉvènementInterne)
 end
 
-function releaseCS(Node host)
+function releaseCS()
 begin
+	état = State.inCS
+	wait(random)
+	attendNouvelEvènementInterne(request_cs : ÉvènementInterne)
+	
+	SI (next n'est pas vide)
+	begin
+		jeton = PremierÉlément(next);
+		ENVOI(host, dest = jeton, nouveau Token(), protocol_id)
+		vider(next)
+	end
 end
 
-function receive_request(Node host, long from, long requester)
+function receive_request(from : long, requester : long)
 begin
-
+	SI (jeton pas attribué)
+	begin
+		SI (état n'est pas State.tranquil)
+		begin
+			next.ajouteEnQueue(requester)
+		SINON SI
+		begin
+			ENVOI(host, dest = requester, nouveau Token(), protocol_id)
+			jeton = requester
+		end
+	SINON // Jamais atteint
+		ENVOI(host, dest = jeton, nouveau Message(), protocol_id)
+		jeton = requester
+	end
 end
 
-function receive_token(Node host, long from,  Queue<Long> remote_queue, int counter)
+function receive_token(remote_queue : Queue<Long>, counter : int)
 begin
-
+	global_counter = counter
+	remote_queue = ajouteEnQueue(next)
+	next = remote_queue
+	état = State.inCS
 end
 
 
 Question 2 :
 
 Machine à état :
+
+
 
 
 Question 3 :

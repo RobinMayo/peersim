@@ -1,0 +1,1212 @@
+Simulator: loading configuration
+ConfigProperties: File src/projetara/config_1.txt loaded.
+Simulator: starting experiment 0 invoking peersim.edsim.EDSimulator
+Random seed: 5
+
+
+
+EDSimulator: resetting
+Network: no node defined, using GeneralNode
+EDSimulator: running initializers
+- Running initializer init.constantes: class projetara.util.Constantes
+- Running initializer init.initialisation: class projetara.checkpointing.CrashControler
+EDSimulator: loaded controls []
+Current time: 8
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 4 BEGIN
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : requesting
+Application requestCS           147 FINE  : Node 4 last : 0
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 2 BEGIN
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : requesting
+Application requestCS           147 FINE  : Node 2 last : 0
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 1 BEGIN
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : requesting
+Application requestCS           147 FINE  : Node 1 last : 0
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 0 BEGIN
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : requesting
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : inCS
+Application executeCS           124 FINER : Node 0 BEGIN
+Application executeCS           125 INFO  : Node 0 executing its CS num 0 : next= []
+Application executeCS           127 INFO  : Node 0 global counter = 1
+Application schedule_release    244 FINER : Node 0 BEGIN
+Application requestCS           157 FINE  : Node 0 ***** BEGIN CS ! *****
+Application requestCS           158 FINE  : Node 0 END
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 3 BEGIN
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : requesting
+Application requestCS           147 FINE  : Node 3 last : 0
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 0 BEGIN
+Application releaseCS           163 FINE  : Node 0 next=[]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : tranquil
+Application schedule_request    253 FINER : Node 0 BEGIN
+Application releaseCS           176 FINE  : Node 0 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 0 END
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 0 BEGIN
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : requesting
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : inCS
+Application executeCS           124 FINER : Node 0 BEGIN
+Application executeCS           125 INFO  : Node 0 executing its CS num 1 : next= []
+Application executeCS           127 INFO  : Node 0 global counter = 2
+Application schedule_release    244 FINER : Node 0 BEGIN
+Application requestCS           157 FINE  : Node 0 ***** BEGIN CS ! *****
+Application requestCS           158 FINE  : Node 0 END
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 0 BEGIN
+Application releaseCS           163 FINE  : Node 0 next=[]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : tranquil
+Application schedule_request    253 FINER : Node 0 BEGIN
+Application releaseCS           176 FINE  : Node 0 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 0 END
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_request     182 FINER : Node 0 BEGIN
+Application receive_request     183 FINE  : Node 0 receive request message from Node 2 for Node 2
+Application receive_request     194 FINE  : Node 0 send token([]) to 2 (no need)
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 0 BEGIN
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : requesting
+Application requestCS           147 FINE  : Node 0 last : 2
+Application processEvent         78 FINER : Node 2 BEGIN
+Application receive_request     182 FINER : Node 2 BEGIN
+Application receive_request     183 FINE  : Node 2 receive request message from Node 0 for Node 0
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_request     182 FINER : Node 0 BEGIN
+Application receive_request     183 FINE  : Node 0 receive request message from Node 1 for Node 1
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_request     182 FINER : Node 0 BEGIN
+Application receive_request     183 FINE  : Node 0 receive request message from Node 3 for Node 3
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_request     182 FINER : Node 0 BEGIN
+Application receive_request     183 FINE  : Node 0 receive request message from Node 4 for Node 4
+Application processEvent         78 FINER : Node 2 BEGIN
+Application receive_token       209 FINER : Node 2 BEGIN
+Application receive_token       210 FINE  : Node 2 receive token message ([], counter = 2) from Node 0 next =[0]
+Application receive_token       213 FINER : Node 2 next=[0]
+Application receive_token       216 FINER : Node 2 next=[0]
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : inCS
+Application executeCS           124 FINER : Node 2 BEGIN
+Application executeCS           125 INFO  : Node 2 executing its CS num 0 : next= [0]
+Application executeCS           127 INFO  : Node 2 global counter = 3
+Application schedule_release    244 FINER : Node 2 BEGIN
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 2 BEGIN
+Application releaseCS           163 FINE  : Node 2 next=[0]
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : tranquil
+Application schedule_request    253 FINER : Node 2 BEGIN
+Application releaseCS           172 FINE  : Node 2 send token([]) to 0
+Application releaseCS           174 FINE  : Node 2 next=[]
+Application releaseCS           176 FINE  : Node 2 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 2 END
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 2 BEGIN
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : requesting
+Application requestCS           147 FINE  : Node 2 last : 0
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_token       209 FINER : Node 0 BEGIN
+Application receive_token       210 FINE  : Node 0 receive token message ([], counter = 3) from Node 2 next =[1, 3, 4]
+Application receive_token       213 FINER : Node 0 next=[1, 3, 4]
+Application receive_token       216 FINER : Node 0 next=[1, 3, 4]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : inCS
+Application executeCS           124 FINER : Node 0 BEGIN
+Application executeCS           125 INFO  : Node 0 executing its CS num 2 : next= [1, 3, 4]
+Application executeCS           127 INFO  : Node 0 global counter = 4
+Application schedule_release    244 FINER : Node 0 BEGIN
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 0 BEGIN
+Application releaseCS           163 FINE  : Node 0 next=[1, 3, 4]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : tranquil
+Application schedule_request    253 FINER : Node 0 BEGIN
+Application releaseCS           172 FINE  : Node 0 send token([3, 4]) to 1
+Application releaseCS           174 FINE  : Node 0 next=[]
+Application releaseCS           176 FINE  : Node 0 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 0 END
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 0 BEGIN
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : requesting
+Application requestCS           147 FINE  : Node 0 last : 4
+Application processEvent         78 FINER : Node 1 BEGIN
+Application receive_token       209 FINER : Node 1 BEGIN
+Application receive_token       210 FINE  : Node 1 receive token message ([3, 4], counter = 4) from Node 0 next =[]
+Application receive_token       213 FINER : Node 1 next=[]
+Application receive_token       216 FINER : Node 1 next=[3, 4]
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : inCS
+Application executeCS           124 FINER : Node 1 BEGIN
+Application executeCS           125 INFO  : Node 1 executing its CS num 0 : next= [3, 4]
+Application executeCS           127 INFO  : Node 1 global counter = 5
+Application schedule_release    244 FINER : Node 1 BEGIN
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 1 BEGIN
+Application releaseCS           163 FINE  : Node 1 next=[3, 4]
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : tranquil
+Application schedule_request    253 FINER : Node 1 BEGIN
+Application releaseCS           172 FINE  : Node 1 send token([4]) to 3
+Application releaseCS           174 FINE  : Node 1 next=[]
+Application releaseCS           176 FINE  : Node 1 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 1 END
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 1 BEGIN
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : requesting
+Application requestCS           147 FINE  : Node 1 last : 4
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_request     182 FINER : Node 4 BEGIN
+Application receive_request     183 FINE  : Node 4 receive request message from Node 1 for Node 1
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_token       209 FINER : Node 3 BEGIN
+Application receive_token       210 FINE  : Node 3 receive token message ([4], counter = 5) from Node 1 next =[]
+Application receive_token       213 FINER : Node 3 next=[]
+Application receive_token       216 FINER : Node 3 next=[4]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : inCS
+Application executeCS           124 FINER : Node 3 BEGIN
+Application executeCS           125 INFO  : Node 3 executing its CS num 0 : next= [4]
+Application executeCS           127 INFO  : Node 3 global counter = 6
+Application schedule_release    244 FINER : Node 3 BEGIN
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 3 BEGIN
+Application releaseCS           163 FINE  : Node 3 next=[4]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : tranquil
+Application schedule_request    253 FINER : Node 3 BEGIN
+Application releaseCS           172 FINE  : Node 3 send token([]) to 4
+Application releaseCS           174 FINE  : Node 3 next=[]
+Application releaseCS           176 FINE  : Node 3 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 3 END
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 3 BEGIN
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : requesting
+Application requestCS           147 FINE  : Node 3 last : 4
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_request     182 FINER : Node 0 BEGIN
+Application receive_request     183 FINE  : Node 0 receive request message from Node 2 for Node 2
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_request     182 FINER : Node 4 BEGIN
+Application receive_request     183 FINE  : Node 4 receive request message from Node 3 for Node 3
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_request     182 FINER : Node 4 BEGIN
+Application receive_request     183 FINE  : Node 4 receive request message from Node 0 for Node 0
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_token       209 FINER : Node 4 BEGIN
+Application receive_token       210 FINE  : Node 4 receive token message ([], counter = 6) from Node 3 next =[1, 3, 0]
+Application receive_token       213 FINER : Node 4 next=[1, 3, 0]
+Application receive_token       216 FINER : Node 4 next=[1, 3, 0]
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : inCS
+Application executeCS           124 FINER : Node 4 BEGIN
+Application executeCS           125 INFO  : Node 4 executing its CS num 0 : next= [1, 3, 0]
+Application executeCS           127 INFO  : Node 4 global counter = 7
+Application schedule_release    244 FINER : Node 4 BEGIN
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 4 BEGIN
+Application releaseCS           163 FINE  : Node 4 next=[1, 3, 0]
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : tranquil
+Application schedule_request    253 FINER : Node 4 BEGIN
+Application releaseCS           172 FINE  : Node 4 send token([3, 0]) to 1
+Application releaseCS           174 FINE  : Node 4 next=[]
+Application releaseCS           176 FINE  : Node 4 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 4 END
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 4 BEGIN
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : requesting
+Application requestCS           147 FINE  : Node 4 last : 0
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_request     182 FINER : Node 0 BEGIN
+Application receive_request     183 FINE  : Node 0 receive request message from Node 4 for Node 4
+Application processEvent         78 FINER : Node 1 BEGIN
+Application receive_token       209 FINER : Node 1 BEGIN
+Application receive_token       210 FINE  : Node 1 receive token message ([3, 0], counter = 7) from Node 4 next =[]
+Application receive_token       213 FINER : Node 1 next=[]
+Application receive_token       216 FINER : Node 1 next=[3, 0]
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : inCS
+Application executeCS           124 FINER : Node 1 BEGIN
+Application executeCS           125 INFO  : Node 1 executing its CS num 1 : next= [3, 0]
+Application executeCS           127 INFO  : Node 1 global counter = 8
+Application schedule_release    244 FINER : Node 1 BEGIN
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 1 BEGIN
+Application releaseCS           163 FINE  : Node 1 next=[3, 0]
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : tranquil
+Application schedule_request    253 FINER : Node 1 BEGIN
+Application releaseCS           172 FINE  : Node 1 send token([0]) to 3
+Application releaseCS           174 FINE  : Node 1 next=[]
+Application releaseCS           176 FINE  : Node 1 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 1 END
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 1 BEGIN
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : requesting
+Application requestCS           147 FINE  : Node 1 last : 0
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_token       209 FINER : Node 3 BEGIN
+Application receive_token       210 FINE  : Node 3 receive token message ([0], counter = 8) from Node 1 next =[]
+Application receive_token       213 FINER : Node 3 next=[]
+Application receive_token       216 FINER : Node 3 next=[0]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : inCS
+Application executeCS           124 FINER : Node 3 BEGIN
+Application executeCS           125 INFO  : Node 3 executing its CS num 1 : next= [0]
+Application executeCS           127 INFO  : Node 3 global counter = 9
+Application schedule_release    244 FINER : Node 3 BEGIN
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 3 BEGIN
+Application releaseCS           163 FINE  : Node 3 next=[0]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : tranquil
+Application schedule_request    253 FINER : Node 3 BEGIN
+Application releaseCS           172 FINE  : Node 3 send token([]) to 0
+Application releaseCS           174 FINE  : Node 3 next=[]
+Application releaseCS           176 FINE  : Node 3 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 3 END
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 3 BEGIN
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : requesting
+Application requestCS           147 FINE  : Node 3 last : 0
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_request     182 FINER : Node 0 BEGIN
+Application receive_request     183 FINE  : Node 0 receive request message from Node 1 for Node 1
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_token       209 FINER : Node 0 BEGIN
+Application receive_token       210 FINE  : Node 0 receive token message ([], counter = 9) from Node 3 next =[2, 4, 1]
+Application receive_token       213 FINER : Node 0 next=[2, 4, 1]
+Application receive_token       216 FINER : Node 0 next=[2, 4, 1]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : inCS
+Application executeCS           124 FINER : Node 0 BEGIN
+Application executeCS           125 INFO  : Node 0 executing its CS num 3 : next= [2, 4, 1]
+Application executeCS           127 INFO  : Node 0 global counter = 10
+Application schedule_release    244 FINER : Node 0 BEGIN
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_request     182 FINER : Node 0 BEGIN
+Application receive_request     183 FINE  : Node 0 receive request message from Node 3 for Node 3
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 0 BEGIN
+Application releaseCS           163 FINE  : Node 0 next=[2, 4, 1, 3]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : tranquil
+Application schedule_request    253 FINER : Node 0 BEGIN
+Application releaseCS           172 FINE  : Node 0 send token([4, 1, 3]) to 2
+Application releaseCS           174 FINE  : Node 0 next=[]
+Application releaseCS           176 FINE  : Node 0 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 0 END
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 0 BEGIN
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : requesting
+Application requestCS           147 FINE  : Node 0 last : 3
+Application processEvent         78 FINER : Node 2 BEGIN
+Application receive_token       209 FINER : Node 2 BEGIN
+Application receive_token       210 FINE  : Node 2 receive token message ([4, 1, 3], counter = 10) from Node 0 next =[]
+Application receive_token       213 FINER : Node 2 next=[]
+Application receive_token       216 FINER : Node 2 next=[4, 1, 3]
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : inCS
+Application executeCS           124 FINER : Node 2 BEGIN
+Application executeCS           125 INFO  : Node 2 executing its CS num 1 : next= [4, 1, 3]
+Application executeCS           127 INFO  : Node 2 global counter = 11
+Application schedule_release    244 FINER : Node 2 BEGIN
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_request     182 FINER : Node 3 BEGIN
+Application receive_request     183 FINE  : Node 3 receive request message from Node 0 for Node 0
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 2 BEGIN
+Application releaseCS           163 FINE  : Node 2 next=[4, 1, 3]
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : tranquil
+Application schedule_request    253 FINER : Node 2 BEGIN
+Application releaseCS           172 FINE  : Node 2 send token([1, 3]) to 4
+Application releaseCS           174 FINE  : Node 2 next=[]
+Application releaseCS           176 FINE  : Node 2 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 2 END
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 2 BEGIN
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : requesting
+Application requestCS           147 FINE  : Node 2 last : 3
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_request     182 FINER : Node 3 BEGIN
+Application receive_request     183 FINE  : Node 3 receive request message from Node 2 for Node 2
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_token       209 FINER : Node 4 BEGIN
+Application receive_token       210 FINE  : Node 4 receive token message ([1, 3], counter = 11) from Node 2 next =[]
+Application receive_token       213 FINER : Node 4 next=[]
+Application receive_token       216 FINER : Node 4 next=[1, 3]
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : inCS
+Application executeCS           124 FINER : Node 4 BEGIN
+Application executeCS           125 INFO  : Node 4 executing its CS num 1 : next= [1, 3]
+Application executeCS           127 INFO  : Node 4 global counter = 12
+Application schedule_release    244 FINER : Node 4 BEGIN
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 4 BEGIN
+Application releaseCS           163 FINE  : Node 4 next=[1, 3]
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : tranquil
+Application schedule_request    253 FINER : Node 4 BEGIN
+Application releaseCS           172 FINE  : Node 4 send token([3]) to 1
+Application releaseCS           174 FINE  : Node 4 next=[]
+Application releaseCS           176 FINE  : Node 4 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 4 END
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 4 BEGIN
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : requesting
+Application requestCS           147 FINE  : Node 4 last : 3
+Application processEvent         78 FINER : Node 1 BEGIN
+Application receive_token       209 FINER : Node 1 BEGIN
+Application receive_token       210 FINE  : Node 1 receive token message ([3], counter = 12) from Node 4 next =[]
+Application receive_token       213 FINER : Node 1 next=[]
+Application receive_token       216 FINER : Node 1 next=[3]
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : inCS
+Application executeCS           124 FINER : Node 1 BEGIN
+Application executeCS           125 INFO  : Node 1 executing its CS num 2 : next= [3]
+Application executeCS           127 INFO  : Node 1 global counter = 13
+Application schedule_release    244 FINER : Node 1 BEGIN
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 1 BEGIN
+Application releaseCS           163 FINE  : Node 1 next=[3]
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : tranquil
+Application schedule_request    253 FINER : Node 1 BEGIN
+Application releaseCS           172 FINE  : Node 1 send token([]) to 3
+Application releaseCS           174 FINE  : Node 1 next=[]
+Application releaseCS           176 FINE  : Node 1 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 1 END
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 1 BEGIN
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : requesting
+Application requestCS           147 FINE  : Node 1 last : 3
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_request     182 FINER : Node 3 BEGIN
+Application receive_request     183 FINE  : Node 3 receive request message from Node 4 for Node 4
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_token       209 FINER : Node 3 BEGIN
+Application receive_token       210 FINE  : Node 3 receive token message ([], counter = 13) from Node 1 next =[0, 2, 4]
+Application receive_token       213 FINER : Node 3 next=[0, 2, 4]
+Application receive_token       216 FINER : Node 3 next=[0, 2, 4]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : inCS
+Application executeCS           124 FINER : Node 3 BEGIN
+Application executeCS           125 INFO  : Node 3 executing its CS num 2 : next= [0, 2, 4]
+Application executeCS           127 INFO  : Node 3 global counter = 14
+Application schedule_release    244 FINER : Node 3 BEGIN
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 3 BEGIN
+Application releaseCS           163 FINE  : Node 3 next=[0, 2, 4]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : tranquil
+Application schedule_request    253 FINER : Node 3 BEGIN
+Application releaseCS           172 FINE  : Node 3 send token([2, 4]) to 0
+Application releaseCS           174 FINE  : Node 3 next=[]
+Application releaseCS           176 FINE  : Node 3 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 3 END
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 3 BEGIN
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : requesting
+Application requestCS           147 FINE  : Node 3 last : 4
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_request     182 FINER : Node 3 BEGIN
+Application receive_request     183 FINE  : Node 3 receive request message from Node 1 for Node 1
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_request     182 FINER : Node 4 BEGIN
+Application receive_request     183 FINE  : Node 4 receive request message from Node 3 for Node 3
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_token       209 FINER : Node 0 BEGIN
+Application receive_token       210 FINE  : Node 0 receive token message ([2, 4], counter = 14) from Node 3 next =[]
+Application receive_token       213 FINER : Node 0 next=[]
+Application receive_token       216 FINER : Node 0 next=[2, 4]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : inCS
+Application executeCS           124 FINER : Node 0 BEGIN
+Application executeCS           125 INFO  : Node 0 executing its CS num 4 : next= [2, 4]
+Application executeCS           127 INFO  : Node 0 global counter = 15
+Application schedule_release    244 FINER : Node 0 BEGIN
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 0 BEGIN
+Application releaseCS           163 FINE  : Node 0 next=[2, 4]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : tranquil
+Application schedule_request    253 FINER : Node 0 BEGIN
+Application releaseCS           172 FINE  : Node 0 send token([4]) to 2
+Application releaseCS           174 FINE  : Node 0 next=[]
+Application releaseCS           176 FINE  : Node 0 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 0 END
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 0 BEGIN
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : requesting
+Application requestCS           147 FINE  : Node 0 last : 4
+Application processEvent         78 FINER : Node 2 BEGIN
+Application receive_token       209 FINER : Node 2 BEGIN
+Application receive_token       210 FINE  : Node 2 receive token message ([4], counter = 15) from Node 0 next =[]
+Application receive_token       213 FINER : Node 2 next=[]
+Application receive_token       216 FINER : Node 2 next=[4]
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : inCS
+Application executeCS           124 FINER : Node 2 BEGIN
+Application executeCS           125 INFO  : Node 2 executing its CS num 2 : next= [4]
+Application executeCS           127 INFO  : Node 2 global counter = 16
+Application schedule_release    244 FINER : Node 2 BEGIN
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 2 BEGIN
+Application releaseCS           163 FINE  : Node 2 next=[4]
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : tranquil
+Application schedule_request    253 FINER : Node 2 BEGIN
+Application releaseCS           172 FINE  : Node 2 send token([]) to 4
+Application releaseCS           174 FINE  : Node 2 next=[]
+Application releaseCS           176 FINE  : Node 2 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 2 END
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 2 BEGIN
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : requesting
+Application requestCS           147 FINE  : Node 2 last : 4
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_request     182 FINER : Node 4 BEGIN
+Application receive_request     183 FINE  : Node 4 receive request message from Node 2 for Node 2
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_token       209 FINER : Node 4 BEGIN
+Application receive_token       210 FINE  : Node 4 receive token message ([], counter = 16) from Node 2 next =[3, 2]
+Application receive_token       213 FINER : Node 4 next=[3, 2]
+Application receive_token       216 FINER : Node 4 next=[3, 2]
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : inCS
+Application executeCS           124 FINER : Node 4 BEGIN
+Application executeCS           125 INFO  : Node 4 executing its CS num 2 : next= [3, 2]
+Application executeCS           127 INFO  : Node 4 global counter = 17
+Application schedule_release    244 FINER : Node 4 BEGIN
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 4 BEGIN
+Application releaseCS           163 FINE  : Node 4 next=[3, 2]
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : tranquil
+Application schedule_request    253 FINER : Node 4 BEGIN
+Application releaseCS           172 FINE  : Node 4 send token([2]) to 3
+Application releaseCS           174 FINE  : Node 4 next=[]
+Application releaseCS           176 FINE  : Node 4 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 4 END
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 4 BEGIN
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : requesting
+Application requestCS           147 FINE  : Node 4 last : 2
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_request     182 FINER : Node 4 BEGIN
+Application receive_request     183 FINE  : Node 4 receive request message from Node 0 for Node 0
+Application processEvent         78 FINER : Node 2 BEGIN
+Application receive_request     182 FINER : Node 2 BEGIN
+Application receive_request     183 FINE  : Node 2 receive request message from Node 4 for Node 4
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_token       209 FINER : Node 3 BEGIN
+Application receive_token       210 FINE  : Node 3 receive token message ([2], counter = 17) from Node 4 next =[1]
+Application receive_token       213 FINER : Node 3 next=[1]
+Application receive_token       216 FINER : Node 3 next=[2, 1]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : inCS
+Application executeCS           124 FINER : Node 3 BEGIN
+Application executeCS           125 INFO  : Node 3 executing its CS num 3 : next= [2, 1]
+Application executeCS           127 INFO  : Node 3 global counter = 18
+Application schedule_release    244 FINER : Node 3 BEGIN
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 3 BEGIN
+Application releaseCS           163 FINE  : Node 3 next=[2, 1]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : tranquil
+Application schedule_request    253 FINER : Node 3 BEGIN
+Application releaseCS           172 FINE  : Node 3 send token([1]) to 2
+Application releaseCS           174 FINE  : Node 3 next=[]
+Application releaseCS           176 FINE  : Node 3 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 3 END
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 3 BEGIN
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : requesting
+Application requestCS           147 FINE  : Node 3 last : 1
+Application processEvent         78 FINER : Node 2 BEGIN
+Application receive_token       209 FINER : Node 2 BEGIN
+Application receive_token       210 FINE  : Node 2 receive token message ([1], counter = 18) from Node 3 next =[4]
+Application receive_token       213 FINER : Node 2 next=[4]
+Application receive_token       216 FINER : Node 2 next=[1, 4]
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : inCS
+Application executeCS           124 FINER : Node 2 BEGIN
+Application executeCS           125 INFO  : Node 2 executing its CS num 3 : next= [1, 4]
+Application executeCS           127 INFO  : Node 2 global counter = 19
+Application schedule_release    244 FINER : Node 2 BEGIN
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 2 BEGIN
+Application releaseCS           163 FINE  : Node 2 next=[1, 4]
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : tranquil
+Application schedule_request    253 FINER : Node 2 BEGIN
+Application releaseCS           172 FINE  : Node 2 send token([4]) to 1
+Application releaseCS           174 FINE  : Node 2 next=[]
+Application releaseCS           176 FINE  : Node 2 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 2 END
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 2 BEGIN
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : requesting
+Application requestCS           147 FINE  : Node 2 last : 4
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_request     182 FINER : Node 4 BEGIN
+Application receive_request     183 FINE  : Node 4 receive request message from Node 2 for Node 2
+Application processEvent         78 FINER : Node 1 BEGIN
+Application receive_request     182 FINER : Node 1 BEGIN
+Application receive_request     183 FINE  : Node 1 receive request message from Node 3 for Node 3
+Application processEvent         78 FINER : Node 1 BEGIN
+Application receive_token       209 FINER : Node 1 BEGIN
+Application receive_token       210 FINE  : Node 1 receive token message ([4], counter = 19) from Node 2 next =[3]
+Application receive_token       213 FINER : Node 1 next=[3]
+Application receive_token       216 FINER : Node 1 next=[4, 3]
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : inCS
+Application executeCS           124 FINER : Node 1 BEGIN
+Application executeCS           125 INFO  : Node 1 executing its CS num 3 : next= [4, 3]
+Application executeCS           127 INFO  : Node 1 global counter = 20
+Application schedule_release    244 FINER : Node 1 BEGIN
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 1 BEGIN
+Application releaseCS           163 FINE  : Node 1 next=[4, 3]
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : tranquil
+Application schedule_request    253 FINER : Node 1 BEGIN
+Application releaseCS           172 FINE  : Node 1 send token([3]) to 4
+Application releaseCS           174 FINE  : Node 1 next=[]
+Application releaseCS           176 FINE  : Node 1 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 1 END
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 1 BEGIN
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : requesting
+Application requestCS           147 FINE  : Node 1 last : 3
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_request     182 FINER : Node 3 BEGIN
+Application receive_request     183 FINE  : Node 3 receive request message from Node 1 for Node 1
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_token       209 FINER : Node 4 BEGIN
+Application receive_token       210 FINE  : Node 4 receive token message ([3], counter = 20) from Node 1 next =[0, 2]
+Application receive_token       213 FINER : Node 4 next=[0, 2]
+Application receive_token       216 FINER : Node 4 next=[3, 0, 2]
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : inCS
+Application executeCS           124 FINER : Node 4 BEGIN
+Application executeCS           125 INFO  : Node 4 executing its CS num 3 : next= [3, 0, 2]
+Application executeCS           127 INFO  : Node 4 global counter = 21
+Application schedule_release    244 FINER : Node 4 BEGIN
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 4 BEGIN
+Application releaseCS           163 FINE  : Node 4 next=[3, 0, 2]
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : tranquil
+Application schedule_request    253 FINER : Node 4 BEGIN
+Application releaseCS           172 FINE  : Node 4 send token([0, 2]) to 3
+Application releaseCS           174 FINE  : Node 4 next=[]
+Application releaseCS           176 FINE  : Node 4 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 4 END
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 4 BEGIN
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : requesting
+Application requestCS           147 FINE  : Node 4 last : 2
+Application processEvent         78 FINER : Node 2 BEGIN
+Application receive_request     182 FINER : Node 2 BEGIN
+Application receive_request     183 FINE  : Node 2 receive request message from Node 4 for Node 4
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_token       209 FINER : Node 3 BEGIN
+Application receive_token       210 FINE  : Node 3 receive token message ([0, 2], counter = 21) from Node 4 next =[1]
+Application receive_token       213 FINER : Node 3 next=[1]
+Application receive_token       216 FINER : Node 3 next=[0, 2, 1]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : inCS
+Application executeCS           124 FINER : Node 3 BEGIN
+Application executeCS           125 INFO  : Node 3 executing its CS num 4 : next= [0, 2, 1]
+Application executeCS           127 INFO  : Node 3 global counter = 22
+Application schedule_release    244 FINER : Node 3 BEGIN
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 3 BEGIN
+Application releaseCS           163 FINE  : Node 3 next=[0, 2, 1]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : tranquil
+Application schedule_request    253 FINER : Node 3 BEGIN
+Application releaseCS           172 FINE  : Node 3 send token([2, 1]) to 0
+Application releaseCS           174 FINE  : Node 3 next=[]
+Application releaseCS           176 FINE  : Node 3 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 3 END
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 3 BEGIN
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : requesting
+Application requestCS           147 FINE  : Node 3 last : 1
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_token       209 FINER : Node 0 BEGIN
+Application receive_token       210 FINE  : Node 0 receive token message ([2, 1], counter = 22) from Node 3 next =[]
+Application receive_token       213 FINER : Node 0 next=[]
+Application receive_token       216 FINER : Node 0 next=[2, 1]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : inCS
+Application executeCS           124 FINER : Node 0 BEGIN
+Application executeCS           125 INFO  : Node 0 executing its CS num 5 : next= [2, 1]
+Application executeCS           127 INFO  : Node 0 global counter = 23
+Application schedule_release    244 FINER : Node 0 BEGIN
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 0 BEGIN
+Application releaseCS           163 FINE  : Node 0 next=[2, 1]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : tranquil
+Application schedule_request    253 FINER : Node 0 BEGIN
+Application releaseCS           172 FINE  : Node 0 send token([1]) to 2
+Application releaseCS           174 FINE  : Node 0 next=[]
+Application releaseCS           176 FINE  : Node 0 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 0 END
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 0 BEGIN
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : requesting
+Application requestCS           147 FINE  : Node 0 last : 1
+Application processEvent         78 FINER : Node 1 BEGIN
+Application receive_request     182 FINER : Node 1 BEGIN
+Application receive_request     183 FINE  : Node 1 receive request message from Node 0 for Node 0
+Application processEvent         78 FINER : Node 2 BEGIN
+Application receive_token       209 FINER : Node 2 BEGIN
+Application receive_token       210 FINE  : Node 2 receive token message ([1], counter = 23) from Node 0 next =[4]
+Application receive_token       213 FINER : Node 2 next=[4]
+Application receive_token       216 FINER : Node 2 next=[1, 4]
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : inCS
+Application executeCS           124 FINER : Node 2 BEGIN
+Application executeCS           125 INFO  : Node 2 executing its CS num 4 : next= [1, 4]
+Application executeCS           127 INFO  : Node 2 global counter = 24
+Application schedule_release    244 FINER : Node 2 BEGIN
+Application processEvent         78 FINER : Node 1 BEGIN
+Application receive_request     182 FINER : Node 1 BEGIN
+Application receive_request     183 FINE  : Node 1 receive request message from Node 3 for Node 3
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 2 BEGIN
+Application releaseCS           163 FINE  : Node 2 next=[1, 4]
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : tranquil
+Application schedule_request    253 FINER : Node 2 BEGIN
+Application releaseCS           172 FINE  : Node 2 send token([4]) to 1
+Application releaseCS           174 FINE  : Node 2 next=[]
+Application releaseCS           176 FINE  : Node 2 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 2 END
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 2 BEGIN
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : requesting
+Application requestCS           147 FINE  : Node 2 last : 4
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_request     182 FINER : Node 4 BEGIN
+Application receive_request     183 FINE  : Node 4 receive request message from Node 2 for Node 2
+Application processEvent         78 FINER : Node 1 BEGIN
+Application receive_token       209 FINER : Node 1 BEGIN
+Application receive_token       210 FINE  : Node 1 receive token message ([4], counter = 24) from Node 2 next =[0, 3]
+Application receive_token       213 FINER : Node 1 next=[0, 3]
+Application receive_token       216 FINER : Node 1 next=[4, 0, 3]
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : inCS
+Application executeCS           124 FINER : Node 1 BEGIN
+Application executeCS           125 INFO  : Node 1 executing its CS num 4 : next= [4, 0, 3]
+Application executeCS           127 INFO  : Node 1 global counter = 25
+Application schedule_release    244 FINER : Node 1 BEGIN
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 1 BEGIN
+Application releaseCS           163 FINE  : Node 1 next=[4, 0, 3]
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : tranquil
+Application schedule_request    253 FINER : Node 1 BEGIN
+Application releaseCS           172 FINE  : Node 1 send token([0, 3]) to 4
+Application releaseCS           174 FINE  : Node 1 next=[]
+Application releaseCS           176 FINE  : Node 1 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 1 END
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 1 BEGIN
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : requesting
+Application requestCS           147 FINE  : Node 1 last : 3
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_token       209 FINER : Node 4 BEGIN
+Application receive_token       210 FINE  : Node 4 receive token message ([0, 3], counter = 25) from Node 1 next =[2]
+Application receive_token       213 FINER : Node 4 next=[2]
+Application receive_token       216 FINER : Node 4 next=[0, 3, 2]
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : inCS
+Application executeCS           124 FINER : Node 4 BEGIN
+Application executeCS           125 INFO  : Node 4 executing its CS num 4 : next= [0, 3, 2]
+Application executeCS           127 INFO  : Node 4 global counter = 26
+Application schedule_release    244 FINER : Node 4 BEGIN
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 4 BEGIN
+Application releaseCS           163 FINE  : Node 4 next=[0, 3, 2]
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : tranquil
+Application schedule_request    253 FINER : Node 4 BEGIN
+Application releaseCS           172 FINE  : Node 4 send token([3, 2]) to 0
+Application releaseCS           174 FINE  : Node 4 next=[]
+Application releaseCS           176 FINE  : Node 4 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 4 END
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 4 BEGIN
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : requesting
+Application requestCS           147 FINE  : Node 4 last : 2
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_request     182 FINER : Node 3 BEGIN
+Application receive_request     183 FINE  : Node 3 receive request message from Node 1 for Node 1
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_token       209 FINER : Node 0 BEGIN
+Application receive_token       210 FINE  : Node 0 receive token message ([3, 2], counter = 26) from Node 4 next =[]
+Application receive_token       213 FINER : Node 0 next=[]
+Application receive_token       216 FINER : Node 0 next=[3, 2]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : inCS
+Application executeCS           124 FINER : Node 0 BEGIN
+Application executeCS           125 INFO  : Node 0 executing its CS num 6 : next= [3, 2]
+Application executeCS           127 INFO  : Node 0 global counter = 27
+Application schedule_release    244 FINER : Node 0 BEGIN
+Application processEvent         78 FINER : Node 2 BEGIN
+Application receive_request     182 FINER : Node 2 BEGIN
+Application receive_request     183 FINE  : Node 2 receive request message from Node 4 for Node 4
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 0 BEGIN
+Application releaseCS           163 FINE  : Node 0 next=[3, 2]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : tranquil
+Application schedule_request    253 FINER : Node 0 BEGIN
+Application releaseCS           172 FINE  : Node 0 send token([2]) to 3
+Application releaseCS           174 FINE  : Node 0 next=[]
+Application releaseCS           176 FINE  : Node 0 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 0 END
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 0 BEGIN
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : requesting
+Application requestCS           147 FINE  : Node 0 last : 2
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_token       209 FINER : Node 3 BEGIN
+Application receive_token       210 FINE  : Node 3 receive token message ([2], counter = 27) from Node 0 next =[1]
+Application receive_token       213 FINER : Node 3 next=[1]
+Application receive_token       216 FINER : Node 3 next=[2, 1]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : inCS
+Application executeCS           124 FINER : Node 3 BEGIN
+Application executeCS           125 INFO  : Node 3 executing its CS num 5 : next= [2, 1]
+Application executeCS           127 INFO  : Node 3 global counter = 28
+Application schedule_release    244 FINER : Node 3 BEGIN
+Application processEvent         78 FINER : Node 2 BEGIN
+Application receive_request     182 FINER : Node 2 BEGIN
+Application receive_request     183 FINE  : Node 2 receive request message from Node 0 for Node 0
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 3 BEGIN
+Application releaseCS           163 FINE  : Node 3 next=[2, 1]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : tranquil
+Application schedule_request    253 FINER : Node 3 BEGIN
+Application releaseCS           172 FINE  : Node 3 send token([1]) to 2
+Application releaseCS           174 FINE  : Node 3 next=[]
+Application releaseCS           176 FINE  : Node 3 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 3 END
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 3 BEGIN
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : requesting
+Application requestCS           147 FINE  : Node 3 last : 1
+Application processEvent         78 FINER : Node 2 BEGIN
+Application receive_token       209 FINER : Node 2 BEGIN
+Application receive_token       210 FINE  : Node 2 receive token message ([1], counter = 28) from Node 3 next =[4, 0]
+Application receive_token       213 FINER : Node 2 next=[4, 0]
+Application receive_token       216 FINER : Node 2 next=[1, 4, 0]
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : inCS
+Application executeCS           124 FINER : Node 2 BEGIN
+Application executeCS           125 INFO  : Node 2 executing its CS num 5 : next= [1, 4, 0]
+Application executeCS           127 INFO  : Node 2 global counter = 29
+Application schedule_release    244 FINER : Node 2 BEGIN
+Application processEvent         78 FINER : Node 1 BEGIN
+Application receive_request     182 FINER : Node 1 BEGIN
+Application receive_request     183 FINE  : Node 1 receive request message from Node 3 for Node 3
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 2 BEGIN
+Application releaseCS           163 FINE  : Node 2 next=[1, 4, 0]
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : tranquil
+Application schedule_request    253 FINER : Node 2 BEGIN
+Application releaseCS           172 FINE  : Node 2 send token([4, 0]) to 1
+Application releaseCS           174 FINE  : Node 2 next=[]
+Application releaseCS           176 FINE  : Node 2 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 2 END
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 2 BEGIN
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : requesting
+Application requestCS           147 FINE  : Node 2 last : 0
+Application processEvent         78 FINER : Node 1 BEGIN
+Application receive_token       209 FINER : Node 1 BEGIN
+Application receive_token       210 FINE  : Node 1 receive token message ([4, 0], counter = 29) from Node 2 next =[3]
+Application receive_token       213 FINER : Node 1 next=[3]
+Application receive_token       216 FINER : Node 1 next=[4, 0, 3]
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : inCS
+Application executeCS           124 FINER : Node 1 BEGIN
+Application executeCS           125 INFO  : Node 1 executing its CS num 5 : next= [4, 0, 3]
+Application executeCS           127 INFO  : Node 1 global counter = 30
+Application schedule_release    244 FINER : Node 1 BEGIN
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 1 BEGIN
+Application releaseCS           163 FINE  : Node 1 next=[4, 0, 3]
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : tranquil
+Application schedule_request    253 FINER : Node 1 BEGIN
+Application releaseCS           172 FINE  : Node 1 send token([0, 3]) to 4
+Application releaseCS           174 FINE  : Node 1 next=[]
+Application releaseCS           176 FINE  : Node 1 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 1 END
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 1 BEGIN
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : requesting
+Application requestCS           147 FINE  : Node 1 last : 3
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_request     182 FINER : Node 0 BEGIN
+Application receive_request     183 FINE  : Node 0 receive request message from Node 2 for Node 2
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_token       209 FINER : Node 4 BEGIN
+Application receive_token       210 FINE  : Node 4 receive token message ([0, 3], counter = 30) from Node 1 next =[]
+Application receive_token       213 FINER : Node 4 next=[]
+Application receive_token       216 FINER : Node 4 next=[0, 3]
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : inCS
+Application executeCS           124 FINER : Node 4 BEGIN
+Application executeCS           125 INFO  : Node 4 executing its CS num 5 : next= [0, 3]
+Application executeCS           127 INFO  : Node 4 global counter = 31
+Application schedule_release    244 FINER : Node 4 BEGIN
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 4 BEGIN
+Application releaseCS           163 FINE  : Node 4 next=[0, 3]
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : tranquil
+Application schedule_request    253 FINER : Node 4 BEGIN
+Application releaseCS           172 FINE  : Node 4 send token([3]) to 0
+Application releaseCS           174 FINE  : Node 4 next=[]
+Application releaseCS           176 FINE  : Node 4 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 4 END
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 4 BEGIN
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : requesting
+Application requestCS           147 FINE  : Node 4 last : 3
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_token       209 FINER : Node 0 BEGIN
+Application receive_token       210 FINE  : Node 0 receive token message ([3], counter = 31) from Node 4 next =[2]
+Application receive_token       213 FINER : Node 0 next=[2]
+Application receive_token       216 FINER : Node 0 next=[3, 2]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : inCS
+Application executeCS           124 FINER : Node 0 BEGIN
+Application executeCS           125 INFO  : Node 0 executing its CS num 7 : next= [3, 2]
+Application executeCS           127 INFO  : Node 0 global counter = 32
+Application schedule_release    244 FINER : Node 0 BEGIN
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 0 BEGIN
+Application releaseCS           163 FINE  : Node 0 next=[3, 2]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : tranquil
+Application schedule_request    253 FINER : Node 0 BEGIN
+Application releaseCS           172 FINE  : Node 0 send token([2]) to 3
+Application releaseCS           174 FINE  : Node 0 next=[]
+Application releaseCS           176 FINE  : Node 0 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 0 END
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 0 BEGIN
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : requesting
+Application requestCS           147 FINE  : Node 0 last : 2
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_request     182 FINER : Node 3 BEGIN
+Application receive_request     183 FINE  : Node 3 receive request message from Node 1 for Node 1
+Application processEvent         78 FINER : Node 2 BEGIN
+Application receive_request     182 FINER : Node 2 BEGIN
+Application receive_request     183 FINE  : Node 2 receive request message from Node 0 for Node 0
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_request     182 FINER : Node 3 BEGIN
+Application receive_request     183 FINE  : Node 3 receive request message from Node 4 for Node 4
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_token       209 FINER : Node 3 BEGIN
+Application receive_token       210 FINE  : Node 3 receive token message ([2], counter = 32) from Node 0 next =[1, 4]
+Application receive_token       213 FINER : Node 3 next=[1, 4]
+Application receive_token       216 FINER : Node 3 next=[2, 1, 4]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : inCS
+Application executeCS           124 FINER : Node 3 BEGIN
+Application executeCS           125 INFO  : Node 3 executing its CS num 6 : next= [2, 1, 4]
+Application executeCS           127 INFO  : Node 3 global counter = 33
+Application schedule_release    244 FINER : Node 3 BEGIN
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 3 BEGIN
+Application releaseCS           163 FINE  : Node 3 next=[2, 1, 4]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : tranquil
+Application schedule_request    253 FINER : Node 3 BEGIN
+Application releaseCS           172 FINE  : Node 3 send token([1, 4]) to 2
+Application releaseCS           174 FINE  : Node 3 next=[]
+Application releaseCS           176 FINE  : Node 3 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 3 END
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 3 BEGIN
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : requesting
+Application requestCS           147 FINE  : Node 3 last : 4
+Application processEvent         78 FINER : Node 2 BEGIN
+Application receive_token       209 FINER : Node 2 BEGIN
+Application receive_token       210 FINE  : Node 2 receive token message ([1, 4], counter = 33) from Node 3 next =[0]
+Application receive_token       213 FINER : Node 2 next=[0]
+Application receive_token       216 FINER : Node 2 next=[1, 4, 0]
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : inCS
+Application executeCS           124 FINER : Node 2 BEGIN
+Application executeCS           125 INFO  : Node 2 executing its CS num 6 : next= [1, 4, 0]
+Application executeCS           127 INFO  : Node 2 global counter = 34
+Application schedule_release    244 FINER : Node 2 BEGIN
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 2 BEGIN
+Application releaseCS           163 FINE  : Node 2 next=[1, 4, 0]
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : tranquil
+Application schedule_request    253 FINER : Node 2 BEGIN
+Application releaseCS           172 FINE  : Node 2 send token([4, 0]) to 1
+Application releaseCS           174 FINE  : Node 2 next=[]
+Application releaseCS           176 FINE  : Node 2 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 2 END
+Application processEvent         78 FINER : Node 1 BEGIN
+Application receive_token       209 FINER : Node 1 BEGIN
+Application receive_token       210 FINE  : Node 1 receive token message ([4, 0], counter = 34) from Node 2 next =[]
+Application receive_token       213 FINER : Node 1 next=[]
+Application receive_token       216 FINER : Node 1 next=[4, 0]
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : inCS
+Application executeCS           124 FINER : Node 1 BEGIN
+Application executeCS           125 INFO  : Node 1 executing its CS num 6 : next= [4, 0]
+Application executeCS           127 INFO  : Node 1 global counter = 35
+Application schedule_release    244 FINER : Node 1 BEGIN
+Application processEvent         78 FINER : Node 2 BEGIN
+Application processEvent         87 FINER : Node 2 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 2 BEGIN
+Application changestate         223 FINER : Node 2 BEGIN
+Application changestate         224 FINE  : Node 2 state : requesting
+Application requestCS           147 FINE  : Node 2 last : 0
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_request     182 FINER : Node 0 BEGIN
+Application receive_request     183 FINE  : Node 0 receive request message from Node 2 for Node 2
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 1 BEGIN
+Application releaseCS           163 FINE  : Node 1 next=[4, 0]
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : tranquil
+Application schedule_request    253 FINER : Node 1 BEGIN
+Application releaseCS           172 FINE  : Node 1 send token([0]) to 4
+Application releaseCS           174 FINE  : Node 1 next=[]
+Application releaseCS           176 FINE  : Node 1 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 1 END
+Application processEvent         78 FINER : Node 1 BEGIN
+Application processEvent         87 FINER : Node 1 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 1 BEGIN
+Application changestate         223 FINER : Node 1 BEGIN
+Application changestate         224 FINE  : Node 1 state : requesting
+Application requestCS           147 FINE  : Node 1 last : 0
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_request     182 FINER : Node 4 BEGIN
+Application receive_request     183 FINE  : Node 4 receive request message from Node 3 for Node 3
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_request     182 FINER : Node 0 BEGIN
+Application receive_request     183 FINE  : Node 0 receive request message from Node 1 for Node 1
+Application processEvent         78 FINER : Node 4 BEGIN
+Application receive_token       209 FINER : Node 4 BEGIN
+Application receive_token       210 FINE  : Node 4 receive token message ([0], counter = 35) from Node 1 next =[3]
+Application receive_token       213 FINER : Node 4 next=[3]
+Application receive_token       216 FINER : Node 4 next=[0, 3]
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : inCS
+Application executeCS           124 FINER : Node 4 BEGIN
+Application executeCS           125 INFO  : Node 4 executing its CS num 6 : next= [0, 3]
+Application executeCS           127 INFO  : Node 4 global counter = 36
+Application schedule_release    244 FINER : Node 4 BEGIN
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 4 BEGIN
+Application releaseCS           163 FINE  : Node 4 next=[0, 3]
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : tranquil
+Application schedule_request    253 FINER : Node 4 BEGIN
+Application releaseCS           172 FINE  : Node 4 send token([3]) to 0
+Application releaseCS           174 FINE  : Node 4 next=[]
+Application releaseCS           176 FINE  : Node 4 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 4 END
+Application processEvent         78 FINER : Node 4 BEGIN
+Application processEvent         87 FINER : Node 4 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 4 BEGIN
+Application changestate         223 FINER : Node 4 BEGIN
+Application changestate         224 FINE  : Node 4 state : requesting
+Application requestCS           147 FINE  : Node 4 last : 3
+Application processEvent         78 FINER : Node 0 BEGIN
+Application receive_token       209 FINER : Node 0 BEGIN
+Application receive_token       210 FINE  : Node 0 receive token message ([3], counter = 36) from Node 4 next =[2, 1]
+Application receive_token       213 FINER : Node 0 next=[2, 1]
+Application receive_token       216 FINER : Node 0 next=[3, 2, 1]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : inCS
+Application executeCS           124 FINER : Node 0 BEGIN
+Application executeCS           125 INFO  : Node 0 executing its CS num 8 : next= [3, 2, 1]
+Application executeCS           127 INFO  : Node 0 global counter = 37
+Application schedule_release    244 FINER : Node 0 BEGIN
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 0 BEGIN
+Application releaseCS           163 FINE  : Node 0 next=[3, 2, 1]
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : tranquil
+Application schedule_request    253 FINER : Node 0 BEGIN
+Application releaseCS           172 FINE  : Node 0 send token([2, 1]) to 3
+Application releaseCS           174 FINE  : Node 0 next=[]
+Application releaseCS           176 FINE  : Node 0 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 0 END
+Application processEvent         78 FINER : Node 0 BEGIN
+Application processEvent         87 FINER : Node 0 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 0 BEGIN
+Application changestate         223 FINER : Node 0 BEGIN
+Application changestate         224 FINE  : Node 0 state : requesting
+Application requestCS           147 FINE  : Node 0 last : 1
+Application processEvent         78 FINER : Node 3 BEGIN
+Application receive_token       209 FINER : Node 3 BEGIN
+Application receive_token       210 FINE  : Node 3 receive token message ([2, 1], counter = 37) from Node 0 next =[]
+Application receive_token       213 FINER : Node 3 next=[]
+Application receive_token       216 FINER : Node 3 next=[2, 1]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : inCS
+Application executeCS           124 FINER : Node 3 BEGIN
+Application executeCS           125 INFO  : Node 3 executing its CS num 7 : next= [2, 1]
+Application executeCS           127 INFO  : Node 3 global counter = 38
+Application schedule_release    244 FINER : Node 3 BEGIN
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : release_cs
+Application releaseCS           162 FINER : Node 3 BEGIN
+Application releaseCS           163 FINE  : Node 3 next=[2, 1]
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : tranquil
+Application schedule_request    253 FINER : Node 3 BEGIN
+Application releaseCS           172 FINE  : Node 3 send token([1]) to 2
+Application releaseCS           174 FINE  : Node 3 next=[]
+Application releaseCS           176 FINE  : Node 3 ***** END CS ! *****
+Application releaseCS           177 FINE  : Node 3 END
+Application processEvent         78 FINER : Node 3 BEGIN
+Application processEvent         87 FINER : Node 3 ev.getType() : request_cs
+Application requestCS           144 FINER : Node 3 BEGIN
+Application changestate         223 FINER : Node 3 BEGIN
+Application changestate         224 FINE  : Node 3 state : requesting
+Application requestCS           147 FINE  : Node 3 last : 1
+EDSimulator: queue is empty, quitting at time 9954

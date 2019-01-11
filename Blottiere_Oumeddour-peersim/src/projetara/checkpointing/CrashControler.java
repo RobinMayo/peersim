@@ -12,6 +12,7 @@ import peersim.core.Fallible;
 import peersim.core.Network;
 import peersim.core.Node;
 
+
 public class CrashControler implements Control {
 	private static final String PAR_FAULTYNODES = "faulty_nodes";
 	private static final String PAR_PROBACRASH = "probacrash";
@@ -62,7 +63,6 @@ public class CrashControler implements Control {
 			}
 			
 		}
-		
 		
 		return false;
 	}
