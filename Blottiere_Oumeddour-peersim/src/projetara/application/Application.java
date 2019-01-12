@@ -101,7 +101,6 @@ public class Application implements EDProtocol {
 				}
 			}else if(event instanceof Message) {
 				Message m = (Message) event;
-				
 				if(m.getTag().equals(REQUEST_TAG)){
 					this.receive_request(node, m.getIdSrc(), (Long)m.getContent());
 				}else if(m.getTag().equals(TOKEN_TAG)){
