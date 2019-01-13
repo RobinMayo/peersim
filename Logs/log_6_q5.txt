@@ -1,0 +1,77 @@
+Simulator: loading configuration
+ConfigProperties: File src/projetara/config_exo1_q5.txt loaded.
+Simulator: starting experiment 0 invoking peersim.edsim.EDSimulator
+Random seed: 5
+
+
+
+EDSimulator: resetting
+Network: no node defined, using GeneralNode
+EDSimulator: running initializers
+- Running initializer init.constantes: class projetara.util.Constantes
+- Running initializer init.initialisation: class projetara.checkpointing.CrashControler
+EDSimulator: loaded controls []
+Current time: 8
+Application executeCS           124 INFO  : Node 0 executing its CS num 0 : next= []
+Application executeCS           126 INFO  : Node 0 global counter = 1
+Application executeCS           124 INFO  : Node 0 executing its CS num 1 : next= []
+Application executeCS           126 INFO  : Node 0 global counter = 2
+Application executeCS           124 INFO  : Node 0 executing its CS num 2 : next= []
+Application executeCS           126 INFO  : Node 0 global counter = 3
+Application executeCS           124 INFO  : Node 0 executing its CS num 3 : next= []
+Application executeCS           126 INFO  : Node 0 global counter = 4
+Application executeCS           124 INFO  : Node 0 executing its CS num 4 : next= []
+Application executeCS           126 INFO  : Node 0 global counter = 5
+Application executeCS           124 INFO  : Node 1 executing its CS num 0 : next= []
+Application executeCS           126 INFO  : Node 1 global counter = 6
+Application executeCS           124 INFO  : Node 1 executing its CS num 1 : next= []
+Application executeCS           126 INFO  : Node 1 global counter = 7
+Application executeCS           124 INFO  : Node 0 executing its CS num 5 : next= [2, 4, 3, 1]
+Application executeCS           126 INFO  : Node 0 global counter = 8
+Application executeCS           124 INFO  : Node 2 executing its CS num 0 : next= [4, 3, 1]
+Application executeCS           126 INFO  : Node 2 global counter = 9
+Application executeCS           124 INFO  : Node 4 executing its CS num 0 : next= [3, 1]
+Application executeCS           126 INFO  : Node 4 global counter = 10
+Application executeCS           124 INFO  : Node 3 executing its CS num 0 : next= [1]
+Application executeCS           126 INFO  : Node 3 global counter = 11
+Application executeCS           124 INFO  : Node 1 executing its CS num 2 : next= [0, 2, 4, 3]
+Application executeCS           126 INFO  : Node 1 global counter = 12
+Application executeCS           124 INFO  : Node 0 executing its CS num 6 : next= [2, 4, 3]
+Application executeCS           126 INFO  : Node 0 global counter = 13
+Application executeCS           124 INFO  : Node 2 executing its CS num 1 : next= [4, 3]
+Application executeCS           126 INFO  : Node 2 global counter = 14
+Application executeCS           124 INFO  : Node 4 executing its CS num 1 : next= [3]
+Application executeCS           126 INFO  : Node 4 global counter = 15
+Application executeCS           124 INFO  : Node 3 executing its CS num 1 : next= [1, 0, 2]
+Application executeCS           126 INFO  : Node 3 global counter = 16
+Application executeCS           124 INFO  : Node 1 executing its CS num 3 : next= [0, 2]
+Application executeCS           126 INFO  : Node 1 global counter = 17
+Application executeCS           124 INFO  : Node 0 executing its CS num 7 : next= [2]
+Application executeCS           126 INFO  : Node 0 global counter = 18
+Application executeCS           124 INFO  : Node 2 executing its CS num 2 : next= [3, 1, 0]
+Application executeCS           126 INFO  : Node 2 global counter = 19
+Application executeCS           124 INFO  : Node 3 executing its CS num 2 : next= [1, 0, 4]
+Application executeCS           126 INFO  : Node 3 global counter = 20
+Application executeCS           124 INFO  : Node 1 executing its CS num 4 : next= [0, 4]
+Application executeCS           126 INFO  : Node 1 global counter = 21
+Application executeCS           124 INFO  : Node 0 executing its CS num 8 : next= [4, 2]
+Application executeCS           126 INFO  : Node 0 global counter = 22
+Application executeCS           124 INFO  : Node 4 executing its CS num 2 : next= [2, 3, 1]
+Application executeCS           126 INFO  : Node 4 global counter = 23
+Application executeCS           124 INFO  : Node 2 executing its CS num 3 : next= [3, 1, 0]
+Application executeCS           126 INFO  : Node 2 global counter = 24
+Application executeCS           124 INFO  : Node 3 executing its CS num 3 : next= [1, 0]
+Application executeCS           126 INFO  : Node 3 global counter = 25
+Application executeCS           124 INFO  : Node 1 executing its CS num 5 : next= [0, 4]
+Application executeCS           126 INFO  : Node 1 global counter = 26
+Application executeCS           124 INFO  : Node 0 executing its CS num 9 : next= [4, 2, 3]
+Application executeCS           126 INFO  : Node 0 global counter = 27
+Application executeCS           124 INFO  : Node 4 executing its CS num 3 : next= [2, 3, 1]
+Application executeCS           126 INFO  : Node 4 global counter = 28
+Application executeCS           124 INFO  : Node 2 executing its CS num 4 : next= [3, 1]
+Application executeCS           126 INFO  : Node 2 global counter = 29
+Application executeCS           124 INFO  : Node 3 executing its CS num 4 : next= [1, 0]
+Application executeCS           126 INFO  : Node 3 global counter = 30
+Application executeCS           124 INFO  : Node 1 executing its CS num 6 : next= [0, 4, 2]
+Application executeCS           126 INFO  : Node 1 global counter = 31
+EDSimulator: queue is empty, quitting at time 9878
