@@ -1,0 +1,9 @@
+@startuml
+
+state Application {
+  inCS --> tranquil : InternalEvent(TypeEvent.release_cs, id_execution)
+  tranquil --> requesting : last != nil
+  requesting --> inCS : last == nil
+}
+
+@enduml

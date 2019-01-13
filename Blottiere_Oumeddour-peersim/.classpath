@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="lib/jep-2.3.0.jar"/>
 	<classpathentry kind="lib" path="lib/peersim-1.0.5.jar"/>
 	<classpathentry kind="lib" path="lib/peersim-doclet.jar"/>
+	<classpathentry kind="lib" path="/Users/RobinMayo/Documents/Programmation/Java/plantuml.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
