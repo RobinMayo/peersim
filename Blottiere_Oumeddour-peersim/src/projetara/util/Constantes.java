@@ -39,7 +39,7 @@ public final class Constantes implements Control {
 			public String format(LogRecord record) {
 				//initial was "%1$tb %1$td, %1$tY %1$tl:%1$tM:%1$tS %1$Tp %2$s%n%4$s: %5$s%6$s%n" 
 				//"%4$s : %5$s  (%2$s)%n"
-				String format="%2$-30s %7$4s %4$-5s : %5$s%n";
+				String format="%2$-30s %7$4s %4$-6s : %5$s%n";
 				String source;
 				String lineNumber = 
 						String.valueOf(Thread.currentThread().getStackTrace()[8].getLineNumber());

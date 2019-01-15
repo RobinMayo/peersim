@@ -101,6 +101,7 @@ end
 
 function receive_token(remote_queue : Queue<Long>, counter : int)
 begin
+	// Début de la section critique :
 	global_counter = counter
 	remote_queue = ajouteEnQueue(next)
 	next = remote_queue
@@ -112,7 +113,11 @@ Question 2 :
 
 Machine à état :
 
-
+state Application {
+  inCS --> tranquil : InternalEvent(TypeEvent.release_cs, id_execution)
+  tranquil --> requesting : last != nil
+  requesting --> inCS : last == nil || receive_token()
+}
 
 
 Question 3 :
@@ -122,3 +127,14 @@ Question 3 :
 Le ratio 𝛒 = 𝛂 / 𝛃 représente la charge du réseau.
 
 Plus ce ratio est élevé plus le réseau est ralenti.
+
+
+Question 4 :
+
+
+
+Question 5 :
+
+Le fait que le temps de transmission moyen soit supérieur au temps moyen passé en section critique ne change pas fondamentalement les résultats, en effet le schedule_request ce fait avant la transition du jeton. Or tant que le jeton n'a pas été transmis, les autres processus ne peuvent pas s'exécuter. Le temps passé en section critique et le temps de transmission s'additionne donc et rende le système plus lent.
+
+Dans le détaille, on voit que les premiers instants du fonctionnement du système, le fait que le temps de transmission moyen soit supérieur au temps moyen passé en section critique fait que le noeud ayant le jeton peut exécuter plusieurs fois la section critique avant de recevoir une requête et que la file des noeuds demandant l'accès à la section critique mettra plus de temps à ce remplir. Cependant après que tout les noeuds aient exécutés au moins une fois leurs section critique. Le temps passé en section critique et le temps de transmission du message s'additionnant rendront la suite de l'exécution semblable à ce qu'elle aurait été avec un temps de transmission moyen plus faible que le temps passé en section critique.

@@ -1,0 +1,10 @@
+EXERCICE II
+
+
+Question 1 :
+
+1. Si le noeud fautif est en section critique, il peut ne pas avoir le temps de transmettre le jeton et ainsi de désigner un noeud élue. Cela provoquerait le bloquage du système. 
+
+2. Si le noeud fautif possède une file next non vide, 
+
+3. Si le noeud fautif possède une file next vide, n’est pointé par aucun last et aucun message à sa destination n’est en transit 

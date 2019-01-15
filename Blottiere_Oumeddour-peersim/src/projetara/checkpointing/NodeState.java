@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+
 public class NodeState {
 
 	private Map<String, Object> map = new HashMap<>();

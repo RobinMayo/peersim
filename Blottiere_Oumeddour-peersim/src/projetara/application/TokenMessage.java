@@ -4,8 +4,8 @@ import java.util.Queue;
 
 import projetara.util.Message;
 
-public class TokenMessage extends Message {
 
+public class TokenMessage extends Message {
 	
 	private final int counter;
 	private final Queue<Long> next;

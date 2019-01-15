@@ -15,6 +15,7 @@ import peersim.transport.Transport;
 import projetara.application.InternalEvent.TypeEvent;
 import projetara.util.Message;
 
+
 public class Application implements EDProtocol {
 		
 		//Nom des arguments du fichiers de configuration
@@ -207,7 +208,7 @@ public class Application implements EDProtocol {
 			}
 		}
 		
-		private void receive_token(Node host, long from,  Queue<Long> remote_queue, int counter){
+		private void receive_token(Node host, long from, Queue<Long> remote_queue, int counter){
 			log.finer("Node "+host.getID()+" BEGIN");
 			log.fine("Node "+host.getID()+" receive token message ("+remote_queue.toString()+
 					", counter = "+counter+") from Node "+from+" next ="+next.toString());
@@ -217,6 +218,7 @@ public class Application implements EDProtocol {
 			next=remote_queue;
 			log.finer("Node "+host.getID()+" next="+next);
 			changestate(host, State.inCS);
+			log.fine("Node "+host.getID()+" ***** BEGIN CS ! *****");
 		}
 		
 		
@@ -248,6 +250,7 @@ public class Application implements EDProtocol {
 			long max = (long )(timeCS * 1.2);
 			long res = CommonState.r.nextLong(max+min)+min;
 			
+			log.config("Node "+host.getID()+" timeCS : "+res);
 			EDSimulator.add(res, new InternalEvent(TypeEvent.release_cs, id_execution), host, protocol_id);
 		}
 		
@@ -257,6 +260,7 @@ public class Application implements EDProtocol {
 			long max = (long )(timeBetweenCS * 1.2);
 			long res = CommonState.r.nextLong(max+min)+min;
 			
+			log.config("Node "+host.getID()+" timeBetweenCS : "+res);
 			EDSimulator.add(res, new InternalEvent(TypeEvent.request_cs, id_execution), host, protocol_id);
 		}
 }
