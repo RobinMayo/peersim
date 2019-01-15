@@ -77,6 +77,7 @@ public class Application implements EDProtocol {
 		@Override
 		public void processEvent(Node node, int pid, Object event) {
 			log.finer("Node "+node.getID()+" BEGIN");
+			log.finest("Node "+node.getID()+" last : "+last);
 			
 			if(protocol_id != pid){
 				throw new RuntimeException("Receive an event for wrong protocol");
@@ -155,7 +156,7 @@ public class Application implements EDProtocol {
 			changestate(host,State.inCS);
 			//DEBUT CS
 			log.fine("Node "+host.getID()+" ***** BEGIN CS ! *****");
-			log.fine("Node "+host.getID()+" END");
+			log.finest("Node "+host.getID()+" END");
 		}
 		
 		private void releaseCS(Node host){
@@ -176,7 +177,7 @@ public class Application implements EDProtocol {
 				log.fine("Node "+host.getID()+" next="+next);
 			}
 			log.fine("Node "+host.getID()+" ***** END CS ! *****");
-			log.fine("Node "+host.getID()+" END");
+			log.finest("Node "+host.getID()+" END");
 		}
 		
 		
@@ -186,7 +187,7 @@ public class Application implements EDProtocol {
 			Transport tr= (Transport) host.getProtocol(transport_id);
 			
 			if(last == nil){
-				if(state != State.tranquil){
+				if(state != State.tranquil){	
 					next.add(requester);
 					
 				}else{
@@ -206,6 +207,8 @@ public class Application implements EDProtocol {
 				log.fine("Node "+host.getID()+" send Message("+REQUEST_TAG+") to "+dest.getID());
 				last=requester;
 			}
+			log.fine("Node "+host.getID()+" last : "+last);
+			log.finest("Node "+host.getID()+" END");
 		}
 		
 		private void receive_token(Node host, long from, Queue<Long> remote_queue, int counter){

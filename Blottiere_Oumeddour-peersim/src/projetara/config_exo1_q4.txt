@@ -7,7 +7,7 @@ protocol.reliableTransport UniformRandomTransport
 protocol.reliableTransport.mindelay 5
 protocol.reliableTransport.maxdelay 500
 
-protocol.basicbroadcast Application
+protocol.basicbroadcast projetara.application.Application
 protocol.basicbroadcast.timeCS 20
 protocol.basicbroadcast.timeBetweenCS 10
 protocol.basicbroadcast.transport reliableTransport

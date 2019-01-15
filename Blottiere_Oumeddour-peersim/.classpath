@@ -6,6 +6,6 @@
 	<classpathentry kind="lib" path="lib/peersim-1.0.5.jar"/>
 	<classpathentry kind="lib" path="lib/peersim-doclet.jar"/>
 	<classpathentry kind="lib" path="/Users/RobinMayo/Documents/Programmation/Java/plantuml.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/Java SE 8 [192]"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

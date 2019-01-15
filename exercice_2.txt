@@ -3,8 +3,15 @@ EXERCICE II
 
 Question 1 :
 
-1. Si le noeud fautif est en section critique, il peut ne pas avoir le temps de transmettre le jeton et ainsi de désigner un noeud élue. Cela provoquerait le bloquage du système. 
+1. Si le noeud fautif est en section critique, il peut ne pas avoir le temps de transmettre le jeton et ainsi de désigner un nouveau noeud élue. Cela provoquerait le bloquage du système. 
 
-2. Si le noeud fautif possède une file next non vide, 
+2. Dans la classe Application, l'attribut next n'est modifié que dans les méthodes : initialisation, releaseCS, receive_request et receive_token. Les modifications dans initialisation et receive_request concerne l'initialisation du système dans la quelle la file est toujours vide. Ainsi, si le noeud fautif possède une file next non vide, il est forcément en section critique, dans ce cas cela provoque le bloquage du système comme expliqué dans la question 1.1.
 
-3. Si le noeud fautif possède une file next vide, n’est pointé par aucun last et aucun message à sa destination n’est en transit 
+En effet, à la réception d'un token, le noeud ajoute à sa liste personnel de noeuds en attente d'exécution, la liste transmise. En sachant que la liste personnelle du noeud est toujours vidé à la fin de la section critique dans la méthode releaseCS.
+
+3. Si le noeud fautif possède une file next vide, n’est pointé par aucun last et aucun message à sa destination n’est en transit soit :
+- Il a fait une demande de section critique est est dans la liste des noeuds en attentes du jeton. Dans ce cas le système finira par aboutir à un inter blocage.
+- Il n'a pas fait de demande de section critique. Alors il disparaîtra du système impacter son exécution globale.
+
+
+Question 2 :
