@@ -12,8 +12,5 @@ protocol.basicbroadcast.timeCS 20
 protocol.basicbroadcast.timeBetweenCS 10
 protocol.basicbroadcast.transport reliableTransport
 
-init.initialisation projetara.checkpointing.CrashControler
-init.initialisation.probacrash 0
-
 init.constantes Constantes
 init.constantes.loglevel FINEST
