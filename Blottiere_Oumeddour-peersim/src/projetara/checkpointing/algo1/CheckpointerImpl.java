@@ -160,7 +160,7 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 				sent_messages.put(dest.getID(), new ArrayList<>());
 			}
 			sent_messages.get(dest.getID()).add(mess);
-			t.send(src, dest, mess , protocol_id);
+			t.send(src, dest, mess, protocol_id);
 		}
 		
 	}

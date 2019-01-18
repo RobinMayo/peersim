@@ -81,4 +81,9 @@ Node 3 : saved  state (1) ( next = []) ( last = -2) ( nb_cs = 4) ( state = reque
 
 Question 5 :
 
-Les HashMap permettent de simuler la sauvegarde des données sur un support stable.
+Une pile de table de hachage permettent de simuler la sauvegarde des données sur un support stable.
+
+
+Question 6 :
+
+La classe CheckpointerImpl est un décorateur de protocole de transport car elle est utilisée pour envoyer ses propres messages entre les noeuds. La méthode send est donc redéfinie et permet ainsi de compter le nombre de messages entrants et sortants et sauvegarder les messages envoyés depuis le dernier checkpoint.
