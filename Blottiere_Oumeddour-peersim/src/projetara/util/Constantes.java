@@ -1,5 +1,6 @@
 package projetara.util;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Formatter;
@@ -9,6 +10,7 @@ import java.util.logging.LogRecord;
 
 import peersim.config.Configuration;
 import peersim.core.Control;
+
 
 public final class Constantes implements Control {
 	
@@ -39,7 +41,7 @@ public final class Constantes implements Control {
 			public String format(LogRecord record) {
 				//initial was "%1$tb %1$td, %1$tY %1$tl:%1$tM:%1$tS %1$Tp %2$s%n%4$s: %5$s%6$s%n" 
 				//"%4$s : %5$s  (%2$s)%n"
-				String format="%2$-30s %7$4s %4$-6s : %5$s%n";
+				String format="%1$-25s %2$-35s %7$4s %4$-6s : %5$s%n";
 				String source;
 				String lineNumber = 
 						String.valueOf(Thread.currentThread().getStackTrace()[8].getLineNumber());
@@ -56,8 +58,9 @@ public final class Constantes implements Control {
 				source = source.length() > 30 ? source.substring(0, 30) : source;
 				String message = formatMessage(record);
 				String throwable = "";
+				String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S").format(new Date());
 				return String.format(format,
-						new Date(record.getMillis()),
+						date,//new Date(record.getMillis()),
 						source,
 						record.getLoggerName(),
 						record.getLevel(),

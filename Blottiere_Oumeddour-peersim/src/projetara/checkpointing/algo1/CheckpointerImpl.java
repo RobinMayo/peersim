@@ -168,7 +168,8 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 	
 	@Override
 	public void createCheckpoint(Node host){
-		
+		log.info("Node "+host.getID()+" BEGIN");
+
 		Checkpointable chk = (Checkpointable) host.getProtocol(checkpointable_id);
 		NodeState ns = chk.getCurrentState();
 		states.push(ns);
@@ -177,9 +178,8 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		saved_sent_messages.push(new HashMap<>(sent_messages));
 		sent_messages.clear();
 			
-		log.fine("Node "+host.getID()+" : saved  state ("+(states.size())+") "+states.peek()+" sent = "+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
-		
-		
+		log.fine("Node "+host.getID()+" : saved  state ("+(states.size())+") "+states.peek()+" sent = "
+				+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
 	}
 	
 	
@@ -210,7 +210,8 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 			if(j != host.getIndex()){
 				long id_dest=Network.get(j).getID();
 				int nb_sent = saved_sent.peek().get(id_dest);
-				t.send(host, Network.get(j), new RollBackMessage(host.getID(),id_dest, nb_sent ,protocol_id), protocol_id);
+				t.send(host, Network.get(j), new RollBackMessage(host.getID(),id_dest, nb_sent,
+						protocol_id), protocol_id);
 			}
 		}
 		nb_remaining_broadcast_rollback--;
@@ -237,7 +238,8 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 					Node dest = Network.get(i);
 					Transport t = (Transport) host.getProtocol(transport);
 					if(dest.getID()!=host.getID()){
-						t.send(host, dest, new FinishedRollbackMessage(host.getID(), dest.getID(), protocol_id), protocol_id);
+						t.send(host, dest, new FinishedRollbackMessage(host.getID(), dest.getID(),
+								protocol_id), protocol_id);
 					}
 				}
 				
@@ -275,7 +277,8 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		for(int i=0; i< Network.size();i++){
 			Node dest = Network.get(i);
 			if(dest.getID() != host.getID()){
-				t.send(host, dest, new AskMissingMessMessage(host.getID(), dest.getID(), saved_rcvd.peek().get(dest.getID()) , protocol_id), protocol_id);
+				t.send(host, dest, new AskMissingMessMessage(host.getID(), dest.getID(),
+						saved_rcvd.peek().get(dest.getID()) , protocol_id), protocol_id);
 			}
 			
 		}
@@ -314,7 +317,8 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		for(int i=0;i< Network.size();i++){
 			Node dest=Network.get(i);
 			if( dest.getID()== amess.getIdSrc()){
-				t.send(host, dest, new ReplyAskMissingMessMessage(host.getID(), amess.getIdSrc(), missing_mess, protocol_id), protocol_id);
+				t.send(host, dest, new ReplyAskMissingMessMessage(host.getID(), amess.getIdSrc(),
+						missing_mess, protocol_id), protocol_id);
 				break;
 			}
 		}
@@ -339,7 +343,8 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		this.sent=new HashMap<>(saved_sent.peek());
 		this.rcvd=new HashMap<>(saved_rcvd.peek());
 		this.sent_messages.clear();
-		log.info("Node "+host.getID()+" : end recovering (recover from checkpoint "+states.size()+")"+"  state = "+states.peek()+" nb reply messages = " +message_to_replay_after_recovery.size());
+		log.info("Node "+host.getID()+" : end recovering (recover from checkpoint "+states.size()+")"+
+				"  state = "+states.peek()+" nb reply messages = " +message_to_replay_after_recovery.size());
 		chk.restoreState(states.peek());		
 		for( WrappingMessage wm : message_to_replay_after_recovery){
 			receiveWrappingMessage(host, wm);

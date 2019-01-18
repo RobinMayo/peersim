@@ -15,3 +15,35 @@ En effet, à la réception d'un token, le noeud ajoute à sa liste personnel de 
 
 
 Question 2 :
+
+simulation.experiments 1
+random.seed 6
+network.size 5
+simulation.endtime 20000
+
+protocol.reliableTransport UniformRandomTransport
+protocol.reliableTransport.mindelay 5
+protocol.reliableTransport.maxdelay 15
+
+protocol.FIFOTransport projetara.util.FIFOTransport
+protocol.FIFOTransport.transport reliableTransport
+
+protocol.basicbroadcast projetara.application.ApplicationCheckpointable
+protocol.basicbroadcast.timeCS 20
+protocol.basicbroadcast.timeBetweenCS 10
+protocol.basicbroadcast.transport FIFOTransport
+
+control.crash projetara.checkpointing.CrashControler
+control.crash.probacrash 0.1
+control.crash.faulty_nodes 4
+control.crash.checkpointer 10
+control.crash.step 100
+
+init.constantes Constantes
+init.constantes.loglevel INFO
+
+
+Question 3 :
+
+La méthode createCheckpoint n'est pas appelée avec une période fixe et égale pour tout les noeuds afin de simuler un système réel dont les horloges internes des processus ne sont pas accessible et pas forcément synchronisés. On utilise donc un random afin de provoquer un checkpoint non coordonnée.
+Un checkpoint synchronisé constituait un cas particulier exceptionnel dans un système réel.

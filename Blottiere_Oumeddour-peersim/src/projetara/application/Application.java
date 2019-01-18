@@ -145,7 +145,7 @@ public class Application implements EDProtocol {
 			log.finer("Node "+host.getID()+" BEGIN");
 			changestate(host,State.requesting);
 			if(last != nil){
-				log.fine("Node "+host.getID()+" last : "+last);
+				log.finer("Node "+host.getID()+" last : "+last);
 				Transport tr= (Transport) host.getProtocol(transport_id);
 				Node dest = Network.get((int)last);
 				tr.send(host,dest, new Message(host.getID(), dest.getID(),  REQUEST_TAG,
@@ -172,7 +172,7 @@ public class Application implements EDProtocol {
 				log.finer("Node "+host.getID()+" last : "+last+", next_holder : "+next_holder);
 				tr.send(host, dest,new TokenMessage(host.getID(), dest.getID(),
 						new ArrayDeque<Long>(next), global_counter, protocol_id)   , protocol_id);
-				log.fine("Node "+host.getID()+" send token("+next+") to "+dest.getID());
+				log.finer("Node "+host.getID()+" send token("+next+") to "+dest.getID());
 				next.clear();
 				log.fine("Node "+host.getID()+" next="+next);
 			}
@@ -207,7 +207,7 @@ public class Application implements EDProtocol {
 				log.fine("Node "+host.getID()+" send Message("+REQUEST_TAG+") to "+dest.getID());
 				last=requester;
 			}
-			log.fine("Node "+host.getID()+" last : "+last);
+			log.finest("Node "+host.getID()+" last : "+last);
 			log.finest("Node "+host.getID()+" END");
 		}
 		

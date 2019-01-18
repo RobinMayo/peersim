@@ -1,0 +1,30 @@
+simulation.experiments 1
+random.seed 6
+network.size 5
+simulation.endtime 5000
+
+protocol.reliableTransport UniformRandomTransport
+protocol.reliableTransport.mindelay 5
+protocol.reliableTransport.maxdelay 15
+
+protocol.FIFOTransport projetara.util.FIFOTransport
+protocol.FIFOTransport.transport reliableTransport
+
+protocol.CheckpointerImpl projetara.checkpointing.algo1.CheckpointerImpl
+protocol.CheckpointerImpl.transport FIFOTransport
+protocol.CheckpointerImpl.checkpointable application
+protocol.CheckpointerImpl.timecheckpointing 200
+
+protocol.application projetara.application.ApplicationCheckpointable
+protocol.application.timeCS 20
+protocol.application.timeBetweenCS 10
+protocol.application.transport CheckpointerImpl
+
+control.crash projetara.checkpointing.CrashControler
+control.crash.probacrash 1
+control.crash.faulty_nodes 4
+control.crash.checkpointer 4000
+control.crash.at 1000
+
+init.constantes Constantes
+init.constantes.loglevel FINER
