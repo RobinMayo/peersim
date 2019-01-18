@@ -81,9 +81,14 @@ Node 3 : saved  state (1) ( next = []) ( last = -2) ( nb_cs = 4) ( state = reque
 
 Question 5 :
 
-Une pile de table de hachage permettent de simuler la sauvegarde des données sur un support stable.
+Une pile de table de hachage permettent de simuler la sauvegarde des données sur un support stable. On utilise une pile LIFO (Last-In-First-Out) car lors de son utilisation, on cherchera toujours le checkpoint le plus récent en premier et on regardera les checkpoints plus anciens seulement si l'on ne trouve pas de ligne de recouvrement satisfaisante avec les autres noeuds. 
 
 
 Question 6 :
 
 La classe CheckpointerImpl est un décorateur de protocole de transport car elle est utilisée pour envoyer ses propres messages entre les noeuds. La méthode send est donc redéfinie et permet ainsi de compter le nombre de messages entrants et sortants et sauvegarder les messages envoyés depuis le dernier checkpoint.
+
+
+Question 7 :
+
+
