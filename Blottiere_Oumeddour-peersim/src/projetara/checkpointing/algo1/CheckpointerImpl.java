@@ -188,7 +188,7 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 	
 	@Override
 	public void recover(Node host){
-		log.fine("Node "+host.getID()+" : start recovering");
+		log.info("Node "+host.getID()+" : start recovering");
 		Checkpointable chk = (Checkpointable) host.getProtocol(checkpointable_id);
 		chk.suspend();
 		is_recovery=true;

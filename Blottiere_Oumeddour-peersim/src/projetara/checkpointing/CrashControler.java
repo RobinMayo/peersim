@@ -56,7 +56,9 @@ public class CrashControler implements Control {
 		}
 		
 		if(panne && checkpointer_id != -1){
+			log.info(" panne == True, checkpointer_id == "+checkpointer_id);
 			for(int i =0; i< Network.size();i++){
+				log.info(i+" recover");
 				Node n = Network.get(i);
 				Checkpointer c = (Checkpointer) n.getProtocol(checkpointer_id);
 				c.recover(n);

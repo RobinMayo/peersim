@@ -19,7 +19,7 @@ Question 2 :
 simulation.experiments 1
 random.seed 6
 network.size 5
-simulation.endtime 20000
+simulation.endtime 5000
 
 protocol.reliableTransport UniformRandomTransport
 protocol.reliableTransport.mindelay 5
@@ -28,16 +28,21 @@ protocol.reliableTransport.maxdelay 15
 protocol.FIFOTransport projetara.util.FIFOTransport
 protocol.FIFOTransport.transport reliableTransport
 
-protocol.basicbroadcast projetara.application.ApplicationCheckpointable
-protocol.basicbroadcast.timeCS 20
-protocol.basicbroadcast.timeBetweenCS 10
-protocol.basicbroadcast.transport FIFOTransport
+protocol.CheckpointerImpl projetara.checkpointing.algo1.CheckpointerImpl
+protocol.CheckpointerImpl.transport FIFOTransport
+protocol.CheckpointerImpl.checkpointable application
+protocol.CheckpointerImpl.timecheckpointing 200
+
+protocol.application projetara.application.ApplicationCheckpointable
+protocol.application.timeCS 20
+protocol.application.timeBetweenCS 10
+protocol.application.transport CheckpointerImpl
 
 control.crash projetara.checkpointing.CrashControler
-control.crash.probacrash 0.1
+control.crash.probacrash 1
 control.crash.faulty_nodes 4
-control.crash.checkpointer 10
-control.crash.step 100
+control.crash.checkpointer CheckpointerImpl
+control.crash.at 2000
 
 init.constantes Constantes
 init.constantes.loglevel INFO
@@ -61,22 +66,9 @@ La méthode createCheckpoint provoque la sauvegarde des points de reprises. Dans
 - Les messages et token envoyés à chaque noeuds (variable saved_sent),
 - Les messages et token reçus de chaque noeuds (variable saved_rcvd).
 
-********** <TO DELETE> **********
-
-Node 3 : saved  state (1) ( next = []) ( last = -2) ( nb_cs = 4) ( state = requesting) ( global_counter = 17)  sent = {0=2, 1=5, 2=1, 3=0, 4=1} rcvd = {0=5, 1=1, 2=1, 3=0, 4=1}
-
-	public void createCheckpoint(Node host){
-		log.fine("Node "+host.getID()+" : saved  state ("+(states.size())+") "+states.peek()+" sent = "
-			+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
-
-	public void recover(Node host){
-		log.info("Node "+host.getID()+" : start recovering ("+states.size()+" checkpoints) last state = "+states.peek());
-
-	private void stop_recover(Node host) {
-		log.info("Node "+host.getID()+" : end recovering (recover from checkpoint "+states.size()+")"+
-				" state = "+states.peek()+" nb reply messages = " +message_to_replay_after_recovery.size());
-
-********** </TO DELETE> **********
+Un compteur d'état Si incrémenté à chaque sauvegarde
+Pour chaque voisin Pj :
+	un compteur d'émission SENTij et un compteur de réception RCVDji Chaque sauvegarde inclut Si, ainsi que SENTij et RCVDji pour chaque canal
 
 
 Question 5 :
