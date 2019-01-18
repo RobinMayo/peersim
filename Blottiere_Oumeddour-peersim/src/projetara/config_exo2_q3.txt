@@ -23,7 +23,7 @@ protocol.application.transport CheckpointerImpl
 control.crash projetara.checkpointing.CrashControler
 control.crash.probacrash 1
 control.crash.faulty_nodes 4
-control.crash.checkpointer 4000
+control.crash.checkpointer 500
 control.crash.at 1000
 
 init.constantes Constantes

@@ -253,7 +253,6 @@ public class Application implements EDProtocol {
 			long max = (long )(timeCS * 1.2);
 			long res = CommonState.r.nextLong(max+min)+min;
 			
-			log.config("Node "+host.getID()+" timeCS : "+res);
 			EDSimulator.add(res, new InternalEvent(TypeEvent.release_cs, id_execution), host, protocol_id);
 		}
 		
@@ -263,7 +262,6 @@ public class Application implements EDProtocol {
 			long max = (long )(timeBetweenCS * 1.2);
 			long res = CommonState.r.nextLong(max+min)+min;
 			
-			log.config("Node "+host.getID()+" timeBetweenCS : "+res);
 			EDSimulator.add(res, new InternalEvent(TypeEvent.request_cs, id_execution), host, protocol_id);
 		}
 }

@@ -47,3 +47,38 @@ Question 3 :
 
 La méthode createCheckpoint n'est pas appelée avec une période fixe et égale pour tout les noeuds afin de simuler un système réel dont les horloges internes des processus ne sont pas accessible et pas forcément synchronisés. On utilise donc un random afin de provoquer un checkpoint non coordonnée.
 Un checkpoint synchronisé constituait un cas particulier exceptionnel dans un système réel.
+
+
+Question 4 :
+
+La méthode createCheckpoint provoque la sauvegarde des points de reprises. Dans cette méthode sont sauvegardés les données suivantes :
+- La taille de la liste des états du système (variable state),
+- La liste des noeuds en attente de section critique (variable next),
+- Le pointeur vers le dernier noeud a avoir été en section critique (variable last),
+- Le nombre de fois où le noeud courant s'est retrouvé en section critique (variable nb_cs),
+- L'état du noeud (variable state),
+- Le nombre total de sections critiques ayant eu lieu dans le système (variable global_counter),
+- Les messages et token envoyés à chaque noeuds (variable saved_sent),
+- Les messages et token reçus de chaque noeuds (variable saved_rcvd).
+
+********** <TO DELETE> **********
+
+Node 3 : saved  state (1) ( next = []) ( last = -2) ( nb_cs = 4) ( state = requesting) ( global_counter = 17)  sent = {0=2, 1=5, 2=1, 3=0, 4=1} rcvd = {0=5, 1=1, 2=1, 3=0, 4=1}
+
+	public void createCheckpoint(Node host){
+		log.fine("Node "+host.getID()+" : saved  state ("+(states.size())+") "+states.peek()+" sent = "
+			+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
+
+	public void recover(Node host){
+		log.info("Node "+host.getID()+" : start recovering ("+states.size()+" checkpoints) last state = "+states.peek());
+
+	private void stop_recover(Node host) {
+		log.info("Node "+host.getID()+" : end recovering (recover from checkpoint "+states.size()+")"+
+				" state = "+states.peek()+" nb reply messages = " +message_to_replay_after_recovery.size());
+
+********** </TO DELETE> **********
+
+
+Question 5 :
+
+Les HashMap permettent de simuler la sauvegarde des données sur un support stable.
