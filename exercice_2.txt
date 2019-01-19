@@ -73,7 +73,8 @@ Pour chaque voisin Pj :
 
 Question 5 :
 
-Une pile de table de hachage permettent de simuler la sauvegarde des données sur un support stable. On utilise une pile LIFO (Last-In-First-Out) car lors de son utilisation, on cherchera toujours le checkpoint le plus récent en premier et on regardera les checkpoints plus anciens seulement si l'on ne trouve pas de ligne de recouvrement satisfaisante avec les autres noeuds. 
+Une pile de table de hachage permettent de simuler la sauvegarde des données sur un support stable. En effet l'algorithme de Juang-Venkatesan enregistre le point de sauvegarde le plus recent dans la mémoire volatile alors que les points de sauvegardes les plus anciens sont copiés dans la mémoire persistante.
+Une pile LIFO (Last-In-First-Out) émule bien ce procédé car le points de sauvegarde le plus récent est accessible rapidement alors que l'accès aux points de sauvegardes anciens implique de dépiler la pile ce qui prend (un peu) plus de temps comme un accès au disque prend plus de temps qu'un accès mémoire. 
 
 
 Question 6 :
