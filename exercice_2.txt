@@ -84,4 +84,15 @@ La classe CheckpointerImpl est un décorateur de protocole de transport car elle
 
 Question 7 :
 
+Si les messages Wrapping n'étaient pas utilisés, on risquerait un inter bloquage pour cause de modification concurrente. En effet en l'absence de canal FIFO, les messages pourraient-être reçu dans le désordre par les différents noeuds. Ainsi un noeud pourrait recevoir plusieurs demandes de sections critique d'un même noeud.
 
+
+Question 8 :
+
+Lors de l'appel à la méthode recover de la classe CheckpointerImpl, on commence par stopper l'exécution du noeud courant puis on crée le point de sauvegarde (méthode recover). On commence alors la phase de recouvrement.
+- Les messages rollback sont envoyés à tout les noeuds du système (méthode send_rollback_messages) afin de trouver un point de sauvegarde pour chaque noeud qui puisse former une ligne de recouvrement cohérente entre les différents noeuds.
+- On compare pour cela le nombre de messages reçu par chaque noeud saved_rcvd avec le nombre de messages envoyés. En cas d'incohérences, le point de sauvegarde est détruit et on recommence la comparaison avec le point de sauvegarde antérieur (méthode receiveRollBackMessage). Après avoir trouvé un point de recouvrement cohérent, les noeuds avertissent leurs homologues via les messages FinishedRollback.
+- On vérifie qu'on a bien reçu un message FinishedRollback de tout les autres noeuds du système (méthode receiveFinishedRollbackMessage).
+
+
+Question 9 :

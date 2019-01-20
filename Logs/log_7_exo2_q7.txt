@@ -1,0 +1,736 @@
+Simulator: loading configuration
+ConfigProperties: File src/projetara/config_exo2_q3.txt loaded.
+Simulator: starting experiment 0 invoking peersim.edsim.EDSimulator
+Random seed: 6
+
+
+
+EDSimulator: resetting
+Network: no node defined, using GeneralNode
+EDSimulator: running initializers
+- Running initializer init.constantes: class projetara.util.Constantes
+EDSimulator: loaded controls [control.crash]
+Current time: 13
+2019-01-19 19:41:09.41    Application changestate              231 FINE    : Node 3 state : requesting
+2019-01-19 19:41:09.46    Application changestate              231 FINE    : Node 0 state : requesting
+2019-01-19 19:41:09.47    Application changestate              231 FINE    : Node 0 state : inCS
+2019-01-19 19:41:09.47    Application executeCS                126 INFO    : Node 0 executing its CS num 0 : next= []
+2019-01-19 19:41:09.48    Application executeCS                128 INFO    : Node 0 global counter = 1
+2019-01-19 19:41:09.48    Application requestCS                158 FINE    : Node 0 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.49    Application changestate              231 FINE    : Node 4 state : requesting
+2019-01-19 19:41:09.49    Application changestate              231 FINE    : Node 1 state : requesting
+2019-01-19 19:41:09.51    FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.util.Message@306a30c7
+2019-01-19 19:41:09.52    Application receive_request          186 FINE    : Node 0 receive request message from Node 3 for Node 3
+2019-01-19 19:41:09.53    Application changestate              231 FINE    : Node 2 state : requesting
+2019-01-19 19:41:09.53    FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.util.Message@b81eda8
+2019-01-19 19:41:09.54    Application receive_request          186 FINE    : Node 0 receive request message from Node 1 for Node 1
+2019-01-19 19:41:09.54    FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.util.Message@68de145
+2019-01-19 19:41:09.55    Application receive_request          186 FINE    : Node 0 receive request message from Node 4 for Node 4
+2019-01-19 19:41:09.55    FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.util.Message@27fa135a
+2019-01-19 19:41:09.56    Application receive_request          186 FINE    : Node 0 receive request message from Node 2 for Node 2
+2019-01-19 19:41:09.57    Application releaseCS                164 FINE    : Node 0 next=[3, 1, 4, 2]
+2019-01-19 19:41:09.57    Application changestate              231 FINE    : Node 0 state : tranquil
+2019-01-19 19:41:09.59    Application releaseCS                177 FINE    : Node 0 next=[]
+2019-01-19 19:41:09.59    Application releaseCS                179 FINE    : Node 0 ***** END CS ! *****
+2019-01-19 19:41:09.60    FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.application.TokenMessage@46f7f36a
+2019-01-19 19:41:09.61    Application receive_token            216 FINE    : Node 3 receive token message ([1, 4, 2], counter = 1) from Node 0 next =[]
+2019-01-19 19:41:09.61    Application changestate              231 FINE    : Node 3 state : inCS
+2019-01-19 19:41:09.62    Application executeCS                126 INFO    : Node 3 executing its CS num 0 : next= [1, 4, 2]
+2019-01-19 19:41:09.62    Application executeCS                128 INFO    : Node 3 global counter = 2
+2019-01-19 19:41:09.62    Application receive_token            224 FINE    : Node 3 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.63    Application changestate              231 FINE    : Node 0 state : requesting
+2019-01-19 19:41:09.63    FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.util.Message@421faab1
+2019-01-19 19:41:09.64    Application receive_request          186 FINE    : Node 2 receive request message from Node 0 for Node 0
+2019-01-19 19:41:09.64    Application releaseCS                164 FINE    : Node 3 next=[1, 4, 2]
+2019-01-19 19:41:09.65    Application changestate              231 FINE    : Node 3 state : tranquil
+2019-01-19 19:41:09.66    Application releaseCS                177 FINE    : Node 3 next=[]
+2019-01-19 19:41:09.66    Application releaseCS                179 FINE    : Node 3 ***** END CS ! *****
+2019-01-19 19:41:09.66    FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.application.TokenMessage@2b71fc7e
+2019-01-19 19:41:09.67    Application receive_token            216 FINE    : Node 1 receive token message ([4, 2], counter = 2) from Node 3 next =[]
+2019-01-19 19:41:09.67    Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.68    Application executeCS                126 INFO    : Node 1 executing its CS num 0 : next= [4, 2]
+2019-01-19 19:41:09.68    Application executeCS                128 INFO    : Node 1 global counter = 3
+2019-01-19 19:41:09.68    Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.69    Application changestate              231 FINE    : Node 3 state : requesting
+2019-01-19 19:41:09.69    FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.util.Message@5ce65a89
+2019-01-19 19:41:09.69    Application receive_request          186 FINE    : Node 2 receive request message from Node 3 for Node 3
+2019-01-19 19:41:09.70    Application releaseCS                164 FINE    : Node 1 next=[4, 2]
+2019-01-19 19:41:09.70    Application changestate              231 FINE    : Node 1 state : tranquil
+2019-01-19 19:41:09.70    Application releaseCS                177 FINE    : Node 1 next=[]
+2019-01-19 19:41:09.70    Application releaseCS                179 FINE    : Node 1 ***** END CS ! *****
+2019-01-19 19:41:09.71    FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.application.TokenMessage@25f38edc
+2019-01-19 19:41:09.71    Application receive_token            216 FINE    : Node 4 receive token message ([2], counter = 3) from Node 1 next =[]
+2019-01-19 19:41:09.71    Application changestate              231 FINE    : Node 4 state : inCS
+2019-01-19 19:41:09.72    Application executeCS                126 INFO    : Node 4 executing its CS num 0 : next= [2]
+2019-01-19 19:41:09.72    Application executeCS                128 INFO    : Node 4 global counter = 4
+2019-01-19 19:41:09.72    Application receive_token            224 FINE    : Node 4 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.73    Application changestate              231 FINE    : Node 1 state : requesting
+2019-01-19 19:41:09.73    FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.util.Message@1a86f2f1
+2019-01-19 19:41:09.73    Application receive_request          186 FINE    : Node 2 receive request message from Node 1 for Node 1
+2019-01-19 19:41:09.73    Application releaseCS                164 FINE    : Node 4 next=[2]
+2019-01-19 19:41:09.74    Application changestate              231 FINE    : Node 4 state : tranquil
+2019-01-19 19:41:09.74    Application releaseCS                177 FINE    : Node 4 next=[]
+2019-01-19 19:41:09.74    Application releaseCS                179 FINE    : Node 4 ***** END CS ! *****
+2019-01-19 19:41:09.75    FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.application.TokenMessage@3eb07fd3
+2019-01-19 19:41:09.75    Application receive_token            216 FINE    : Node 2 receive token message ([], counter = 4) from Node 4 next =[0, 3, 1]
+2019-01-19 19:41:09.75    Application changestate              231 FINE    : Node 2 state : inCS
+2019-01-19 19:41:09.76    Application executeCS                126 INFO    : Node 2 executing its CS num 0 : next= [0, 3, 1]
+2019-01-19 19:41:09.76    Application executeCS                128 INFO    : Node 2 global counter = 5
+2019-01-19 19:41:09.76    Application receive_token            224 FINE    : Node 2 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.76    Application changestate              231 FINE    : Node 4 state : requesting
+2019-01-19 19:41:09.77    FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.util.Message@506c589e
+2019-01-19 19:41:09.77    Application receive_request          186 FINE    : Node 2 receive request message from Node 4 for Node 4
+2019-01-19 19:41:09.78    Application releaseCS                164 FINE    : Node 2 next=[0, 3, 1, 4]
+2019-01-19 19:41:09.78    Application changestate              231 FINE    : Node 2 state : tranquil
+2019-01-19 19:41:09.78    Application releaseCS                177 FINE    : Node 2 next=[]
+2019-01-19 19:41:09.78    Application releaseCS                179 FINE    : Node 2 ***** END CS ! *****
+2019-01-19 19:41:09.79    FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.application.TokenMessage@69d0a921
+2019-01-19 19:41:09.81    Application receive_token            216 FINE    : Node 0 receive token message ([3, 1, 4], counter = 5) from Node 2 next =[]
+2019-01-19 19:41:09.82    Application changestate              231 FINE    : Node 0 state : inCS
+2019-01-19 19:41:09.82    Application executeCS                126 INFO    : Node 0 executing its CS num 1 : next= [3, 1, 4]
+2019-01-19 19:41:09.83    Application executeCS                128 INFO    : Node 0 global counter = 6
+2019-01-19 19:41:09.83    Application receive_token            224 FINE    : Node 0 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.83    Application changestate              231 FINE    : Node 2 state : requesting
+2019-01-19 19:41:09.84    FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.util.Message@446cdf90
+2019-01-19 19:41:09.84    Application receive_request          186 FINE    : Node 4 receive request message from Node 2 for Node 2
+2019-01-19 19:41:09.84    Application releaseCS                164 FINE    : Node 0 next=[3, 1, 4]
+2019-01-19 19:41:09.85    Application changestate              231 FINE    : Node 0 state : tranquil
+2019-01-19 19:41:09.85    Application releaseCS                177 FINE    : Node 0 next=[]
+2019-01-19 19:41:09.85    Application releaseCS                179 FINE    : Node 0 ***** END CS ! *****
+2019-01-19 19:41:09.86    FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.application.TokenMessage@799f7e29
+2019-01-19 19:41:09.86    Application receive_token            216 FINE    : Node 3 receive token message ([1, 4], counter = 6) from Node 0 next =[]
+2019-01-19 19:41:09.87    Application changestate              231 FINE    : Node 3 state : inCS
+2019-01-19 19:41:09.87    Application executeCS                126 INFO    : Node 3 executing its CS num 1 : next= [1, 4]
+2019-01-19 19:41:09.87    Application executeCS                128 INFO    : Node 3 global counter = 7
+2019-01-19 19:41:09.87    Application receive_token            224 FINE    : Node 3 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.88    Application changestate              231 FINE    : Node 0 state : requesting
+2019-01-19 19:41:09.88    FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.util.Message@4b85612c
+2019-01-19 19:41:09.88    Application receive_request          186 FINE    : Node 4 receive request message from Node 0 for Node 0
+2019-01-19 19:41:09.89    Application releaseCS                164 FINE    : Node 3 next=[1, 4]
+2019-01-19 19:41:09.89    Application changestate              231 FINE    : Node 3 state : tranquil
+2019-01-19 19:41:09.89    Application releaseCS                177 FINE    : Node 3 next=[]
+2019-01-19 19:41:09.90    Application releaseCS                179 FINE    : Node 3 ***** END CS ! *****
+2019-01-19 19:41:09.90    Application changestate              231 FINE    : Node 3 state : requesting
+2019-01-19 19:41:09.90    FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.application.TokenMessage@277050dc
+2019-01-19 19:41:09.90    Application receive_token            216 FINE    : Node 1 receive token message ([4], counter = 7) from Node 3 next =[]
+2019-01-19 19:41:09.91    Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.91    Application executeCS                126 INFO    : Node 1 executing its CS num 1 : next= [4]
+2019-01-19 19:41:09.92    Application executeCS                128 INFO    : Node 1 global counter = 8
+2019-01-19 19:41:09.92    Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.92    FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.util.Message@5c29bfd
+2019-01-19 19:41:09.93    Application receive_request          186 FINE    : Node 4 receive request message from Node 3 for Node 3
+2019-01-19 19:41:09.93    Application releaseCS                164 FINE    : Node 1 next=[4]
+2019-01-19 19:41:09.93    Application changestate              231 FINE    : Node 1 state : tranquil
+2019-01-19 19:41:09.94    Application releaseCS                177 FINE    : Node 1 next=[]
+2019-01-19 19:41:09.94    Application releaseCS                179 FINE    : Node 1 ***** END CS ! *****
+2019-01-19 19:41:09.95    FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.application.TokenMessage@7aec35a
+2019-01-19 19:41:09.95    Application receive_token            216 FINE    : Node 4 receive token message ([], counter = 8) from Node 1 next =[2, 0, 3]
+2019-01-19 19:41:09.95    Application changestate              231 FINE    : Node 4 state : inCS
+2019-01-19 19:41:09.96    Application executeCS                126 INFO    : Node 4 executing its CS num 1 : next= [2, 0, 3]
+2019-01-19 19:41:09.96    Application executeCS                128 INFO    : Node 4 global counter = 9
+2019-01-19 19:41:09.96    Application receive_token            224 FINE    : Node 4 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.96    Application changestate              231 FINE    : Node 1 state : requesting
+2019-01-19 19:41:09.97    FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.util.Message@67424e82
+2019-01-19 19:41:09.97    Application receive_request          186 FINE    : Node 4 receive request message from Node 1 for Node 1
+2019-01-19 19:41:09.97    CheckpointerImpl createCheckpo       171 INFO    : Node 2 BEGIN
+2019-01-19 19:41:09.99    CheckpointerImpl createCheckpo       181 FINE    : Node 2 : saved  state (1) ( next = []) ( last = -2) ( nb_cs = 1) ( state = requesting) ( global_counter = 5)  sent = {0=2, 1=0, 2=0, 3=0, 4=1} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.99    Application releaseCS                164 FINE    : Node 4 next=[2, 0, 3, 1]
+2019-01-19 19:41:09.100   Application changestate              231 FINE    : Node 4 state : tranquil
+2019-01-19 19:41:09.101   Application releaseCS                177 FINE    : Node 4 next=[]
+2019-01-19 19:41:09.101   Application releaseCS                179 FINE    : Node 4 ***** END CS ! *****
+2019-01-19 19:41:09.101   Application changestate              231 FINE    : Node 4 state : requesting
+2019-01-19 19:41:09.102   FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.application.TokenMessage@42110406
+2019-01-19 19:41:09.102   Application receive_token            216 FINE    : Node 2 receive token message ([0, 3, 1], counter = 9) from Node 4 next =[]
+2019-01-19 19:41:09.103   Application changestate              231 FINE    : Node 2 state : inCS
+2019-01-19 19:41:09.103   Application executeCS                126 INFO    : Node 2 executing its CS num 1 : next= [0, 3, 1]
+2019-01-19 19:41:09.103   Application executeCS                128 INFO    : Node 2 global counter = 10
+2019-01-19 19:41:09.104   Application receive_token            224 FINE    : Node 2 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.104   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.util.Message@531d72ca
+2019-01-19 19:41:09.104   Application receive_request          186 FINE    : Node 1 receive request message from Node 4 for Node 4
+2019-01-19 19:41:09.105   Application releaseCS                164 FINE    : Node 2 next=[0, 3, 1]
+2019-01-19 19:41:09.105   Application changestate              231 FINE    : Node 2 state : tranquil
+2019-01-19 19:41:09.105   Application releaseCS                177 FINE    : Node 2 next=[]
+2019-01-19 19:41:09.105   Application releaseCS                179 FINE    : Node 2 ***** END CS ! *****
+2019-01-19 19:41:09.106   CheckpointerImpl createCheckpo       171 INFO    : Node 0 BEGIN
+2019-01-19 19:41:09.106   CheckpointerImpl createCheckpo       181 FINE    : Node 0 : saved  state (1) ( next = []) ( last = -2) ( nb_cs = 2) ( state = requesting) ( global_counter = 6)  sent = {0=0, 1=0, 2=1, 3=2, 4=1} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.106   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.application.TokenMessage@22d8cfe0
+2019-01-19 19:41:09.106   Application receive_token            216 FINE    : Node 0 receive token message ([3, 1], counter = 10) from Node 2 next =[]
+2019-01-19 19:41:09.107   Application changestate              231 FINE    : Node 0 state : inCS
+2019-01-19 19:41:09.107   Application executeCS                126 INFO    : Node 0 executing its CS num 2 : next= [3, 1]
+2019-01-19 19:41:09.108   Application executeCS                128 INFO    : Node 0 global counter = 11
+2019-01-19 19:41:09.108   Application receive_token            224 FINE    : Node 0 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.108   Application changestate              231 FINE    : Node 2 state : requesting
+2019-01-19 19:41:09.109   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.util.Message@579bb367
+2019-01-19 19:41:09.109   Application receive_request          186 FINE    : Node 1 receive request message from Node 2 for Node 2
+2019-01-19 19:41:09.110   Application releaseCS                164 FINE    : Node 0 next=[3, 1]
+2019-01-19 19:41:09.110   Application changestate              231 FINE    : Node 0 state : tranquil
+2019-01-19 19:41:09.110   Application releaseCS                177 FINE    : Node 0 next=[]
+2019-01-19 19:41:09.111   Application releaseCS                179 FINE    : Node 0 ***** END CS ! *****
+2019-01-19 19:41:09.111   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.application.TokenMessage@1de0aca6
+2019-01-19 19:41:09.111   Application receive_token            216 FINE    : Node 3 receive token message ([1], counter = 11) from Node 0 next =[]
+2019-01-19 19:41:09.112   Application changestate              231 FINE    : Node 3 state : inCS
+2019-01-19 19:41:09.116   Application executeCS                126 INFO    : Node 3 executing its CS num 2 : next= [1]
+2019-01-19 19:41:09.118   Application executeCS                128 INFO    : Node 3 global counter = 12
+2019-01-19 19:41:09.120   Application receive_token            224 FINE    : Node 3 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.121   Application changestate              231 FINE    : Node 0 state : requesting
+2019-01-19 19:41:09.121   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.util.Message@255316f2
+2019-01-19 19:41:09.122   Application receive_request          186 FINE    : Node 1 receive request message from Node 0 for Node 0
+2019-01-19 19:41:09.122   Application releaseCS                164 FINE    : Node 3 next=[1]
+2019-01-19 19:41:09.122   Application changestate              231 FINE    : Node 3 state : tranquil
+2019-01-19 19:41:09.123   Application releaseCS                177 FINE    : Node 3 next=[]
+2019-01-19 19:41:09.123   Application releaseCS                179 FINE    : Node 3 ***** END CS ! *****
+2019-01-19 19:41:09.123   Application changestate              231 FINE    : Node 3 state : requesting
+2019-01-19 19:41:09.124   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.application.TokenMessage@41906a77
+2019-01-19 19:41:09.124   Application receive_token            216 FINE    : Node 1 receive token message ([], counter = 12) from Node 3 next =[4, 2, 0]
+2019-01-19 19:41:09.125   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.125   Application executeCS                126 INFO    : Node 1 executing its CS num 2 : next= [4, 2, 0]
+2019-01-19 19:41:09.125   Application executeCS                128 INFO    : Node 1 global counter = 13
+2019-01-19 19:41:09.125   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.126   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.util.Message@4b9af9a9
+2019-01-19 19:41:09.126   Application receive_request          186 FINE    : Node 1 receive request message from Node 3 for Node 3
+2019-01-19 19:41:09.126   CheckpointerImpl createCheckpo       171 INFO    : Node 1 BEGIN
+2019-01-19 19:41:09.127   CheckpointerImpl createCheckpo       181 FINE    : Node 1 : saved  state (1) ( next = [4, 2, 0, 3]) ( last = -2) ( nb_cs = 2) ( state = inCS) ( global_counter = 13)  sent = {0=1, 1=0, 2=1, 3=0, 4=3} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.127   Application releaseCS                164 FINE    : Node 1 next=[4, 2, 0, 3]
+2019-01-19 19:41:09.128   Application changestate              231 FINE    : Node 1 state : tranquil
+2019-01-19 19:41:09.128   Application releaseCS                177 FINE    : Node 1 next=[]
+2019-01-19 19:41:09.128   Application releaseCS                179 FINE    : Node 1 ***** END CS ! *****
+2019-01-19 19:41:09.128   FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.application.TokenMessage@5387f9e0
+2019-01-19 19:41:09.129   Application receive_token            216 FINE    : Node 4 receive token message ([2, 0, 3], counter = 13) from Node 1 next =[]
+2019-01-19 19:41:09.129   Application changestate              231 FINE    : Node 4 state : inCS
+2019-01-19 19:41:09.129   Application executeCS                126 INFO    : Node 4 executing its CS num 2 : next= [2, 0, 3]
+2019-01-19 19:41:09.129   Application executeCS                128 INFO    : Node 4 global counter = 14
+2019-01-19 19:41:09.129   Application receive_token            224 FINE    : Node 4 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.130   Application changestate              231 FINE    : Node 1 state : requesting
+2019-01-19 19:41:09.130   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.util.Message@6e5e91e4
+2019-01-19 19:41:09.130   Application receive_request          186 FINE    : Node 3 receive request message from Node 1 for Node 1
+2019-01-19 19:41:09.131   Application releaseCS                164 FINE    : Node 4 next=[2, 0, 3]
+2019-01-19 19:41:09.131   Application changestate              231 FINE    : Node 4 state : tranquil
+2019-01-19 19:41:09.131   Application releaseCS                177 FINE    : Node 4 next=[]
+2019-01-19 19:41:09.131   Application releaseCS                179 FINE    : Node 4 ***** END CS ! *****
+2019-01-19 19:41:09.132   FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.application.TokenMessage@2cdf8d8a
+2019-01-19 19:41:09.132   Application receive_token            216 FINE    : Node 2 receive token message ([0, 3], counter = 14) from Node 4 next =[]
+2019-01-19 19:41:09.132   Application changestate              231 FINE    : Node 2 state : inCS
+2019-01-19 19:41:09.133   Application executeCS                126 INFO    : Node 2 executing its CS num 2 : next= [0, 3]
+2019-01-19 19:41:09.136   Application executeCS                128 INFO    : Node 2 global counter = 15
+2019-01-19 19:41:09.137   Application receive_token            224 FINE    : Node 2 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.137   Application changestate              231 FINE    : Node 4 state : requesting
+2019-01-19 19:41:09.138   Application releaseCS                164 FINE    : Node 2 next=[0, 3]
+2019-01-19 19:41:09.138   Application changestate              231 FINE    : Node 2 state : tranquil
+2019-01-19 19:41:09.140   Application releaseCS                177 FINE    : Node 2 next=[]
+2019-01-19 19:41:09.141   Application releaseCS                179 FINE    : Node 2 ***** END CS ! *****
+2019-01-19 19:41:09.141   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.application.TokenMessage@30946e09
+2019-01-19 19:41:09.141   Application receive_token            216 FINE    : Node 0 receive token message ([3], counter = 15) from Node 2 next =[]
+2019-01-19 19:41:09.142   Application changestate              231 FINE    : Node 0 state : inCS
+2019-01-19 19:41:09.142   Application executeCS                126 INFO    : Node 0 executing its CS num 3 : next= [3]
+2019-01-19 19:41:09.142   Application executeCS                128 INFO    : Node 0 global counter = 16
+2019-01-19 19:41:09.143   Application receive_token            224 FINE    : Node 0 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.143   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.util.Message@5cb0d902
+2019-01-19 19:41:09.143   Application receive_request          186 FINE    : Node 3 receive request message from Node 4 for Node 4
+2019-01-19 19:41:09.144   Application changestate              231 FINE    : Node 2 state : requesting
+2019-01-19 19:41:09.144   CheckpointerImpl createCheckpo       171 INFO    : Node 4 BEGIN
+2019-01-19 19:41:09.145   CheckpointerImpl createCheckpo       181 FINE    : Node 4 : saved  state (1) ( next = []) ( last = -2) ( nb_cs = 3) ( state = requesting) ( global_counter = 14)  sent = {0=1, 1=1, 2=4, 3=1, 4=0} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.145   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.util.Message@46fbb2c1
+2019-01-19 19:41:09.145   Application receive_request          186 FINE    : Node 3 receive request message from Node 2 for Node 2
+2019-01-19 19:41:09.146   Application releaseCS                164 FINE    : Node 0 next=[3]
+2019-01-19 19:41:09.146   Application changestate              231 FINE    : Node 0 state : tranquil
+2019-01-19 19:41:09.146   Application releaseCS                177 FINE    : Node 0 next=[]
+2019-01-19 19:41:09.146   Application releaseCS                179 FINE    : Node 0 ***** END CS ! *****
+2019-01-19 19:41:09.147   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.application.TokenMessage@1698c449
+2019-01-19 19:41:09.147   Application receive_token            216 FINE    : Node 3 receive token message ([], counter = 16) from Node 0 next =[1, 4, 2]
+2019-01-19 19:41:09.147   Application changestate              231 FINE    : Node 3 state : inCS
+2019-01-19 19:41:09.147   Application executeCS                126 INFO    : Node 3 executing its CS num 3 : next= [1, 4, 2]
+2019-01-19 19:41:09.147   Application executeCS                128 INFO    : Node 3 global counter = 17
+2019-01-19 19:41:09.148   Application receive_token            224 FINE    : Node 3 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.148   Application changestate              231 FINE    : Node 0 state : requesting
+2019-01-19 19:41:09.148   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.util.Message@5ef04b5
+2019-01-19 19:41:09.148   Application receive_request          186 FINE    : Node 3 receive request message from Node 0 for Node 0
+2019-01-19 19:41:09.149   Application releaseCS                164 FINE    : Node 3 next=[1, 4, 2, 0]
+2019-01-19 19:41:09.149   Application changestate              231 FINE    : Node 3 state : tranquil
+2019-01-19 19:41:09.149   Application releaseCS                177 FINE    : Node 3 next=[]
+2019-01-19 19:41:09.149   Application releaseCS                179 FINE    : Node 3 ***** END CS ! *****
+2019-01-19 19:41:09.149   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.application.TokenMessage@5f4da5c3
+2019-01-19 19:41:09.150   Application receive_token            216 FINE    : Node 1 receive token message ([4, 2, 0], counter = 17) from Node 3 next =[]
+2019-01-19 19:41:09.150   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.150   Application executeCS                126 INFO    : Node 1 executing its CS num 3 : next= [4, 2, 0]
+2019-01-19 19:41:09.151   Application executeCS                128 INFO    : Node 1 global counter = 18
+2019-01-19 19:41:09.151   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.152   Application changestate              231 FINE    : Node 3 state : requesting
+2019-01-19 19:41:09.152   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.util.Message@443b7951
+2019-01-19 19:41:09.152   Application receive_request          186 FINE    : Node 0 receive request message from Node 3 for Node 3
+2019-01-19 19:41:09.153   Application releaseCS                164 FINE    : Node 1 next=[4, 2, 0]
+2019-01-19 19:41:09.153   Application changestate              231 FINE    : Node 1 state : tranquil
+2019-01-19 19:41:09.153   Application releaseCS                177 FINE    : Node 1 next=[]
+2019-01-19 19:41:09.153   Application releaseCS                179 FINE    : Node 1 ***** END CS ! *****
+2019-01-19 19:41:09.154   FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.application.TokenMessage@14514713
+2019-01-19 19:41:09.154   Application receive_token            216 FINE    : Node 4 receive token message ([2, 0], counter = 18) from Node 1 next =[]
+2019-01-19 19:41:09.154   Application changestate              231 FINE    : Node 4 state : inCS
+2019-01-19 19:41:09.154   Application executeCS                126 INFO    : Node 4 executing its CS num 3 : next= [2, 0]
+2019-01-19 19:41:09.155   Application executeCS                128 INFO    : Node 4 global counter = 19
+2019-01-19 19:41:09.155   Application receive_token            224 FINE    : Node 4 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.155   Application changestate              231 FINE    : Node 1 state : requesting
+2019-01-19 19:41:09.156   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.util.Message@69663380
+2019-01-19 19:41:09.156   Application receive_request          186 FINE    : Node 0 receive request message from Node 1 for Node 1
+2019-01-19 19:41:09.156   Application releaseCS                164 FINE    : Node 4 next=[2, 0]
+2019-01-19 19:41:09.157   Application changestate              231 FINE    : Node 4 state : tranquil
+2019-01-19 19:41:09.157   Application releaseCS                177 FINE    : Node 4 next=[]
+2019-01-19 19:41:09.157   Application releaseCS                179 FINE    : Node 4 ***** END CS ! *****
+2019-01-19 19:41:09.157   FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.application.TokenMessage@5b37e0d2
+2019-01-19 19:41:09.158   Application receive_token            216 FINE    : Node 2 receive token message ([0], counter = 19) from Node 4 next =[]
+2019-01-19 19:41:09.158   Application changestate              231 FINE    : Node 2 state : inCS
+2019-01-19 19:41:09.158   Application executeCS                126 INFO    : Node 2 executing its CS num 3 : next= [0]
+2019-01-19 19:41:09.159   Application executeCS                128 INFO    : Node 2 global counter = 20
+2019-01-19 19:41:09.159   Application receive_token            224 FINE    : Node 2 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.159   Application changestate              231 FINE    : Node 4 state : requesting
+2019-01-19 19:41:09.159   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.util.Message@4459eb14
+2019-01-19 19:41:09.160   Application receive_request          186 FINE    : Node 0 receive request message from Node 4 for Node 4
+2019-01-19 19:41:09.160   Application releaseCS                164 FINE    : Node 2 next=[0]
+2019-01-19 19:41:09.160   Application changestate              231 FINE    : Node 2 state : tranquil
+2019-01-19 19:41:09.161   Application releaseCS                177 FINE    : Node 2 next=[]
+2019-01-19 19:41:09.161   Application releaseCS                179 FINE    : Node 2 ***** END CS ! *****
+2019-01-19 19:41:09.161   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.application.TokenMessage@5a2e4553
+2019-01-19 19:41:09.161   Application receive_token            216 FINE    : Node 0 receive token message ([], counter = 20) from Node 2 next =[3, 1, 4]
+2019-01-19 19:41:09.162   Application changestate              231 FINE    : Node 0 state : inCS
+2019-01-19 19:41:09.162   Application executeCS                126 INFO    : Node 0 executing its CS num 4 : next= [3, 1, 4]
+2019-01-19 19:41:09.162   Application executeCS                128 INFO    : Node 0 global counter = 21
+2019-01-19 19:41:09.163   Application receive_token            224 FINE    : Node 0 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.163   Application changestate              231 FINE    : Node 2 state : requesting
+2019-01-19 19:41:09.163   CheckpointerImpl createCheckpo       171 INFO    : Node 1 BEGIN
+2019-01-19 19:41:09.164   CheckpointerImpl createCheckpo       181 FINE    : Node 1 : saved  state (2) ( next = []) ( last = -2) ( nb_cs = 4) ( state = requesting) ( global_counter = 18)  sent = {0=2, 1=0, 2=1, 3=1, 4=5} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.164   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.util.Message@28c97a5
+2019-01-19 19:41:09.164   Application receive_request          186 FINE    : Node 0 receive request message from Node 2 for Node 2
+2019-01-19 19:41:09.164   Application releaseCS                164 FINE    : Node 0 next=[3, 1, 4, 2]
+2019-01-19 19:41:09.164   Application changestate              231 FINE    : Node 0 state : tranquil
+2019-01-19 19:41:09.165   Application releaseCS                177 FINE    : Node 0 next=[]
+2019-01-19 19:41:09.165   Application releaseCS                179 FINE    : Node 0 ***** END CS ! *****
+2019-01-19 19:41:09.165   CheckpointerImpl createCheckpo       171 INFO    : Node 3 BEGIN
+2019-01-19 19:41:09.165   CheckpointerImpl createCheckpo       181 FINE    : Node 3 : saved  state (1) ( next = []) ( last = -2) ( nb_cs = 4) ( state = requesting) ( global_counter = 17)  sent = {0=2, 1=5, 2=1, 3=0, 4=1} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.166   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.application.TokenMessage@6659c656
+2019-01-19 19:41:09.166   Application receive_token            216 FINE    : Node 3 receive token message ([1, 4, 2], counter = 21) from Node 0 next =[]
+2019-01-19 19:41:09.166   Application changestate              231 FINE    : Node 3 state : inCS
+2019-01-19 19:41:09.169   Application executeCS                126 INFO    : Node 3 executing its CS num 4 : next= [1, 4, 2]
+2019-01-19 19:41:09.169   Application executeCS                128 INFO    : Node 3 global counter = 22
+2019-01-19 19:41:09.169   Application receive_token            224 FINE    : Node 3 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.170   Application changestate              231 FINE    : Node 0 state : requesting
+2019-01-19 19:41:09.170   FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.util.Message@6d5380c2
+2019-01-19 19:41:09.170   Application receive_request          186 FINE    : Node 2 receive request message from Node 0 for Node 0
+2019-01-19 19:41:09.171   Application releaseCS                164 FINE    : Node 3 next=[1, 4, 2]
+2019-01-19 19:41:09.171   Application changestate              231 FINE    : Node 3 state : tranquil
+2019-01-19 19:41:09.171   Application releaseCS                177 FINE    : Node 3 next=[]
+2019-01-19 19:41:09.171   Application releaseCS                179 FINE    : Node 3 ***** END CS ! *****
+2019-01-19 19:41:09.172   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.application.TokenMessage@45ff54e6
+2019-01-19 19:41:09.172   Application receive_token            216 FINE    : Node 1 receive token message ([4, 2], counter = 22) from Node 3 next =[]
+2019-01-19 19:41:09.172   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.172   Application executeCS                126 INFO    : Node 1 executing its CS num 4 : next= [4, 2]
+2019-01-19 19:41:09.173   Application executeCS                128 INFO    : Node 1 global counter = 23
+2019-01-19 19:41:09.173   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.173   Application changestate              231 FINE    : Node 3 state : requesting
+2019-01-19 19:41:09.174   FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.util.Message@2328c243
+2019-01-19 19:41:09.174   Application receive_request          186 FINE    : Node 2 receive request message from Node 3 for Node 3
+2019-01-19 19:41:09.174   Application releaseCS                164 FINE    : Node 1 next=[4, 2]
+2019-01-19 19:41:09.175   Application changestate              231 FINE    : Node 1 state : tranquil
+2019-01-19 19:41:09.175   Application releaseCS                177 FINE    : Node 1 next=[]
+2019-01-19 19:41:09.175   Application releaseCS                179 FINE    : Node 1 ***** END CS ! *****
+2019-01-19 19:41:09.175   FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.application.TokenMessage@bebdb06
+2019-01-19 19:41:09.176   Application receive_token            216 FINE    : Node 4 receive token message ([2], counter = 23) from Node 1 next =[]
+2019-01-19 19:41:09.176   Application changestate              231 FINE    : Node 4 state : inCS
+2019-01-19 19:41:09.176   Application executeCS                126 INFO    : Node 4 executing its CS num 4 : next= [2]
+2019-01-19 19:41:09.176   Application executeCS                128 INFO    : Node 4 global counter = 24
+2019-01-19 19:41:09.177   Application receive_token            224 FINE    : Node 4 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.177   Application changestate              231 FINE    : Node 1 state : requesting
+2019-01-19 19:41:09.177   FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.util.Message@7a4f0f29
+2019-01-19 19:41:09.178   Application receive_request          186 FINE    : Node 2 receive request message from Node 1 for Node 1
+2019-01-19 19:41:09.178   Application releaseCS                164 FINE    : Node 4 next=[2]
+2019-01-19 19:41:09.178   Application changestate              231 FINE    : Node 4 state : tranquil
+2019-01-19 19:41:09.184   Application releaseCS                177 FINE    : Node 4 next=[]
+2019-01-19 19:41:09.185   Application releaseCS                179 FINE    : Node 4 ***** END CS ! *****
+2019-01-19 19:41:09.185   FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.application.TokenMessage@45283ce2
+2019-01-19 19:41:09.185   Application receive_token            216 FINE    : Node 2 receive token message ([], counter = 24) from Node 4 next =[0, 3, 1]
+2019-01-19 19:41:09.186   Application changestate              231 FINE    : Node 2 state : inCS
+2019-01-19 19:41:09.186   Application executeCS                126 INFO    : Node 2 executing its CS num 4 : next= [0, 3, 1]
+2019-01-19 19:41:09.186   Application executeCS                128 INFO    : Node 2 global counter = 25
+2019-01-19 19:41:09.186   Application receive_token            224 FINE    : Node 2 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.187   Application changestate              231 FINE    : Node 4 state : requesting
+2019-01-19 19:41:09.187   FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.util.Message@2077d4de
+2019-01-19 19:41:09.187   Application receive_request          186 FINE    : Node 2 receive request message from Node 4 for Node 4
+2019-01-19 19:41:09.187   Application releaseCS                164 FINE    : Node 2 next=[0, 3, 1, 4]
+2019-01-19 19:41:09.188   Application changestate              231 FINE    : Node 2 state : tranquil
+2019-01-19 19:41:09.188   Application releaseCS                177 FINE    : Node 2 next=[]
+2019-01-19 19:41:09.189   Application releaseCS                179 FINE    : Node 2 ***** END CS ! *****
+2019-01-19 19:41:09.189   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.application.TokenMessage@7591083d
+2019-01-19 19:41:09.189   Application receive_token            216 FINE    : Node 0 receive token message ([3, 1, 4], counter = 25) from Node 2 next =[]
+2019-01-19 19:41:09.189   Application changestate              231 FINE    : Node 0 state : inCS
+2019-01-19 19:41:09.190   Application executeCS                126 INFO    : Node 0 executing its CS num 5 : next= [3, 1, 4]
+2019-01-19 19:41:09.190   Application executeCS                128 INFO    : Node 0 global counter = 26
+2019-01-19 19:41:09.190   Application receive_token            224 FINE    : Node 0 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.190   Application changestate              231 FINE    : Node 2 state : requesting
+2019-01-19 19:41:09.191   FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.util.Message@77a567e1
+2019-01-19 19:41:09.191   Application receive_request          186 FINE    : Node 4 receive request message from Node 2 for Node 2
+2019-01-19 19:41:09.191   Application releaseCS                164 FINE    : Node 0 next=[3, 1, 4]
+2019-01-19 19:41:09.191   Application changestate              231 FINE    : Node 0 state : tranquil
+2019-01-19 19:41:09.192   Application releaseCS                177 FINE    : Node 0 next=[]
+2019-01-19 19:41:09.192   Application releaseCS                179 FINE    : Node 0 ***** END CS ! *****
+2019-01-19 19:41:09.192   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.application.TokenMessage@736e9adb
+2019-01-19 19:41:09.192   Application receive_token            216 FINE    : Node 3 receive token message ([1, 4], counter = 26) from Node 0 next =[]
+2019-01-19 19:41:09.193   Application changestate              231 FINE    : Node 3 state : inCS
+2019-01-19 19:41:09.193   Application executeCS                126 INFO    : Node 3 executing its CS num 5 : next= [1, 4]
+2019-01-19 19:41:09.194   Application executeCS                128 INFO    : Node 3 global counter = 27
+2019-01-19 19:41:09.194   Application receive_token            224 FINE    : Node 3 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.194   Application changestate              231 FINE    : Node 0 state : requesting
+2019-01-19 19:41:09.195   CheckpointerImpl createCheckpo       171 INFO    : Node 1 BEGIN
+2019-01-19 19:41:09.195   CheckpointerImpl createCheckpo       181 FINE    : Node 1 : saved  state (3) ( next = []) ( last = -2) ( nb_cs = 5) ( state = requesting) ( global_counter = 23)  sent = {0=2, 1=0, 2=2, 3=1, 4=6} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.195   FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.util.Message@6d21714c
+2019-01-19 19:41:09.196   Application receive_request          186 FINE    : Node 4 receive request message from Node 0 for Node 0
+2019-01-19 19:41:09.196   Application releaseCS                164 FINE    : Node 3 next=[1, 4]
+2019-01-19 19:41:09.196   Application changestate              231 FINE    : Node 3 state : tranquil
+2019-01-19 19:41:09.197   Application releaseCS                177 FINE    : Node 3 next=[]
+2019-01-19 19:41:09.197   Application releaseCS                179 FINE    : Node 3 ***** END CS ! *****
+2019-01-19 19:41:09.197   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.application.TokenMessage@108c4c35
+2019-01-19 19:41:09.197   Application receive_token            216 FINE    : Node 1 receive token message ([4], counter = 27) from Node 3 next =[]
+2019-01-19 19:41:09.197   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.198   Application executeCS                126 INFO    : Node 1 executing its CS num 5 : next= [4]
+2019-01-19 19:41:09.198   Application executeCS                128 INFO    : Node 1 global counter = 28
+2019-01-19 19:41:09.198   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.198   Application changestate              231 FINE    : Node 3 state : requesting
+2019-01-19 19:41:09.198   FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.util.Message@4ccabbaa
+2019-01-19 19:41:09.198   Application receive_request          186 FINE    : Node 4 receive request message from Node 3 for Node 3
+2019-01-19 19:41:09.199   Application releaseCS                164 FINE    : Node 1 next=[4]
+2019-01-19 19:41:09.199   Application changestate              231 FINE    : Node 1 state : tranquil
+2019-01-19 19:41:09.199   Application releaseCS                177 FINE    : Node 1 next=[]
+2019-01-19 19:41:09.199   Application releaseCS                179 FINE    : Node 1 ***** END CS ! *****
+2019-01-19 19:41:09.200   FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.application.TokenMessage@4bf558aa
+2019-01-19 19:41:09.200   Application receive_token            216 FINE    : Node 4 receive token message ([], counter = 28) from Node 1 next =[2, 0, 3]
+2019-01-19 19:41:09.200   Application changestate              231 FINE    : Node 4 state : inCS
+2019-01-19 19:41:09.200   Application executeCS                126 INFO    : Node 4 executing its CS num 5 : next= [2, 0, 3]
+2019-01-19 19:41:09.201   Application executeCS                128 INFO    : Node 4 global counter = 29
+2019-01-19 19:41:09.201   Application receive_token            224 FINE    : Node 4 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.201   Application changestate              231 FINE    : Node 1 state : requesting
+2019-01-19 19:41:09.201   FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.util.Message@2d38eb89
+2019-01-19 19:41:09.202   Application receive_request          186 FINE    : Node 4 receive request message from Node 1 for Node 1
+2019-01-19 19:41:09.202   Application releaseCS                164 FINE    : Node 4 next=[2, 0, 3, 1]
+2019-01-19 19:41:09.203   Application changestate              231 FINE    : Node 4 state : tranquil
+2019-01-19 19:41:09.204   Application releaseCS                177 FINE    : Node 4 next=[]
+2019-01-19 19:41:09.204   Application releaseCS                179 FINE    : Node 4 ***** END CS ! *****
+2019-01-19 19:41:09.204   FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.application.TokenMessage@5fa7e7ff
+2019-01-19 19:41:09.204   Application receive_token            216 FINE    : Node 2 receive token message ([0, 3, 1], counter = 29) from Node 4 next =[]
+2019-01-19 19:41:09.204   Application changestate              231 FINE    : Node 2 state : inCS
+2019-01-19 19:41:09.204   Application executeCS                126 INFO    : Node 2 executing its CS num 5 : next= [0, 3, 1]
+2019-01-19 19:41:09.205   Application executeCS                128 INFO    : Node 2 global counter = 30
+2019-01-19 19:41:09.205   Application receive_token            224 FINE    : Node 2 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.205   Application changestate              231 FINE    : Node 4 state : requesting
+2019-01-19 19:41:09.205   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.util.Message@4629104a
+2019-01-19 19:41:09.205   Application receive_request          186 FINE    : Node 1 receive request message from Node 4 for Node 4
+2019-01-19 19:41:09.205   Application releaseCS                164 FINE    : Node 2 next=[0, 3, 1]
+2019-01-19 19:41:09.206   Application changestate              231 FINE    : Node 2 state : tranquil
+2019-01-19 19:41:09.206   Application releaseCS                177 FINE    : Node 2 next=[]
+2019-01-19 19:41:09.206   Application releaseCS                179 FINE    : Node 2 ***** END CS ! *****
+2019-01-19 19:41:09.206   Application changestate              231 FINE    : Node 2 state : requesting
+2019-01-19 19:41:09.206   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.application.TokenMessage@27f8302d
+2019-01-19 19:41:09.207   Application receive_token            216 FINE    : Node 0 receive token message ([3, 1], counter = 30) from Node 2 next =[]
+2019-01-19 19:41:09.207   Application changestate              231 FINE    : Node 0 state : inCS
+2019-01-19 19:41:09.207   Application executeCS                126 INFO    : Node 0 executing its CS num 6 : next= [3, 1]
+2019-01-19 19:41:09.207   Application executeCS                128 INFO    : Node 0 global counter = 31
+2019-01-19 19:41:09.207   Application receive_token            224 FINE    : Node 0 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.207   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.util.Message@4d76f3f8
+2019-01-19 19:41:09.207   Application receive_request          186 FINE    : Node 1 receive request message from Node 2 for Node 2
+2019-01-19 19:41:09.208   Application releaseCS                164 FINE    : Node 0 next=[3, 1]
+2019-01-19 19:41:09.208   Application changestate              231 FINE    : Node 0 state : tranquil
+2019-01-19 19:41:09.208   Application releaseCS                177 FINE    : Node 0 next=[]
+2019-01-19 19:41:09.208   Application releaseCS                179 FINE    : Node 0 ***** END CS ! *****
+2019-01-19 19:41:09.208   CheckpointerImpl createCheckpo       171 INFO    : Node 1 BEGIN
+2019-01-19 19:41:09.209   CheckpointerImpl createCheckpo       181 FINE    : Node 1 : saved  state (4) ( next = [4, 2]) ( last = -2) ( nb_cs = 6) ( state = requesting) ( global_counter = 28)  sent = {0=2, 1=0, 2=2, 3=1, 4=8} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.209   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.application.TokenMessage@2d8e6db6
+2019-01-19 19:41:09.209   Application receive_token            216 FINE    : Node 3 receive token message ([1], counter = 31) from Node 0 next =[]
+2019-01-19 19:41:09.209   Application changestate              231 FINE    : Node 3 state : inCS
+2019-01-19 19:41:09.210   Application executeCS                126 INFO    : Node 3 executing its CS num 6 : next= [1]
+2019-01-19 19:41:09.210   Application executeCS                128 INFO    : Node 3 global counter = 32
+2019-01-19 19:41:09.210   Application receive_token            224 FINE    : Node 3 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.210   Application changestate              231 FINE    : Node 0 state : requesting
+2019-01-19 19:41:09.210   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.util.Message@23ab930d
+2019-01-19 19:41:09.211   Application receive_request          186 FINE    : Node 1 receive request message from Node 0 for Node 0
+2019-01-19 19:41:09.211   Application releaseCS                164 FINE    : Node 3 next=[1]
+2019-01-19 19:41:09.211   Application changestate              231 FINE    : Node 3 state : tranquil
+2019-01-19 19:41:09.211   Application releaseCS                177 FINE    : Node 3 next=[]
+2019-01-19 19:41:09.212   Application releaseCS                179 FINE    : Node 3 ***** END CS ! *****
+2019-01-19 19:41:09.212   Application changestate              231 FINE    : Node 3 state : requesting
+2019-01-19 19:41:09.212   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.application.TokenMessage@4534b60d
+2019-01-19 19:41:09.212   Application receive_token            216 FINE    : Node 1 receive token message ([], counter = 32) from Node 3 next =[4, 2, 0]
+2019-01-19 19:41:09.213   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.213   Application executeCS                126 INFO    : Node 1 executing its CS num 6 : next= [4, 2, 0]
+2019-01-19 19:41:09.213   Application executeCS                128 INFO    : Node 1 global counter = 33
+2019-01-19 19:41:09.213   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.213   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.util.Message@3fa77460
+2019-01-19 19:41:09.213   Application receive_request          186 FINE    : Node 1 receive request message from Node 3 for Node 3
+2019-01-19 19:41:09.214   Application releaseCS                164 FINE    : Node 1 next=[4, 2, 0, 3]
+2019-01-19 19:41:09.214   Application changestate              231 FINE    : Node 1 state : tranquil
+2019-01-19 19:41:09.214   Application releaseCS                177 FINE    : Node 1 next=[]
+2019-01-19 19:41:09.214   Application releaseCS                179 FINE    : Node 1 ***** END CS ! *****
+2019-01-19 19:41:09.214   CheckpointerImpl createCheckpo       171 INFO    : Node 2 BEGIN
+2019-01-19 19:41:09.215   CheckpointerImpl createCheckpo       181 FINE    : Node 2 : saved  state (2) ( next = []) ( last = -2) ( nb_cs = 6) ( state = requesting) ( global_counter = 30)  sent = {0=8, 1=2, 2=0, 3=1, 4=2} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.215   FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.application.TokenMessage@619a5dff
+2019-01-19 19:41:09.215   Application receive_token            216 FINE    : Node 4 receive token message ([2, 0, 3], counter = 33) from Node 1 next =[]
+2019-01-19 19:41:09.216   Application changestate              231 FINE    : Node 4 state : inCS
+2019-01-19 19:41:09.216   Application executeCS                126 INFO    : Node 4 executing its CS num 6 : next= [2, 0, 3]
+2019-01-19 19:41:09.216   Application executeCS                128 INFO    : Node 4 global counter = 34
+2019-01-19 19:41:09.216   Application receive_token            224 FINE    : Node 4 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.217   Application changestate              231 FINE    : Node 1 state : requesting
+2019-01-19 19:41:09.217   Application releaseCS                164 FINE    : Node 4 next=[2, 0, 3]
+2019-01-19 19:41:09.217   Application changestate              231 FINE    : Node 4 state : tranquil
+2019-01-19 19:41:09.217   Application releaseCS                177 FINE    : Node 4 next=[]
+2019-01-19 19:41:09.217   Application releaseCS                179 FINE    : Node 4 ***** END CS ! *****
+2019-01-19 19:41:09.217   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.util.Message@1ed6993a
+2019-01-19 19:41:09.218   Application receive_request          186 FINE    : Node 3 receive request message from Node 1 for Node 1
+2019-01-19 19:41:09.218   FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.application.TokenMessage@7e32c033
+2019-01-19 19:41:09.218   Application receive_token            216 FINE    : Node 2 receive token message ([0, 3], counter = 34) from Node 4 next =[]
+2019-01-19 19:41:09.218   Application changestate              231 FINE    : Node 2 state : inCS
+2019-01-19 19:41:09.219   Application executeCS                126 INFO    : Node 2 executing its CS num 6 : next= [0, 3]
+2019-01-19 19:41:09.219   Application executeCS                128 INFO    : Node 2 global counter = 35
+2019-01-19 19:41:09.220   Application receive_token            224 FINE    : Node 2 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.220   Application changestate              231 FINE    : Node 4 state : requesting
+2019-01-19 19:41:09.220   CheckpointerImpl createCheckpo       171 INFO    : Node 0 BEGIN
+2019-01-19 19:41:09.221   CheckpointerImpl createCheckpo       181 FINE    : Node 0 : saved  state (2) ( next = []) ( last = -2) ( nb_cs = 7) ( state = requesting) ( global_counter = 31)  sent = {0=0, 1=2, 2=2, 3=8, 4=2} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.221   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.util.Message@7ab2bfe1
+2019-01-19 19:41:09.221   Application receive_request          186 FINE    : Node 3 receive request message from Node 4 for Node 4
+2019-01-19 19:41:09.221   Application releaseCS                164 FINE    : Node 2 next=[0, 3]
+2019-01-19 19:41:09.221   Application changestate              231 FINE    : Node 2 state : tranquil
+2019-01-19 19:41:09.221   Application releaseCS                177 FINE    : Node 2 next=[]
+2019-01-19 19:41:09.222   Application releaseCS                179 FINE    : Node 2 ***** END CS ! *****
+2019-01-19 19:41:09.222   Application changestate              231 FINE    : Node 2 state : requesting
+2019-01-19 19:41:09.222   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.application.TokenMessage@497470ed
+2019-01-19 19:41:09.222   Application receive_token            216 FINE    : Node 0 receive token message ([3], counter = 35) from Node 2 next =[]
+2019-01-19 19:41:09.223   Application changestate              231 FINE    : Node 0 state : inCS
+2019-01-19 19:41:09.223   Application executeCS                126 INFO    : Node 0 executing its CS num 7 : next= [3]
+2019-01-19 19:41:09.223   Application executeCS                128 INFO    : Node 0 global counter = 36
+2019-01-19 19:41:09.223   Application receive_token            224 FINE    : Node 0 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.224   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.util.Message@63c12fb0
+2019-01-19 19:41:09.224   Application receive_request          186 FINE    : Node 3 receive request message from Node 2 for Node 2
+2019-01-19 19:41:09.224   Application releaseCS                164 FINE    : Node 0 next=[3]
+2019-01-19 19:41:09.225   Application changestate              231 FINE    : Node 0 state : tranquil
+2019-01-19 19:41:09.226   Application releaseCS                177 FINE    : Node 0 next=[]
+2019-01-19 19:41:09.227   Application releaseCS                179 FINE    : Node 0 ***** END CS ! *****
+2019-01-19 19:41:09.227   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.application.TokenMessage@b1a58a3
+2019-01-19 19:41:09.227   Application receive_token            216 FINE    : Node 3 receive token message ([], counter = 36) from Node 0 next =[1, 4, 2]
+2019-01-19 19:41:09.230   Application changestate              231 FINE    : Node 3 state : inCS
+2019-01-19 19:41:09.231   Application executeCS                126 INFO    : Node 3 executing its CS num 7 : next= [1, 4, 2]
+2019-01-19 19:41:09.231   Application executeCS                128 INFO    : Node 3 global counter = 37
+2019-01-19 19:41:09.231   Application receive_token            224 FINE    : Node 3 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.231   Application changestate              231 FINE    : Node 0 state : requesting
+2019-01-19 19:41:09.231   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.util.Message@6438a396
+2019-01-19 19:41:09.232   Application receive_request          186 FINE    : Node 3 receive request message from Node 0 for Node 0
+2019-01-19 19:41:09.232   Application releaseCS                164 FINE    : Node 3 next=[1, 4, 2, 0]
+2019-01-19 19:41:09.232   Application changestate              231 FINE    : Node 3 state : tranquil
+2019-01-19 19:41:09.232   Application releaseCS                177 FINE    : Node 3 next=[]
+2019-01-19 19:41:09.232   Application releaseCS                179 FINE    : Node 3 ***** END CS ! *****
+2019-01-19 19:41:09.233   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.application.TokenMessage@e2144e4
+2019-01-19 19:41:09.233   Application receive_token            216 FINE    : Node 1 receive token message ([4, 2, 0], counter = 37) from Node 3 next =[]
+2019-01-19 19:41:09.234   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.234   Application executeCS                126 INFO    : Node 1 executing its CS num 7 : next= [4, 2, 0]
+2019-01-19 19:41:09.234   Application executeCS                128 INFO    : Node 1 global counter = 38
+2019-01-19 19:41:09.235   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.235   Application changestate              231 FINE    : Node 3 state : requesting
+2019-01-19 19:41:09.235   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.util.Message@6477463f
+2019-01-19 19:41:09.236   Application receive_request          186 FINE    : Node 0 receive request message from Node 3 for Node 3
+2019-01-19 19:41:09.237   Application releaseCS                164 FINE    : Node 1 next=[4, 2, 0]
+2019-01-19 19:41:09.237   Application changestate              231 FINE    : Node 1 state : tranquil
+2019-01-19 19:41:09.238   Application releaseCS                177 FINE    : Node 1 next=[]
+2019-01-19 19:41:09.238   Application releaseCS                179 FINE    : Node 1 ***** END CS ! *****
+2019-01-19 19:41:09.238   FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.application.TokenMessage@3d71d552
+2019-01-19 19:41:09.239   Application receive_token            216 FINE    : Node 4 receive token message ([2, 0], counter = 38) from Node 1 next =[]
+2019-01-19 19:41:09.239   Application changestate              231 FINE    : Node 4 state : inCS
+2019-01-19 19:41:09.239   Application executeCS                126 INFO    : Node 4 executing its CS num 7 : next= [2, 0]
+2019-01-19 19:41:09.239   Application executeCS                128 INFO    : Node 4 global counter = 39
+2019-01-19 19:41:09.239   Application receive_token            224 FINE    : Node 4 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.240   CheckpointerImpl createCheckpo       171 INFO    : Node 4 BEGIN
+2019-01-19 19:41:09.240   CheckpointerImpl createCheckpo       181 FINE    : Node 4 : saved  state (2) ( next = [2, 0]) ( last = -2) ( nb_cs = 7) ( state = inCS) ( global_counter = 39)  sent = {0=2, 1=2, 2=9, 3=2, 4=0} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.240   Application changestate              231 FINE    : Node 1 state : requesting
+2019-01-19 19:41:09.241   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.util.Message@1cf4f579
+2019-01-19 19:41:09.241   Application receive_request          186 FINE    : Node 0 receive request message from Node 1 for Node 1
+2019-01-19 19:41:09.241   Application releaseCS                164 FINE    : Node 4 next=[2, 0]
+2019-01-19 19:41:09.241   Application changestate              231 FINE    : Node 4 state : tranquil
+2019-01-19 19:41:09.242   Application releaseCS                177 FINE    : Node 4 next=[]
+2019-01-19 19:41:09.242   Application releaseCS                179 FINE    : Node 4 ***** END CS ! *****
+2019-01-19 19:41:09.242   FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.application.TokenMessage@18769467
+2019-01-19 19:41:09.242   Application receive_token            216 FINE    : Node 2 receive token message ([0], counter = 39) from Node 4 next =[]
+2019-01-19 19:41:09.242   Application changestate              231 FINE    : Node 2 state : inCS
+2019-01-19 19:41:09.243   Application executeCS                126 INFO    : Node 2 executing its CS num 7 : next= [0]
+2019-01-19 19:41:09.243   Application executeCS                128 INFO    : Node 2 global counter = 40
+2019-01-19 19:41:09.243   Application receive_token            224 FINE    : Node 2 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.243   Application changestate              231 FINE    : Node 4 state : requesting
+2019-01-19 19:41:09.244   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.util.Message@46ee7fe8
+2019-01-19 19:41:09.244   Application receive_request          186 FINE    : Node 0 receive request message from Node 4 for Node 4
+2019-01-19 19:41:09.244   Application releaseCS                164 FINE    : Node 2 next=[0]
+2019-01-19 19:41:09.244   Application changestate              231 FINE    : Node 2 state : tranquil
+2019-01-19 19:41:09.244   Application releaseCS                177 FINE    : Node 2 next=[]
+2019-01-19 19:41:09.245   Application releaseCS                179 FINE    : Node 2 ***** END CS ! *****
+2019-01-19 19:41:09.245   Application changestate              231 FINE    : Node 2 state : requesting
+2019-01-19 19:41:09.245   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.application.TokenMessage@7506e922
+2019-01-19 19:41:09.245   Application receive_token            216 FINE    : Node 0 receive token message ([], counter = 40) from Node 2 next =[3, 1, 4]
+2019-01-19 19:41:09.246   Application changestate              231 FINE    : Node 0 state : inCS
+2019-01-19 19:41:09.246   Application executeCS                126 INFO    : Node 0 executing its CS num 8 : next= [3, 1, 4]
+2019-01-19 19:41:09.246   Application executeCS                128 INFO    : Node 0 global counter = 41
+2019-01-19 19:41:09.246   Application receive_token            224 FINE    : Node 0 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.246   FIFOTransport processEvent            91 WARNING : Node 0 message : projetara.util.Message@4ee285c6
+2019-01-19 19:41:09.247   Application receive_request          186 FINE    : Node 0 receive request message from Node 2 for Node 2
+2019-01-19 19:41:09.248   CheckpointerImpl createCheckpo       171 INFO    : Node 3 BEGIN
+2019-01-19 19:41:09.248   CheckpointerImpl createCheckpo       181 FINE    : Node 3 : saved  state (2) ( next = []) ( last = -2) ( nb_cs = 8) ( state = requesting) ( global_counter = 37)  sent = {0=3, 1=10, 2=2, 3=0, 4=2} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.249   CheckpointerImpl createCheckpo       171 INFO    : Node 0 BEGIN
+2019-01-19 19:41:09.249   CheckpointerImpl createCheckpo       181 FINE    : Node 0 : saved  state (3) ( next = [3, 1, 4, 2]) ( last = -2) ( nb_cs = 8) ( state = inCS) ( global_counter = 41)  sent = {0=0, 1=2, 2=2, 3=10, 4=2} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.249   Application releaseCS                164 FINE    : Node 0 next=[3, 1, 4, 2]
+2019-01-19 19:41:09.250   Application changestate              231 FINE    : Node 0 state : tranquil
+2019-01-19 19:41:09.251   Application releaseCS                177 FINE    : Node 0 next=[]
+2019-01-19 19:41:09.252   Application releaseCS                179 FINE    : Node 0 ***** END CS ! *****
+2019-01-19 19:41:09.255   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.application.TokenMessage@621be5d1
+2019-01-19 19:41:09.256   Application receive_token            216 FINE    : Node 3 receive token message ([1, 4, 2], counter = 41) from Node 0 next =[]
+2019-01-19 19:41:09.256   Application changestate              231 FINE    : Node 3 state : inCS
+2019-01-19 19:41:09.256   Application executeCS                126 INFO    : Node 3 executing its CS num 8 : next= [1, 4, 2]
+2019-01-19 19:41:09.256   Application executeCS                128 INFO    : Node 3 global counter = 42
+2019-01-19 19:41:09.256   Application receive_token            224 FINE    : Node 3 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.256   Application changestate              231 FINE    : Node 0 state : requesting
+2019-01-19 19:41:09.257   FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.util.Message@573fd745
+2019-01-19 19:41:09.257   Application receive_request          186 FINE    : Node 2 receive request message from Node 0 for Node 0
+2019-01-19 19:41:09.257   Application releaseCS                164 FINE    : Node 3 next=[1, 4, 2]
+2019-01-19 19:41:09.257   Application changestate              231 FINE    : Node 3 state : tranquil
+2019-01-19 19:41:09.257   Application releaseCS                177 FINE    : Node 3 next=[]
+2019-01-19 19:41:09.258   Application releaseCS                179 FINE    : Node 3 ***** END CS ! *****
+2019-01-19 19:41:09.258   CheckpointerImpl createCheckpo       171 INFO    : Node 4 BEGIN
+2019-01-19 19:41:09.258   CheckpointerImpl createCheckpo       181 FINE    : Node 4 : saved  state (3) ( next = []) ( last = -2) ( nb_cs = 8) ( state = requesting) ( global_counter = 39)  sent = {0=3, 1=2, 2=10, 3=2, 4=0} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.259   FIFOTransport processEvent            91 WARNING : Node 1 message : projetara.application.TokenMessage@15327b79
+2019-01-19 19:41:09.259   Application receive_token            216 FINE    : Node 1 receive token message ([4, 2], counter = 42) from Node 3 next =[]
+2019-01-19 19:41:09.259   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.259   Application executeCS                126 INFO    : Node 1 executing its CS num 8 : next= [4, 2]
+2019-01-19 19:41:09.259   Application executeCS                128 INFO    : Node 1 global counter = 43
+2019-01-19 19:41:09.260   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.260   Application changestate              231 FINE    : Node 3 state : requesting
+2019-01-19 19:41:09.260   FIFOTransport processEvent            91 WARNING : Node 2 message : projetara.util.Message@4f2410ac
+2019-01-19 19:41:09.261   Application receive_request          186 FINE    : Node 2 receive request message from Node 3 for Node 3
+2019-01-19 19:41:09.261   Application releaseCS                164 FINE    : Node 1 next=[4, 2]
+2019-01-19 19:41:09.261   Application changestate              231 FINE    : Node 1 state : tranquil
+2019-01-19 19:41:09.261   Application releaseCS                177 FINE    : Node 1 next=[]
+2019-01-19 19:41:09.261   Application releaseCS                179 FINE    : Node 1 ***** END CS ! *****
+2019-01-19 19:41:09.262   FIFOTransport processEvent            91 WARNING : Node 4 message : projetara.application.TokenMessage@722c41f4
+2019-01-19 19:41:09.262   Application receive_token            216 FINE    : Node 4 receive token message ([2], counter = 43) from Node 1 next =[]
+2019-01-19 19:41:09.262   Application changestate              231 FINE    : Node 4 state : inCS
+2019-01-19 19:41:09.262   Application executeCS                126 INFO    : Node 4 executing its CS num 8 : next= [2]
+2019-01-19 19:41:09.262   Application executeCS                128 INFO    : Node 4 global counter = 44
+2019-01-19 19:41:09.263   Application receive_token            224 FINE    : Node 4 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.263   CrashControler execute                50 INFO    : 4 EST EN PANNE !!!!!!
+2019-01-19 19:41:09.263   CrashControler execute                59 INFO    :  panne == True, checkpointer_id == 0
+2019-01-19 19:41:09.263   CrashControler execute                61 INFO    : 0 recover
+2019-01-19 19:41:09.263   CheckpointerImpl recover             191 INFO    : Node 0 : start recovering
+2019-01-19 19:41:09.264   CheckpointerImpl createCheckpo       171 INFO    : Node 0 BEGIN
+2019-01-19 19:41:09.264   CheckpointerImpl createCheckpo       181 FINE    : Node 0 : saved  state (4) ( next = []) ( last = -2) ( nb_cs = 9) ( state = requesting) ( global_counter = 41)  sent = {0=0, 1=2, 2=3, 3=11, 4=2} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.264   CheckpointerImpl recover             202 INFO    : Node 0 : start recovering (4 checkpoints) last state = ( next = []) ( last = -2) ( nb_cs = 9) ( state = requesting) ( global_counter = 41) 
+2019-01-19 19:41:09.266   CrashControler execute                61 INFO    : 1 recover
+2019-01-19 19:41:09.266   CheckpointerImpl recover             191 INFO    : Node 1 : start recovering
+2019-01-19 19:41:09.267   CheckpointerImpl createCheckpo       171 INFO    : Node 1 BEGIN
+2019-01-19 19:41:09.267   CheckpointerImpl createCheckpo       181 FINE    : Node 1 : saved  state (5) ( next = []) ( last = 2) ( nb_cs = 9) ( state = tranquil) ( global_counter = 43)  sent = {0=3, 1=0, 2=2, 3=2, 4=11} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.267   CheckpointerImpl recover             202 INFO    : Node 1 : start recovering (5 checkpoints) last state = ( next = []) ( last = 2) ( nb_cs = 9) ( state = tranquil) ( global_counter = 43) 
+2019-01-19 19:41:09.267   CrashControler execute                61 INFO    : 2 recover
+2019-01-19 19:41:09.268   CheckpointerImpl recover             191 INFO    : Node 2 : start recovering
+2019-01-19 19:41:09.268   CheckpointerImpl createCheckpo       171 INFO    : Node 2 BEGIN
+2019-01-19 19:41:09.269   CheckpointerImpl createCheckpo       181 FINE    : Node 2 : saved  state (3) ( next = [0, 3]) ( last = -2) ( nb_cs = 8) ( state = requesting) ( global_counter = 40)  sent = {0=11, 1=2, 2=0, 3=2, 4=2} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.269   CheckpointerImpl recover             202 INFO    : Node 2 : start recovering (3 checkpoints) last state = ( next = [0, 3]) ( last = -2) ( nb_cs = 8) ( state = requesting) ( global_counter = 40) 
+2019-01-19 19:41:09.270   CrashControler execute                61 INFO    : 3 recover
+2019-01-19 19:41:09.270   CheckpointerImpl recover             191 INFO    : Node 3 : start recovering
+2019-01-19 19:41:09.270   CheckpointerImpl createCheckpo       171 INFO    : Node 3 BEGIN
+2019-01-19 19:41:09.271   CheckpointerImpl createCheckpo       181 FINE    : Node 3 : saved  state (3) ( next = []) ( last = -2) ( nb_cs = 9) ( state = requesting) ( global_counter = 42)  sent = {0=3, 1=11, 2=3, 3=0, 4=2} rcvd = {0=0, 1=0, 2=0, 3=0, 4=0}
+2019-01-19 19:41:09.271   CheckpointerImpl recover             202 INFO    : Node 3 : start recovering (3 checkpoints) last state = ( next = []) ( last = -2) ( nb_cs = 9) ( state = requesting) ( global_counter = 42) 
+2019-01-19 19:41:09.271   CrashControler execute                61 INFO    : 4 recover
+2019-01-19 19:41:09.272   CheckpointerImpl recover             191 INFO    : Node 4 : start recovering
+2019-01-19 19:41:09.272   CheckpointerImpl recover             202 INFO    : Node 4 : start recovering (3 checkpoints) last state = ( next = []) ( last = -2) ( nb_cs = 8) ( state = requesting) ( global_counter = 39)
+...
+2019-01-19 19:41:09.390   CheckpointerImpl stop_recover        346 INFO    : Node 1 : end recovering (recover from checkpoint 5)  state = ( next = []) ( last = 2) ( nb_cs = 9) ( state = tranquil) ( global_counter = 43)  nb reply messages = 17
+2019-01-19 19:41:09.391   Application changestate              231 FINE    : Node 1 state : tranquil
+2019-01-19 19:41:09.391   Application receive_request          186 FINE    : Node 1 receive request message from Node 4 for Node 4
+2019-01-19 19:41:09.391   Application receive_request          207 FINE    : Node 1 send Message(request) to 2
+2019-01-19 19:41:09.391   Application receive_request          186 FINE    : Node 1 receive request message from Node 4 for Node 4
+2019-01-19 19:41:09.391   Application receive_request          207 FINE    : Node 1 send Message(request) to 4
+2019-01-19 19:41:09.392   Application receive_request          186 FINE    : Node 1 receive request message from Node 2 for Node 2
+2019-01-19 19:41:09.392   Application receive_request          207 FINE    : Node 1 send Message(request) to 4
+2019-01-19 19:41:09.392   Application receive_request          186 FINE    : Node 1 receive request message from Node 2 for Node 2
+2019-01-19 19:41:09.392   Application receive_request          207 FINE    : Node 1 send Message(request) to 2
+2019-01-19 19:41:09.392   Application receive_request          186 FINE    : Node 1 receive request message from Node 0 for Node 0
+2019-01-19 19:41:09.392   Application receive_request          207 FINE    : Node 1 send Message(request) to 2
+2019-01-19 19:41:09.392   Application receive_request          186 FINE    : Node 1 receive request message from Node 0 for Node 0
+2019-01-19 19:41:09.393   Application receive_request          207 FINE    : Node 1 send Message(request) to 0
+2019-01-19 19:41:09.393   Application receive_token            216 FINE    : Node 1 receive token message ([], counter = 42) from Node 3 next =[]
+2019-01-19 19:41:09.393   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.393   Application executeCS                126 INFO    : Node 1 executing its CS num 9 : next= []
+2019-01-19 19:41:09.393   Application executeCS                128 INFO    : Node 1 global counter = 43
+2019-01-19 19:41:09.393   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.393   Application receive_token            216 FINE    : Node 1 receive token message ([], counter = 42) from Node 3 next =[]
+2019-01-19 19:41:09.393   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.394   Application executeCS                126 INFO    : Node 1 executing its CS num 9 : next= []
+2019-01-19 19:41:09.394   Application executeCS                128 INFO    : Node 1 global counter = 43
+2019-01-19 19:41:09.394   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.394   Application receive_token            216 FINE    : Node 1 receive token message ([], counter = 42) from Node 3 next =[]
+2019-01-19 19:41:09.394   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.394   Application executeCS                126 INFO    : Node 1 executing its CS num 9 : next= []
+2019-01-19 19:41:09.394   Application executeCS                128 INFO    : Node 1 global counter = 43
+2019-01-19 19:41:09.394   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.394   Application receive_token            216 FINE    : Node 1 receive token message ([], counter = 42) from Node 3 next =[]
+2019-01-19 19:41:09.395   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.395   Application executeCS                126 INFO    : Node 1 executing its CS num 9 : next= []
+2019-01-19 19:41:09.395   Application executeCS                128 INFO    : Node 1 global counter = 43
+2019-01-19 19:41:09.395   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.395   Application receive_token            216 FINE    : Node 1 receive token message ([], counter = 42) from Node 3 next =[]
+2019-01-19 19:41:09.395   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.395   Application executeCS                126 INFO    : Node 1 executing its CS num 9 : next= []
+2019-01-19 19:41:09.395   Application executeCS                128 INFO    : Node 1 global counter = 43
+2019-01-19 19:41:09.396   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.396   Application receive_token            216 FINE    : Node 1 receive token message ([], counter = 42) from Node 3 next =[]
+2019-01-19 19:41:09.396   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.396   Application executeCS                126 INFO    : Node 1 executing its CS num 9 : next= []
+2019-01-19 19:41:09.396   Application executeCS                128 INFO    : Node 1 global counter = 43
+2019-01-19 19:41:09.396   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.396   Application receive_token            216 FINE    : Node 1 receive token message ([], counter = 42) from Node 3 next =[]
+2019-01-19 19:41:09.396   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.397   Application executeCS                126 INFO    : Node 1 executing its CS num 9 : next= []
+2019-01-19 19:41:09.397   Application executeCS                128 INFO    : Node 1 global counter = 43
+2019-01-19 19:41:09.397   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.397   Application receive_token            216 FINE    : Node 1 receive token message ([], counter = 42) from Node 3 next =[]
+2019-01-19 19:41:09.397   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.397   Application executeCS                126 INFO    : Node 1 executing its CS num 9 : next= []
+2019-01-19 19:41:09.398   Application executeCS                128 INFO    : Node 1 global counter = 43
+2019-01-19 19:41:09.398   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.398   Application receive_token            216 FINE    : Node 1 receive token message ([], counter = 42) from Node 3 next =[]
+2019-01-19 19:41:09.399   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.399   Application executeCS                126 INFO    : Node 1 executing its CS num 9 : next= []
+2019-01-19 19:41:09.399   Application executeCS                128 INFO    : Node 1 global counter = 43
+2019-01-19 19:41:09.399   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.399   Application receive_token            216 FINE    : Node 1 receive token message ([], counter = 42) from Node 3 next =[]
+2019-01-19 19:41:09.400   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.400   Application executeCS                126 INFO    : Node 1 executing its CS num 9 : next= []
+2019-01-19 19:41:09.400   Application executeCS                128 INFO    : Node 1 global counter = 43
+2019-01-19 19:41:09.400   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.400   Application receive_token            216 FINE    : Node 1 receive token message ([], counter = 42) from Node 3 next =[]
+2019-01-19 19:41:09.400   Application changestate              231 FINE    : Node 1 state : inCS
+2019-01-19 19:41:09.401   Application executeCS                126 INFO    : Node 1 executing its CS num 9 : next= []
+2019-01-19 19:41:09.401   Application executeCS                128 INFO    : Node 1 global counter = 43
+2019-01-19 19:41:09.401   Application receive_token            224 FINE    : Node 1 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.401   FIFOTransport processEvent            91 WARNING : Node 3 message : projetara.checkpointing.algo1.messages.ReplyAskMissingMessMessage@512ddf17
+2019-01-19 19:41:09.401   CheckpointerImpl stop_recover        346 INFO    : Node 3 : end recovering (recover from checkpoint 3)  state = ( next = []) ( last = -2) ( nb_cs = 9) ( state = requesting) ( global_counter = 42)  nb reply messages = 17
+2019-01-19 19:41:09.402   Application changestate              231 FINE    : Node 3 state : requesting
+2019-01-19 19:41:09.403   Application receive_request          186 FINE    : Node 3 receive request message from Node 4 for Node 4
+2019-01-19 19:41:09.403   Application receive_request          186 FINE    : Node 3 receive request message from Node 4 for Node 4
+2019-01-19 19:41:09.403   Application receive_request          186 FINE    : Node 3 receive request message from Node 1 for Node 1
+2019-01-19 19:41:09.403   Application receive_request          186 FINE    : Node 3 receive request message from Node 1 for Node 1
+2019-01-19 19:41:09.403   Application receive_token            216 FINE    : Node 3 receive token message ([], counter = 41) from Node 0 next =[4, 4, 1, 1]
+2019-01-19 19:41:09.403   Application changestate              231 FINE    : Node 3 state : inCS
+2019-01-19 19:41:09.404   Application executeCS                126 INFO    : Node 3 executing its CS num 9 : next= [4, 4, 1, 1]
+2019-01-19 19:41:09.404   Application executeCS                128 INFO    : Node 3 global counter = 42
+2019-01-19 19:41:09.404   Application receive_token            224 FINE    : Node 3 ***** BEGIN CS ! *****
+2019-01-19 19:41:09.404   Application receive_token            216 FINE    : Node 3 receive token message ([4, 4, 1, 1], counter = 41) from Node 0 next =[4, 4, 1, 1]
+Exception in thread "main" java.util.ConcurrentModificationException
+	at java.util.ArrayDeque$DeqIterator.next(ArrayDeque.java:643)
+	at java.util.AbstractCollection.addAll(AbstractCollection.java:343)
+	at projetara.application.Application.receive_token(Application.java:220)
+	at projetara.application.Application.processEvent(Application.java:113)
+	at projetara.application.ApplicationCheckpointable.processEvent(ApplicationCheckpointable.java:60)
+	at projetara.checkpointing.algo1.CheckpointerImpl.receiveWrappingMessage(CheckpointerImpl.java:146)
+	at projetara.checkpointing.algo1.CheckpointerImpl.stop_recover(CheckpointerImpl.java:350)
+	at projetara.checkpointing.algo1.CheckpointerImpl.receiveReplyAskMissingMessMessage(CheckpointerImpl.java:333)
+	at projetara.checkpointing.algo1.CheckpointerImpl.processEvent(CheckpointerImpl.java:130)
+	at projetara.util.FIFOTransport.processEvent(FIFOTransport.java:92)
+	at peersim.edsim.EDSimulator.executeNext(EDSimulator.java:315)
+	at peersim.edsim.EDSimulator.nextExperiment(EDSimulator.java:361)
+	at peersim.Simulator.main(Simulator.java:193)
