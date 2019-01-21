@@ -16,8 +16,7 @@ En effet, à la réception d'un token, le noeud ajoute à sa liste personnel de 
 
 Question 2 :
 
-simulation.experiments 1
-random.seed 6
+random.seed 5
 network.size 5
 simulation.endtime 5000
 
@@ -31,7 +30,7 @@ protocol.FIFOTransport.transport reliableTransport
 protocol.CheckpointerImpl projetara.checkpointing.algo1.CheckpointerImpl
 protocol.CheckpointerImpl.transport FIFOTransport
 protocol.CheckpointerImpl.checkpointable application
-protocol.CheckpointerImpl.timecheckpointing 200
+protocol.CheckpointerImpl.timecheckpointing 40
 
 protocol.application projetara.application.ApplicationCheckpointable
 protocol.application.timeCS 20
@@ -42,7 +41,7 @@ control.crash projetara.checkpointing.CrashControler
 control.crash.probacrash 1
 control.crash.faulty_nodes 4
 control.crash.checkpointer CheckpointerImpl
-control.crash.at 2000
+control.crash.at 3000
 
 init.constantes Constantes
 init.constantes.loglevel INFO
@@ -90,9 +89,29 @@ Si les messages Wrapping n'étaient pas utilisés, on risquerait un inter bloqua
 Question 8 :
 
 Lors de l'appel à la méthode recover de la classe CheckpointerImpl, on commence par stopper l'exécution du noeud courant puis on crée le point de sauvegarde (méthode recover). On commence alors la phase de recouvrement.
+
+// WrappingMessages = messages orphelins.
+
+Première phase, le recouvrement :
 - Les messages rollback sont envoyés à tout les noeuds du système (méthode send_rollback_messages) afin de trouver un point de sauvegarde pour chaque noeud qui puisse former une ligne de recouvrement cohérente entre les différents noeuds.
+
 - On compare pour cela le nombre de messages reçu par chaque noeud saved_rcvd avec le nombre de messages envoyés. En cas d'incohérences, le point de sauvegarde est détruit et on recommence la comparaison avec le point de sauvegarde antérieur (méthode receiveRollBackMessage). Après avoir trouvé un point de recouvrement cohérent, les noeuds avertissent leurs homologues via les messages FinishedRollback.
+
 - On vérifie qu'on a bien reçu un message FinishedRollback de tout les autres noeuds du système (méthode receiveFinishedRollbackMessage).
+
+Deuxième phase, du point de sauvegarde au crash :
+	On cherche à present à retourner jusqu'à l'instant ou l'application a planté. Les noeuds savant qu'ils se sont envoyés des messages qui ont du être ignorés car postérieur au point de sauvegarde.
+
+- Chaque noeud demande aux autres l'ensemble des messages qu'ils lui ont envoyés entre le point de sauvegarde et l'arrêt de l'exécution (méthode findMessagesToReplay).
+
+- On retire de la liste des messages reçu, tout les messages qui n'ont pas encore été envoyé au point de sauvegarde que l'on souhaite restauré (méthode receiveAskMissingMessMessage).
+
+receiveReplyAskMissingMessMessage :
+- 
+
+- Finalement, on restore l'état des noeuds avec les valeurs contenues dans les points de sauvegardes sélectionnés (méthode stop_recover).
 
 
 Question 9 :
+
+Une diffusion FIFO de messages m permet de s'assurer que tout processus diffusant m1 puis m2 provoquera la réception de m1 puis m2 par tout les processus corrects destinataires. En l'absence de canaux FIFO, un noeud ayant fini sa phase de rollBack enverrait des AskMissingMess qui pourraient-être reçu par des noeuds qui n'auraient pas fini leurs phase de rollBack. Ces noeuds enverraient donc des réponses sur le nombre de messages envoyés erroné. Cela provoquerait un RuntimeException("Error : inconcistency in cover line") dans la méthode receiveAskMissingMessMessage.

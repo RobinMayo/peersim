@@ -29,13 +29,9 @@ import projetara.util.Message;
 
 public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 
-
-	
-
 	private static final String PAR_TRANSPORT = "transport";
 	private static final String PAR_CHECKPOINTABLE = "checkpointable";
 	private static final String PAR_TIMECHECKPOINTING = "timecheckpointing";
-	
 	
 	private final int checkpointable_id;
 	private final int transport;
@@ -48,9 +44,7 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 	//attribut pour sauvegarder les messages envoyés depuis le dernier checkpoint
 	private Map<Long,List<WrappingMessage>> sent_messages;
 	
-	
-	
-	//ATtributs de sauvegarde
+	//Attributs de sauvegarde
 	private Stack<NodeState> states;
 	private Stack<Map<Long,Integer>> saved_sent;
 	private Stack<Map<Long,Integer>> saved_rcvd;
@@ -65,7 +59,6 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 	private int nb_remaining_replyrecovery;
 
 	
-	
 	public CheckpointerImpl(String prefix) {
 		String tmp[]=prefix.split("\\.");
 		protocol_id=Configuration.lookupPid(tmp[tmp.length-1]);
@@ -77,6 +70,8 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 	}
 	
 	public Object clone(){
+		log.fine(" BEGIN");
+		
 		CheckpointerImpl res= null;
 		try { res = (CheckpointerImpl) super.clone();}
 		catch( CloneNotSupportedException e ) {} // never happens
@@ -87,7 +82,6 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 			res.sent.put(new Long(i), 0);
 			res.rcvd.put(new Long(i), 0);
 		}
-		
 		
 		res.saved_rcvd=new Stack<>();
 		res.saved_sent=new Stack<>();
@@ -108,6 +102,8 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 
 	@Override
 	public void processEvent(Node node, int pid, Object event) {
+		log.finer("Node "+node.getID()+" BEGIN");
+
 		if(protocol_id != pid){
 			throw new RuntimeException("Receive an event for wrong protocol");
 		}
@@ -132,13 +128,10 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 			throw new RuntimeException("Receive unknown type event");
 		}
 	}
-
 	
-	
-	
-	
-
 	private void receiveWrappingMessage(Node host, WrappingMessage wm){
+		log.fine("Node "+host.getID()+" BEGIN");
+
 		Message m = wm.getMessage(); 
 		long sender = m.getIdSrc();
 		if(!is_recovery){
@@ -147,11 +140,10 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		}
 	}
 	
-
-	
-
 	@Override
 	public void send(Node src, Node dest, Object msg, int pid) {
+		log.fine("BEGIN");
+
 		Transport t = (Transport) src.getProtocol(transport);
 		if(!is_recovery){
 			sent.put(dest.getID(), sent.get(dest.getID())+1);
@@ -160,15 +152,15 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 				sent_messages.put(dest.getID(), new ArrayList<>());
 			}
 			sent_messages.get(dest.getID()).add(mess);
+			log.info("Node "+src.getID()+" : message sent to dest "+dest.getID()+", pid "+pid);
 			t.send(src, dest, mess, protocol_id);
 		}
 		
 	}
-
 	
 	@Override
 	public void createCheckpoint(Node host){
-		log.info("Node "+host.getID()+" BEGIN");
+		log.fine("Node "+host.getID()+" BEGIN");
 
 		Checkpointable chk = (Checkpointable) host.getProtocol(checkpointable_id);
 		NodeState ns = chk.getCurrentState();
@@ -178,13 +170,12 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		saved_sent_messages.push(new HashMap<>(sent_messages));
 		sent_messages.clear();
 			
-		log.fine("Node "+host.getID()+" : saved  state ("+(states.size())+") "+states.peek()+" sent = "
+		log.info("Node "+host.getID()+" : saved  state ("+(states.size())+") "+states.peek()+" sent = "
 				+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
 	}
 	
 	
 	///////////////////////////////////////// MEthodes pour le Recouvrement
-	
 	
 	@Override
 	public void recover(Node host){
@@ -201,10 +192,11 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		}
 		log.info("Node "+host.getID()+" : start recovering ("+states.size()+" checkpoints) last state = "+states.peek());
 		send_rollback_messages(host);
-		
 	}
 	
 	private void send_rollback_messages(Node host) {
+		log.fine("Node "+host.getID()+" BEGIN");
+
 		Transport t = (Transport) host.getProtocol(transport);
 		for(int j=0;j<Network.size();j++){
 			if(j != host.getIndex()){
@@ -217,8 +209,6 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		nb_remaining_broadcast_rollback--;
 		nb_remaining_received_rollback = Network.size()-1;
 	}
-	
-	
 	
 	private void receiveRollBackMessage(Node host, RollBackMessage rbmess){
 		log.fine("Node "+host.getID()+" receive RollBackMessage from "+rbmess.getIdSrc());
@@ -250,9 +240,9 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		}
 	}
 	
-	
-	
 	private void delete_checkpoint() {
+		log.fine(" BEGIN");
+
 		states.pop();
 		saved_sent.pop();
 		saved_rcvd.pop();
@@ -261,16 +251,17 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 	}	
 	
 	private void receiveFinishedRollbackMessage(Node host, FinishedRollbackMessage m) {
+		log.fine("Node "+host.getID()+" BEGIN");
+
 		nb_remaining_finished_rollback--;
 		if(nb_remaining_finished_rollback == 0){//De mon point de vue tout le monde a fini son rollback
 			findMessagesToReplay(host);
 		}
 	}
 	
-	
-	
-	
-	private void findMessagesToReplay(Node host){		
+	private void findMessagesToReplay(Node host){
+		log.fine("Node "+host.getID()+" BEGIN");
+
 		Transport t = (Transport) host.getProtocol(transport);
 		nb_remaining_replyrecovery=Network.size()-1;
 		message_to_replay_after_recovery.clear();
@@ -280,7 +271,6 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 				t.send(host, dest, new AskMissingMessMessage(host.getID(), dest.getID(),
 						saved_rcvd.peek().get(dest.getID()) , protocol_id), protocol_id);
 			}
-			
 		}
 	}
 	
@@ -289,6 +279,7 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		Transport t = (Transport) host.getProtocol(transport);
 		int nb_sent =  this.saved_sent.peek().get(amess.getIdSrc());
 		int nb_rcv = amess.getNbRcv();
+		log.fine("Node "+host.getID()+" nb_rcv "+nb_rcv+" nb_sent "+nb_sent);
 		if( nb_rcv > nb_sent){
 			throw new RuntimeException("Error : inconcistency in cover line");
 		}
@@ -316,17 +307,17 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		
 		for(int i=0;i< Network.size();i++){
 			Node dest=Network.get(i);
-			if( dest.getID()== amess.getIdSrc()){
+			if( dest.getID() == amess.getIdSrc()){
 				t.send(host, dest, new ReplyAskMissingMessMessage(host.getID(), amess.getIdSrc(),
 						missing_mess, protocol_id), protocol_id);
 				break;
 			}
 		}
-		
 	}
 	
-	
 	private void receiveReplyAskMissingMessMessage(Node host, ReplyAskMissingMessMessage reply){
+		log.fine("Node "+host.getID()+" BEGIN");
+		
 		nb_remaining_replyrecovery--;
 		this.message_to_replay_after_recovery.addAll(reply.getMissingMessages());
 		if(nb_remaining_replyrecovery == 0){
@@ -334,9 +325,8 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		}
 	}
 	
-	
-	
 	private void stop_recover(Node host) {
+		log.fine("Node "+host.getID()+" BEGIN");
 		Checkpointable chk = (Checkpointable) host.getProtocol(checkpointable_id);
 		chk.resume();
 		is_recovery=false;
@@ -346,22 +336,16 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		log.info("Node "+host.getID()+" : end recovering (recover from checkpoint "+states.size()+")"+
 				"  state = "+states.peek()+" nb reply messages = " +message_to_replay_after_recovery.size());
 		chk.restoreState(states.peek());		
-		for( WrappingMessage wm : message_to_replay_after_recovery){
+		for(WrappingMessage wm : message_to_replay_after_recovery){
 			receiveWrappingMessage(host, wm);
 		}
-		
-		
 	}
-	
-	
 	
 	
 	////////////////////////////////////////// Fin des methodes de recouvrement
 	
-	
-	
-	
 	public void loop(Node host) {
+		log.finer("Node "+host.getID()+" BEGIN");
 		if(CommonState.r.nextInt()%2 == 0 && ! is_recovery){
 			createCheckpoint(host);
 		}
@@ -370,6 +354,8 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 	}
 	
 	private void next_turn(Node host){
+		log.finer("Node "+host.getID()+" BEGIN");
+		
 		long min = (long )(timecheckpointing * 0.8);
 		long max = (long )(timecheckpointing * 1.2);
 		long res = CommonState.r.nextLong(max+min)+min;
