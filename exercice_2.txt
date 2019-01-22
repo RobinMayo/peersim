@@ -55,15 +55,7 @@ Un checkpoint synchronisé constituait un cas particulier exceptionnel dans un s
 
 Question 4 :
 
-Les variables à sauvegarder absolument dans chaque noeuds pour que l'algorithme de Juang-Venkatesan fonctionnent bien sont le nombre de messages envoyés (variable SENT) et le nombre de messages reçus (variable RCVD).
-
-De plus la méthode createCheckpoint sauvegarde les données suivantes :
-- La liste des états successifs du système (variable states),
-- La liste des noeuds en attente de section critique (variable next),
-- Le pointeur vers le dernier noeud a avoir été en section critique (variable last),
-- Le nombre de fois où le noeud courant s'est retrouvé en section critique (variable nb_cs),
-- L'état du noeud (variable state),
-- Le nombre total de sections critiques ayant eu lieu dans le système (variable global_counter).
+Les variables à sauvegarder absolument dans chaque noeuds pour que l'algorithme de Juang-Venkatesan fonctionnent bien sont le nombre de messages envoyés (variable SENT) et le nombre de messages reçus (variable RCVD) et la liste des messages envoyés (variable )
 
 
 Question 5 :
@@ -117,4 +109,6 @@ On cherche à present à retourner jusqu'à l'instant ou l'application a planté
 
 Question 9 :
 
-Une diffusion FIFO de messages m permet de s'assurer que tout processus diffusant m1 puis m2 provoquera la réception de m1 puis m2 par tout les processus corrects destinataires. En l'absence de canaux FIFO, un noeud ayant fini sa phase de rollBack enverrait des AskMissingMess qui pourraient-être reçu par des noeuds qui n'auraient pas fini leurs phase de rollBack. Ces noeuds enverraient donc des réponses sur le nombre de messages envoyés erroné. Cela provoquerait un RuntimeException("Error : inconcistency in cover line") dans la méthode receiveAskMissingMessMessage.
+On a pas trouvé de réponses satisfaisante à cette question tel que le code est écrit. En effet les AskMissingMessMessage ne commencent à être envoyés qu'après la phase de findMessagesToReplay et les ReplyAskMissingMessMessage ne commencent à être envoyés qu'après la réceptionne tout les AskMissingMessMessage. Il y a donc des point de synchronisation de l'application avant et après les AskMissingMessMessage.
+
+Si le noeud renvoyait lui-même les messages manquants, une absence de protocole FIFO pourrait provoquer une inversion des messages envoyés.
