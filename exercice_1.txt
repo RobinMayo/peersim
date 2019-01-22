@@ -3,106 +3,14 @@ EXERCICE I
 Question 1 :
 
 L'algorithme de verrouillage utilisé dans la classe Application est un algorithme dérivé de celui de Naimi-Tréhel utilisant la notion de jeton.
+
 Ainsi tout les sites se partagent le même jeton et seul le site possédant le jeton peut entrer en section critique. Dans la classe Application, les constantes initial_owner et nil servent à discriminer le site possédant le jeton des autres.
 
-Variables de chaque noeud :
-état : State
-next : Queue<Long>
-jeton : long // last
-nb_cs : int = 0
-global_counter : int = 0 // Compteur partagé
+Chaque noeud maintient sa propre liste de noeud en attente de section critique (variable next) et son compteur global de section critique (variable global_counter). Il possède également l'adresse du noeud dont il pense qu'il possède le jeton (variable last) ainsi que le nombre de sections critique qu'il a lui-même effectué (variable nb_cs). Si un noeud veux une section critique, il envoie une demande pour avoir le jeton puis il se met en attente.
 
-function initialisation()
-begin
-	next = Queue<Long>()
-	attendNouvelEvènementInterne(request_cs)
-end
+Quand un noeud sort de section critique, il envoie le jeton au dernier noeud de la liste des noeuds demandant la section critique avec les informations qu'il possède du nombre de sections critiques réalisés et des noeuds en attente de section critique.
 
-function attendNouvelEvènementInterne(évènement : Objet)
-begin
-	SI (évènement est un évènement)
-	begin
-		switch(évènement) {
-		case release_cs:
-			nb_cs++;
-			releaseCS();
-			break;
-		case request_cs:
-			requestCS();
-			break;
-		default:
-			Exception("Évènement de type inconnue")
-	
-	SINON SI (évènement est un message)
-		SI (évènement == REQUEST_TAG)
-		begin
-			receive_request(évènement.queue, évènement.neudAppelant)
-		SINON SI (évènement == TOKEN_TAG)
-			receive_token(évènement.queue, évènement.conteur)
-		end
-	end
-end
-
-// Un noeud demande le jeton pour pouvoir entrer en section critique.
-function requestCS(host : Node)
-begin
-	état = State.requesting
-	
-	SI (jeton déjà attribué)
-	begin
-		ENVOI(host, dest, nouveau Message(), protocol_id)
-		jeton = nil
-		return
-	end
-	
-	// Début de la section critique :
-	global_counter += 1
-	état = State.inCS
-	wait(random)
-	attendNouvelEvènementInterne(release_cs : ÉvènementInterne)
-end
-
-// Le noeud courant sort de la section critique.
-function releaseCS()
-begin
-	état = State.inCS
-	wait(random)
-	attendNouvelEvènementInterne(request_cs : ÉvènementInterne)
-	
-	SI (next n'est pas vide)
-	begin
-		jeton = PremierÉlément(next);
-		ENVOI(host, dest = jeton, nouveau Token(), protocol_id)
-		vider(next)
-	end
-end
-
-function receive_request(from : long, requester : long)
-begin
-	SI (jeton pas attribué)
-	begin
-		SI (état n'est pas State.tranquil)
-		begin
-			next.ajouteEnQueue(requester)
-		SINON SI
-		begin
-			ENVOI(host, dest = requester, nouveau Token(), protocol_id)
-			jeton = requester
-		end
-	SINON // Jamais atteint
-		ENVOI(host, dest = jeton, nouveau Message(), protocol_id)
-		jeton = requester
-	end
-end
-
-function receive_token(remote_queue : Queue<Long>, counter : int)
-begin
-	// Début de la section critique :
-	global_counter = counter
-	remote_queue = ajouteEnQueue(next)
-	next = remote_queue
-	état = State.inCS
-end
+Lorsqu'un noeud reçoit le jeton, il met à jour son compteur de section critique avec la valeur envoyé par le dernier noeud ayant été en section critique. Il compare également sa liste de noeuds en attentes avec celle qu'il a reçu. Si des noeuds se trouvent dans les deux listes mais pas dans le même ordre, l'ordre envoyés par le dernier noeud en section critique est maintenu. Si des demandes sont absentes de la liste reçu, elles sont ajoutés en fin de liste.
 
 
 Question 2 :

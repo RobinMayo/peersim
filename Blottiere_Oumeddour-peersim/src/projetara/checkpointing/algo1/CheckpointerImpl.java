@@ -233,7 +233,9 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 					}
 				}
 				
-				if(nb_remaining_finished_rollback == 0){//De mon point de vue tout le monde a fini son rollback
+				// De mon point de vue tout le monde a fini son rollback
+				// Ligne atteignable uniquement dans le cas d'un réseau de taille 1.
+				if(nb_remaining_finished_rollback == 0){
 					findMessagesToReplay(host);
 				}
 			}
