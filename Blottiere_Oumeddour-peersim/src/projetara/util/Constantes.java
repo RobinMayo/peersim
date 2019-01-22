@@ -55,7 +55,7 @@ public final class Constantes implements Control {
 				} else {
 					source = record.getLoggerName();
 				}
-				source = source.length() > 30 ? source.substring(0, 30) : source;
+				source = source.length() > 35 ? source.substring(0, 35) : source;
 				String message = formatMessage(record);
 				String throwable = "";
 				String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S").format(new Date());

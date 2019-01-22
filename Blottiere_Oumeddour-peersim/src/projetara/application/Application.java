@@ -3,6 +3,8 @@ package projetara.application;
 import static projetara.util.Constantes.log;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 
 import peersim.config.Configuration;
@@ -51,7 +53,15 @@ public class Application implements EDProtocol {
 		// ATTENTION, cette variable n'est pas globale, elle est propre à chaque noeud mais ils ne peuvent
 		// la modifier uniquement lorsqu'ils possèdent le jeton
 		protected int global_counter=0;
-
+		
+		// ********** Exercice 1 question 4 :
+		// Métriques :
+		protected int nbTokenBySC;
+		protected int nbRequestBySC;
+		protected long nodeIsRequestingTime;
+		protected static ArrayList<Long> tokenTransmissionTime;
+		protected static ArrayList<Long> tokenIsPossessedTime;
+		protected static ArrayList<Long> tokenIsUsedTime;
 		
 		protected int id_execution; // permet d'identifier l'id d'exécution, incrémenter si
 		// l'application est suspendue (toujours constant dans cette classe)
@@ -216,7 +226,6 @@ public class Application implements EDProtocol {
 			log.fine("Node "+host.getID()+" receive token message ("+remote_queue.toString()+
 					", counter = "+counter+") from Node "+from+" next ="+next.toString());
 			global_counter=counter;
-			log.finer("Node "+host.getID()+" next="+next);
 			remote_queue.addAll(next);
 			next=remote_queue;
 			log.finer("Node "+host.getID()+" next="+next);

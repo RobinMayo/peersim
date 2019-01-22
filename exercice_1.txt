@@ -5,12 +5,6 @@ Question 1 :
 L'algorithme de verrouillage utilisé dans la classe Application est un algorithme dérivé de celui de Naimi-Tréhel utilisant la notion de jeton.
 Ainsi tout les sites se partagent le même jeton et seul le site possédant le jeton peut entrer en section critique. Dans la classe Application, les constantes initial_owner et nil servent à discriminer le site possédant le jeton des autres.
 
-<WIKIPEDIA>
-Chaque processus connaît le processus suivant dans la file d'attente sauf quand il n'y a pas de suivant. La tête est le processus qui possède le jeton. La queue est le dernier processus qui a demandé la file d'attente, (sauf s'il y a un seul processus dans cette file). Un chemin est organisé de sorte que, quand un processus demande la section critique, sa demande est transmise à la queue. Quand elle y arrive, il y a deux cas:
-- si le processus qui est à la queue a le jeton et n'est pas en section critique, il envoie le jeton au demandeur, qui est alors autorisé à entrer en section critique.
-- si le processus qui est à la queue soit a le jeton et est en section critique soit l'attend, le demandeur devient le suivant de cette queue et devient la nouvelle queue.
-</WIKIPEDIA>
-
 Variables de chaque noeud :
 état : State
 next : Queue<Long>
@@ -49,6 +43,7 @@ begin
 	end
 end
 
+// Un noeud demande le jeton pour pouvoir entrer en section critique.
 function requestCS(host : Node)
 begin
 	état = State.requesting
@@ -67,6 +62,7 @@ begin
 	attendNouvelEvènementInterne(release_cs : ÉvènementInterne)
 end
 
+// Le noeud courant sort de la section critique.
 function releaseCS()
 begin
 	état = State.inCS
