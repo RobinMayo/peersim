@@ -26,4 +26,4 @@ control.crash.checkpointer CheckpointerImpl
 control.crash.at 3000
 
 init.constantes Constantes
-init.constantes.loglevel FINE
+init.constantes.loglevel INFO

@@ -55,24 +55,22 @@ Un checkpoint synchronisé constituait un cas particulier exceptionnel dans un s
 
 Question 4 :
 
-La méthode createCheckpoint provoque la sauvegarde des points de reprises. Dans cette méthode sont sauvegardés les données suivantes :
-- La taille de la liste des états du système (variable state),
+Les variables à sauvegarder absolument dans chaque noeuds pour que l'algorithme de Juang-Venkatesan fonctionnent bien sont le nombre de messages envoyés (variable SENT) et le nombre de messages reçus (variable RCVD).
+
+De plus la méthode createCheckpoint sauvegarde les données suivantes :
+- La liste des états successifs du système (variable states),
 - La liste des noeuds en attente de section critique (variable next),
 - Le pointeur vers le dernier noeud a avoir été en section critique (variable last),
 - Le nombre de fois où le noeud courant s'est retrouvé en section critique (variable nb_cs),
 - L'état du noeud (variable state),
-- Le nombre total de sections critiques ayant eu lieu dans le système (variable global_counter),
-- Les messages et token envoyés à chaque noeuds (variable saved_sent),
-- Les messages et token reçus de chaque noeuds (variable saved_rcvd).
-
-Un compteur d'état Si incrémenté à chaque sauvegarde
-Pour chaque voisin Pj :
-	un compteur d'émission SENTij et un compteur de réception RCVDji Chaque sauvegarde inclut Si, ainsi que SENTij et RCVDji pour chaque canal
+- Le nombre total de sections critiques ayant eu lieu dans le système (variable global_counter).
 
 
 Question 5 :
 
-Une pile de table de hachage permettent de simuler la sauvegarde des données sur un support stable. En effet l'algorithme de Juang-Venkatesan enregistre le point de sauvegarde le plus recent dans la mémoire volatile alors que les points de sauvegardes les plus anciens sont copiés dans la mémoire persistante.
+Une pile de table de hachage pour enregistrer les point de sauvegardes est cohérent car l'élément accessible est toujours le dernier mis sur la pile, or on cherchera toujours le point de sauvegarde le plus récent.
+
+De plus l'algorithme de Juang-Venkatesan enregistre le point de sauvegarde le plus recent dans la mémoire volatile alors que les points de sauvegardes les plus anciens sont copiés dans la mémoire persistante.
 Une pile LIFO (Last-In-First-Out) émule bien ce procédé car le points de sauvegarde le plus récent est accessible rapidement alors que l'accès aux points de sauvegardes anciens implique de dépiler la pile ce qui prend (un peu) plus de temps comme un accès au disque prend plus de temps qu'un accès mémoire. 
 
 
@@ -83,33 +81,38 @@ La classe CheckpointerImpl est un décorateur de protocole de transport car elle
 
 Question 7 :
 
-Si les messages Wrapping n'étaient pas utilisés, on risquerait un inter bloquage pour cause de modification concurrente. En effet en l'absence de canal FIFO, les messages pourraient-être reçu dans le désordre par les différents noeuds. Ainsi un noeud pourrait recevoir plusieurs demandes de sections critique d'un même noeud.
+Si les messages Wrapping n'étaient pas utilisés, on risquerait un inter bloquage pour cause de modification concurrente. En effet en l'absence de canal FIFO, les messages pourraient-être reçu dans le désordre par les différents noeuds. Ainsi un noeud pourrait effectuer un point de sauvegarde sans avoir reçu tout les messages qui lui ont été envoyés.
 
 
 Question 8 :
 
+Rappels :
+Lors d'un checkpoint, deux types de messages peuvent-être problématique : les messages orphelins et les messages manquants.
+- Un message m envoyé du noeud n1 vers le noeud n2 est dit orphelin si il est reçu par le noeud n2 avant son point de sauvegarde en ayant été envoyé après le dernier point de sauvegarde de n1. Dans ce cas la ligne de recouvrement entre n1 et n2 n'est pas cohérente et il faut chercher un point de sauvegarde plus récent sur n1 et revérifier qu'il n'y a pas de nouveau messages orphelins.
+- Lorsqu'on a trouvé une ligne de recouvrement cohérente, il peut rester des messages qui ont été envoyés par un noeud avant son point de sauvegarde mais qu'il n'a pas encore été reçu par le noeud destinataire à son point de sauvegarde. On parle de messages manquants.
+
+
 Lors de l'appel à la méthode recover de la classe CheckpointerImpl, on commence par stopper l'exécution du noeud courant puis on crée le point de sauvegarde (méthode recover). On commence alors la phase de recouvrement.
 
-// WrappingMessages = messages orphelins.
 
-Première phase, le recouvrement :
+Première phase, trouver une ligne de recouvrement :
 - Les messages rollback sont envoyés à tout les noeuds du système (méthode send_rollback_messages) afin de trouver un point de sauvegarde pour chaque noeud qui puisse former une ligne de recouvrement cohérente entre les différents noeuds.
 
-- On compare pour cela le nombre de messages reçu par chaque noeud saved_rcvd avec le nombre de messages envoyés. En cas d'incohérences, le point de sauvegarde est détruit et on recommence la comparaison avec le point de sauvegarde antérieur (méthode receiveRollBackMessage). Après avoir trouvé un point de recouvrement cohérent, les noeuds avertissent leurs homologues via les messages FinishedRollback.
+- On compare pour cela le nombre de messages reçu par chaque noeud saved_rcvd avec le nombre de messages envoyés. Tant que l'on trouve des messages orphelins, on détruit le point de sauvegarde et on recommence la comparaison avec le point de sauvegarde antérieur (méthode receiveRollBackMessage). Après avoir trouvé un point de recouvrement cohérent, les noeuds avertissent leurs homologues via les messages FinishedRollback.
 
 - On vérifie qu'on a bien reçu un message FinishedRollback de tout les autres noeuds du système (méthode receiveFinishedRollbackMessage).
 
-Deuxième phase, du point de sauvegarde au crash :
-	On cherche à present à retourner jusqu'à l'instant ou l'application a planté. Les noeuds savant qu'ils se sont envoyés des messages qui ont du être ignorés car postérieur au point de sauvegarde.
 
-- Chaque noeud demande aux autres l'ensemble des messages qu'ils lui ont envoyés entre le point de sauvegarde et l'arrêt de l'exécution (méthode findMessagesToReplay).
+Deuxième phase, trouver les messages manquant :
+On cherche à present à retourner jusqu'à l'instant ou l'application a planté. Les noeuds savant qu'ils se sont envoyés des messages qui ont du être ignorés car postérieur au point de sauvegarde.
 
-- On retire de la liste des messages reçu, tout les messages qui n'ont pas encore été envoyé au point de sauvegarde que l'on souhaite restauré (méthode receiveAskMissingMessMessage).
+- Chaque noeud demande aux autres si il y a des messages manquant en envoyant le nombre de message qu'il a reçu à son point de sauvegarde (méthode findMessagesToReplay).
 
-receiveReplyAskMissingMessMessage :
-- 
+- Les noeuds reçoive le nombre de messages reçu par les autres noeuds, les comparent avec le nombre de messages qu'ils leurs ont eux-même envoyés et renvoient les messages manquant (méthode receiveAskMissingMessMessage).
 
-- Finalement, on restore l'état des noeuds avec les valeurs contenues dans les points de sauvegardes sélectionnés (méthode stop_recover).
+- Les noues ajoutent à la liste des messages qu'il a reçu les messages manquant (méthode receiveReplyAskMissingMessMessage puis stop_recover).
+
+- Finalement, on restore l'état des noeuds avec les valeurs contenues dans les points de sauvegardes sélectionnés comprenant le nombre de messages envoyés et reçus (méthode stop_recover).
 
 
 Question 9 :
