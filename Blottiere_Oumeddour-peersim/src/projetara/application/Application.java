@@ -259,7 +259,7 @@ public class Application implements EDProtocol {
 			log.finer("Node "+host.getID()+" BEGIN");
 			long min = (long )(timeCS * 0.8);
 			long max = (long )(timeCS * 1.2);
-			long res = CommonState.r.nextLong(max+min)+min;
+			long res = CommonState.r.nextLong(max-min)+min;
 			
 			EDSimulator.add(res, new InternalEvent(TypeEvent.release_cs, id_execution), host, protocol_id);
 		}
@@ -268,7 +268,7 @@ public class Application implements EDProtocol {
 			log.finer("Node "+host.getID()+" BEGIN");
 			long min = (long )(timeBetweenCS * 0.8);
 			long max = (long )(timeBetweenCS * 1.2);
-			long res = CommonState.r.nextLong(max+min)+min;
+			long res = CommonState.r.nextLong(max-min)+min;
 			
 			EDSimulator.add(res, new InternalEvent(TypeEvent.request_cs, id_execution), host, protocol_id);
 		}

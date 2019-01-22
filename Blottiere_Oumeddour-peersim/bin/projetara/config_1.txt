@@ -1,11 +1,11 @@
 simulation.experiments 1
 random.seed 5
 network.size 5
-simulation.endtime 1000
+simulation.endtime 5000
 
 protocol.reliableTransport UniformRandomTransport
-protocol.reliableTransport.mindelay 5
-protocol.reliableTransport.maxdelay 15
+protocol.reliableTransport.mindelay 500
+protocol.reliableTransport.maxdelay 1500
 
 protocol.basicbroadcast projetara.application.Application
 protocol.basicbroadcast.timeCS 20
@@ -13,4 +13,4 @@ protocol.basicbroadcast.timeBetweenCS 10
 protocol.basicbroadcast.transport reliableTransport
 
 init.constantes Constantes
-init.constantes.loglevel FINEST
+init.constantes.loglevel FINER

@@ -15,13 +15,17 @@ Lorsqu'un noeud reçoit le jeton, il met à jour son compteur de section critiqu
 
 Question 2 :
 
-Machine à état :
+On considère trois états du jeton :
+1) Un noeud possède le jeton mais ne sans sert pas (état tranquil).
+2) Un noeud possède le jeton et est en section critique (état utilisé).
+3) Le jeton est en transit (état enTransit).
 
-state Application {
-  inCS --> tranquil : InternalEvent(TypeEvent.release_cs, id_execution)
-  tranquil --> requesting : last != nil
-  requesting --> inCS : last == nil || receive_token()
-}
+Machine à états du jeton :
+  tranquil --> utilisé : la section critique est demandée et personne ne requiert le jeton.
+  tranquil --> enTransit : un noeud requiert le jeton.
+  utilisé --> tranquil : la section critique se termine.
+  utilisé --> enTransit : releaseCS(timeout) && !next.isEmpty()
+  enTransit --> utilisé : receive_token()
 
 
 Question 3 :

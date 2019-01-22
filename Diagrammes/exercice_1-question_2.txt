@@ -1,9 +1,11 @@
 @startuml
 
-state Application {
-  inCS --> tranquil : InternalEvent(TypeEvent.release_cs, id_execution)
-  tranquil --> requesting : last != nil
-  requesting --> inCS : last == nil || receive_token()
+state Etats_du_Jeton {
+  tranquil --> utilisé : request_cs() && last == nil
+  tranquil --> enTransit : last != nil
+  utilisé --> tranquil : releaseCS(timeout)
+  utilisé --> enTransit : releaseCS(timeout) && !next.isEmpty()
+  enTransit --> utilisé : receive_token()
 }
 
 @enduml
