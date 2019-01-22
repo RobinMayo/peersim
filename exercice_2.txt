@@ -81,7 +81,7 @@ La classe CheckpointerImpl est un décorateur de protocole de transport car elle
 
 Question 7 :
 
-Si les messages Wrapping n'étaient pas utilisés, on risquerait un inter bloquage pour cause de modification concurrente. En effet en l'absence de canal FIFO, les messages pourraient-être reçu dans le désordre par les différents noeuds. Ainsi un noeud pourrait effectuer un point de sauvegarde sans avoir reçu tout les messages qui lui ont été envoyés.
+En l'absence de l'enveloppe Wrapping, les messages seraient reçu directement par la classe Application. Or on a besoin de pouvoir discriminer les messages applicatifs des messages de sauvegardes. Sinon le protocole checkpoint ne peut pas compter le nombre de messages reçus par l'application ce qui empêcherait la création de point de sauvegardes cohérents.
 
 
 Question 8 :
