@@ -301,8 +301,8 @@ public class Application implements EDProtocol {
 			
 			// Nombre de messages applicatifs :
 			EndControler.nbCs = global_counter;
-			EndControler.nbRequest += nbRequest;
-			EndControler.nbMessages += nbMessages;
+			EndControler.nbRequest += nbRequest / nb_cs;
+			EndControler.nbMessages += nbMessages / nb_cs;
 			
 			// Temps passé dans l'état requesting :
 			EndControler.nodeRequestingTime += nodeRequestingTime;

@@ -1,0 +1,9 @@
+105 105
+1585
+11.442633 56.013535 32.54383
+
+********** Format : **********
+
+nbMessagesByCs nbRequestByCs
+nodeAverageRequestingTime
+tokenUnusedTime tokenUsageTime tokenTransmissionTime
