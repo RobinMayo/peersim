@@ -1,2 +1,1 @@
-java -cp bin/projetara/*:lib/* peersim.Simulator config.txt
-
+java -cp bin/:lib/*: peersim.Simulator bin/projetara/config_1.txt

@@ -12,7 +12,7 @@ protocol.basicbroadcast.timeBetweenCS 10
 protocol.basicbroadcast.transport reliableTransport
 
 init.constantes Constantes
-init.constantes.loglevel INFO
+init.constantes.loglevel WARNING
 
 control.endControler projetara.application.EndControler
 control.endControler.at -1
