@@ -1,10 +1,9 @@
-simulation.experiments 1
-random.seed 4
+random.seed 5
 network.size 50
 simulation.endtime 2000000
 
 protocol.reliableTransport UniformRandomTransport
-protocol.reliableTransport.mindelay 5
+protocol.reliableTransport.mindelay 200
 protocol.reliableTransport.maxdelay 500
 
 protocol.basicbroadcast projetara.application.Application
@@ -14,3 +13,7 @@ protocol.basicbroadcast.transport reliableTransport
 
 init.constantes Constantes
 init.constantes.loglevel INFO
+
+control.endControler projetara.application.EndControler
+control.endControler.at -1
+control.endControler.FINAL

@@ -1,6 +1,7 @@
 @startuml
 
 state Etats_du_Jeton {
+  [*] --> tranquil
   tranquil --> utilisé : request_cs() && last == nil
   tranquil --> enTransit : last != nil
   utilisé --> tranquil : releaseCS(timeout)

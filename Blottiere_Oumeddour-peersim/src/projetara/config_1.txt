@@ -1,4 +1,3 @@
-simulation.experiments 1
 random.seed 5
 network.size 5
 simulation.endtime 5000

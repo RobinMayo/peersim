@@ -109,6 +109,6 @@ On cherche à present à retourner jusqu'à l'instant ou l'application a planté
 
 Question 9 :
 
-Après des débats passionnés nous avons conclu que tel que le code est écrit, les AskMissingMessMessage ne commencent à être envoyés qu'après la phase de findMessagesToReplay et les ReplyAskMissingMessMessage ne commencent à être envoyés qu'après la réceptionne tout les AskMissingMessMessage. Il y a donc des point de synchronisation de l'application avant et après les AskMissingMessMessage qui ne rende pas nécéssaire de forcer l'ordre FIFO.
+Après des débats passionnés en cours, nous avons conclu que tel que le code est écrit, l'ordre FIFO n'est pas indispensable au bon fonctionnement de l'algorithme. En effet, les AskMissingMessMessage ne commençent à être envoyés qu'après la phase de findMessagesToReplay et les ReplyAskMissingMessMessage ne commencent à être envoyés qu'après la réceptionne tout les AskMissingMessMessage. Il y a donc des point de synchronisation de l'application avant et après les AskMissingMessMessage.
 
 Si le noeud renvoyait lui-même les messages manquants, une absence de protocole FIFO pourrait provoquer une inversion des messages envoyés.

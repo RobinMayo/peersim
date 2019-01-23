@@ -360,7 +360,7 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		
 		long min = (long )(timecheckpointing * 0.8);
 		long max = (long )(timecheckpointing * 1.2);
-		long res = CommonState.r.nextLong(max+min)+min;
+		long res = CommonState.r.nextLong(max-min)+min;
 		EDSimulator.add(res,"loop", host,protocol_id);
 	}
 
