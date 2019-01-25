@@ -3,15 +3,15 @@ EXERCICE II
 
 Question 1 :
 
-1. Si le noeud fautif est en section critique, il peut ne pas avoir le temps de transmettre le jeton et ainsi de désigner un nouveau noeud élue. Cela provoquerait le bloquage du système. 
+1. Si le noeud fautif est en section critique, il peut ne pas avoir le temps de transmettre le jeton et ainsi de désigner un nouveau noeud élu. Cela provoquerait le blocage du système. 
 
-2. Dans la classe Application, l'attribut next n'est modifié que dans les méthodes : initialisation, releaseCS, receive_request et receive_token. Les modifications dans initialisation et receive_request concerne l'initialisation du système dans la quelle la file est toujours vide. Ainsi, si le noeud fautif possède une file next non vide, il est forcément en section critique, dans ce cas cela provoque le bloquage du système comme expliqué dans la question 1.1.
+2. Dans la classe Application, l'attribut next n'est modifié que dans les méthodes : initialisation, releaseCS, receive_request et receive_token. Les modifications dans initialisation et receive_request concernent l'initialisation du système dans lequel la file est toujours vide. Ainsi, si le noeud fautif possède une file next non vide, il est forcément en section critique, dans ce cas cela provoque le blocage du système comme expliqué dans la question 1.1.
 
-En effet, à la réception d'un token, le noeud ajoute à sa liste personnel de noeuds en attente d'exécution, la liste transmise. En sachant que la liste personnelle du noeud est toujours vidé à la fin de la section critique dans la méthode releaseCS.
+En effet, à la réception d'un token, le noeud ajoute à sa liste personnelle de noeuds en attente d'exécution, la liste transmise. En sachant que la liste personnelle du noeud est toujours vidée à la fin de la section critique dans la méthode releaseCS.
 
-3. Si le noeud fautif possède une file next vide, n’est pointé par aucun last et aucun message à sa destination n’est en transit soit :
-- Il a fait une demande de section critique est est dans la liste des noeuds en attentes du jeton. Dans ce cas le système finira par aboutir à un inter blocage.
-- Il n'a pas fait de demande de section critique. Alors il disparaîtra du système impacter son exécution globale.
+3. Si le noeud fautif possède une file next vide, n’est pointé par aucun last et si aucun message à sa destination n’est en transit soit :
+- Il a fait une demande de section critique et est dans la liste des noeuds en attente du jeton. Dans ce cas le système finira par aboutir à un inter blocage.
+- Il n'a pas fait de demande de section critique. Alors il disparaîtra du système sans impacter son exécution globale.
 
 
 Question 2 :
@@ -49,66 +49,66 @@ init.constantes.loglevel INFO
 
 Question 3 :
 
-La méthode createCheckpoint n'est pas appelée avec une période fixe et égale pour tout les noeuds afin de simuler un système réel dont les horloges internes des processus ne sont pas accessible et pas forcément synchronisés. On utilise donc un random afin de provoquer un checkpoint non coordonnée.
+La méthode createCheckpoint n'est pas appelée avec une période fixe et égale pour tous les noeuds afin de simuler un système réel dont les horloges internes des processus ne sont pas accessibles et pas forcément synchronisés. On utilise donc un random afin de provoquer un checkpoint non coordonné.
 Un checkpoint synchronisé constituait un cas particulier exceptionnel dans un système réel.
 
 
 Question 4 :
 
-Les variables à sauvegarder absolument dans chaque noeuds pour que l'algorithme de Juang-Venkatesan fonctionnent bien sont le nombre de messages envoyés (variable SENT) et le nombre de messages reçus (variable RCVD) et la liste des messages envoyés (variable )
+Les variables à sauvegarder absolument dans chaque noeud pour que l'algorithme de Juang-Venkatesan fonctionne bien sont le nombre de messages envoyés (variable SENT) et le nombre de messages reçus (variable RCVD) et la liste des messages envoyés (variable )
 
 
 Question 5 :
 
-Une pile de table de hachage pour enregistrer les point de sauvegardes est cohérent car l'élément accessible est toujours le dernier mis sur la pile, or on cherchera toujours le point de sauvegarde le plus récent.
+Une pile de tables de hachage pour enregistrer les points de sauvegarde est cohérente car l'élément accessible est toujours le dernier mis sur la pile, or on cherchera toujours le point de sauvegarde le plus récent.
 
-De plus l'algorithme de Juang-Venkatesan enregistre le point de sauvegarde le plus recent dans la mémoire volatile alors que les points de sauvegardes les plus anciens sont copiés dans la mémoire persistante.
-Une pile LIFO (Last-In-First-Out) émule bien ce procédé car le points de sauvegarde le plus récent est accessible rapidement alors que l'accès aux points de sauvegardes anciens implique de dépiler la pile ce qui prend (un peu) plus de temps comme un accès au disque prend plus de temps qu'un accès mémoire. 
+De plus l'algorithme de Juang-Venkatesan enregistre le point de sauvegarde le plus récent dans la mémoire volatile alors que les points de sauvegarde les plus anciens sont copiés dans la mémoire persistante.
+Une pile LIFO (Last-In-First-Out) émule bien ce procédé car le point de sauvegarde le plus récent est accessible rapidement alors que l'accès aux points de sauvegarde anciens implique de dépiler la pile ce qui prend (un peu) plus de temps comme un accès au disque prend plus de temps qu'un accès mémoire. 
 
 
 Question 6 :
 
-La classe CheckpointerImpl est un décorateur de protocole de transport car elle est utilisée pour envoyer ses propres messages entre les noeuds. La méthode send est donc redéfinie et permet ainsi de compter le nombre de messages entrants et sortants et sauvegarder les messages envoyés depuis le dernier checkpoint.
+La classe CheckpointerImpl est un décorateur de protocole de transport car elle est utilisée pour envoyer ses propres messages entre les noeuds. La méthode send est donc redéfinie et permet ainsi de compter le nombre de messages entrants et sortants et de sauvegarder les messages envoyés depuis le dernier checkpoint.
 
 
 Question 7 :
 
-En l'absence de l'enveloppe Wrapping, les messages seraient reçu directement par la classe Application. Or on a besoin de pouvoir discriminer les messages applicatifs des messages de sauvegardes. Sinon le protocole checkpoint ne peut pas compter le nombre de messages reçus par l'application ce qui empêcherait la création de point de sauvegardes cohérents.
+En l'absence de l'enveloppe Wrapping, les messages seraient reçus directement par la classe Application. Or on a besoin de pouvoir discriminer les messages applicatifs des messages de sauvegarde. Sinon le protocole checkpoint ne peut pas compter le nombre de messages reçus par l'application ce qui empêcherait la création de points de sauvegarde cohérents.
 
 
 Question 8 :
 
 Rappels :
-Lors d'un checkpoint, deux types de messages peuvent-être problématique : les messages orphelins et les messages manquants.
-- Un message m envoyé du noeud n1 vers le noeud n2 est dit orphelin si il est reçu par le noeud n2 avant son point de sauvegarde en ayant été envoyé après le dernier point de sauvegarde de n1. Dans ce cas la ligne de recouvrement entre n1 et n2 n'est pas cohérente et il faut chercher un point de sauvegarde plus récent sur n1 et revérifier qu'il n'y a pas de nouveau messages orphelins.
-- Lorsqu'on a trouvé une ligne de recouvrement cohérente, il peut rester des messages qui ont été envoyés par un noeud avant son point de sauvegarde mais qu'il n'a pas encore été reçu par le noeud destinataire à son point de sauvegarde. On parle de messages manquants.
+Lors d'un checkpoint, deux types de messages peuvent-être problématiques : les messages orphelins et les messages manquants.
+- Un message m envoyé du noeud n1 vers le noeud n2 est dit orphelin si il est reçu par le noeud n2 avant son point de sauvegarde en ayant été envoyé après le dernier point de sauvegarde de n1. Dans ce cas la ligne de recouvrement entre n1 et n2 n'est pas cohérente et il faut chercher un point de sauvegarde plus récent sur n1 et revérifier qu'il n'y a pas de nouveaux messages orphelins.
+- Lorsqu'on a trouvé une ligne de recouvrement cohérente, il peut rester des messages qui ont été envoyés par un noeud avant son point de sauvegarde qui n'ont pas encore été reçus par le noeud destinataire à son point de sauvegarde. On parle de messages manquants.
 
 
 Lors de l'appel à la méthode recover de la classe CheckpointerImpl, on commence par stopper l'exécution du noeud courant puis on crée le point de sauvegarde (méthode recover). On commence alors la phase de recouvrement.
 
 
 Première phase, trouver une ligne de recouvrement :
-- Les messages rollback sont envoyés à tout les noeuds du système (méthode send_rollback_messages) afin de trouver un point de sauvegarde pour chaque noeud qui puisse former une ligne de recouvrement cohérente entre les différents noeuds.
+- Les messages rollback sont envoyés à tous les noeuds du système (méthode send_rollback_messages) afin de trouver un point de sauvegarde pour chaque noeud qui puisse former une ligne de recouvrement cohérente entre les différents noeuds.
 
-- On compare pour cela le nombre de messages reçu par chaque noeud saved_rcvd avec le nombre de messages envoyés. Tant que l'on trouve des messages orphelins, on détruit le point de sauvegarde et on recommence la comparaison avec le point de sauvegarde antérieur (méthode receiveRollBackMessage). Après avoir trouvé un point de recouvrement cohérent, les noeuds avertissent leurs homologues via les messages FinishedRollback.
+- On compare pour cela le nombre de messages reçus par chaque noeud saved_rcvd avec le nombre de messages envoyés. Tant que l'on trouve des messages orphelins, on détruit le point de sauvegarde et on recommence la comparaison avec le point de sauvegarde antérieur (méthode receiveRollBackMessage). Après avoir trouvé un point de recouvrement cohérent, les noeuds avertissent leurs homologues via les messages FinishedRollback.
 
-- On vérifie qu'on a bien reçu un message FinishedRollback de tout les autres noeuds du système (méthode receiveFinishedRollbackMessage).
+- On vérifie qu'on a bien reçu un message FinishedRollback de tous les autres noeuds du système (méthode receiveFinishedRollbackMessage).
 
 
-Deuxième phase, trouver les messages manquant :
-On cherche à present à retourner jusqu'à l'instant ou l'application a planté. Les noeuds savant qu'ils se sont envoyés des messages qui ont du être ignorés car postérieur au point de sauvegarde.
+Deuxième phase, trouver les messages manquants :
+On cherche à présent à retourner jusqu'à l'instant où l'application a planté. Les noeuds savent qu'ils se sont envoyés des messages qui ont dû être ignorés car postérieurs au point de sauvegarde.
 
-- Chaque noeud demande aux autres si il y a des messages manquant en envoyant le nombre de message qu'il a reçu à son point de sauvegarde (méthode findMessagesToReplay).
+- Chaque noeud demande aux autres si il y a des messages manquants en envoyant le nombre de messages qu'il a reçus à son point de sauvegarde (méthode findMessagesToReplay).
 
-- Les noeuds reçoive le nombre de messages reçu par les autres noeuds, les comparent avec le nombre de messages qu'ils leurs ont eux-même envoyés et renvoient les messages manquant (méthode receiveAskMissingMessMessage).
+- Les noeuds reçoivent le nombre de messages reçus par les autres noeuds, les comparent avec le nombre de messages qu'ils leur ont eux-même envoyés et renvoient les messages manquants (méthode receiveAskMissingMessMessage).
 
-- Les noues ajoutent à la liste des messages qu'il a reçu les messages manquant (méthode receiveReplyAskMissingMessMessage puis stop_recover).
+- Les noeuds ajoutent à la liste des messages qu'ils ont reçus les messages manquants (méthode receiveReplyAskMissingMessMessage puis stop_recover).
 
-- Finalement, on restore l'état des noeuds avec les valeurs contenues dans les points de sauvegardes sélectionnés comprenant le nombre de messages envoyés et reçus (méthode stop_recover).
+- Finalement, on restaure l'état des noeuds avec les valeurs contenues dans les points de sauvegarde sélectionnés comprenant le nombre de messages envoyés et reçus (méthode stop_recover).
 
 
 Question 9 :
 
-Après des débats passionnés en cours, nous avons conclu que tel que le code est écrit, l'ordre FIFO n'est pas indispensable au bon fonctionnement de l'algorithme. En effet, les AskMissingMessMessage ne commençent à être envoyés qu'après la phase de findMessagesToReplay et les ReplyAskMissingMessMessage ne commencent à être envoyés qu'après la réceptionne tout les AskMissingMessMessage. Il y a donc des point de synchronisation de l'application avant et après les AskMissingMessMessage.
+Après des débats passionnés en cours, nous avons conclu que tel que le code est écrit, l'ordre FIFO n'est pas indispensable au bon fonctionnement de l'algorithme. En effet, les AskMissingMessMessage ne commencent à être envoyés qu'après la phase de findMessagesToReplay et les ReplyAskMissingMessMessage ne commencent à être envoyés qu'après la réception de tous les AskMissingMessMessage. Il y a donc des points de synchronisation de l'application avant et après les AskMissingMessMessage.
 
 Si le noeud renvoyait lui-même les messages manquants, une absence de protocole FIFO pourrait provoquer une inversion des messages envoyés.

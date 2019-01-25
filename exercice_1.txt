@@ -4,33 +4,33 @@ Question 1 :
 
 L'algorithme de verrouillage utilisé dans la classe Application est un algorithme dérivé de celui de Naimi-Tréhel utilisant la notion de jeton.
 
-Ainsi tout les sites se partagent le même jeton et seul le site possédant le jeton peut entrer en section critique. Dans la classe Application, les constantes initial_owner et nil servent à discriminer le site possédant le jeton des autres.
+Ainsi tous les sites se partagent le même jeton et seul le site possédant le jeton peut entrer en section critique. Dans la classe Application, les constantes initial_owner et nil servent à discriminer le site possédant le jeton des autres.
 
-Chaque noeud maintient sa propre liste de noeud en attente de section critique (variable next) et son compteur global de section critique (variable global_counter). Il possède également l'adresse du noeud dont il pense qu'il possède le jeton (variable last) ainsi que le nombre de sections critique qu'il a lui-même effectué (variable nb_cs). Si un noeud veux une section critique, il envoie une demande pour avoir le jeton puis il se met en attente.
+Chaque noeud maintient sa propre liste de noeuds en attente de section critique (variable next) et son compteur global de sections critiques (variable global_counter). Il possède également l'adresse du noeud dont il pense qu'il possède le jeton (variable last) ainsi que le nombre de sections critiques qu'il a lui-même effectuées (variable nb_cs). Si un noeud veut une section critique, il envoie une demande pour avoir le jeton puis il se met en attente.
 
-Quand un noeud sort de section critique, il envoie le jeton au dernier noeud de la liste des noeuds demandant la section critique avec les informations qu'il possède du nombre de sections critiques réalisés et des noeuds en attente de section critique.
+Quand un noeud sort de section critique, il envoie le jeton au dernier noeud de la liste des noeuds demandant la section critique avec les informations qu'il possède du nombre de sections critiques réalisées et des noeuds en attente de section critique.
 
-Lorsqu'un noeud reçoit le jeton, il met à jour son compteur de section critique avec la valeur envoyé par le dernier noeud ayant été en section critique. Il compare également sa liste de noeuds en attentes avec celle qu'il a reçu. Si des noeuds se trouvent dans les deux listes mais pas dans le même ordre, l'ordre envoyés par le dernier noeud en section critique est maintenu. Si des demandes sont absentes de la liste reçu, elles sont ajoutés en fin de liste.
+Lorsqu'un noeud reçoit le jeton, il met à jour son compteur de sections critiques avec la valeur envoyée par le dernier noeud ayant été en section critique. Il compare également sa liste de noeuds en attente avec celle qu'il a reçue. Si des noeuds se trouvent dans les deux listes mais pas dans le même ordre, l'ordre envoyé par le dernier noeud en section critique est maintenu. Si des demandes sont absentes de la liste reçue, elles sont ajoutées en fin de liste.
 
 
 Question 2 :
 
 On considère trois états du jeton :
-1) Un noeud possède le jeton mais ne sans sert pas (état tranquil).
+1) Un noeud possède le jeton mais ne s’en sert pas (état tranquille).
 2) Un noeud possède le jeton et est en section critique (état utilisé).
 3) Le jeton est en transit (état enTransit).
 
 Machine à états du jeton :
-  tranquil --> utilisé : la section critique est demandée et personne ne requiert le jeton.
-  tranquil --> enTransit : un noeud requiert le jeton.
-  utilisé --> tranquil : la section critique se termine.
+  tranquille --> utilisé : la section critique est demandée et personne ne requiert le jeton.
+  tranquille --> enTransit : un noeud requiert le jeton.
+  utilisé --> tranquille : la section critique se termine.
   utilisé --> enTransit : releaseCS(timeout) && !next.isEmpty()
   enTransit --> utilisé : receive_token()
 
 
 Question 3 :
 
-𝛂 étant le temps moyen qu'un processus passe en section critique et 𝛃 le temps passé entre les sections critique.
+𝛂 étant le temps moyen qu'un processus passe en section critique et 𝛃 le temps passé entre les sections critiques.
 
 Le ratio 𝛒 = 𝛂 / 𝛃 représente la charge du réseau.
 
@@ -43,6 +43,6 @@ Question 4 :
 
 Question 5 :
 
-Le fait que le temps de transmission moyen soit supérieur au temps moyen passé en section critique ne change pas fondamentalement les résultats, en effet le schedule_request ce fait avant la transition du jeton. Or tant que le jeton n'a pas été transmis, les autres processus ne peuvent pas s'exécuter. Le temps passé en section critique et le temps de transmission s'additionne donc et rende le système plus lent.
+Le fait que le temps de transmission moyen soit supérieur au temps moyen passé en section critique ne change pas fondamentalement les résultats, en effet le schedule_request se fait avant la transition du jeton. Or tant que le jeton n'a pas été transmis, les autres processus ne peuvent pas s'exécuter. Le temps passé en section critique et le temps de transmission s'additionnent donc et rendent le système plus lent.
 
-Dans le détaille, on voit que les premiers instants du fonctionnement du système, le fait que le temps de transmission moyen soit supérieur au temps moyen passé en section critique fait que le noeud ayant le jeton peut exécuter plusieurs fois la section critique avant de recevoir une requête et que la file des noeuds demandant l'accès à la section critique mettra plus de temps à ce remplir. Cependant après que tout les noeuds aient exécutés au moins une fois leurs section critique. Le temps passé en section critique et le temps de transmission du message s'additionnant rendront la suite de l'exécution semblable à ce qu'elle aurait été avec un temps de transmission moyen plus faible que le temps passé en section critique.
+Dans le détail, on voit que les premiers instants du fonctionnement du système, le fait que le temps de transmission moyen soit supérieur au temps moyen passé en section critique fait que le noeud ayant le jeton peut exécuter plusieurs fois la section critique avant de recevoir une requête et que la file des noeuds demandant l'accès à la section critique mettra plus de temps à se remplir. Cependant après que tous les noeuds aient exécuté au moins une fois leur section critique, le temps passé en section critique et le temps de transmission du message s'additionnant rendront la suite de l'exécution semblable à ce qu'elle aurait été avec un temps de transmission moyen plus faible que le temps passé en section critique.

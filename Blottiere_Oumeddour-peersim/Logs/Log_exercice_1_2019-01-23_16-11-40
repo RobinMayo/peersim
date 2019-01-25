@@ -1,9 +1,0 @@
-105 105
-1460
-12 54 32
-
-********** Format : **********
-
-nbMessagesByCs nbRequestByCs
-nodeAverageRequestingTime
-tokenUnusedTime tokenUsageTime tokenTransmissionTime
