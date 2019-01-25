@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  25 JAN 2019 10:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  25 JAN 2019 22:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -677,69 +677,17 @@ Package pdftex.def Info: SU.png used on input line 24.
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./SU.pn
 g>]
 Exercice 1.
-./Rapport_3200248-3100478.tex:81: Missing $ inserted.
-<inserted text> 
-                $
-l.81 tranquille \to
-                    utilis√© : la section critique est demand√©e et personne...
-
-? 
-LaTeX Font Info:    Try loading font information for U+msa on input line 81.
+LaTeX Font Info:    Try loading font information for U+msa on input line 79.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 81.
+LaTeX Font Info:    Try loading font information for U+msb on input line 79.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+Underfull \hbox (badness 10000) in paragraph at lines 79--84
 
-LaTeX Warning: Command \' invalid in math mode on input line 81.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 81.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 83.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 84.
-
-./Rapport_3200248-3100478.tex:84: Misplaced alignment tab character &.
-l.84 utilis√© \to enTransit : releaseCS(timeout) &
-                                                  & !next.isEmpty()
-? 
-./Rapport_3200248-3100478.tex:84: Misplaced alignment tab character &.
-l.84 ...is√© \to enTransit : releaseCS(timeout) &&
-                                                   !next.isEmpty()
-? 
-
-LaTeX Warning: Command \' invalid in math mode on input line 85.
-
-./Rapport_3200248-3100478.tex:88: Missing $ inserted.
-<inserted text> 
-                $
-l.88 
-     
-? 
-Missing character: There is no È in font cmr10!
-Missing character: There is no È in font cmr10!
-Missing character: There is no È in font cmr10!
-Missing character: There is no È in font cmr10!
-Missing character: There is no È in font cmr10!
-
-Overfull \hbox (33.38986pt too wide) in paragraph at lines 81--88
-[]\T1/cmr/m/n/10.95 tranquille $\OMS/cmsy/m/n/10.95 ! \OML/cmm/m/it/10.95 utili
-s \OT1/cmr/m/n/10.95 : \OML/cmm/m/it/10.95 lasectioncritiqueestdemandeetpersonn
-enerequiertlejeton:tranquille \OMS/cmsy/m/n/10.95 !
- []
-
-
-Overfull \hbox (28.29726pt too wide) in paragraph at lines 81--88
-\OML/cmm/m/it/10.95 enTransit \OT1/cmr/m/n/10.95 : \OML/cmm/m/it/10.95 unnoeudr
-equiertlejeton:utilis \OMS/cmsy/m/n/10.95 ! \OML/cmm/m/it/10.95 tranquille \OT1
-/cmr/m/n/10.95 : \OML/cmm/m/it/10.95 lasectioncritiquesetermine:utilis \OMS/cms
-y/m/n/10.95 !
  []
 
 [1
@@ -749,15 +697,15 @@ File: ../Diagrammes/exercice_1-question_2.png Graphic file (type png)
 
 <use ../Diagrammes/exercice_1-question_2.png>
 Package pdftex.def Info: ../Diagrammes/exercice_1-question_2.png used on input 
-line 132.
+line 85.
 (pdftex.def)             Requested size: 151.16591pt x 115.93402pt.
- [2] [3 <../Diagrammes/exercice_1-question_2.png (PNG copy)>]
+ [2 <../Diagrammes/exercice_1-question_2.png (PNG copy)>]
 Exercice 2.
-[4
+[3
 
 ]
 Exercice 3.
-[5
+[4
 
 ] (./Rapport_3200248-3100478.aux) ) 
 Here is how much of TeX's memory you used:
@@ -767,24 +715,22 @@ Here is how much of TeX's memory you used:
  9448 multiletter control sequences out of 15000+600000
  15741 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,5n,32p,514b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,5n,32p,671b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/en
 c/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publ
-ic/cm-super/sfbx1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
-/cm-super/sfbx2074.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/c
-m-super/sfrm1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-
-super/sfrm1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-su
-per/sfrm1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-supe
-r/sfti1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/
-sfxc1095.pfb>
-Output written on Rapport_3200248-3100478.pdf (6 pages, 270082 bytes).
+/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
+public/cm-super/sfbx1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pu
+blic/cm-super/sfbx2074.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publ
+ic/cm-super/sfrm1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
+/cm-super/sfrm1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/c
+m-super/sfrm1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-
+super/sfti1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-su
+per/sfxc1095.pfb>
+Output written on Rapport_3200248-3100478.pdf (5 pages, 246268 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
- 49 compressed objects within 1 object stream
+ 61 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
