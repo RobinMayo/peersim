@@ -1,5 +1,6 @@
 package projetara.application;
 
+import java.util.ArrayDeque;
 import java.util.Queue;
 
 import projetara.util.Message;
@@ -21,7 +22,11 @@ public class TokenMessage extends Message {
 	}
 
 	public Queue<Long> getNext() {
-		return next;
+		return new ArrayDeque<Long>(next);
 	}
-
+	
+	@Override
+	public String toString() {
+		return "TokenMessage( from="+getIdSrc()+", to = "+getIdDest()+"  counter = "+getCounter()+" next = "+getNext()+")";
+	}
 }

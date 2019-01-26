@@ -19,19 +19,33 @@ import peersim.transport.Transport;
 import projetara.checkpointing.Checkpointable;
 import projetara.checkpointing.Checkpointer;
 import projetara.checkpointing.NodeState;
+import projetara.checkpointing.algo1.messages.AckRollBackMessage;
 import projetara.checkpointing.algo1.messages.AskMissingMessMessage;
-import projetara.checkpointing.algo1.messages.FinishedRollbackMessage;
 import projetara.checkpointing.algo1.messages.ReplyAskMissingMessMessage;
 import projetara.checkpointing.algo1.messages.RollBackMessage;
 import projetara.checkpointing.algo1.messages.WrappingMessage;
 import projetara.util.Message;
 
-
+/**
+ * 
+ * @author jlejeune
+ * Version modifiée de l'algorithme de Juang Venkatesan, où on fait x broadcasts de message de rollback (= un round) 
+ * pour obtenir une ligne de recouvrement  * cohérente. Dans la version initiale x était toujours égal
+ *  à N-1 (N = nombre de noeuds du système) ce qui pouvait poser les problèmes
+ *  suivants : 1) si il faut plus de N-1 broadcasts alors erreur 2) si on a trouver avant une ligne de recouvrement 
+ *  alors on fait des broadcasts pour rien. 
+ * Dans cette version on fait des broadcast tant qu'il y a quelqu'un qui a effacer un checkpoint (un rollback) dans le round
+ * La ligne de recouvrement est trouvée lorsque personne a fait un rollback dans le round
+ */
 public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
+
+
+	
 
 	private static final String PAR_TRANSPORT = "transport";
 	private static final String PAR_CHECKPOINTABLE = "checkpointable";
 	private static final String PAR_TIMECHECKPOINTING = "timecheckpointing";
+	
 	
 	private final int checkpointable_id;
 	private final int transport;
@@ -44,7 +58,9 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 	//attribut pour sauvegarder les messages envoyés depuis le dernier checkpoint
 	private Map<Long,List<WrappingMessage>> sent_messages;
 	
-	//Attributs de sauvegarde
+	
+	
+	//ATtributs de sauvegarde
 	private Stack<NodeState> states;
 	private Stack<Map<Long,Integer>> saved_sent;
 	private Stack<Map<Long,Integer>> saved_rcvd;
@@ -52,12 +68,14 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 	
 	//attributs pour l'algo de recovery
 	private boolean is_recovery=false;
-	private int nb_remaining_broadcast_rollback;
-	private int nb_remaining_received_rollback;
-	private int nb_remaining_finished_rollback;
+	private int idround=0;
+	private int nb_remaining_received_ack_rollback=0;
+	private boolean should_contine_rollback=false;
+	private int nb_remaining_received_rollback=0;
 	private List<WrappingMessage> message_to_replay_after_recovery;
 	private int nb_remaining_replyrecovery;
 
+	
 	
 	public CheckpointerImpl(String prefix) {
 		String tmp[]=prefix.split("\\.");
@@ -70,8 +88,6 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 	}
 	
 	public Object clone(){
-		log.fine(" BEGIN");
-		
 		CheckpointerImpl res= null;
 		try { res = (CheckpointerImpl) super.clone();}
 		catch( CloneNotSupportedException e ) {} // never happens
@@ -82,6 +98,7 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 			res.sent.put(new Long(i), 0);
 			res.rcvd.put(new Long(i), 0);
 		}
+		
 		
 		res.saved_rcvd=new Stack<>();
 		res.saved_sent=new Stack<>();
@@ -102,8 +119,6 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 
 	@Override
 	public void processEvent(Node node, int pid, Object event) {
-		log.finer("Node "+node.getID()+" BEGIN");
-
 		if(protocol_id != pid){
 			throw new RuntimeException("Receive an event for wrong protocol");
 		}
@@ -118,8 +133,8 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 			receiveWrappingMessage(node, (WrappingMessage) event);
 		}else if(event instanceof RollBackMessage){
 			receiveRollBackMessage(node, (RollBackMessage)event);
-		}else if(event instanceof FinishedRollbackMessage){
-			receiveFinishedRollbackMessage(node,(FinishedRollbackMessage)event);
+		}else if(event instanceof AckRollBackMessage){
+			receiveAckRollBackMessage(node,(AckRollBackMessage)event);
 		}else if(event instanceof AskMissingMessMessage){
 			receiveAskMissingMessMessage(node, (AskMissingMessMessage) event);
 		}else if(event instanceof ReplyAskMissingMessMessage){
@@ -128,11 +143,9 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 			throw new RuntimeException("Receive unknown type event");
 		}
 	}
-	
-	private void receiveWrappingMessage(Node host, WrappingMessage wm){
-		log.fine("Node "+host.getID()+" BEGIN");
 
-		Message m = wm.getMessage();
+	private void receiveWrappingMessage(Node host, WrappingMessage wm){
+		Message m = wm.getMessage(); 
 		long sender = m.getIdSrc();
 		if(!is_recovery){
 			rcvd.put(sender, rcvd.get(sender)+1);
@@ -140,10 +153,11 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		}
 	}
 	
+
+	
+
 	@Override
 	public void send(Node src, Node dest, Object msg, int pid) {
-		log.fine("BEGIN");
-
 		Transport t = (Transport) src.getProtocol(transport);
 		if(!is_recovery){
 			sent.put(dest.getID(), sent.get(dest.getID())+1);
@@ -152,16 +166,16 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 				sent_messages.put(dest.getID(), new ArrayList<>());
 			}
 			sent_messages.get(dest.getID()).add(mess);
-			log.info("Node "+src.getID()+" : message sent to dest "+dest.getID()+", pid "+pid);
-			t.send(src, dest, mess, protocol_id);
+			log.fine("Node "+src.getID()+" : add "+mess+" in sent_messages, sent_messages = "+sent_messages);
+			t.send(src, dest, mess , protocol_id);
 		}
 		
 	}
+
 	
 	@Override
 	public void createCheckpoint(Node host){
-		log.fine("Node "+host.getID()+" BEGIN");
-
+		
 		Checkpointable chk = (Checkpointable) host.getProtocol(checkpointable_id);
 		NodeState ns = chk.getCurrentState();
 		states.push(ns);
@@ -170,109 +184,133 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		saved_sent_messages.push(new HashMap<>(sent_messages));
 		sent_messages.clear();
 			
-		log.info("Node "+host.getID()+" : saved  state ("+(states.size())+") "+states.peek()+" sent = "
-				+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
+		log.fine("Node "+host.getID()+" : saved  state ("+(states.size())+") "+states.peek()+
+				" sent = "+saved_sent.peek()+" rcvd = "+saved_rcvd.peek()+" sent_messages = "
+				+saved_sent_messages.peek());
+		
+		
 	}
 	
 	
 	///////////////////////////////////////// MEthodes pour le Recouvrement
 	
+	
 	@Override
 	public void recover(Node host){
-		log.info("Node "+host.getID()+" : start recovering");
+		idround=0;
+				
+		log.fine("Node "+host.getID()+" : start recovering");
 		Checkpointable chk = (Checkpointable) host.getProtocol(checkpointable_id);
 		chk.suspend();
 		is_recovery=true;
-		nb_remaining_broadcast_rollback=Network.size()-1;
-		nb_remaining_finished_rollback=Network.size()-1;
 		if(host.isUp()){
 			createCheckpoint(host);
 		}else{
 			host.setFailState(Fallible.OK);
 		}
-		log.info("Node "+host.getID()+" : start recovering ("+states.size()+" checkpoints) last state = "+states.peek());
+		log.info("Node "+host.getID()+" : start recovering ("+states.size()+" checkpoints) last state = "
+				+states.peek());
+		
+		nb_remaining_received_rollback= Network.size()-1;
 		send_rollback_messages(host);
+		
 	}
 	
+	
+	
 	private void send_rollback_messages(Node host) {
-		log.fine("Node "+host.getID()+" BEGIN");
-
+		log.fine("Node "+host.getID()+" : start round "+(idround++));
+		should_contine_rollback=false;//si ceci reste faux alors on arretra le rollback
 		Transport t = (Transport) host.getProtocol(transport);
 		for(int j=0;j<Network.size();j++){
 			if(j != host.getIndex()){
 				long id_dest=Network.get(j).getID();
 				int nb_sent = saved_sent.peek().get(id_dest);
-				t.send(host, Network.get(j), new RollBackMessage(host.getID(),id_dest, nb_sent,
-						protocol_id), protocol_id);
+				t.send(host, Network.get(j), new RollBackMessage(host.getID(),id_dest, nb_sent, protocol_id),
+						protocol_id);
 			}
 		}
-		nb_remaining_broadcast_rollback--;
-		nb_remaining_received_rollback = Network.size()-1;
+		nb_remaining_received_ack_rollback = Network.size()-1;
 	}
 	
+	
+	
+	
+	
 	private void receiveRollBackMessage(Node host, RollBackMessage rbmess){
-		log.fine("Node "+host.getID()+" receive RollBackMessage from "+rbmess.getIdSrc());
+		log.fine("Node "+host.getID()+" : receive RollBackMessage from "+rbmess.getIdSrc());
+		log.fine("Node "+host.getID()+" : ("+states.size()+" checkpoints)"+"  state = "+states.peek()+
+				" sent = "+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
+
 		nb_remaining_received_rollback--;
 		int nb_recv=saved_rcvd.peek().get(rbmess.getIdSrc());
 		while(nb_recv > rbmess.getNbSent()){
 			delete_checkpoint();
+			should_contine_rollback=true;
+			log.fine("Node "+host.getID()+" : delete checkpoint because node "+rbmess.getIdSrc()+
+					" has sent "+rbmess.getNbSent()+" messages to I but I receive "+nb_recv+
+					" messages from "+rbmess.getIdSrc());
+			log.fine("Node "+host.getID()+" : find last checkpoint ("+states.size()+" checkpoints)"+
+					"  state = "+states.peek()+" sent = "+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
 			nb_recv=saved_rcvd.peek().get(rbmess.getIdSrc());
-		}		
+		}
 		
-		if(nb_remaining_received_rollback == 0){
-			if(nb_remaining_broadcast_rollback != 0){
-				send_rollback_messages(host);
-			}else{	
-				// on  a trouvé la ligne de recouvremen et on le notifie à tout le monde
-				for(int i = 0;i< Network.size();i++){
-					Node dest = Network.get(i);
-					Transport t = (Transport) host.getProtocol(transport);
-					if(dest.getID()!=host.getID()){
-						t.send(host, dest, new FinishedRollbackMessage(host.getID(), dest.getID(),
-								protocol_id), protocol_id);
-					}
+		if(nb_remaining_received_rollback == 0) {
+			
+			nb_remaining_received_rollback= Network.size()-1;
+			
+			//une fois que l'on a recu tous les messages de rollbacks, il faut repondre à tous si on a 
+			// fait un rollback ou pas
+			Transport t = (Transport) host.getProtocol(transport);
+			for(int i = 0;i< Network.size();i++){
+				Node dest = Network.get(i);
+				if(dest.getID()!=host.getID()){
+					t.send(host, dest, new AckRollBackMessage(host.getID(), dest.getID(),
+							should_contine_rollback, protocol_id), protocol_id);
+					log.fine("Node "+host.getID()+" : send AckRollBackMessage to "+dest.getID()+
+							" ("+should_contine_rollback+")");
 				}
-				
-				// De mon point de vue tout le monde a fini son rollback
-				// Ligne atteignable uniquement dans le cas d'un réseau de taille 1.
-				if(nb_remaining_finished_rollback == 0){
-					findMessagesToReplay(host);
-				}
+			}
+			
+		}
+	}
+	
+	
+	private void receiveAckRollBackMessage(Node host, AckRollBackMessage mess) {
+		log.fine("Node "+host.getID()+" : receive AckRollBackMessage from "+mess.getIdSrc()+
+				" ("+mess.should_contine_rollback()+")");
+		nb_remaining_received_ack_rollback--;
+		should_contine_rollback = should_contine_rollback || mess.should_contine_rollback();
+		if(nb_remaining_received_ack_rollback==0) {//on a recu tous les acks
+			if(should_contine_rollback) {//il y a au moins un noeud qui a fait un rollback
+				send_rollback_messages(host);//on refait un round du coup
+			}else {
+				findMessagesToReplay(host);//on a trouvé la ligne de recouvrement, on passe à la phase de rejeu des messages
 			}
 		}
 	}
 	
+	
+	
 	private void delete_checkpoint() {
-		log.fine(" BEGIN");
-
 		states.pop();
 		saved_sent.pop();
 		saved_rcvd.pop();
 		saved_sent_messages.pop();
 		
 	}	
-	
-	private void receiveFinishedRollbackMessage(Node host, FinishedRollbackMessage m) {
-		log.fine("Node "+host.getID()+" BEGIN");
-
-		nb_remaining_finished_rollback--;
-		if(nb_remaining_finished_rollback == 0){//De mon point de vue tout le monde a fini son rollback
-			findMessagesToReplay(host);
-		}
-	}
-	
-	private void findMessagesToReplay(Node host){
-		log.fine("Node "+host.getID()+" BEGIN");
-
+		
+	private void findMessagesToReplay(Node host){	
 		Transport t = (Transport) host.getProtocol(transport);
 		nb_remaining_replyrecovery=Network.size()-1;
 		message_to_replay_after_recovery.clear();
 		for(int i=0; i< Network.size();i++){
 			Node dest = Network.get(i);
 			if(dest.getID() != host.getID()){
-				t.send(host, dest, new AskMissingMessMessage(host.getID(), dest.getID(),
+				t.send(host, dest, new AskMissingMessMessage(host.getID(), dest.getID(), 
 						saved_rcvd.peek().get(dest.getID()) , protocol_id), protocol_id);
 			}
+			
 		}
 	}
 	
@@ -281,9 +319,9 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		Transport t = (Transport) host.getProtocol(transport);
 		int nb_sent =  this.saved_sent.peek().get(amess.getIdSrc());
 		int nb_rcv = amess.getNbRcv();
-		log.fine("Node "+host.getID()+" nb_rcv "+nb_rcv+" nb_sent "+nb_sent);
 		if( nb_rcv > nb_sent){
-			throw new RuntimeException("Error : inconcistency in cover line");
+			throw new RuntimeException("Error : inconcistency in cover line : ( Node "+host.getID()+
+					" : node "+amess.getIdSrc()+" received "+nb_rcv+" messages from I but I sent "+nb_sent);
 		}
 		List<WrappingMessage> missing_mess = new ArrayList<>();
 		if(nb_rcv < nb_sent){
@@ -309,17 +347,17 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		
 		for(int i=0;i< Network.size();i++){
 			Node dest=Network.get(i);
-			if( dest.getID() == amess.getIdSrc()){
+			if( dest.getID()== amess.getIdSrc()){
 				t.send(host, dest, new ReplyAskMissingMessMessage(host.getID(), amess.getIdSrc(),
 						missing_mess, protocol_id), protocol_id);
 				break;
 			}
 		}
+		
 	}
 	
+	
 	private void receiveReplyAskMissingMessMessage(Node host, ReplyAskMissingMessMessage reply){
-		log.fine("Node "+host.getID()+" BEGIN");
-		
 		nb_remaining_replyrecovery--;
 		this.message_to_replay_after_recovery.addAll(reply.getMissingMessages());
 		if(nb_remaining_replyrecovery == 0){
@@ -327,8 +365,9 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		}
 	}
 	
+	
+	
 	private void stop_recover(Node host) {
-		log.fine("Node "+host.getID()+" BEGIN");
 		Checkpointable chk = (Checkpointable) host.getProtocol(checkpointable_id);
 		chk.resume();
 		is_recovery=false;
@@ -336,18 +375,20 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 		this.rcvd=new HashMap<>(saved_rcvd.peek());
 		this.sent_messages.clear();
 		log.info("Node "+host.getID()+" : end recovering (recover from checkpoint "+states.size()+")"+
-				"  state = "+states.peek()+" nb reply messages = " +message_to_replay_after_recovery.size());
+				"  state = "+states.peek()+" nb reply messages = " +message_to_replay_after_recovery.size()+
+				" "+message_to_replay_after_recovery);
 		chk.restoreState(states.peek());		
-		for(WrappingMessage wm : message_to_replay_after_recovery){
+		for( WrappingMessage wm : message_to_replay_after_recovery){
 			receiveWrappingMessage(host, wm);
 		}
+		
+		
 	}
 	
 	
 	////////////////////////////////////////// Fin des methodes de recouvrement
 	
 	public void loop(Node host) {
-		log.finer("Node "+host.getID()+" BEGIN");
 		if(CommonState.r.nextInt()%2 == 0 && ! is_recovery){
 			createCheckpoint(host);
 		}
@@ -356,13 +397,9 @@ public class CheckpointerImpl implements Checkpointer, EDProtocol, Transport {
 	}
 	
 	private void next_turn(Node host){
-		log.finer("Node "+host.getID()+" BEGIN");
-		
 		long min = (long )(timecheckpointing * 0.8);
 		long max = (long )(timecheckpointing * 1.2);
 		long res = CommonState.r.nextLong(max-min)+min;
 		EDSimulator.add(res,"loop", host,protocol_id);
 	}
-
-	
 }

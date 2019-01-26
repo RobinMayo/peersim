@@ -19,19 +19,29 @@ import peersim.transport.Transport;
 import projetara.checkpointing.Checkpointable;
 import projetara.checkpointing.Checkpointer;
 import projetara.checkpointing.NodeState;
+import projetara.checkpointing.algo1.messages.AckRollBackMessage;
 import projetara.checkpointing.algo1.messages.AskMissingMessMessage;
-import projetara.checkpointing.algo1.messages.FinishedRollbackMessage;
 import projetara.checkpointing.algo1.messages.ReplyAskMissingMessMessage;
 import projetara.checkpointing.algo1.messages.RollBackMessage;
 import projetara.checkpointing.algo1.messages.WrappingMessage;
 import projetara.util.Message;
 
-public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Transport{
+/**
+ * 
+ * @author jlejeune
+ * Version modifiée de l'algorithme de Juang Venkatesan, où on fait x broadcasts de message de rollback (= un round) 
+ * pour obtenir une ligne de recouvrement  * cohérente. Dans la version initiale x était toujours égal
+ *  à N-1 (N = nombre de noeuds du système) ce qui pouvait poser les problèmes
+ *  suivants : 1) si il faut plus de N-1 broadcasts alors erreur 2) si on a trouver avant une ligne de recouvrement 
+ *  alors on fait des broadcasts pour rien. 
+ * Dans cette version on fait des broadcast tant qu'il y a quelqu'un qui a effacer un checkpoint (un rollback) dans le round
+ * La ligne de recouvrement est trouvée lorsque personne a fait un rollback dans le round
+ */
+public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Transport {
 
 	private static final String PAR_TRANSPORT = "transport";
 	private static final String PAR_CHECKPOINTABLE = "checkpointable";
 	private static final String PAR_TIMECHECKPOINTING = "timecheckpointing";
-	
 	
 	private final int checkpointable_id;
 	private final int transport;
@@ -54,12 +64,14 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 	
 	//attributs pour l'algo de recovery
 	private boolean is_recovery=false;
-	private int nb_remaining_broadcast_rollback;
-	private int nb_remaining_received_rollback;
-	private int nb_remaining_finished_rollback;
+	private int idround=0;
+	private int nb_remaining_received_ack_rollback=0;
+	private boolean should_contine_rollback=false;
+	private int nb_remaining_received_rollback=0;
 	private List<WrappingMessage> message_to_replay_after_recovery;
 	private int nb_remaining_replyrecovery;
 
+	
 	
 	public ChandyLamportCheckpointer(String prefix) {
 		String tmp[]=prefix.split("\\.");
@@ -117,8 +129,8 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 			receiveWrappingMessage(node, (WrappingMessage) event);
 		}else if(event instanceof RollBackMessage){
 			receiveRollBackMessage(node, (RollBackMessage)event);
-		}else if(event instanceof FinishedRollbackMessage){
-			receiveFinishedRollbackMessage(node,(FinishedRollbackMessage)event);
+		}else if(event instanceof AckRollBackMessage){
+			receiveAckRollBackMessage(node,(AckRollBackMessage)event);
 		}else if(event instanceof AskMissingMessMessage){
 			receiveAskMissingMessMessage(node, (AskMissingMessMessage) event);
 		}else if(event instanceof ReplyAskMissingMessMessage){
@@ -127,11 +139,6 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 			throw new RuntimeException("Receive unknown type event");
 		}
 	}
-
-	
-	
-	
-	
 
 	private void receiveWrappingMessage(Node host, WrappingMessage wm){
 		Message m = wm.getMessage(); 
@@ -155,6 +162,7 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 				sent_messages.put(dest.getID(), new ArrayList<>());
 			}
 			sent_messages.get(dest.getID()).add(mess);
+			log.fine("Node "+src.getID()+" : add "+mess+" in sent_messages, sent_messages = "+sent_messages);
 			t.send(src, dest, mess , protocol_id);
 		}
 		
@@ -172,7 +180,7 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 		saved_sent_messages.push(new HashMap<>(sent_messages));
 		sent_messages.clear();
 			
-		log.fine("Node "+host.getID()+" : saved  state ("+(states.size())+") "+states.peek()+" sent = "+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
+		log.fine("Node "+host.getID()+" : saved  state ("+(states.size())+") "+states.peek()+" sent = "+saved_sent.peek()+" rcvd = "+saved_rcvd.peek()+" sent_messages = "+saved_sent_messages.peek());
 		
 		
 	}
@@ -183,23 +191,29 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 	
 	@Override
 	public void recover(Node host){
+		idround=0;
+				
 		log.fine("Node "+host.getID()+" : start recovering");
 		Checkpointable chk = (Checkpointable) host.getProtocol(checkpointable_id);
 		chk.suspend();
 		is_recovery=true;
-		nb_remaining_broadcast_rollback=Network.size()-1;
-		nb_remaining_finished_rollback=Network.size()-1;
 		if(host.isUp()){
 			createCheckpoint(host);
 		}else{
 			host.setFailState(Fallible.OK);
 		}
 		log.info("Node "+host.getID()+" : start recovering ("+states.size()+" checkpoints) last state = "+states.peek());
+		
+		nb_remaining_received_rollback= Network.size()-1;
 		send_rollback_messages(host);
 		
 	}
 	
+	
+	
 	private void send_rollback_messages(Node host) {
+		log.fine("Node "+host.getID()+" : start round "+(idround++));
+		should_contine_rollback=false;//si ceci reste faux alors on arretra le rollback
 		Transport t = (Transport) host.getProtocol(transport);
 		for(int j=0;j<Network.size();j++){
 			if(j != host.getIndex()){
@@ -208,37 +222,54 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 				t.send(host, Network.get(j), new RollBackMessage(host.getID(),id_dest, nb_sent ,protocol_id), protocol_id);
 			}
 		}
-		nb_remaining_broadcast_rollback--;
-		nb_remaining_received_rollback = Network.size()-1;
+		nb_remaining_received_ack_rollback = Network.size()-1;
 	}
 	
 	
 	
+	
+	
 	private void receiveRollBackMessage(Node host, RollBackMessage rbmess){
-		log.fine("Node "+host.getID()+" receive RollBackMessage from "+rbmess.getIdSrc());
+		log.fine("Node "+host.getID()+" : receive RollBackMessage from "+rbmess.getIdSrc());
+		log.fine("Node "+host.getID()+" : ("+states.size()+" checkpoints)"+"  state = "+states.peek()+" sent = "+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
+
 		nb_remaining_received_rollback--;
 		int nb_recv=saved_rcvd.peek().get(rbmess.getIdSrc());
 		while(nb_recv > rbmess.getNbSent()){
 			delete_checkpoint();
+			should_contine_rollback=true;
+			log.fine("Node "+host.getID()+" : delete checkpoint because node "+rbmess.getIdSrc()+" has sent "+rbmess.getNbSent()+" messages to I but I receive "+nb_recv+" messages from "+rbmess.getIdSrc());
+			log.fine("Node "+host.getID()+" : find last checkpoint ("+states.size()+" checkpoints)"+"  state = "+states.peek()+" sent = "+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
 			nb_recv=saved_rcvd.peek().get(rbmess.getIdSrc());
-		}		
+		}
 		
-		if(nb_remaining_received_rollback == 0){
-			if(nb_remaining_broadcast_rollback != 0){
-				send_rollback_messages(host);
-			}else{	
-				// on  a trouvé la ligne de recouvremen et on le notifie à tout le monde
-				for(int i = 0;i< Network.size();i++){
-					Node dest = Network.get(i);
-					Transport t = (Transport) host.getProtocol(transport);
-					if(dest.getID()!=host.getID()){
-						t.send(host, dest, new FinishedRollbackMessage(host.getID(), dest.getID(), protocol_id), protocol_id);
-					}
+		if(nb_remaining_received_rollback == 0) {
+			
+			nb_remaining_received_rollback= Network.size()-1;
+			
+			//une fois que l'on a recu tous les messages de rollbacks , il faut repondre à tous si on a fait un rollback ou pas
+			Transport t = (Transport) host.getProtocol(transport);
+			for(int i = 0;i< Network.size();i++){
+				Node dest = Network.get(i);
+				if(dest.getID()!=host.getID()){
+					t.send(host, dest, new AckRollBackMessage(host.getID(), dest.getID(), should_contine_rollback, protocol_id), protocol_id);
+					log.fine("Node "+host.getID()+" : send AckRollBackMessage to "+dest.getID()+" ("+should_contine_rollback+")");
 				}
-				
-				if(nb_remaining_finished_rollback == 0){//De mon point de vue tout le monde a fini son rollback
-					findMessagesToReplay(host);
-				}
+			}
+			
+		}
+	}
+	
+	
+	private void receiveAckRollBackMessage(Node host, AckRollBackMessage mess) {
+		log.fine("Node "+host.getID()+" : receive AckRollBackMessage from "+mess.getIdSrc()+" ("+mess.should_contine_rollback()+")");
+		nb_remaining_received_ack_rollback--;
+		should_contine_rollback = should_contine_rollback || mess.should_contine_rollback();
+		if(nb_remaining_received_ack_rollback==0) {//on a recu tous les acks
+			if(should_contine_rollback) {//il y a au moins un noeud qui a fait un rollback
+				send_rollback_messages(host);//on refait un round du coup
+			}else {
+				findMessagesToReplay(host);//on a trouvé la ligne de recouvrement, on passe à la phase de rejeu des messages
 			}
 		}
 	}
@@ -252,18 +283,8 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 		saved_sent_messages.pop();
 		
 	}	
-	
-	private void receiveFinishedRollbackMessage(Node host, FinishedRollbackMessage m) {
-		nb_remaining_finished_rollback--;
-		if(nb_remaining_finished_rollback == 0){//De mon point de vue tout le monde a fini son rollback
-			findMessagesToReplay(host);
-		}
-	}
-	
-	
-	
-	
-	private void findMessagesToReplay(Node host){		
+		
+	private void findMessagesToReplay(Node host){	
 		Transport t = (Transport) host.getProtocol(transport);
 		nb_remaining_replyrecovery=Network.size()-1;
 		message_to_replay_after_recovery.clear();
@@ -282,7 +303,7 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 		int nb_sent =  this.saved_sent.peek().get(amess.getIdSrc());
 		int nb_rcv = amess.getNbRcv();
 		if( nb_rcv > nb_sent){
-			throw new RuntimeException("Error : inconcistency in cover line");
+			throw new RuntimeException("Error : inconcistency in cover line : ( Node "+host.getID()+" : node "+amess.getIdSrc()+" received "+nb_rcv+" messages from I but I sent "+nb_sent);
 		}
 		List<WrappingMessage> missing_mess = new ArrayList<>();
 		if(nb_rcv < nb_sent){
@@ -334,7 +355,7 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 		this.sent=new HashMap<>(saved_sent.peek());
 		this.rcvd=new HashMap<>(saved_rcvd.peek());
 		this.sent_messages.clear();
-		log.info("Node "+host.getID()+" : end recovering (recover from checkpoint "+states.size()+")"+"  state = "+states.peek()+" nb reply messages = " +message_to_replay_after_recovery.size());
+		log.info("Node "+host.getID()+" : end recovering (recover from checkpoint "+states.size()+")"+"  state = "+states.peek()+" nb reply messages = " +message_to_replay_after_recovery.size()+" "+message_to_replay_after_recovery);
 		chk.restoreState(states.peek());		
 		for( WrappingMessage wm : message_to_replay_after_recovery){
 			receiveWrappingMessage(host, wm);
@@ -342,14 +363,9 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 		
 		
 	}
-	
-	
-	
+
 	
 	////////////////////////////////////////// Fin des methodes de recouvrement
-	
-	
-	
 	
 	public void loop(Node host) {
 		if(CommonState.r.nextInt()%2 == 0 && ! is_recovery){
@@ -362,7 +378,7 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 	private void next_turn(Node host){
 		long min = (long )(timecheckpointing * 0.8);
 		long max = (long )(timecheckpointing * 1.2);
-		long res = CommonState.r.nextLong(max+min)+min;
+		long res = CommonState.r.nextLong(max-min)+min;
 		EDSimulator.add(res,"loop", host,protocol_id);
 	}
 }
