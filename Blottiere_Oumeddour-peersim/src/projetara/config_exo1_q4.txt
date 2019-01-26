@@ -1,19 +1,20 @@
 random.seed 5
 network.size 50
-simulation.endtime 2000000
+simulation.endtime 500000000
 
 protocol.reliableTransport UniformRandomTransport
-protocol.reliableTransport.mindelay 200
-protocol.reliableTransport.maxdelay 500
+protocol.reliableTransport.mindelay 10
+protocol.reliableTransport.maxdelay 10
 
-protocol.basicbroadcast projetara.application.Application
-protocol.basicbroadcast.timeCS 20
-protocol.basicbroadcast.timeBetweenCS 10
-protocol.basicbroadcast.transport reliableTransport
+protocol.application projetara.application.Application
+protocol.application.timeCS 100
+protocol.application.timeBetweenCS 10000000
+protocol.application.transport reliableTransport
 
 init.constantes Constantes
 init.constantes.loglevel WARNING
 
 control.endControler projetara.application.EndControler
+control.endControler.application application
 control.endControler.at -1
 control.endControler.FINAL

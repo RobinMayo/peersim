@@ -54,7 +54,7 @@ public class Application implements EDProtocol {
 		
 		// ********** Exercice 1 question 4 :
 		// Métriques :
-		protected int nbMessages;
+		protected int nbToken;
 		protected int nbRequest;
 		protected long nodeRequestingTime;
 		private long beginRequestTime;
@@ -121,6 +121,9 @@ public class Application implements EDProtocol {
 				if(m.getTag().equals(REQUEST_TAG)){
 					this.receive_request(node, m.getIdSrc(), (Long)m.getContent());
 				}else if(m.getTag().equals(TOKEN_TAG)){
+					tokenTransmissionTime += System.currentTimeMillis() - tokenBeginStateTime;
+					tokenBeginStateTime = System.currentTimeMillis();
+					
 					if(! (m instanceof TokenMessage))
 						throw new RuntimeException("Receive a message with tag token but it is not"
 								+ "an instance of TokenMessage");
@@ -163,28 +166,30 @@ public class Application implements EDProtocol {
 				log.finer("Node "+host.getID()+" last : "+last);
 				Transport tr= (Transport) host.getProtocol(transport_id);
 				Node dest = Network.get((int)last);
+				nbRequest++;
 				tr.send(host,dest, new Message(host.getID(), dest.getID(),  REQUEST_TAG,
 						host.getID(), protocol_id), protocol_id);
-				nbRequest++;
 				last=nil;
 				return;//on simule un wait ici
 			}
-			changestate(host,State.inCS);
-			//DEBUT CS
-			log.fine("Node "+host.getID()+" ***** BEGIN CS ! *****");
 			tokenUnusedTime += System.currentTimeMillis() - tokenBeginStateTime;
 			log.warning("tokenUnusedTime : "+tokenUnusedTime+", tokenBeginStateTime : "+tokenBeginStateTime);
 			tokenBeginStateTime = System.currentTimeMillis();
+			
+			changestate(host,State.inCS);
+			//DEBUT CS
+			log.fine("Node "+host.getID()+" ***** BEGIN CS ! *****");
 			log.finest("Node "+host.getID()+" END");
 		}
 		
 		private void releaseCS(Node host){
 			log.finer("Node "+host.getID()+" BEGIN");
 			log.fine("Node "+host.getID()+" next="+next);
-			changestate(host,State.tranquil);
 			
 			tokenUsageTime += System.currentTimeMillis() - tokenBeginStateTime;
 			tokenBeginStateTime = System.currentTimeMillis();
+			
+			changestate(host,State.tranquil);
 			
 			if(!next.isEmpty()){
 				last=getLast(next);
@@ -192,15 +197,18 @@ public class Application implements EDProtocol {
 				Transport tr= (Transport) host.getProtocol(transport_id);
 				Node dest = Network.get((int)next_holder);
 				log.finer("Node "+host.getID()+" last : "+last+", next_holder : "+next_holder);
+				
+				nbToken++;
+				tokenUnusedTime += System.currentTimeMillis() - tokenBeginStateTime;
+				tokenBeginStateTime = System.currentTimeMillis();
+				
 				tr.send(host, dest,new TokenMessage(host.getID(), dest.getID(),
 						new ArrayDeque<Long>(next), global_counter, protocol_id)   , protocol_id);
-				nbMessages++;
 				log.finer("Node "+host.getID()+" send token("+next+") to "+dest.getID());
 				next.clear();
 				log.fine("Node "+host.getID()+" next="+next);
 			}
 			log.fine("Node "+host.getID()+" ***** END CS ! *****");
-			shareToEndControler();
 			log.finest("Node "+host.getID()+" END");
 		}
 		
@@ -216,6 +224,11 @@ public class Application implements EDProtocol {
 					
 				}else{
 					Node dest = Network.get((int)requester);
+					nbToken++;
+					
+					tokenUnusedTime += System.currentTimeMillis() - tokenBeginStateTime;
+					tokenBeginStateTime = System.currentTimeMillis();
+					
 					tr.send(host, dest,
 							new TokenMessage(host.getID(), dest.getID(), new ArrayDeque<Long>(),
 									global_counter, protocol_id), protocol_id);
@@ -225,10 +238,10 @@ public class Application implements EDProtocol {
 				}
 			}else{
 				Node dest = Network.get((int)last);
+				nbRequest++;
 				tr.send(host, dest,
 						new Message(host.getID(), dest.getID(),  REQUEST_TAG, requester, protocol_id),
 						protocol_id);
-				nbRequest++;
 				log.fine("Node "+host.getID()+" send Message("+REQUEST_TAG+") to "+dest.getID());
 				last=requester;
 			}
@@ -240,13 +253,15 @@ public class Application implements EDProtocol {
 			log.finer("Node "+host.getID()+" BEGIN");
 			log.fine("Node "+host.getID()+" receive token message ("+remote_queue.toString()+
 					", counter = "+counter+") from Node "+from+" next ="+next.toString());
-			tokenTransmissionTime += System.currentTimeMillis() - tokenBeginStateTime;
-			tokenBeginStateTime = System.currentTimeMillis();
 			
 			global_counter=counter;
 			remote_queue.addAll(next);
 			next=remote_queue;
+			
 			log.finer("Node "+host.getID()+" next="+next);
+			tokenUnusedTime += System.currentTimeMillis() - tokenBeginStateTime;
+			tokenBeginStateTime = System.currentTimeMillis();
+			
 			changestate(host, State.inCS);
 			log.fine("Node "+host.getID()+" ***** BEGIN CS ! *****");
 		}
@@ -292,24 +307,5 @@ public class Application implements EDProtocol {
 			long res = CommonState.r.nextLong(max-min)+min;
 			
 			EDSimulator.add(res, new InternalEvent(TypeEvent.request_cs, id_execution), host, protocol_id);
-		}
-		
-		// WARNING : To call only once in Critical Section !
-		private void shareToEndControler() {
-			
-			log.info("Exectution time = "+(System.currentTimeMillis() - beginningTime));
-			
-			// Nombre de messages applicatifs :
-			EndControler.nbCs = global_counter;
-			EndControler.nbRequest += nbRequest / nb_cs;
-			EndControler.nbMessages += nbMessages / nb_cs;
-			
-			// Temps passé dans l'état requesting :
-			EndControler.nodeRequestingTime += nodeRequestingTime;
-			
-			// Temps que le jeton passe dans chacun de ses états :
-			EndControler.tokenUnusedTime = tokenUnusedTime;
-			EndControler.tokenUsageTime = tokenUsageTime;
-			EndControler.tokenTransmissionTime = tokenTransmissionTime;
 		}
 }

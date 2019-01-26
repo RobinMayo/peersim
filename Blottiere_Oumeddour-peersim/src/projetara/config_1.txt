@@ -6,10 +6,15 @@ protocol.reliableTransport UniformRandomTransport
 protocol.reliableTransport.mindelay 500
 protocol.reliableTransport.maxdelay 1500
 
-protocol.basicbroadcast projetara.application.Application
-protocol.basicbroadcast.timeCS 20
-protocol.basicbroadcast.timeBetweenCS 10
-protocol.basicbroadcast.transport reliableTransport
+protocol.application projetara.application.Application
+protocol.application.timeCS 20
+protocol.application.timeBetweenCS 10
+protocol.application.transport reliableTransport
 
 init.constantes Constantes
 init.constantes.loglevel FINER
+
+control.endControler projetara.application.EndControler
+control.endControler.application application
+control.endControler.at -1
+control.endControler.FINAL

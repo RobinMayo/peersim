@@ -6,31 +6,42 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import peersim.config.Configuration;
 import peersim.core.Control;
 import peersim.core.Network;
+import peersim.core.Node;
+
 
 // ********** Exercice 1 question 4 :
 public class EndControler implements Control {
 	
+	//Nom des arguments du fichiers de configuration
+	private static final String APPLICATION = "application";
+	
+	protected final int protocol_id;
+	
 	// Métriques :
 	// Nombre de messages applicatifs :
-	protected static int nbCs;
-	protected static int nbMessages;
-	protected static int nbMessagesByCs;
-	protected static int nbRequest;
-	protected static int nbRequestByCs;
+	protected static int nbCs = 0;
+	protected static float nbTokenByNode = 0;
+	protected static float nbTokenByCs = 0;
+	protected static int nbToken = 0;
+	protected static float nbRequestByNode = 0;
+	protected static float nbRequestByCs = 0;
 	
 	// Temps passé dans l'état requesting :
-	protected static long nodeRequestingTime;
-	protected static long nodeAverageRequestingTime;
+	protected static long nodeRequestingTime = 0;
+	protected static float nodeAverageRequestingTime = 0;
 	
 	// Temps que le jeton passe dans chacun de ses états :
-	protected static long tokenUnusedTime;
-	protected static long tokenUsageTime;
-	protected static long tokenTransmissionTime;
-	protected static float totalTime;
+	protected static long tokenUnusedTime = 0;
+	protected static long tokenUsageTime = 0;
+	protected static long tokenTransmissionTime = 0;
+	protected static float totalTime = 0;
 
-	public EndControler(String string) {}
+	public EndControler(String prefix) {
+		protocol_id = Configuration.getPid(prefix+"."+APPLICATION);
+	}
 	
 	@Override
 	public boolean execute() {
@@ -40,8 +51,30 @@ public class EndControler implements Control {
 			e.printStackTrace();
 		}
 		
-		nbMessagesByCs = nbMessages / Network.size();
-		nbRequestByCs = nbRequest / Network.size();
+		for(int i = 0; i < Network.size(); i++) {
+			Node node = Network.get(i);
+			Application application = (Application)node.getProtocol(protocol_id);
+			
+			nbCs += application.nb_cs;
+			nbToken += application.nbToken;
+			
+			if(application.nb_cs != 0) {
+				nbTokenByNode += application.nbToken / application.nb_cs; 
+				nbRequestByNode += application.nbRequest / application.nb_cs;
+			} else {
+				nbTokenByNode += application.nbToken; 
+				nbRequestByNode += application.nbRequest;
+			}
+			nodeRequestingTime += application.nodeRequestingTime;
+		}
+
+		// Temps que le jeton passe dans chacun de ses états :
+		tokenUnusedTime = Application.tokenUnusedTime;
+		tokenUsageTime = Application.tokenUsageTime;
+		tokenTransmissionTime = Application.tokenTransmissionTime;
+		
+		nbTokenByCs = nbTokenByNode / Network.size();
+		nbRequestByCs = nbRequestByNode / Network.size();
 		nodeAverageRequestingTime = nodeRequestingTime / nbCs;
 		System.out.println(this.toString());
 		writeFile();
@@ -54,9 +87,9 @@ public class EndControler implements Control {
 		str.append("\t\tMétriques :\n\n");
 		
 		str.append("Nombre de messages applicatifs :\n");
-		str.append("nbCs = "+nbCs+", nbMessagesByCs = "+nbMessagesByCs+
+		str.append("nbCs = "+nbCs+", nbToken = "+nbToken+", nbTokenByCs = "+nbTokenByCs+
 				", nbRequestByCs = "+nbRequestByCs+", ");
-		str.append("nbMessages = "+nbMessages+", nbRequest = "+nbRequest+".\n\n");
+		str.append("nbTokenByNode = "+nbTokenByNode+", nbRequestByNode = "+nbRequestByNode+".\n\n");
 		
 		str.append("Temps passé dans l'état requesting :\n");
 		str.append("nodeRequestingTime = "+nodeRequestingTime+
@@ -70,7 +103,7 @@ public class EndControler implements Control {
 	
 	private String toFile() {
 		StringBuilder str = new StringBuilder();
-		str.append(nbMessagesByCs+" "+nbRequestByCs+"\n");
+		str.append(nbTokenByCs+" "+nbRequestByCs+"\n");
 		str.append(nodeAverageRequestingTime+"\n");
 		
 		totalTime = tokenUnusedTime + tokenUsageTime + tokenTransmissionTime;
@@ -78,7 +111,7 @@ public class EndControler implements Control {
 				" "+((tokenTransmissionTime / totalTime) * 100)+"\n\n");
 		
 		str.append("********** Format : **********\n\n");
-		str.append("nbMessagesByCs nbRequestByCs\n");
+		str.append("nbTokenByCs nbRequestByCs\n");
 		str.append("nodeAverageRequestingTime\n");
 		str.append("tokenUnusedTime tokenUsageTime tokenTransmissionTime\n");
 		

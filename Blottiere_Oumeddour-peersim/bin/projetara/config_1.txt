@@ -15,6 +15,6 @@ init.constantes Constantes
 init.constantes.loglevel FINER
 
 control.endControler projetara.application.EndControler
-protocol.endControler application
+control.endControler.application application
 control.endControler.at -1
 control.endControler.FINAL
