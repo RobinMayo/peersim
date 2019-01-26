@@ -86,6 +86,31 @@ Plus ce ratio est élevé plus le réseau est ralenti.
 
 \section{Question 4 :}
 
+\textbf{Messages applicatifs}:
+
+Sur cette première courbe, on observe deux valeurs qui varient en fonction de la charge du réseau $\rho$. Il s'agit du nombre moyen de messages applicatifs par section critique. On différencie le nombre de messages requérents le jeton et le nombre de transmissions du jeton entre les noeuds.\\
+
+On observe que plus $\rho$ augmente, plus le nombre de messages applicatif diminue. A la fin, il est quasiment de un message et un envoie de jeton par sections critiques. En effet, plus le temps passé en section critique est grand par rapport au temps d'attente plus les noeuds savent qui est celui possédant le jeton.\\
+
+Cela s'explique par le fait qu'un noeud ayant fini sa section critique va s'endormir pour un temps qui sera court étant donné les paramètres de l'expériance qui incluent un temps de transmission et un temps de repot court entre les sections critiques. En se réveillant, le noeud enverra une requête de section critique au noeud dont il pense qu'il possède le jeton. Ce noeud aura en effet toujours le jeton en sa possession car il n'aura probablement pas eu le temps de terminer sa section critique. Ainsi, une seul requête aura suffi au noeud pour être repertorié comme demandant l'accès à la section critique. C'est pourquoi on observe quasiment un envoie de requête par section critique.\\
+
+Cette explication est valable pour un temps d'expériance suffisament grand pour que les noeuds aient le temps de s'ordonner mutuellement.\\
+
+\textbf{Temps passé dans l'état requesting}:
+
+Sur cette courbe, on observe le temps moyen qu'un noeud passe dans l'état requesting en fonction de la charge du réseau.\\
+
+On peut voir que lorsque que le temps $\beta$ passé entre les sections critiques est beaucoup plus grand que le temps $\alpha$ passé en section critique, le temps moyen par sections critique est très feible. Lorsque $\rho$ s'approche de un, le temps passé en section critique augmente très rapidement. Après cela, l'augementation redevient proche voir inférieur à un sur une échelle logarithmique.\\
+
+Cette brusque augmentation peut s'expliquer par le fait qu'un temps $\alpha$ très court peut faire qu'à un certain moment, aucun des cinquante noeud du réseau ne requiert la section critique. Lorsque la charge du réseau sera suffisament grande pour qu'il y ait en permanance un noeud demandant l'accès à la section critique, le temps passé dans l'état requesting augmentra linéairement en fonction du temps ou le jeton est utilisé par un processus en section critique.\\
+
+\textbf{Utilisation du jeton}:
+
+Sur cette troisième courbe, on observe le temps que le jeton passe dans chacun des états décrits à la question 2 en fonction de la charge du réseau. L'expériance s'appuyant sur un temps de transport négligable, le temps que le jeton passe dans l'état transmission est proche de 1 quelque soit la charge du réseau.\\
+
+Les temps que le jeton passe en étant utilisé ou inutilisé suivent des courbes inverse. On observe que lorsque $\rho$ $=$ 1, $\alpha$ $=$ $\beta$.
+
+
 \section{Question 5 :}
 
 Le fait que le temps de transmission moyen soit supérieur au temps moyen passé en section critique augmente la charge du réseau. Le temps de transport augmentant, le temps ou le jeton est possédé par un noeud est plus faible.

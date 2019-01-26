@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  25 JAN 2019 22:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 JAN 2019 19:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -677,16 +677,16 @@ Package pdftex.def Info: SU.png used on input line 24.
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./SU.pn
 g>]
 Exercice 1.
-LaTeX Font Info:    Try loading font information for U+msa on input line 79.
+LaTeX Font Info:    Try loading font information for U+msa on input line 70.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 79.
+LaTeX Font Info:    Try loading font information for U+msb on input line 70.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 79--84
+Underfull \hbox (badness 10000) in paragraph at lines 70--75
 
  []
 
@@ -697,40 +697,82 @@ File: ../Diagrammes/exercice_1-question_2.png Graphic file (type png)
 
 <use ../Diagrammes/exercice_1-question_2.png>
 Package pdftex.def Info: ../Diagrammes/exercice_1-question_2.png used on input 
-line 85.
+line 76.
 (pdftex.def)             Requested size: 151.16591pt x 115.93402pt.
- [2 <../Diagrammes/exercice_1-question_2.png (PNG copy)>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--92
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
+
+ []
+
+[2 <../Diagrammes/exercice_1-question_2.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
+
+ []
+
+[3] [4]
 Exercice 2.
-[3
+[5
 
 ]
 Exercice 3.
-[4
+[6
 
 ] (./Rapport_3200248-3100478.aux) ) 
 Here is how much of TeX's memory you used:
- 6006 strings out of 493014
- 80934 string characters out of 6133351
+ 6008 strings out of 493014
+ 80959 string characters out of 6133351
  164871 words of memory out of 5000000
- 9448 multiletter control sequences out of 15000+600000
- 15741 words of font info for 42 fonts, out of 8000000 for 9000
+ 9449 multiletter control sequences out of 15000+600000
+ 16524 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,5n,32p,671b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,5n,32p,743b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/en
 c/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
-public/cm-super/sfbx1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pu
-blic/cm-super/sfbx2074.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publ
-ic/cm-super/sfrm1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
-/cm-super/sfrm1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/c
-m-super/sfrm1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-
-super/sfti1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-su
-per/sfxc1095.pfb>
-Output written on Rapport_3200248-3100478.pdf (5 pages, 246268 bytes).
+/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pu
+blic/cm-super/sfbx1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publ
+ic/cm-super/sfbx1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
+/cm-super/sfbx2074.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/c
+m-super/sfrm1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-
+super/sfrm1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-su
+per/sfrm1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-supe
+r/sfti1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/
+sfxc1095.pfb>
+Output written on Rapport_3200248-3100478.pdf (7 pages, 274075 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+ 77 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -22,6 +22,8 @@ public class EndControler implements Control {
 	
 	// Métriques :
 	// Nombre de messages applicatifs :
+	//protected static int timeCS = 0;
+	//protected static int timeBetweenCS = 0;
 	protected static int nbCs = 0;
 	protected static float nbTokenByNode = 0;
 	protected static float nbTokenByCs = 0;

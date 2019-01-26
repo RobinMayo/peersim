@@ -58,8 +58,7 @@ public class Application implements EDProtocol {
 		protected int nbRequest;
 		protected long nodeRequestingTime;
 		private long beginRequestTime;
-		private static long beginningTime = System.currentTimeMillis();
-		protected static long tokenBeginStateTime = beginningTime;
+		protected static long tokenBeginStateTime = CommonState.getTime();
 		protected static long tokenUnusedTime = 0;
 		protected static long tokenUsageTime = 0;
 		protected static long tokenTransmissionTime = 0;
@@ -121,8 +120,8 @@ public class Application implements EDProtocol {
 				if(m.getTag().equals(REQUEST_TAG)){
 					this.receive_request(node, m.getIdSrc(), (Long)m.getContent());
 				}else if(m.getTag().equals(TOKEN_TAG)){
-					tokenTransmissionTime += System.currentTimeMillis() - tokenBeginStateTime;
-					tokenBeginStateTime = System.currentTimeMillis();
+					tokenTransmissionTime += CommonState.getTime() - tokenBeginStateTime;
+					tokenBeginStateTime = CommonState.getTime();
 					
 					if(! (m instanceof TokenMessage))
 						throw new RuntimeException("Receive a message with tag token but it is not"
@@ -172,9 +171,9 @@ public class Application implements EDProtocol {
 				last=nil;
 				return;//on simule un wait ici
 			}
-			tokenUnusedTime += System.currentTimeMillis() - tokenBeginStateTime;
+			tokenUnusedTime += CommonState.getTime() - tokenBeginStateTime;
 			log.warning("tokenUnusedTime : "+tokenUnusedTime+", tokenBeginStateTime : "+tokenBeginStateTime);
-			tokenBeginStateTime = System.currentTimeMillis();
+			tokenBeginStateTime = CommonState.getTime();
 			
 			changestate(host,State.inCS);
 			//DEBUT CS
@@ -186,8 +185,8 @@ public class Application implements EDProtocol {
 			log.finer("Node "+host.getID()+" BEGIN");
 			log.fine("Node "+host.getID()+" next="+next);
 			
-			tokenUsageTime += System.currentTimeMillis() - tokenBeginStateTime;
-			tokenBeginStateTime = System.currentTimeMillis();
+			tokenUsageTime += CommonState.getTime() - tokenBeginStateTime;
+			tokenBeginStateTime = CommonState.getTime();
 			
 			changestate(host,State.tranquil);
 			
@@ -199,8 +198,8 @@ public class Application implements EDProtocol {
 				log.finer("Node "+host.getID()+" last : "+last+", next_holder : "+next_holder);
 				
 				nbToken++;
-				tokenUnusedTime += System.currentTimeMillis() - tokenBeginStateTime;
-				tokenBeginStateTime = System.currentTimeMillis();
+				tokenUnusedTime += CommonState.getTime() - tokenBeginStateTime;
+				tokenBeginStateTime = CommonState.getTime();
 				
 				tr.send(host, dest,new TokenMessage(host.getID(), dest.getID(),
 						new ArrayDeque<Long>(next), global_counter, protocol_id)   , protocol_id);
@@ -226,8 +225,8 @@ public class Application implements EDProtocol {
 					Node dest = Network.get((int)requester);
 					nbToken++;
 					
-					tokenUnusedTime += System.currentTimeMillis() - tokenBeginStateTime;
-					tokenBeginStateTime = System.currentTimeMillis();
+					tokenUnusedTime += CommonState.getTime() - tokenBeginStateTime;
+					tokenBeginStateTime = CommonState.getTime();
 					
 					tr.send(host, dest,
 							new TokenMessage(host.getID(), dest.getID(), new ArrayDeque<Long>(),
@@ -259,8 +258,8 @@ public class Application implements EDProtocol {
 			next=remote_queue;
 			
 			log.finer("Node "+host.getID()+" next="+next);
-			tokenUnusedTime += System.currentTimeMillis() - tokenBeginStateTime;
-			tokenBeginStateTime = System.currentTimeMillis();
+			tokenUnusedTime += CommonState.getTime() - tokenBeginStateTime;
+			tokenBeginStateTime = CommonState.getTime();
 			
 			changestate(host, State.inCS);
 			log.fine("Node "+host.getID()+" ***** BEGIN CS ! *****");
@@ -274,7 +273,7 @@ public class Application implements EDProtocol {
 			this.state = s;
 			switch(this.state){
 			case inCS:
-				nodeRequestingTime += System.currentTimeMillis() - beginRequestTime;
+				nodeRequestingTime += CommonState.getTime() - beginRequestTime;
 				executeCS(host);
 				schedule_release(host);
 				break;
@@ -282,7 +281,7 @@ public class Application implements EDProtocol {
 				schedule_request(host);
 				break;
 			default:
-				beginRequestTime = System.currentTimeMillis();
+				beginRequestTime = CommonState.getTime();
 			}
 		}
 
