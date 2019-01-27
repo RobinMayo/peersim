@@ -55,7 +55,6 @@ def analyseFiles(nbPoints, nbTests, listCharge):
 			if listD[indice][0] == "L":
 				strFile = readFile(prefixDir+listD[indice])
 				firstLine = strFile[0].split(" ")
-				#print(firstLine)
 				tabToken[j] = float(firstLine[0])
 				tabMessages[j] = float(firstLine[1])
 		print(str(listCharge[i])+"\t"+str(np.average(tabToken))+"\t"+\
@@ -64,7 +63,7 @@ def analyseFiles(nbPoints, nbTests, listCharge):
 
 def nbMessages():
 	nbPoints = 35
-	nbTests = 8
+	nbTests = 1
 	
 	absolutePath = os.path.dirname(os.path.realpath(__file__))
 	subprocess.call(absolutePath+"/javac.sh", shell=True)
@@ -77,7 +76,29 @@ def nbMessages():
 	listCharge = []
 	for i in range(0,nbPoints):
 		for j in range(0,nbTests):
-			writeInFile(j, timeCS, timeBetweenCS)
+			writeInFile(5, timeCS, timeBetweenCS)
+			subprocess.call(cmd, shell=True)
+		timeBetweenCS -= step
+		print("timeBetweenCS : "+str(timeBetweenCS))
+		listCharge.append(timeCS/timeBetweenCS)
+	analyseFiles(nbPoints, nbTests, listCharge)
+
+def tokenStates():
+	nbPoints =
+	nbTests = 1
+	
+	absolutePath = os.path.dirname(os.path.realpath(__file__))
+	subprocess.call(absolutePath+"/javac.sh", shell=True)
+	cmd = "java -cp bin/:lib/*: peersim.Simulator bin/projetara/config_exo1_q4.txt"
+	min = 1000
+	max = 100000
+	step = 2000
+	timeCS = min
+	timeBetweenCS = max
+	listCharge = []
+	for i in range(0,nbPoints):
+		for j in range(0,nbTests):
+			writeInFile(5, timeCS, timeBetweenCS)
 			subprocess.call(cmd, shell=True)
 		timeBetweenCS -= step
 		print("timeBetweenCS : "+str(timeBetweenCS))
@@ -85,6 +106,7 @@ def nbMessages():
 	analyseFiles(nbPoints, nbTests, listCharge)
 
 def main():
-	nbMessages()
+	#nbMessages()
+	tokenStates()
 
 main()

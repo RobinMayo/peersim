@@ -1,8 +1,7 @@
 #!/usr/local/bin/gnuplot
 
 set terminal 'qt'
-set title "Temps moyen passé par chaque processus dans l'état requesting"
+set title "Nombre de messages applicatifs envoyés"
 set xlabel 'Charge du Réseau'
-set ylabel 'Temps'
-set logscale x 10
-plot [0.0001:100] [0:50000] 'exercice_1_question_4_1.dat' with lines linewidth 1.5
+set ylabel 'Nombre de messages'
+plot [0.01:0.035] [0:5] 'exercice_1_question_4_2.dat' u 1:2  title 'token', "" u 1:3 title 'messages' with lines linewidth 1.5
