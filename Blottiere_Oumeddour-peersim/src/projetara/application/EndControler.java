@@ -33,7 +33,7 @@ public class EndControler implements Control {
 	
 	// Temps passé dans l'état requesting :
 	protected static long nodeRequestingTime = 0;
-	protected static float nodeAverageRequestingTime = 0;
+	protected static long nodeAverageRequestingTime = 0;
 	
 	// Temps que le jeton passe dans chacun de ses états :
 	protected static long tokenUnusedTime = 0;
