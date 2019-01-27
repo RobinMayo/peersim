@@ -1,15 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 JAN 2019 19:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.24)  27 JAN 2019 12:42
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **Rapport_3200248-3100478.tex
 (./Rapport_3200248-3100478.tex
-LaTeX2e <2016/03/31>
-Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/report.cls
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size11.clo
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -25,21 +24,21 @@ File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-(/usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count88
@@ -55,20 +54,20 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks15
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks16
 \inpenc@posthook=\toks17
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2016/02/28 v1.1s UTF-8 support for inputenc
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1enc.dfu
-File: t1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
+File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -280,6 +279,8 @@ File: t1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
    defining Unicode char U+0219 (decimal 537)
    defining Unicode char U+021A (decimal 538)
    defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+0232 (decimal 562)
+   defining Unicode char U+0233 (decimal 563)
    defining Unicode char U+1E02 (decimal 7682)
    defining Unicode char U+1E03 (decimal 7683)
    defining Unicode char U+200C (decimal 8204)
@@ -300,12 +301,14 @@ File: t1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
    defining Unicode char U+2039 (decimal 8249)
    defining Unicode char U+203A (decimal 8250)
    defining Unicode char U+2423 (decimal 9251)
+   defining Unicode char U+1E20 (decimal 7712)
+   defining Unicode char U+1E21 (decimal 7713)
 )
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ot1enc.dfu
-File: ot1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
+File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -345,8 +348,8 @@ File: ot1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omsenc.dfu
-File: omsenc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
+File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -369,168 +372,175 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(/usr/local/texlive/2016/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2016/04/23 3.9r The Babel package
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/02/14 3.18 The Babel package
 
-(/usr/local/texlive/2016/texmf-dist/tex/generic/babel-french/frenchb.ldf
-Language: frenchb 2016/05/14 v3.2c French support from the babel system
+(/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-french/francais.ldf
+Language: francais 2018/02/04 v3.4b French support from the babel system
 
-(/usr/local/texlive/2016/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2016/04/23 3.9r Babel common definitions
+
+Package francais.ldf Warning: Option `francais' for Babel is *deprecated*,
+(francais.ldf)                it might be removed sooner or later. Please
+(francais.ldf)                use `french' instead; reported on input line 31.
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-french/french.ldf
+Language: french 2018/02/04 v3.4b French support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/02/14 3.18 Babel common definitions
 \babel@savecnt=\count91
 \U@D=\dimen111
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count92
 )
 \l@acadian = a dialect from \language\l@french 
-\l@canadien = a dialect from \language\l@french 
-\FB@nonchar=\count92
-\FBcolonskip=\skip43
-\FBthinskip=\skip44
-Package babel Info: Making : an active character on input line 365.
-Package babel Info: Making ; an active character on input line 366.
-Package babel Info: Making ! an active character on input line 367.
-Package babel Info: Making ? an active character on input line 368.
-\FBguillskip=\skip45
-\FBguill@level=\count93
+\FB@nonchar=\count93
+Package babel Info: Making : an active character on input line 411.
+Package babel Info: Making ; an active character on input line 412.
+Package babel Info: Making ! an active character on input line 413.
+Package babel Info: Making ? an active character on input line 414.
+\FBguill@level=\count94
 \FB@everypar=\toks18
 \FB@Mht=\dimen112
-\std@mcc=\count94
-\dec@mcc=\count95
-\listindentFB=\skip46
-\labelwidthFB=\skip47
-\leftmarginFB=\skip48
+\mc@charclass=\count95
+\mc@charfam=\count96
+\mc@charslot=\count97
+\std@mcc=\count98
+\dec@mcc=\count99
+\c@FBcaption@count=\count100
+\listindentFB=\skip43
+\descindentFB=\skip44
+\labelwidthFB=\skip45
+\leftmarginFB=\skip46
 \parindentFFN=\dimen113
-\FBfnindent=\skip49
-))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/carlisle/scalefnt.sty)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+\FBfnindent=\skip47
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1enc.def
-File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 96.
+Package graphics Info: Driver file: pdftex.def on input line 99.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count96
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen114
 \Gin@req@width=\dimen115
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/blindtext/blindtext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/blindtext/blindtext.sty
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/xspace.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count97
-\c@Blindtext=\count98
-\c@blind@countparstart=\count99
-\blind@countxx=\count100
-\blindtext@numBlindtext=\count101
-\blind@countyy=\count102
-\c@blindlist=\count103
-\c@blindlistlevel=\count104
-\c@blindlist@level=\count105
-\blind@listitem=\count106
-\c@blind@listcount=\count107
-\c@blind@levelcount=\count108
-\blind@mathformula=\count109
-\blind@Mathformula=\count110
-\c@blind@randomcount=\count111
-\c@blind@randommax=\count112
-\c@blind@pangramcount=\count113
-\c@blind@pangrammax=\count114
+\c@blindtext=\count101
+\c@Blindtext=\count102
+\c@blind@countparstart=\count103
+\blind@countxx=\count104
+\blindtext@numBlindtext=\count105
+\blind@countyy=\count106
+\c@blindlist=\count107
+\c@blindlistlevel=\count108
+\c@blindlist@level=\count109
+\blind@listitem=\count110
+\c@blind@listcount=\count111
+\c@blind@levelcount=\count112
+\blind@mathformula=\count113
+\blind@Mathformula=\count114
+\c@blind@randomcount=\count115
+\c@blind@randommax=\count116
+\c@blind@pangramcount=\count117
+\c@blind@pangrammax=\count118
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count115
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count119
 \lst@gtempboxa=\box26
 \lst@token=\toks19
-\lst@length=\count116
+\lst@length=\count120
 \lst@currlwidth=\dimen116
-\lst@column=\count117
-\lst@pos=\count118
+\lst@column=\count121
+\lst@pos=\count122
 \lst@lostspace=\dimen117
 \lst@width=\dimen118
-\lst@newlines=\count119
-\lst@lineno=\count120
+\lst@newlines=\count123
+\lst@lineno=\count124
 \lst@maxwidth=\dimen119
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count121
-\lst@skipnumbers=\count122
+\c@lstnumber=\count125
+\lst@skipnumbers=\count126
 \lst@framebox=\box27
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2016/03/10 v2.15b AMS math features
-\@mathmargin=\skip50
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip48
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks20
 \ex@=\dimen120
 ))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen121
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count123
-LaTeX Info: Redefining \frac on input line 199.
-\uproot@=\count124
-\leftroot@=\count125
-LaTeX Info: Redefining \overline on input line 297.
-\classnum@=\count126
-\DOTSCASE@=\count127
-LaTeX Info: Redefining \ldots on input line 394.
-LaTeX Info: Redefining \dots on input line 397.
-LaTeX Info: Redefining \cdots on input line 518.
+\inf@bad=\count127
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count128
+\leftroot@=\count129
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count130
+\DOTSCASE@=\count131
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
 \Mathstrutbox@=\box28
 \strutbox@=\box29
 \big@size=\dimen122
-LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
-\macc@depth=\count128
-\c@MaxMatrixCols=\count129
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count132
+\c@MaxMatrixCols=\count133
 \dotsspace@=\muskip10
-\c@parentequation=\count130
-\dspbrk@lvl=\count131
+\c@parentequation=\count134
+\dspbrk@lvl=\count135
 \tag@help=\toks21
-\row@=\count132
-\column@=\count133
-\maxfields@=\count134
+\row@=\count136
+\column@=\count137
+\maxfields@=\count138
 \andhelp@=\toks22
 \eqnshift@=\dimen123
 \alignsep@=\dimen124
@@ -539,16 +549,16 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
 \totwidth@=\dimen127
 \lineht@=\dimen128
 \@envbody=\toks23
-\multlinegap=\skip51
-\multlinetaggap=\skip52
+\multlinegap=\skip49
+\multlinetaggap=\skip50
 \mathdisplay@stack=\toks24
-LaTeX Info: Redefining \[ on input line 2739.
-LaTeX Info: Redefining \] on input line 2740.
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
@@ -608,82 +618,89 @@ LaTeX Font Info:    ... okay on input line 19.
 LaTeX Info: Redefining \degres on input line 19.
 LaTeX Info: Redefining \dots on input line 19.
 LaTeX Info: Redefining \up on input line 19.
-(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count135
+\scratchcounter=\count139
 \scratchdimen=\dimen129
 \scratchbox=\box30
-\nofMPsegments=\count136
-\nofMParguments=\count137
+\nofMPsegments=\count140
+\nofMParguments=\count141
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count138
+\MPscratchCnt=\count142
 \MPscratchDim=\dimen130
-\MPnumerator=\count139
-\makeMPintoPDFobject=\count140
+\MPnumerator=\count143
+\makeMPintoPDFobject=\count144
 \everyMPtoPDFconversion=\toks26
-) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
-)
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
 Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count141
-
+\c@lstlisting=\count145
 <SU.png, id=1, 390.9807pt x 157.0668pt>
 File: SU.png Graphic file (type png)
- <use SU.png>
-Package pdftex.def Info: SU.png used on input line 24.
+<use SU.png>
+Package pdftex.def Info: SU.png  used on input line 24.
 (pdftex.def)             Requested size: 156.3895pt x 62.82559pt.
- [1
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./SU.pn
-g>]
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./SU.png>]
 Exercice 1.
 LaTeX Font Info:    Try loading font information for U+msa on input line 70.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 70.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Underfull \hbox (badness 10000) in paragraph at lines 70--75
@@ -692,12 +709,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--75
 
 [1
 
-] <../Diagrammes/exercice_1-question_2.png, id=19, 503.8825pt x 386.44376pt>
+]
+<../Diagrammes/exercice_1-question_2.png, id=19, 503.8825pt x 386.44376pt>
 File: ../Diagrammes/exercice_1-question_2.png Graphic file (type png)
-
 <use ../Diagrammes/exercice_1-question_2.png>
-Package pdftex.def Info: ../Diagrammes/exercice_1-question_2.png used on input 
-line 76.
+Package pdftex.def Info: ../Diagrammes/exercice_1-question_2.png  used on input
+ line 76.
 (pdftex.def)             Requested size: 151.16591pt x 115.93402pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 91--92
@@ -741,38 +758,279 @@ Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
 [3] [4]
 Exercice 2.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.129 ...des : initialisation, releaseCS, receive_
+                                                  request et receive_token. ...
+
+? 
+
+LaTeX Warning: Command \` invalid in math mode on input line 129.
+
+
+LaTeX Warning: Command \` invalid in math mode on input line 129.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 129.
+
+
+LaTeX Warning: Command \` invalid in math mode on input line 129.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 129.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.130 
+      
+? 
+Missing character: There is no Ë in font cmr10!
+Missing character: There is no Ë in font cmr10!
+Missing character: There is no È in font cmr10!
+Missing character: There is no Ë in font cmr10!
+Missing character: There is no È in font cmr10!
+
+Overfull \hbox (1151.0202pt too wide) in paragraph at lines 129--130
+\T1/cmr/m/n/10.95 sa-tion, re-lea-seCS, receive$[]\OML/cmm/m/it/10.95 equestetr
+eceive[]oken:Lesmodificationsdansinitialisationetreceive[]equestconcernentl[]in
+itialisationdusystmedanslequellafileesttoujoursvide:Ainsi; silenoeudfautifpossd
+eunefilenextnonvide; ilestforcmentensectioncritique; danscecascelaprovoqueleblo
+cagedusystmecommeexpliqudanslaquestion\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 :
+\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 :$ 
+ []
+
+
+! Package inputenc Error: Unicode char ÃÄ (U+300)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133 Si le noeud fautif posseÃÄ
+                                de une file next vide, n‚Äôest pointeÃÅ par ...
+
+? 
+
+! Package inputenc Error: Unicode char ÃÅ (U+301)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133 ...ÃÄde une file next vide, n‚Äôest pointeÃÅ
+                                                   par aucun last et si aucu...
+
+? 
+
+! Package inputenc Error: Unicode char ÃÄ (U+300)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133 ...ÃÅ par aucun last et si aucun message aÃÄ
+                                                   sa destination n‚Äôest en...
+
+? 
+
+Overfull \hbox (15.19011pt too wide) in paragraph at lines 144--147
+[]\T1/cmr/m/n/10.95 protocol.reliableTransport Uni-form-Ran-dom-Trans-port pro-
+to-col.reliableTransport.mindelay
+ []
+
+
+Overfull \hbox (13.57098pt too wide) in paragraph at lines 148--150
+[]\T1/cmr/m/n/10.95 protocol.FIFOTransport pro-je-tara.util.FIFOTransport pro-t
+o-col.FIFOTransport.transport
+ []
+
+
+Overfull \hbox (124.40791pt too wide) in paragraph at lines 151--155
+[]\T1/cmr/m/n/10.95 protocol.CheckpointerImpl pro-je-tara.checkpointing.algo1.C
+heckpointerImpl pro-to-col.CheckpointerImpl.transport
+ []
+
+
+Overfull \hbox (122.82617pt too wide) in paragraph at lines 151--155
+\T1/cmr/m/n/10.95 FI-FO-Trans-port pro-to-col.CheckpointerImpl.checkpointable a
+p-pli-ca-tion pro-to-col.CheckpointerImpl.timecheckpointing
+ []
+
+
+Overfull \hbox (53.58615pt too wide) in paragraph at lines 156--160
+[]\T1/cmr/m/n/10.95 protocol.application pro-je-tara.application.ApplicationChe
+ckpointable pro-to-col.application.timeCS
+ []
+
+
+Overfull \hbox (4.42609pt too wide) in paragraph at lines 156--160
+\T1/cmr/m/n/10.95 20 pro-to-col.application.timeBetweenCS 10 pro-to-col.applica
+tion.transport Check-poin-te-rImpl 
+ []
+
 [5
 
 ]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.163 control.crash.faulty_
+                           nodes 4
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.166 
+      
+? 
+
+Overfull \hbox (414.21155pt too wide) in paragraph at lines 161--166
+[]\T1/cmr/m/n/10.95 control.crash pro-je-tara.checkpointing.CrashControler cont
+rol.crash.probacrash 1 control.crash.faulty$[]\OML/cmm/m/it/10.95 odes\OT1/cmr/
+m/n/10.95 4\OML/cmm/m/it/10.95 control:crash:checkpointerCheckpointerImplcontro
+l:crash:at\OT1/cmr/m/n/10.95 3000$ 
+ []
+
+[6]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.212 ...us les noeuds du syst√®me (m√©thode send_
+                                                  rollback_messages) afin de...
+
+? 
+
+LaTeX Warning: Command \' invalid in math mode on input line 212.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 212.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.213 
+      
+? 
+Missing character: There is no È in font cmr10!
+Missing character: There is no È in font cmr10!
+
+Overfull \hbox (522.58524pt too wide) in paragraph at lines 211--213
+\T1/cmr/m/n/10.95 voyÈs ‡ tous les noeuds du sys-tËme (mÈ-thode send$[]\OML/cmm
+/m/it/10.95 ollback[]essages\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 afindetrouv
+erunpointdesauvegardepourchaquenoeudquipuisseformerunelignederecouvrementcohren
+teentrelesdiffrentsnoeuds:$ 
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.214 ...e messages re√ßus par chaque noeud saved_
+                                                  rcvd avec le nombre de mes...
+
+? 
+
+LaTeX Warning: Command \' invalid in math mode on input line 214.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 214.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 214.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 214.
+
+
+LaTeX Warning: Command \` invalid in math mode on input line 214.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 214.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 214.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.215 
+      
+? 
+Missing character: There is no È in font cmr10!
+Missing character: There is no È in font cmr10!
+Missing character: There is no È in font cmr10!
+Missing character: There is no È in font cmr10!
+Missing character: There is no Ë in font cmr10!
+Missing character: There is no È in font cmr10!
+Missing character: There is no È in font cmr10!
+
+Overfull \hbox (1546.10408pt too wide) in paragraph at lines 214--215
+[]\T1/cmr/m/n/10.95 - On com-pare pour cela le nombre de mes-sages re-Áus par c
+haque noeud saved$[]\OML/cmm/m/it/10.95 cvdaveclenombredemessagesenvoys:Tantque
+l[]ontrouvedesmessagesorphelins; ondtruitlepointdesauvegardeetonrecommencelacom
+paraisonaveclepointdesauvegardeantrieur\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 
+mthodereceiveRollBackMessage\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 :Aprsavoirt
+rouvunpointderecouvrementcohrent; lesnoeudsavertissentleurshomologuesvialesmess
+agesFinishedRollback:$ 
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.226 ...eiveReplyAskMissingMessMessage puis stop_
+                                                  recover).
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.227 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.228 ...ssages envoy√©s et re√ßus (m√©thode stop_
+                                                  recover).
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.229 
+      
+? 
+[7] [8]
 Exercice 3.
-[6
+[9
 
 ] (./Rapport_3200248-3100478.aux) ) 
 Here is how much of TeX's memory you used:
- 6008 strings out of 493014
- 80959 string characters out of 6133351
- 164871 words of memory out of 5000000
- 9449 multiletter control sequences out of 15000+600000
+ 6110 strings out of 492982
+ 82204 string characters out of 6134896
+ 167118 words of memory out of 5000000
+ 9566 multiletter control sequences out of 15000+600000
  16524 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,5n,32p,743b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/en
-c/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pu
-blic/cm-super/sfbx1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publ
-ic/cm-super/sfbx1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
-/cm-super/sfbx2074.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/c
-m-super/sfrm1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-
-super/sfrm1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-su
-per/sfrm1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-supe
-r/sfti1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/
-sfxc1095.pfb>
-Output written on Rapport_3200248-3100478.pdf (7 pages, 274075 bytes).
+ 41i,5n,32p,743b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/c
+m-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb
+></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/f
+onts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1440.pfb>
+</usr/share/texmf/fonts/type1/public/cm-super/sfxc1095.pfb>
+Output written on Rapport_3200248-3100478.pdf (10 pages, 309187 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 94 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
