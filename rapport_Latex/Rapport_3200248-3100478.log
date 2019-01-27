@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.24)  27 JAN 2019 12:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.24)  27 JAN 2019 21:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -756,34 +756,51 @@ Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
-[3] [4]
+<Temps_etat_requesting.png, id=26, 642.4pt x 481.8pt>
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.114 ...ics[width=300]{Temps_etat_requesting.png}
+                                                  
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.114 ...ics[width=300]{Temps_etat_requesting.png}
+                                                  
+? 
+File: Temps_etat_requesting.png Graphic file (type png)
+<use Temps_etat_requesting.png>
+Package pdftex.def Info: Temps_etat_requesting.png  used on input line 114.
+(pdftex.def)             Requested size: 300.0pt x 225.0051pt.
+[3] [4 <./Temps_etat_requesting.png (PNG copy)>]
 Exercice 2.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.129 ...des : initialisation, releaseCS, receive_
+l.131 ...des : initialisation, releaseCS, receive_
                                                   request et receive_token. ...
 
 ? 
 
-LaTeX Warning: Command \` invalid in math mode on input line 129.
+LaTeX Warning: Command \` invalid in math mode on input line 131.
 
 
-LaTeX Warning: Command \` invalid in math mode on input line 129.
+LaTeX Warning: Command \` invalid in math mode on input line 131.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 129.
+LaTeX Warning: Command \' invalid in math mode on input line 131.
 
 
-LaTeX Warning: Command \` invalid in math mode on input line 129.
+LaTeX Warning: Command \` invalid in math mode on input line 131.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 129.
+LaTeX Warning: Command \' invalid in math mode on input line 131.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.130 
+l.132 
       
 ? 
 Missing character: There is no Ë in font cmr10!
@@ -792,7 +809,7 @@ Missing character: There is no È in font cmr10!
 Missing character: There is no Ë in font cmr10!
 Missing character: There is no È in font cmr10!
 
-Overfull \hbox (1151.0202pt too wide) in paragraph at lines 129--130
+Overfull \hbox (1151.0202pt too wide) in paragraph at lines 131--132
 \T1/cmr/m/n/10.95 sa-tion, re-lea-seCS, receive$[]\OML/cmm/m/it/10.95 equestetr
 eceive[]oken:Lesmodificationsdansinitialisationetreceive[]equestconcernentl[]in
 itialisationdusystmedanslequellafileesttoujoursvide:Ainsi; silenoeudfautifpossd
@@ -809,7 +826,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.133 Si le noeud fautif posseÃÄ
+l.135 Si le noeud fautif posseÃÄ
                                 de une file next vide, n‚Äôest pointeÃÅ par ...
 
 ? 
@@ -821,7 +838,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.133 ...ÃÄde une file next vide, n‚Äôest pointeÃÅ
+l.135 ...ÃÄde une file next vide, n‚Äôest pointeÃÅ
                                                    par aucun last et si aucu...
 
 ? 
@@ -833,42 +850,42 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.133 ...ÃÅ par aucun last et si aucun message aÃÄ
+l.135 ...ÃÅ par aucun last et si aucun message aÃÄ
                                                    sa destination n‚Äôest en...
 
 ? 
 
-Overfull \hbox (15.19011pt too wide) in paragraph at lines 144--147
+Overfull \hbox (15.19011pt too wide) in paragraph at lines 146--149
 []\T1/cmr/m/n/10.95 protocol.reliableTransport Uni-form-Ran-dom-Trans-port pro-
 to-col.reliableTransport.mindelay
  []
 
 
-Overfull \hbox (13.57098pt too wide) in paragraph at lines 148--150
+Overfull \hbox (13.57098pt too wide) in paragraph at lines 150--152
 []\T1/cmr/m/n/10.95 protocol.FIFOTransport pro-je-tara.util.FIFOTransport pro-t
 o-col.FIFOTransport.transport
  []
 
 
-Overfull \hbox (124.40791pt too wide) in paragraph at lines 151--155
+Overfull \hbox (124.40791pt too wide) in paragraph at lines 153--157
 []\T1/cmr/m/n/10.95 protocol.CheckpointerImpl pro-je-tara.checkpointing.algo1.C
 heckpointerImpl pro-to-col.CheckpointerImpl.transport
  []
 
 
-Overfull \hbox (122.82617pt too wide) in paragraph at lines 151--155
+Overfull \hbox (122.82617pt too wide) in paragraph at lines 153--157
 \T1/cmr/m/n/10.95 FI-FO-Trans-port pro-to-col.CheckpointerImpl.checkpointable a
 p-pli-ca-tion pro-to-col.CheckpointerImpl.timecheckpointing
  []
 
 
-Overfull \hbox (53.58615pt too wide) in paragraph at lines 156--160
+Overfull \hbox (53.58615pt too wide) in paragraph at lines 158--162
 []\T1/cmr/m/n/10.95 protocol.application pro-je-tara.application.ApplicationChe
 ckpointable pro-to-col.application.timeCS
  []
 
 
-Overfull \hbox (4.42609pt too wide) in paragraph at lines 156--160
+Overfull \hbox (4.42609pt too wide) in paragraph at lines 158--162
 \T1/cmr/m/n/10.95 20 pro-to-col.application.timeBetweenCS 10 pro-to-col.applica
 tion.transport Check-poin-te-rImpl 
  []
@@ -879,17 +896,17 @@ tion.transport Check-poin-te-rImpl
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.163 control.crash.faulty_
+l.165 control.crash.faulty_
                            nodes 4
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.166 
+l.168 
       
 ? 
 
-Overfull \hbox (414.21155pt too wide) in paragraph at lines 161--166
+Overfull \hbox (414.21155pt too wide) in paragraph at lines 163--168
 []\T1/cmr/m/n/10.95 control.crash pro-je-tara.checkpointing.CrashControler cont
 rol.crash.probacrash 1 control.crash.faulty$[]\OML/cmm/m/it/10.95 odes\OT1/cmr/
 m/n/10.95 4\OML/cmm/m/it/10.95 control:crash:checkpointerCheckpointerImplcontro
@@ -900,54 +917,10 @@ l:crash:at\OT1/cmr/m/n/10.95 3000$
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.212 ...us les noeuds du syst√®me (m√©thode send_
+l.214 ...us les noeuds du syst√®me (m√©thode send_
                                                   rollback_messages) afin de...
 
 ? 
-
-LaTeX Warning: Command \' invalid in math mode on input line 212.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 212.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.213 
-      
-? 
-Missing character: There is no È in font cmr10!
-Missing character: There is no È in font cmr10!
-
-Overfull \hbox (522.58524pt too wide) in paragraph at lines 211--213
-\T1/cmr/m/n/10.95 voyÈs ‡ tous les noeuds du sys-tËme (mÈ-thode send$[]\OML/cmm
-/m/it/10.95 ollback[]essages\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 afindetrouv
-erunpointdesauvegardepourchaquenoeudquipuisseformerunelignederecouvrementcohren
-teentrelesdiffrentsnoeuds:$ 
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.214 ...e messages re√ßus par chaque noeud saved_
-                                                  rcvd avec le nombre de mes...
-
-? 
-
-LaTeX Warning: Command \' invalid in math mode on input line 214.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 214.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 214.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 214.
-
-
-LaTeX Warning: Command \` invalid in math mode on input line 214.
-
 
 LaTeX Warning: Command \' invalid in math mode on input line 214.
 
@@ -962,13 +935,57 @@ l.215
 ? 
 Missing character: There is no È in font cmr10!
 Missing character: There is no È in font cmr10!
+
+Overfull \hbox (522.58524pt too wide) in paragraph at lines 213--215
+\T1/cmr/m/n/10.95 voyÈs ‡ tous les noeuds du sys-tËme (mÈ-thode send$[]\OML/cmm
+/m/it/10.95 ollback[]essages\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 afindetrouv
+erunpointdesauvegardepourchaquenoeudquipuisseformerunelignederecouvrementcohren
+teentrelesdiffrentsnoeuds:$ 
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.216 ...e messages re√ßus par chaque noeud saved_
+                                                  rcvd avec le nombre de mes...
+
+? 
+
+LaTeX Warning: Command \' invalid in math mode on input line 216.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 216.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 216.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 216.
+
+
+LaTeX Warning: Command \` invalid in math mode on input line 216.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 216.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 216.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.217 
+      
+? 
+Missing character: There is no È in font cmr10!
+Missing character: There is no È in font cmr10!
 Missing character: There is no È in font cmr10!
 Missing character: There is no È in font cmr10!
 Missing character: There is no Ë in font cmr10!
 Missing character: There is no È in font cmr10!
 Missing character: There is no È in font cmr10!
 
-Overfull \hbox (1546.10408pt too wide) in paragraph at lines 214--215
+Overfull \hbox (1546.10408pt too wide) in paragraph at lines 216--217
 []\T1/cmr/m/n/10.95 - On com-pare pour cela le nombre de mes-sages re-Áus par c
 haque noeud saved$[]\OML/cmm/m/it/10.95 cvdaveclenombredemessagesenvoys:Tantque
 l[]ontrouvedesmessagesorphelins; ondtruitlepointdesauvegardeetonrecommencelacom
@@ -981,19 +998,7 @@ agesFinishedRollback:$
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.226 ...eiveReplyAskMissingMessMessage puis stop_
-                                                  recover).
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.227 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.228 ...ssages envoy√©s et re√ßus (m√©thode stop_
+l.228 ...eiveReplyAskMissingMessMessage puis stop_
                                                   recover).
 ? 
 ! Missing $ inserted.
@@ -1002,16 +1007,28 @@ l.228 ...ssages envoy√©s et re√ßus (m√©thode stop_
 l.229 
       
 ? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.230 ...ssages envoy√©s et re√ßus (m√©thode stop_
+                                                  recover).
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.231 
+      
+? 
 [7] [8]
 Exercice 3.
 [9
 
 ] (./Rapport_3200248-3100478.aux) ) 
 Here is how much of TeX's memory you used:
- 6110 strings out of 492982
- 82204 string characters out of 6134896
+ 6115 strings out of 492982
+ 82348 string characters out of 6134896
  167118 words of memory out of 5000000
- 9566 multiletter control sequences out of 15000+600000
+ 9570 multiletter control sequences out of 15000+600000
  16524 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,5n,32p,743b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1027,10 +1044,10 @@ m-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb
 onts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm
 -super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1440.pfb>
 </usr/share/texmf/fonts/type1/public/cm-super/sfxc1095.pfb>
-Output written on Rapport_3200248-3100478.pdf (10 pages, 309187 bytes).
+Output written on Rapport_3200248-3100478.pdf (10 pages, 330303 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
+ 95 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
