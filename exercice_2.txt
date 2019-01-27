@@ -55,7 +55,7 @@ Un checkpoint synchronisé constituait un cas particulier exceptionnel dans un s
 
 Question 4 :
 
-Les variables à sauvegarder absolument dans chaque noeud pour que l'algorithme de Juang-Venkatesan fonctionne bien sont le nombre de messages envoyés (variable SENT) et le nombre de messages reçus (variable RCVD) et la liste des messages envoyés (variable )
+Les variables à sauvegarder absolument dans chaque noeud pour que l'algorithme de Juang-Venkatesan fonctionne bien sont le nombre de messages envoyés (variable SENT) et le nombre de messages reçus (variable RCVD).
 
 
 Question 5 :
