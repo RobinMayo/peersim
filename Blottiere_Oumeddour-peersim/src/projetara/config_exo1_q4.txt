@@ -1,6 +1,6 @@
 random.seed 5
 network.size 50
-simulation.endtime 10000000
+simulation.endtime 100000000
 
 protocol.reliableTransport UniformRandomTransport
 protocol.reliableTransport.mindelay 1
@@ -8,7 +8,7 @@ protocol.reliableTransport.maxdelay 1
 
 protocol.application projetara.application.Application
 protocol.application.timeCS 1000
-protocol.application.timeBetweenCS 1000
+protocol.application.timeBetweenCS 30000
 protocol.application.transport reliableTransport
 
 init.constantes Constantes
