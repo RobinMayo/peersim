@@ -24,6 +24,7 @@ import projetara.checkpointing.algo1.messages.AskMissingMessMessage;
 import projetara.checkpointing.algo1.messages.ReplyAskMissingMessMessage;
 import projetara.checkpointing.algo1.messages.RollBackMessage;
 import projetara.checkpointing.algo1.messages.WrappingMessage;
+import projetara.checkpointing.algo2.messages.TokenMes;
 import projetara.util.Message;
 
 /**
@@ -39,10 +40,12 @@ import projetara.util.Message;
  */
 public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Transport {
 
+	private static final String COORDINATEUR = "coordinateur";
 	private static final String PAR_TRANSPORT = "transport";
 	private static final String PAR_CHECKPOINTABLE = "checkpointable";
 	private static final String PAR_TIMECHECKPOINTING = "timecheckpointing";
 	
+	private final int coordinateur_id;
 	private final int checkpointable_id;
 	private final int transport;
 	private final int protocol_id;
@@ -54,9 +57,7 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 	//attribut pour sauvegarder les messages envoyés depuis le dernier checkpoint
 	private Map<Long,List<WrappingMessage>> sent_messages;
 	
-	
-	
-	//ATtributs de sauvegarde
+	//Attributs de sauvegarde
 	private Stack<NodeState> states;
 	private Stack<Map<Long,Integer>> saved_sent;
 	private Stack<Map<Long,Integer>> saved_rcvd;
@@ -70,20 +71,28 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 	private int nb_remaining_received_rollback=0;
 	private List<WrappingMessage> message_to_replay_after_recovery;
 	private int nb_remaining_replyrecovery;
+	
+	// Exercice 2 - Question 10 :
+	private boolean reciveToken;
+	private int nbTokenRecive;
 
-	
-	
+		
 	public ChandyLamportCheckpointer(String prefix) {
 		String tmp[]=prefix.split("\\.");
 		protocol_id=Configuration.lookupPid(tmp[tmp.length-1]);
 		transport=Configuration.getPid(prefix+"."+PAR_TRANSPORT);
-		
+		coordinateur_id=Configuration.getInt(prefix+"."+COORDINATEUR);
 		checkpointable_id=Configuration.getPid(prefix+"."+PAR_CHECKPOINTABLE);
 		timecheckpointing=Configuration.getLong(prefix+"."+PAR_TIMECHECKPOINTING);
 		
+		// Exercice 2 - Question 10 :
+		reciveToken = false;
+		nbTokenRecive = 0;
 	}
 	
 	public Object clone(){
+		log.finer("BEGIN");
+
 		ChandyLamportCheckpointer res= null;
 		try { res = (ChandyLamportCheckpointer) super.clone();}
 		catch( CloneNotSupportedException e ) {} // never happens
@@ -115,16 +124,26 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 
 	@Override
 	public void processEvent(Node node, int pid, Object event) {
+		log.finer("Node "+node.getID()+" BEGIN");
+
 		if(protocol_id != pid){
 			throw new RuntimeException("Receive an event for wrong protocol");
 		}
 		if(event instanceof String){
 			String ev= (String) event;
 			if(ev.equals("loop")){
-				loop(node);
+				
+				// Exercice 2 - Question 10 :
+				log.finer("coordinateur_id : "+coordinateur_id+", node.getID() : "+node.getID());
+				if(node.getID() == coordinateur_id) {
+					loop(node);
+				}
 			}else{
 				throw new RuntimeException("Receive unknown type event");
 			}
+			// Exercice 2 - Question 10 :
+		}else if(event instanceof TokenMes){
+			createCheckpoint(node);
 		}else if(event instanceof WrappingMessage){
 			receiveWrappingMessage(node, (WrappingMessage) event);
 		}else if(event instanceof RollBackMessage){
@@ -149,9 +168,6 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 		}
 	}
 	
-
-	
-
 	@Override
 	public void send(Node src, Node dest, Object msg, int pid) {
 		Transport t = (Transport) src.getProtocol(transport);
@@ -165,24 +181,48 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 			log.fine("Node "+src.getID()+" : add "+mess+" in sent_messages, sent_messages = "+sent_messages);
 			t.send(src, dest, mess , protocol_id);
 		}
-		
 	}
-
 	
 	@Override
 	public void createCheckpoint(Node host){
 		
+		// Exercice 2 - Question 10 :
+		Transport t = (Transport) host.getProtocol(transport);
+		Node dest;
 		Checkpointable chk = (Checkpointable) host.getProtocol(checkpointable_id);
-		NodeState ns = chk.getCurrentState();
-		states.push(ns);
-		saved_sent.push(new HashMap<>(sent));
-		saved_rcvd.push(new HashMap<>(rcvd));
-		saved_sent_messages.push(new HashMap<>(sent_messages));
-		sent_messages.clear();
-			
-		log.fine("Node "+host.getID()+" : saved  state ("+(states.size())+") "+states.peek()+" sent = "+saved_sent.peek()+" rcvd = "+saved_rcvd.peek()+" sent_messages = "+saved_sent_messages.peek());
 		
+		if(reciveToken != true) {
+			chk.suspend();
+			reciveToken = true;
+
+			for(int i=0; i<Network.size(); i++) {
+				dest = Network.get(i);
+				log.fine("Send token to node "+i);
+
+				t.send(host, dest, new TokenMes(protocol_id, dest.getID(), protocol_id), protocol_id);
+			}
+			return;
+		}
 		
+		nbTokenRecive++;
+
+		if(nbTokenRecive == Network.size()) {
+			chk = (Checkpointable) host.getProtocol(checkpointable_id);
+			NodeState ns = chk.getCurrentState();
+			states.push(ns);
+			saved_sent.push(new HashMap<>(sent));
+			saved_rcvd.push(new HashMap<>(rcvd));
+			saved_sent_messages.push(new HashMap<>(sent_messages));
+			sent_messages.clear();
+
+			log.info("Node "+host.getID()+" : saved  state ("+(states.size())+") "+states.peek()+" sent = "
+					+saved_sent.peek()+" rcvd = "+saved_rcvd.peek()+" sent_messages = "
+					+saved_sent_messages.peek());
+
+			reciveToken = false;
+			chk.resume();
+			next_turn(host);
+		}
 	}
 	
 	
@@ -206,10 +246,7 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 		
 		nb_remaining_received_rollback= Network.size()-1;
 		send_rollback_messages(host);
-		
 	}
-	
-	
 	
 	private void send_rollback_messages(Node host) {
 		log.fine("Node "+host.getID()+" : start round "+(idround++));
@@ -225,21 +262,21 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 		nb_remaining_received_ack_rollback = Network.size()-1;
 	}
 	
-	
-	
-	
-	
 	private void receiveRollBackMessage(Node host, RollBackMessage rbmess){
 		log.fine("Node "+host.getID()+" : receive RollBackMessage from "+rbmess.getIdSrc());
-		log.fine("Node "+host.getID()+" : ("+states.size()+" checkpoints)"+"  state = "+states.peek()+" sent = "+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
+		log.fine("Node "+host.getID()+" : ("+states.size()+" checkpoints)"+"  state = "+states.peek()+
+				" sent = "+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
 
 		nb_remaining_received_rollback--;
 		int nb_recv=saved_rcvd.peek().get(rbmess.getIdSrc());
 		while(nb_recv > rbmess.getNbSent()){
 			delete_checkpoint();
 			should_contine_rollback=true;
-			log.fine("Node "+host.getID()+" : delete checkpoint because node "+rbmess.getIdSrc()+" has sent "+rbmess.getNbSent()+" messages to I but I receive "+nb_recv+" messages from "+rbmess.getIdSrc());
-			log.fine("Node "+host.getID()+" : find last checkpoint ("+states.size()+" checkpoints)"+"  state = "+states.peek()+" sent = "+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
+			log.fine("Node "+host.getID()+" : delete checkpoint because node "+rbmess.getIdSrc()+
+					" has sent "+rbmess.getNbSent()+" messages to I but I receive "+nb_recv+" messages from "
+					+rbmess.getIdSrc());
+			log.fine("Node "+host.getID()+" : find last checkpoint ("+states.size()+" checkpoints)"+
+					"  state = "+states.peek()+" sent = "+saved_sent.peek()+" rcvd = "+saved_rcvd.peek());
 			nb_recv=saved_rcvd.peek().get(rbmess.getIdSrc());
 		}
 		
@@ -274,14 +311,13 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 		}
 	}
 	
-	
-	
 	private void delete_checkpoint() {
+		log.finer("BEGIN");
+
 		states.pop();
 		saved_sent.pop();
 		saved_rcvd.pop();
-		saved_sent_messages.pop();
-		
+		saved_sent_messages.pop();		
 	}	
 		
 	private void findMessagesToReplay(Node host){	
@@ -291,9 +327,9 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 		for(int i=0; i< Network.size();i++){
 			Node dest = Network.get(i);
 			if(dest.getID() != host.getID()){
-				t.send(host, dest, new AskMissingMessMessage(host.getID(), dest.getID(), saved_rcvd.peek().get(dest.getID()) , protocol_id), protocol_id);
+				t.send(host, dest, new AskMissingMessMessage(host.getID(), dest.getID(),
+						saved_rcvd.peek().get(dest.getID()) , protocol_id), protocol_id);
 			}
-			
 		}
 	}
 	
@@ -337,7 +373,6 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 		
 	}
 	
-	
 	private void receiveReplyAskMissingMessMessage(Node host, ReplyAskMissingMessMessage reply){
 		nb_remaining_replyrecovery--;
 		this.message_to_replay_after_recovery.addAll(reply.getMissingMessages());
@@ -346,8 +381,6 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 		}
 	}
 	
-	
-	
 	private void stop_recover(Node host) {
 		Checkpointable chk = (Checkpointable) host.getProtocol(checkpointable_id);
 		chk.resume();
@@ -355,7 +388,9 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 		this.sent=new HashMap<>(saved_sent.peek());
 		this.rcvd=new HashMap<>(saved_rcvd.peek());
 		this.sent_messages.clear();
-		log.info("Node "+host.getID()+" : end recovering (recover from checkpoint "+states.size()+")"+"  state = "+states.peek()+" nb reply messages = " +message_to_replay_after_recovery.size()+" "+message_to_replay_after_recovery);
+		log.info("Node "+host.getID()+" : end recovering (recover from checkpoint "+states.size()+")"+
+				"  state = "+states.peek()+" nb reply messages = " +message_to_replay_after_recovery.size()+
+				" "+message_to_replay_after_recovery);
 		chk.restoreState(states.peek());		
 		for( WrappingMessage wm : message_to_replay_after_recovery){
 			receiveWrappingMessage(host, wm);
@@ -368,6 +403,8 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 	////////////////////////////////////////// Fin des methodes de recouvrement
 	
 	public void loop(Node host) {
+		log.finer("BEGIN");
+
 		if(CommonState.r.nextInt()%2 == 0 && ! is_recovery){
 			createCheckpoint(host);
 		}

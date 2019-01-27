@@ -70,11 +70,6 @@ public class ApplicationCheckpointable extends Application implements EDProtocol
 		this.last = (Long) restored_state.loadVariable("last");	
 		this.nb_cs=(Integer) restored_state.loadVariable("nb_cs");
 		this.global_counter=(Integer)restored_state.loadVariable("global_counter");
-		changestate(CommonState.getNode(), State.valueOf(((String)restored_state.loadVariable("state"))));
-		
-		
+		changestate(CommonState.getNode(), State.valueOf(((String)restored_state.loadVariable("state"))));	
 	}
-	
-	
-
 }
