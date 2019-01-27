@@ -1,7 +1,7 @@
 simulation.experiments 1
 random.seed 5
 network.size 5
-simulation.endtime 500000
+simulation.endtime 5000000
 
 protocol.reliableTransport UniformRandomTransport
 protocol.reliableTransport.mindelay 5

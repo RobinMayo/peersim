@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.24)  27 JAN 2019 21:23
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  27 JAN 2019 18:27
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  27 JAN 2019 23:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -559,21 +555,67 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(./Rapport_3200248-3100478.aux)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen129
+\captionmargin@=\dimen130
+\captionwidth=\dimen131
+\caption@tempdima=\dimen132
+\caption@indent=\dimen133
+\caption@parindent=\dimen134
+\caption@hangindent=\dimen135
+)
+\c@ContinuedFloat=\count135
+Package caption Info: listings package is loaded.
+)
+(./Rapport_3200248-3100478.aux
+./Rapport_3200248-3100478.aux:23: Missing \endcsname inserted.
+<to be read again> 
+                   \protect 
+l.23 \newlabel{etat\_requesting}{{1.3}{4}}
+                                          
+? 
+
+./Rapport_3200248-3100478.aux:23: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.23 \newlabel{etat\_requesting}{{1.3}{4}}
+                                          
+? 
+./Rapport_3200248-3100478.aux:23: Extra \endcsname.
+\@ifundefined ...dafter \ifx \csname #1\endcsname 
+                                                  \relax \expandafter \@firs...
+l.23 \newlabel{etat\_requesting}{{1.3}{4}}
+                                          
+? 
+./Rapport_3200248-3100478.aux:23: Missing \endcsname inserted.
+<to be read again> 
+                   \protect 
+l.23 \newlabel{etat\_requesting}{{1.3}{4}}
+                                          
+? 
+)
 \openout1 = `Rapport_3200248-3100478.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -609,21 +651,21 @@ LaTeX Font Info:    ... okay on input line 18.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \degres on input line 18.
-LaTeX Info: Redefining \dots on input line 18.
-LaTeX Info: Redefining \up on input line 18.
+LaTeX Info: Redefining \degres on input line 21.
+LaTeX Info: Redefining \dots on input line 21.
+LaTeX Info: Redefining \up on input line 21.
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count135
-\scratchdimen=\dimen129
+\scratchcounter=\count136
+\scratchdimen=\dimen136
 \scratchbox=\box30
-\nofMPsegments=\count136
-\nofMParguments=\count137
+\nofMPsegments=\count137
+\nofMParguments=\count138
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count138
-\MPscratchDim=\dimen130
-\MPnumerator=\count139
-\makeMPintoPDFobject=\count140
+\MPscratchCnt=\count139
+\MPscratchDim=\dimen137
+\MPnumerator=\count140
+\makeMPintoPDFobject=\count141
 \everyMPtoPDFconversion=\toks26
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
@@ -669,7 +711,9 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count141
+\c@lstlisting=\count142
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 
 [1
 
@@ -677,20 +721,124 @@ e
 <SU.png, id=7, 390.9807pt x 157.0668pt>
 File: SU.png Graphic file (type png)
  <use SU.png>
-Package pdftex.def Info: SU.png used on input line 25.
+Package pdftex.def Info: SU.png used on input line 26.
 (pdftex.def)             Requested size: 156.3895pt x 62.82559pt.
  [1 <./SU.png>]
 Exercice 1.
-LaTeX Font Info:    Try loading font information for U+msa on input line 70.
+
+./Rapport_3200248-3100478.tex:48: Package inputenc Error: Unicode char Èéd (U+2
+B2)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.48 L'algorithme de verrouillage utilisÈé d
+                                            ans la classe Application est un...
+
+? 
+
+./Rapport_3200248-3100478.tex:48: Package inputenc Error: Keyboard character us
+ed is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.48 ...la classe Application est un algorithme dé
+                                                  ÈrivÈé de celui de Naimi-T...
+
+? 
+
+./Rapport_3200248-3100478.tex:48: Package inputenc Error: Unicode char Èri (U+E
+4)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.48 ...classe Application est un algorithme déÈri
+                                                  vÈé de celui de Naimi-TrÈh...
+
+? 
+
+./Rapport_3200248-3100478.tex:48: Package inputenc Error: Unicode char Èéd (U+2
+B2)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.48 ...e Application est un algorithme déÈrivÈé d
+                                                  e celui de Naimi-TrÈhel ut...
+
+? 
+
+./Rapport_3200248-3100478.tex:48: Package inputenc Error: Unicode char Èhe (U+D
+6)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.48 ...lgorithme déÈrivÈé de celui de Naimi-TrÈhe
+                                                  l utilisant la notion de j...
+
+? 
+
+./Rapport_3200248-3100478.tex:50: Package inputenc Error: Unicode char Íme (U+D
+C)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.50 Ainsi tous les sites se partagent le mÍme
+                                               jeton et seul le site possÈda...
+
+? 
+
+./Rapport_3200248-3100478.tex:50: Package inputenc Error: Unicode char Èda (U+C
+E)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.50 ...gent le mÍme jeton et seul le site possÈda
+                                                  nt le jeton peut entrer en...
+
+? 
+
+./Rapport_3200248-3100478.tex:50: Package inputenc Error: Unicode char ‡di (U+C
+D)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.50 ...stantes initial\_owner et nil servent ‡ di
+                                                  scriminer le site poss√©da...
+
+? 
+LaTeX Font Info:    Try loading font information for U+msa on input line 67.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 70.
+LaTeX Font Info:    Try loading font information for U+msb on input line 67.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 70--75
+Underfull \hbox (badness 10000) in paragraph at lines 67--72
 
  []
 
@@ -701,153 +849,1098 @@ File: ../Diagrammes/exercice_1-question_2.png Graphic file (type png)
 
 <use ../Diagrammes/exercice_1-question_2.png>
 Package pdftex.def Info: ../Diagrammes/exercice_1-question_2.png used on input 
-line 76.
-(pdftex.def)             Requested size: 151.16591pt x 115.93402pt.
+line 75.
+(pdftex.def)             Requested size: 201.54942pt x 154.57475pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
- []
+./Rapport_3200248-3100478.tex:83: Package inputenc Error: Unicode char Èta (U+D
+E)
+(inputenc)                not set up for use with LaTeX.
 
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.83 $\alpha$ Èta
+                 nt le temps moyen qu'un processus passe en section critique...
+
+? 
+
+./Rapport_3200248-3100478.tex:83: Package inputenc Error: Unicode char Èen (U+D
+C)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.83 ...tion critique et $\beta$ le temps passÈ en
+                                                  tre les sections critiques.
+? 
+
+./Rapport_3200248-3100478.tex:85: Package inputenc Error: Unicode char Èse (U+E
+1)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.85 Le ratio $\rho$ = $\alpha$ / $\beta$ reprÈse
+                                                 nte la charge du rÈseau.
+? 
+
+./Rapport_3200248-3100478.tex:85: Package inputenc Error: Unicode char Èse (U+E
+1)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.85 ...ha$ / $\beta$ reprÈsente la charge du rÈse
+                                                  au.
+? 
+
+./Rapport_3200248-3100478.tex:93: Package inputenc Error: Unicode char Èsu (U+F
+1)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.93 ...ssions du jeton entre les noeuds. Ces rÈsu
+                                                  ltats ont ÈtÈ obtenus en c...
+
+? 
+
+./Rapport_3200248-3100478.tex:93: Missing ) inserted for expression.
+<to be read again> 
+                   (
+l.93 ...on entre les noeuds. Ces rÈsultats ont ÈtÈ
+                                                   obtenus en comptant le no...
+
+? 
+./Rapport_3200248-3100478.tex:93: Missing ) inserted for expression.
+<to be read again> 
+                   (
+l.93 ...on entre les noeuds. Ces rÈsultats ont ÈtÈ
+                                                   obtenus en comptant le no...
+
+? 
+./Rapport_3200248-3100478.tex:93: Missing = inserted for \ifnum.
+<to be read again> 
+                   (
+l.93 ...on entre les noeuds. Ces rÈsultats ont ÈtÈ
+                                                   obtenus en comptant le no...
+
+? 
+./Rapport_3200248-3100478.tex:93: Missing number, treated as zero.
+<to be read again> 
+                   (
+l.93 ...on entre les noeuds. Ces rÈsultats ont ÈtÈ
+                                                   obtenus en comptant le no...
+
+? 
+./Rapport_3200248-3100478.tex:93: Package inputenc Error: Unicode char ÈtÈ (U+)
+
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.93 ...on entre les noeuds. Ces rÈsultats ont ÈtÈ
+                                                   obtenus en comptant le no...
+
+? 
+
+./Rapport_3200248-3100478.tex:93: Package inputenc Error: Unicode char ‡la (U+C
+D)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.93 ...obtenus en comptant le nombre d'appel ‡ la
+                                                   mÈthode send().\\
+? 
+
+./Rapport_3200248-3100478.tex:93: Package inputenc Error: Unicode char Èth (U+E
+5)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.93 ...us en comptant le nombre d'appel ‡ la mÈth
+                                                  ode send().\\
+? 
 
 Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
+<Messages_applicatifs.png, id=23, 642.4pt x 481.8pt>
+File: Messages_applicatifs.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
+<use Messages_applicatifs.png>
+Package pdftex.def Info: Messages_applicatifs.png used on input line 97.
+(pdftex.def)             Requested size: 385.44298pt x 289.08221pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
 [2 <../Diagrammes/exercice_1-question_2.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
+./Rapport_3200248-3100478.tex:106: Package inputenc Error: Unicode char Èri (U+
+E4)
+(inputenc)                not set up for use with LaTeX.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--104
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 105--106
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
-
- []
-
-<<<<<<< HEAD
-<Temps_etat_requesting.png, id=26, 642.4pt x 481.8pt>
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   \relax 
-l.114 ...ics[width=300]{Temps_etat_requesting.png}
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
                                                   
+l.106 ...cation est valable pour un temps d'expÈri
+                                                  ence suffisament grand pou...
+
 ? 
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   \relax 
-l.114 ...ics[width=300]{Temps_etat_requesting.png}
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
+
+ []
+
+
+./Rapport_3200248-3100478.tex:108: Package inputenc Error: Keyboard character u
+sed is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
                                                   
+l.108 \textbf{Temps passé dans l'état requesting}
+                                                 :
 ? 
+
+./Rapport_3200248-3100478.tex:108: Package inputenc Error: Keyboard character u
+sed is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.108 \textbf{Temps passé dans l'état requesting}
+                                                 :
+? 
+<Temps_etat_requesting.png, id=31, 642.4pt x 481.8pt>
 File: Temps_etat_requesting.png Graphic file (type png)
+
 <use Temps_etat_requesting.png>
-Package pdftex.def Info: Temps_etat_requesting.png  used on input line 114.
-(pdftex.def)             Requested size: 300.0pt x 225.0051pt.
-[3] [4 <./Temps_etat_requesting.png (PNG copy)>]
-Exercice 2.
-! Missing $ inserted.
-<inserted text> 
-                $
-l.131 ...des : initialisation, releaseCS, receive_
-                                                  request et receive_token. ...
-=======
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
-
-<<<<<<< HEAD
-LaTeX Warning: Command \` invalid in math mode on input line 131.
+Package pdftex.def Info: Temps_etat_requesting.png used on input line 112.
+(pdftex.def)             Requested size: 385.44298pt x 289.08221pt.
 
 
-LaTeX Warning: Command \` invalid in math mode on input line 131.
-=======
- []
+./Rapport_3200248-3100478.tex:114: Package inputenc Error: Keyboard character u
+sed is undefined
+(inputenc)                in inputencoding `utf8'.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 116--117
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
-
- []
-
-<<<<<<< HEAD
-LaTeX Warning: Command \' invalid in math mode on input line 131.
-=======
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 118--119
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
-
- []
-
-<<<<<<< HEAD
-LaTeX Warning: Command \` invalid in math mode on input line 131.
-=======
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
-
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
-
-<<<<<<< HEAD
-LaTeX Warning: Command \' invalid in math mode on input line 131.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.132 
-      
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.114 ...ng} Temps passée dans l'eétat requesting}
+                                                  
 ? 
-Missing character: There is no Ë in font cmr10!
-Missing character: There is no Ë in font cmr10!
-Missing character: There is no È in font cmr10!
-Missing character: There is no Ë in font cmr10!
-Missing character: There is no È in font cmr10!
 
-Overfull \hbox (1151.0202pt too wide) in paragraph at lines 131--132
-\T1/cmr/m/n/10.95 sa-tion, re-lea-seCS, receive$[]\OML/cmm/m/it/10.95 equestetr
-eceive[]oken:Lesmodificationsdansinitialisationetreceive[]equestconcernentl[]in
-itialisationdusystmedanslequellafileesttoujoursvide:Ainsi; silenoeudfautifpossd
-eunefilenextnonvide; ilestforcmentensectioncritique; danscecascelaprovoqueleblo
-cagedusystmecommeexpliqudanslaquestion\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 :
-\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 :$ 
-=======
+./Rapport_3200248-3100478.tex:114: Package inputenc Error: Keyboard character u
+sed is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.114 ...ng} Temps passée dans l'eétat requesting}
+                                                  
+? 
+
+./Rapport_3200248-3100478.tex:114: Package inputenc Error: Keyboard character u
+sed is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.114 ...ng} Temps passée dans l'eétat requesting}
+                                                  
+? 
+
+./Rapport_3200248-3100478.tex:114: Package inputenc Error: Keyboard character u
+sed is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.114 ...ng} Temps passée dans l'eétat requesting}
+                                                  
+? 
+
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char Èta (U+
+DE)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ... temps moyen qu'un noeud passe dans l'Èta
+                                                  t requesting en fonction d...
+
+? 
+
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char Èse (U+
+E1)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...questing en fonction de la charge du rÈse
+                                                  au. Les temps on ÈtÈ mesur...
+
+? 
+
+./Rapport_3200248-3100478.tex:117: Missing ) inserted for expression.
+<to be read again> 
+                   (
+l.117 ... de la charge du rÈseau. Les temps on ÈtÈ
+                                                   mesurÈs ‡ l'aide de la mÈ...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing ) inserted for expression.
+<to be read again> 
+                   (
+l.117 ... de la charge du rÈseau. Les temps on ÈtÈ
+                                                   mesurÈs ‡ l'aide de la mÈ...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing = inserted for \ifnum.
+<to be read again> 
+                   (
+l.117 ... de la charge du rÈseau. Les temps on ÈtÈ
+                                                   mesurÈs ‡ l'aide de la mÈ...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing number, treated as zero.
+<to be read again> 
+                   (
+l.117 ... de la charge du rÈseau. Les temps on ÈtÈ
+                                                   mesurÈs ‡ l'aide de la mÈ...
+
+? 
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char ÈtÈ (U+
+)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ... de la charge du rÈseau. Les temps on ÈtÈ
+                                                   mesurÈs ‡ l'aide de la mÈ...
+
+? 
+
+./Rapport_3200248-3100478.tex:117: Missing ) inserted for expression.
+<to be read again> 
+                   (
+l.117 ...rge du rÈseau. Les temps on ÈtÈ mesurÈs ‡
+                                                   l'aide de la mÈthode Comm...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing ) inserted for expression.
+<to be read again> 
+                   (
+l.117 ...rge du rÈseau. Les temps on ÈtÈ mesurÈs ‡
+                                                   l'aide de la mÈthode Comm...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing = inserted for \ifnum.
+<to be read again> 
+                   (
+l.117 ...rge du rÈseau. Les temps on ÈtÈ mesurÈs ‡
+                                                   l'aide de la mÈthode Comm...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing number, treated as zero.
+<to be read again> 
+                   (
+l.117 ...rge du rÈseau. Les temps on ÈtÈ mesurÈs ‡
+                                                   l'aide de la mÈthode Comm...
+
+? 
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char Ès‡ (U+
+)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...rge du rÈseau. Les temps on ÈtÈ mesurÈs ‡
+                                                   l'aide de la mÈthode Comm...
+
+? 
+
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char Èth (U+
+E5)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ... temps on ÈtÈ mesurÈs ‡ l'aide de la mÈth
+                                                  ode CommonState.getTime()....
+
+? 
+
+./Rapport_3200248-3100478.tex:117: Missing ) inserted for expression.
+<to be read again> 
+                   (
+l.117 ...getTime(). Les compteurs de temps ont ÈtÈ
+                                                  s placÈs ‡ l'envoie et ‡ l...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing ) inserted for expression.
+<to be read again> 
+                   (
+l.117 ...getTime(). Les compteurs de temps ont ÈtÈ
+                                                  s placÈs ‡ l'envoie et ‡ l...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing = inserted for \ifnum.
+<to be read again> 
+                   (
+l.117 ...getTime(). Les compteurs de temps ont ÈtÈ
+                                                  s placÈs ‡ l'envoie et ‡ l...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing number, treated as zero.
+<to be read again> 
+                   (
+l.117 ...getTime(). Les compteurs de temps ont ÈtÈ
+                                                  s placÈs ‡ l'envoie et ‡ l...
+
+? 
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char ÈtÈ (U+
+)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...getTime(). Les compteurs de temps ont ÈtÈ
+                                                  s placÈs ‡ l'envoie et ‡ l...
+
+? 
+
+./Rapport_3200248-3100478.tex:117: Missing ) inserted for expression.
+<to be read again> 
+                   (
+l.117 ... Les compteurs de temps ont ÈtÈs placÈs ‡
+                                                   l'envoie et ‡ la rÈceptio...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing ) inserted for expression.
+<to be read again> 
+                   (
+l.117 ... Les compteurs de temps ont ÈtÈs placÈs ‡
+                                                   l'envoie et ‡ la rÈceptio...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing = inserted for \ifnum.
+<to be read again> 
+                   (
+l.117 ... Les compteurs de temps ont ÈtÈs placÈs ‡
+                                                   l'envoie et ‡ la rÈceptio...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing number, treated as zero.
+<to be read again> 
+                   (
+l.117 ... Les compteurs de temps ont ÈtÈs placÈs ‡
+                                                   l'envoie et ‡ la rÈceptio...
+
+? 
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char Ès‡ (U+
+)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ... Les compteurs de temps ont ÈtÈs placÈs ‡
+                                                   l'envoie et ‡ la rÈceptio...
+
+? 
+
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char ‡la (U+
+CD)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ... temps ont ÈtÈs placÈs ‡ l'envoie et ‡ la
+                                                   rÈception du token et ‡ l...
+
+? 
+
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char Èce (U+
+D1)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...s ont ÈtÈs placÈs ‡ l'envoie et ‡ la rÈce
+                                                  ption du token et ‡ l'entr...
+
+? 
+
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char ‡l' (U+
+93)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...envoie et ‡ la rÈception du token et ‡ l'
+                                                  entrÈe et la sortie de la ...
+
+? 
+
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char Èee (U+
+D3)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...t ‡ la rÈception du token et ‡ l'entrÈe e
+                                                  t la sortie de la section ...
+
+? 
+
+./Rapport_3200248-3100478.tex:117: Missing ) inserted for expression.
+<to be read again> 
+                   (
+l.117 ...ection critique. Un compteur global a ÈtÈ
+                                                   utilisÈ afin de s'assurer...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing ) inserted for expression.
+<to be read again> 
+                   (
+l.117 ...ection critique. Un compteur global a ÈtÈ
+                                                   utilisÈ afin de s'assurer...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing = inserted for \ifnum.
+<to be read again> 
+                   (
+l.117 ...ection critique. Un compteur global a ÈtÈ
+                                                   utilisÈ afin de s'assurer...
+
+? 
+./Rapport_3200248-3100478.tex:117: Missing number, treated as zero.
+<to be read again> 
+                   (
+l.117 ...ection critique. Un compteur global a ÈtÈ
+                                                   utilisÈ afin de s'assurer...
+
+? 
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char ÈtÈ (U+
+)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...ection critique. Un compteur global a ÈtÈ
+                                                   utilisÈ afin de s'assurer...
+
+? 
+
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char Èaf (U+
+D0)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...ique. Un compteur global a ÈtÈ utilisÈ af
+                                                  in de s'assurer que le tem...
+
+? 
+
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char Èta (U+
+DE)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...lisÈ afin de s'assurer que le temps n'Èta
+                                                  it pas comptÈ en double.\\
+? 
+
+./Rapport_3200248-3100478.tex:117: Package inputenc Error: Unicode char Èen (U+
+DC)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...ssurer que le temps n'Ètait pas comptÈ en
+                                                   double.\\
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
+
  []
 
-[4]
+[3 <./Messages_applicatifs.png (PNG copy)>]
+
+./Rapport_3200248-3100478.tex:119: Package inputenc Error: Unicode char Èen (U+
+DC)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.119 ...que lorsque que le temps $\beta$ passÈ en
+                                                  tre les sections critiques...
+
+? 
+
+./Rapport_3200248-3100478.tex:119: Package inputenc Error: Unicode char Èen (U+
+DC)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.119 ...plus grand que le temps $\alpha$ passÈ en
+                                                   section critique, le temp...
+
+? 
+
+./Rapport_3200248-3100478.tex:119: Package inputenc Error: Unicode char Ësf (U+
+E1)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.119 ...mps moyen par section critique est trËs f
+                                                  aible. Lorsque $\rho$ s'ap...
+
+? 
+
+./Rapport_3200248-3100478.tex:119: Package inputenc Error: Unicode char Èen (U+
+DC)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.119 ...\rho$ s'approche de un, le temps passÈ en
+                                                   section critique augmente...
+
+? 
+
+./Rapport_3200248-3100478.tex:119: Package inputenc Error: Unicode char Ësr (U+
+ED)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.119 ...passÈ en section critique augmente trËs r
+                                                  apidement. AprËs cela, l'a...
+
+? 
+
+./Rapport_3200248-3100478.tex:119: Package inputenc Error: Unicode char Ësc (U+
+DE)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.119 ...ritique augmente trËs rapidement. AprËs c
+                                                  ela, l'augmentation redevi...
+
+? 
+
+./Rapport_3200248-3100478.tex:119: Package inputenc Error: Unicode char Èri (U+
+E4)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.119 ...ugmentation redevient proche voire infÈri
+                                                  eur √† un sur une Èchelle ...
+
+? 
+
+./Rapport_3200248-3100478.tex:119: Package inputenc Error: Unicode char Èch (U+
+D4)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.119 ... proche voire infÈrieur √† un sur une Èch
+                                                  elle logarithmique.\\
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
+
+ []
+
+
+./Rapport_3200248-3100478.tex:121: Package inputenc Error: Unicode char Ësc (U+
+DE)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.121 ...r par le fait qu'un temps $\alpha$ trËs c
+                                                  ourt peut faire qu'‡† un c...
+
+? 
+
+./Rapport_3200248-3100478.tex:121: Package inputenc Error: Unicode char ‡†u (U+
+95)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.121 ...ps $\alpha$ trËs court peut faire qu'‡† u
+                                                  n certain moment, aucun de...
+
+? 
+
+./Rapport_3200248-3100478.tex:121: Package inputenc Error: Unicode char Èse (U+
+E1)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.121 ...oment, aucun des cinquante noeuds du rÈse
+                                                  au ne requiert la section ...
+
+? 
+
+./Rapport_3200248-3100478.tex:121: Package inputenc Error: Unicode char Èse (U+
+E1)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.121 ...ction critique. Lorsque la charge du rÈse
+                                                  au sera suffisamment grand...
+
+? 
+
+./Rapport_3200248-3100478.tex:121: Missing ) inserted for expression.
+<to be read again> 
+                   (
+l.121 ...n permanence un noeud demandant l'accËs √
+                                                  † la section critique, le ...
+
+? 
+./Rapport_3200248-3100478.tex:121: Missing ) inserted for expression.
+<to be read again> 
+                   (
+l.121 ...n permanence un noeud demandant l'accËs √
+                                                  † la section critique, le ...
+
+? 
+./Rapport_3200248-3100478.tex:121: Missing = inserted for \ifnum.
+<to be read again> 
+                   (
+l.121 ...n permanence un noeud demandant l'accËs √
+                                                  † la section critique, le ...
+
+? 
+./Rapport_3200248-3100478.tex:121: Missing number, treated as zero.
+<to be read again> 
+                   (
+l.121 ...n permanence un noeud demandant l'accËs √
+                                                  † la section critique, le ...
+
+? 
+./Rapport_3200248-3100478.tex:121: Package inputenc Error: Unicode char Ës√ (U+
+)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.121 ...n permanence un noeud demandant l'accËs √
+                                                  † la section critique, le ...
+
+? 
+
+./Rapport_3200248-3100478.tex:121: Package inputenc Error: Keyboard character u
+sed is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.121 ... permanence un noeud demandant l'accËs √†
+                                                   la section critique, le t...
+
+? 
+
+./Rapport_3200248-3100478.tex:121: Package inputenc Error: Unicode char Èai (U+
+D3)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.121 ...dans l'√©tat requesting augmentera linÈai
+                                                  rement en fonction du temp...
+
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
+
+ []
+
+<Temps_token.png, id=35, 642.4pt x 481.8pt>
+File: Temps_token.png Graphic file (type png)
+ <use Temps_token.png>
+Package pdftex.def Info: Temps_token.png used on input line 128.
+(pdftex.def)             Requested size: 385.44298pt x 289.08221pt.
+
+
+./Rapport_3200248-3100478.tex:130: Package inputenc Error: Keyboard character u
+sed is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.130 ... le jeton dans chacun de ses trois états}
+                                                  
+? 
+
+./Rapport_3200248-3100478.tex:130: Package inputenc Error: Keyboard character u
+sed is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.130 ... le jeton dans chacun de ses trois états}
+                                                  
+? 
+
+./Rapport_3200248-3100478.tex:130: Package inputenc Error: Keyboard character u
+sed is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.130 ... le jeton dans chacun de ses trois états}
+                                                  
+? 
+
+./Rapport_3200248-3100478.tex:130: Package inputenc Error: Keyboard character u
+sed is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.130 ... le jeton dans chacun de ses trois états}
+                                                  
+? 
+
+./Rapport_3200248-3100478.tex:133: Package inputenc Error: Unicode char Ëme (U+
+DA)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133 Sur cette troisiËme
+                          courbe, on observe le temps que le jeton passe dan...
+
+? 
+
+./Rapport_3200248-3100478.tex:133: Package inputenc Error: Unicode char Èta (U+
+DE)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133 ...ps que le jeton passe dans chacun des Èta
+                                                  ts dÈcrits ‡† la question ...
+
+? 
+
+./Rapport_3200248-3100478.tex:133: Package inputenc Error: Unicode char Ècr (U+
+DE)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133 ...le jeton passe dans chacun des Ètats dÈcr
+                                                  its ‡† la question 2 en fo...
+
+? 
+
+./Rapport_3200248-3100478.tex:133: Package inputenc Error: Unicode char ‡†l (U+
+8C)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133 ... passe dans chacun des Ètats dÈcrits ‡† l
+                                                  a question 2 en fonction d...
+
+? 
+
+./Rapport_3200248-3100478.tex:133: Package inputenc Error: Unicode char Èse (U+
+E1)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133 ...estion 2 en fonction de la charge du rÈse
+                                                  au. L'expÈrience s'appuyan...
+
+? 
+
+./Rapport_3200248-3100478.tex:133: Package inputenc Error: Unicode char Èri (U+
+E4)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133 ...fonction de la charge du rÈseau. L'expÈri
+                                                  ence s'appuyant sur un tem...
+
+? 
+
+./Rapport_3200248-3100478.tex:133: Package inputenc Error: Unicode char Ègl (U+
+DC)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133 ...s'appuyant sur un temps de transport nÈgl
+                                                  igeable, le temps que le j...
+
+? 
+
+./Rapport_3200248-3100478.tex:133: Package inputenc Error: Unicode char Èta (U+
+DE)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133 ...e, le temps que le jeton passe dans l'Èta
+                                                  t transmission est proche ...
+
+? 
+
+./Rapport_3200248-3100478.tex:133: Package inputenc Error: Unicode char Èse (U+
+E1)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133 ...he de 1 quelle que soit la charge du rÈse
+                                                  au.\\
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
+
+ []
+
+
+./Rapport_3200248-3100478.tex:135: Package inputenc Error: Unicode char Èta (U+
+DE)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.135 Les temps que le jeton passe en Èta
+                                         nt utilisÈ ou inutilisÈ suivent des...
+
+? 
+
+./Rapport_3200248-3100478.tex:135: Package inputenc Error: Unicode char Èou (U+
+ED)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.135 ...ps que le jeton passe en Ètant utilisÈ ou
+                                                   inutilisÈ suivent des cou...
+
+? 
+
+./Rapport_3200248-3100478.tex:135: Package inputenc Error: Unicode char Èsu (U+
+F1)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.135 ...on passe en Ètant utilisÈ ou inutilisÈ su
+                                                  ivent des courbes inverses...
+
+? 
+
+./Rapport_3200248-3100478.tex:135: Package inputenc Error: Unicode char Èen (U+
+DC)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.135 ...es. On observe que plus le temps passÈ en
+                                                  tre les section critiques ...
+
+? 
+
+./Rapport_3200248-3100478.tex:135: Package inputenc Error: Unicode char Èet (U+
+E2)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.135 ...$ est faible plus le jeton est utilisÈ et
+                                                   inversement.
+? 
+[4 <./Temps_etat_requesting.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
+
+ []
+
+[5 <./Temps_token.png (PNG copy)>]
 Exercice 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--128
+Underfull \hbox (badness 10000) in paragraph at lines 151--152
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
  []
 
 
-./Rapport_3200248-3100478.tex:133: Package inputenc Error: Unicode char ÃÄ (U+3
+./Rapport_3200248-3100478.tex:157: Package inputenc Error: Unicode char ÃÄ (U+3
 00)
 (inputenc)                not set up for use with LaTeX.
 
@@ -855,12 +1948,12 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.135 Si le noeud fautif posseÃÄ
+l.157 Si le noeud fautif posseÃÄ
                                 de une file next vide, n‚Äôest pointeÃÅ par ...
 
 ? 
 
-./Rapport_3200248-3100478.tex:133: Package inputenc Error: Unicode char ÃÅ (U+3
+./Rapport_3200248-3100478.tex:157: Package inputenc Error: Unicode char ÃÅ (U+3
 01)
 (inputenc)                not set up for use with LaTeX.
 
@@ -868,382 +1961,190 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.135 ...ÃÄde une file next vide, n‚Äôest pointeÃÅ
+l.157 ...ÃÄde une file next vide, n‚Äôest pointeÃÅ
                                                    par aucun last et si aucu...
 
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--135
-
-<<<<<<< HEAD
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.135 ...ÃÅ par aucun last et si aucun message aÃÄ
-                                                   sa destination n‚Äôest en...
-=======
- []
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
-
-
-<<<<<<< HEAD
-Overfull \hbox (15.19011pt too wide) in paragraph at lines 146--149
-[]\T1/cmr/m/n/10.95 protocol.reliableTransport Uni-form-Ran-dom-Trans-port pro-
-to-col.reliableTransport.mindelay
- []
-
-
-Overfull \hbox (13.57098pt too wide) in paragraph at lines 150--152
-[]\T1/cmr/m/n/10.95 protocol.FIFOTransport pro-je-tara.util.FIFOTransport pro-t
-o-col.FIFOTransport.transport
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 157--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--144
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
 
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
  []
 
-[5
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--168
+
+ []
+
+[6
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 145--148
-
-<<<<<<< HEAD
-Overfull \hbox (124.40791pt too wide) in paragraph at lines 153--157
-[]\T1/cmr/m/n/10.95 protocol.CheckpointerImpl pro-je-tara.checkpointing.algo1.C
-heckpointerImpl pro-to-col.CheckpointerImpl.transport
- []
-
-
-Overfull \hbox (122.82617pt too wide) in paragraph at lines 153--157
-\T1/cmr/m/n/10.95 FI-FO-Trans-port pro-to-col.CheckpointerImpl.checkpointable a
-p-pli-ca-tion pro-to-col.CheckpointerImpl.timecheckpointing
- []
-
-
-Overfull \hbox (53.58615pt too wide) in paragraph at lines 158--162
-[]\T1/cmr/m/n/10.95 protocol.application pro-je-tara.application.ApplicationChe
-ckpointable pro-to-col.application.timeCS
- []
-
-
-Overfull \hbox (4.42609pt too wide) in paragraph at lines 158--162
-\T1/cmr/m/n/10.95 20 pro-to-col.application.timeBetweenCS 10 pro-to-col.applica
-tion.transport Check-poin-te-rImpl 
-=======
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 149--151
+Underfull \hbox (badness 10000) in paragraph at lines 169--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--156
+Underfull \hbox (badness 10000) in paragraph at lines 173--175
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--161
-
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
- []
-
-
-<<<<<<< HEAD
-]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.165 control.crash.faulty_
-                           nodes 4
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.168 
-      
-? 
-
-Overfull \hbox (414.21155pt too wide) in paragraph at lines 163--168
-[]\T1/cmr/m/n/10.95 control.crash pro-je-tara.checkpointing.CrashControler cont
-rol.crash.probacrash 1 control.crash.faulty$[]\OML/cmm/m/it/10.95 odes\OT1/cmr/
-m/n/10.95 4\OML/cmm/m/it/10.95 control:crash:checkpointerCheckpointerImplcontro
-l:crash:at\OT1/cmr/m/n/10.95 3000$ 
- []
-
-[6]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.214 ...us les noeuds du syst√®me (m√©thode send_
-                                                  rollback_messages) afin de...
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 168--170
-
- []
-
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
-
-<<<<<<< HEAD
-LaTeX Warning: Command \' invalid in math mode on input line 214.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 214.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.215 
-      
-? 
-Missing character: There is no È in font cmr10!
-Missing character: There is no È in font cmr10!
-
-Overfull \hbox (522.58524pt too wide) in paragraph at lines 213--215
-\T1/cmr/m/n/10.95 voyÈs ‡ tous les noeuds du sys-tËme (mÈ-thode send$[]\OML/cmm
-/m/it/10.95 ollback[]essages\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 afindetrouv
-erunpointdesauvegardepourchaquenoeudquipuisseformerunelignederecouvrementcohren
-teentrelesdiffrentsnoeuds:$ 
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.216 ...e messages re√ßus par chaque noeud saved_
-                                                  rcvd avec le nombre de mes...
-=======
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 176--177
-
- []
-
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
-
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
-
- []
-
-<<<<<<< HEAD
-LaTeX Warning: Command \' invalid in math mode on input line 216.
-=======
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 185--186
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
-
- []
-
-<<<<<<< HEAD
-LaTeX Warning: Command \' invalid in math mode on input line 216.
-=======
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
-
-Underfull \hbox (badness 10000) in paragraph at lines 187--188
-
-<<<<<<< HEAD
-LaTeX Warning: Command \' invalid in math mode on input line 216.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 216.
-=======
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
-
- []
-
-<<<<<<< HEAD
-LaTeX Warning: Command \` invalid in math mode on input line 216.
-=======
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
-
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
-
-<<<<<<< HEAD
-LaTeX Warning: Command \' invalid in math mode on input line 216.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 216.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.217 
-      
-? 
-Missing character: There is no È in font cmr10!
-Missing character: There is no È in font cmr10!
-Missing character: There is no È in font cmr10!
-Missing character: There is no È in font cmr10!
-Missing character: There is no Ë in font cmr10!
-Missing character: There is no È in font cmr10!
-Missing character: There is no È in font cmr10!
-
-Overfull \hbox (1546.10408pt too wide) in paragraph at lines 216--217
-[]\T1/cmr/m/n/10.95 - On com-pare pour cela le nombre de mes-sages re-Áus par c
-haque noeud saved$[]\OML/cmm/m/it/10.95 cvdaveclenombredemessagesenvoys:Tantque
-l[]ontrouvedesmessagesorphelins; ondtruitlepointdesauvegardeetonrecommencelacom
-paraisonaveclepointdesauvegardeantrieur\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 
-mthodereceiveRollBackMessage\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 :Aprsavoirt
-rouvunpointderecouvrementcohrent; lesnoeudsavertissentleurshomologuesvialesmess
-agesFinishedRollback:$ 
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.228 ...eiveReplyAskMissingMessMessage puis stop_
-                                                  recover).
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.229 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.230 ...ssages envoy√©s et re√ßus (m√©thode stop_
-                                                  recover).
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.231 
-=======
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--200
+Underfull \hbox (badness 10000) in paragraph at lines 176--180
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--206
+Underfull \hbox (badness 10000) in paragraph at lines 181--185
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--194
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--206
 
  []
 
 [7]
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
 
-./Rapport_3200248-3100478.tex:210: LaTeX Error: There's no line here to end.
+ []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.210 
-      
-? 
 
 Underfull \hbox (badness 10000) in paragraph at lines 211--212
 
  []
 
 
-Overfull \hbox (74.63501pt too wide) in paragraph at lines 215--216
-[]\T1/cmr/m/n/10.95 Les mes-sages roll-back sont en-voyÈs ‡ tous les noeuds du 
-sys-tËme (mÈ-thode send_rollback_messages)
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
+
  []
 
 
-./Rapport_3200248-3100478.tex:219: LaTeX Error: There's no line here to end.
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.219    \\
-           
-? 
+ []
 
-./Rapport_3200248-3100478.tex:220: LaTeX Error: There's no line here to end.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.220 
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
-      
-? 
+Underfull \hbox (badness 10000) in paragraph at lines 223--224
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--230
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 235--236
 
+./Rapport_3200248-3100478.tex:234: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.234 
+      
+? 
+
+Overfull \hbox (74.63501pt too wide) in paragraph at lines 239--240
+[]\T1/cmr/m/n/10.95 Les mes-sages roll-back sont en-voyÈs ‡ tous les noeuds du 
+sys-tËme (mÈ-thode send_rollback_messages)
  []
 
 [9]
-Exercice 3.
-[10
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
 
-] (./Rapport_3200248-3100478.aux) ) 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
+
+ []
+
+[10]
+Exercice 3.
+[11
+
+] (./Rapport_3200248-3100478.aux
+./Rapport_3200248-3100478.aux:23: Missing \endcsname inserted.
+<to be read again> 
+                   \protect 
+l.23 \newlabel{etat\_requesting}{{1.3}{4}}
+                                          
+? 
+./Rapport_3200248-3100478.aux:23: Extra \endcsname.
+\@newl@bel ... \bbl@tempa \csname #1@#2\endcsname 
+                                                  \def \bbl@tempb {#3}\@safe...
+l.23 \newlabel{etat\_requesting}{{1.3}{4}}
+                                          
+? 
+) )
+(\end occurred when \ifnum on line 121 was incomplete)
+(\end occurred when \ifnum on line 121 was incomplete)
+(\end occurred when \ifx on line 121 was incomplete)
+(\end occurred when \ifx on line 121 was incomplete)
+(\end occurred when \ifnum on line 117 was incomplete)
+(\end occurred when \ifx on line 117 was incomplete)
+(\end occurred when \ifx on line 117 was incomplete)
+(\end occurred when \ifnum on line 117 was incomplete)
+(\end occurred when \ifx on line 117 was incomplete)
+(\end occurred when \ifx on line 117 was incomplete)
+(\end occurred when \ifnum on line 117 was incomplete)
+(\end occurred when \ifx on line 117 was incomplete)
+(\end occurred when \ifx on line 117 was incomplete)
+(\end occurred when \ifnum on line 117 was incomplete)
+(\end occurred when \ifx on line 117 was incomplete)
+(\end occurred when \ifx on line 117 was incomplete)
+(\end occurred when \ifnum on line 117 was incomplete)
+(\end occurred when \ifx on line 117 was incomplete)
+(\end occurred when \ifx on line 117 was incomplete)
+(\end occurred when \ifnum on line 93 was incomplete)
+(\end occurred when \ifx on line 93 was incomplete)
+(\end occurred when \ifx on line 93 was incomplete) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 6115 strings out of 492982
- 82348 string characters out of 6134896
- 167118 words of memory out of 5000000
- 9570 multiletter control sequences out of 15000+600000
- 16524 words of font info for 43 fonts, out of 8000000 for 9000
+ 7099 strings out of 493014
+ 100552 string characters out of 6133351
+ 185824 words of memory out of 5000000
+ 10530 multiletter control sequences out of 15000+600000
+ 17300 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,5n,32p,743b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/c
-m-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/
-fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb
-></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/f
-onts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm
--super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1440.pfb>
-</usr/share/texmf/fonts/type1/public/cm-super/sfxc1095.pfb>
-Output written on Rapport_3200248-3100478.pdf (10 pages, 330303 bytes).
+ 38i,6n,39p,743b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/tex
+mf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2016/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-d
+ist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2016/texmf-dis
+t/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2016/texmf-dist/
+fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2016/texmf-dist/fo
+nts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2016/texmf-dist/font
+s/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/
+type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/ty
+pe1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
+1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
+public/cm-super/sfti1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pu
+blic/cm-super/sfxc1095.pfb>
+Output written on Rapport_3200248-3100478.pdf (13 pages, 373934 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
-=======
- 6010 strings out of 493014
- 80969 string characters out of 6133351
- 166871 words of memory out of 5000000
- 9451 multiletter control sequences out of 15000+600000
- 16524 words of font info for 43 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 38i,5n,32p,743b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/en
-c/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pu
-blic/cm-super/sfbx1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publ
-ic/cm-super/sfbx1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
-/cm-super/sfbx2074.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/c
-m-super/sfrm1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-
-super/sfrm1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-su
-per/sfrm1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-supe
-r/sfti1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/
-sfxc1095.pfb>
-Output written on Rapport_3200248-3100478.pdf (12 pages, 287396 bytes).
-PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
->>>>>>> c30592c1388525a6675ebb4957b1f6edb14a5a65
+ 103 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

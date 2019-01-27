@@ -8,16 +8,17 @@
 \usepackage{listings}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{caption}
 
 \makeatletter
 \renewcommand{\@chapapp}{Exercice}
 \makeatother
 
-%\setlength{\parindent}{0.7cm}
+\captionsetup{position=below}
+\setlength{\parskip}{\baselineskip}
+
 
 \begin{document}
-
-\setlength{\parskip}{\baselineskip}
 
 \begin{titlepage}
 
@@ -44,17 +45,13 @@
 
 \section{Question 1 :}
 
-L'algorithme de verrouillage utilis√© dans la classe Application est un algorithme d√©riv√© de celui de Naimi-Tr√©hel utilisant la notion de jeton.
-%\linespread{0.5}
+L'algorithme de verrouillage utilisÈé dans la classe Application est un algorithme déÈrivÈé de celui de Naimi-TrÈhel utilisant la notion de jeton.
 
-Ainsi tous les sites se partagent le m√™me jeton et seul le site poss√©dant le jeton peut entrer en section critique. Dans la classe Application, les constantes initial\_owner et nil servent √† discriminer le site poss√©dant le jeton des autres.
-%\linespread{1.7}
+Ainsi tous les sites se partagent le mÍme jeton et seul le site possÈdant le jeton peut entrer en section critique. Dans la classe Application, les constantes initial\_owner et nil servent ‡ discriminer le site poss√©dant le jeton des autres.
 
 Chaque noeud maintient sa propre liste de noeuds en attente de section critique (variable next) et son compteur global de sections critiques (variable global\_counter). Il poss√®de √©galement l'adresse du noeud dont il pense qu'il poss√®de le jeton (variable last) ainsi que le nombre de sections critiques qu'il a lui-m√™me effectu√©es (variable nb\_cs). Si un noeud veut une section critique, il envoie une demande pour avoir le jeton puis il se met en attente.
-%\linespread{0.5}
 
 Quand un noeud sort de section critique, il envoie le jeton au dernier noeud de la liste des noeuds demandant la section critique avec les informations qu'il poss√®de du nombre de sections critiques r√©alis√©es et des noeuds en attente de section critique.
-%\linespread{0.5}
 
 Lorsqu'un noeud re√ßoit le jeton, il met √† jour son compteur de sections critiques avec la valeur envoy√©e par le dernier noeud ayant √©t√© en section critique. Il compare √©galement sa liste de noeuds en attente avec celle qu'il a re√ßue. Si des noeuds se trouvent dans les deux listes mais pas dans le m√™me ordre, l'ordre envoy√© par le dernier noeud en section critique est maintenu. Si des demandes sont absentes de la liste re√ßue, elles sont ajout√©es en fin de liste.
 
@@ -73,14 +70,19 @@ utilis√© $\rightarrow$ tranquille : la section critique se termine.\\
 utilis√© $\rightarrow$ enTransit : releaseCS(timeout) \& !next.isEmpty()\\
 enTransit $\rightarrow$ utilis√© : receive\_token()\\
 
-\includegraphics[scale=0.3]{../Diagrammes/exercice_1-question_2.png}
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.4]{../Diagrammes/exercice_1-question_2.png} 
+	\end{center}
+	\caption{\label{etats du jeton} Diagramme des etats du jeton}
+\end{figure}
 
 
 \section{Question 3 :}
 
-$\alpha$ √©tant le temps moyen qu'un processus passe en section critique et $\beta$ le temps pass√© entre les sections critiques.
+$\alpha$ Ètant le temps moyen qu'un processus passe en section critique et $\beta$ le temps passÈ entre les sections critiques.
 
-Le ratio $\rho$ = $\alpha$ / $\beta$ repr√©sente la charge du r√©seau.
+Le ratio $\rho$ = $\alpha$ / $\beta$ reprÈsente la charge du rÈseau.
 
 Plus ce ratio est √©lev√© plus le r√©seau est ralenti.
 
@@ -88,30 +90,50 @@ Plus ce ratio est √©lev√© plus le r√©seau est ralenti.
 
 \textbf{Messages applicatifs}:
 
-Sur cette premi√®re courbe, on observe deux valeurs qui varient en fonction de la charge du r√©seau $\rho$. Il s'agit du nombre moyen de messages applicatifs par section critique. On diff√©rencie le nombre de messages requ√©rant le jeton et le nombre de transmissions du jeton entre les noeuds.\\
+Sur cette premi√®re courbe, on observe deux valeurs qui varient en fonction de la charge du r√©seau $\rho$. Il s'agit du nombre moyen de messages applicatifs par section critique. On diff√©rencie le nombre de messages requ√©rant le jeton et le nombre de transmissions du jeton entre les noeuds. Ces rÈsultats ont ÈtÈ obtenus en comptant le nombre d'appel ‡ la mÈthode send().\\
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.6]{Messages_applicatifs.png}
+	\end{center}
+	\caption{\label{Messages_applicatifs} Messages applicatifs transmits par section critique}
+\end{figure}
 
 On observe que plus $\rho$ augmente, plus le nombre de messages applicatifs diminue. A la fin, il n'y a plus qu'un message et un envoi de jeton par section critique. En effet, plus le temps pass√© en section critique est grand par rapport au temps d'attente plus les noeuds savent quel est le noeud qui poss√®de le jeton.\\
 
 Cela s'explique par le fait qu'un noeud ayant fini sa section critique va s'endormir pour un temps qui sera court √©tant donn√© les param√®tres de l'exp√©rience qui incluent un temps de transmission et un temps de repos court entre les sections critiques. En se r√©veillant, le noeud enverra une requ√™te de section critique au noeud dont il pense qu'il poss√®de le jeton. Ce noeud aura en effet toujours le jeton en sa possession car il n'aura probablement pas eu le temps de terminer sa section critique. Ainsi, une seule requ√™te aura suffi au noeud pour √™tre repertori√© comme demandant l'acc√®s √† la section critique. C'est pourquoi on observe quasiment un envoi de requ√™te par section critique.\\
 
-Cette explication est valable pour un temps d'exp√©rience suffisament grand pour que les noeuds aient le temps de s'ordonner mutuellement.\\
+Cette explication est valable pour un temps d'expÈrience suffisament grand pour que les noeuds aient le temps de s'ordonner mutuellement.\\
 
-\textbf{Temps pass√© dans l'√©tat requesting}:
+\textbf{Temps passé dans l'état requesting}:
 
-Sur cette courbe, on observe le temps moyen qu'un noeud passe dans l'√©tat requesting en fonction de la charge du r√©seau.\\
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.6]{Temps_etat_requesting.png}
+	\end{center}
+	\caption{\label{etat\_requesting} Temps passée dans l'eétat requesting}
+\end{figure}
 
-On peut voir que lorsque que le temps $\beta$ pass√© entre les sections critiques est beaucoup plus grand que le temps $\alpha$ pass√© en section critique, le temps moyen par section critique est tr√®s faible. Lorsque $\rho$ s'approche de un, le temps pass√© en section critique augmente tr√®s rapidement. Apr√®s cela, l'augmentation redevient proche voire inf√©rieur √† un sur une √©chelle logarithmique.\\
+Sur cette courbe, on observe le temps moyen qu'un noeud passe dans l'Ètat requesting en fonction de la charge du rÈseau. Les temps on ÈtÈ mesurÈs ‡ l'aide de la mÈthode CommonState.getTime(). Les compteurs de temps ont ÈtÈs placÈs ‡ l'envoie et ‡ la rÈception du token et ‡ l'entrÈe et la sortie de la section critique. Un compteur global a ÈtÈ utilisÈ afin de s'assurer que le temps n'Ètait pas comptÈ en double.\\
 
-Cette brusque augmentation peut s'expliquer par le fait qu'un temps $\alpha$ tr√®s court peut faire qu'√† un certain moment, aucun des cinquante noeuds du r√©seau ne requiert la section critique. Lorsque la charge du r√©seau sera suffisamment grande pour qu'il y ait en permanence un noeud demandant l'acc√®s √† la section critique, le temps pass√© dans l'√©tat requesting augmentera lin√©airement en fonction du temps o√π le jeton est utilis√© par un processus en section critique.\\
+On peut voir que lorsque que le temps $\beta$ passÈ entre les sections critiques est beaucoup plus grand que le temps $\alpha$ passÈ en section critique, le temps moyen par section critique est trËs faible. Lorsque $\rho$ s'approche de un, le temps passÈ en section critique augmente trËs rapidement. AprËs cela, l'augmentation redevient proche voire infÈrieur √† un sur une Èchelle logarithmique.\\
+
+Cette brusque augmentation peut s'expliquer par le fait qu'un temps $\alpha$ trËs court peut faire qu'‡† un certain moment, aucun des cinquante noeuds du rÈseau ne requiert la section critique. Lorsque la charge du rÈseau sera suffisamment grande pour qu'il y ait en permanence un noeud demandant l'accËs √† la section critique, le temps pass√© dans l'√©tat requesting augmentera linÈairement en fonction du temps o√π le jeton est utilis√© par un processus en section critique.\\
+
 
 \textbf{Utilisation du jeton}:
 
-Sur cette troisi√®me courbe, on observe le temps que le jeton passe dans chacun des √©tats d√©crits √† la question 2 en fonction de la charge du r√©seau. L'exp√©rience s'appuyant sur un temps de transport n√©gligeable, le temps que le jeton passe dans l'√©tat transmission est proche de 1 quelle que soit la charge du r√©seau.\\
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.6]{Temps_token.png}
+	\end{center}
+	\caption{\label{Temps_token} Temps passé par le jeton dans chacun de ses trois états}
+\end{figure}
 
-Les temps que le jeton passe en √©tant utilis√© ou inutilis√© suivent des courbes inverses. On observe que lorsque $\rho$ $=$ 1, $\alpha$ $=$ $\beta$.\\
+Sur cette troisiËme courbe, on observe le temps que le jeton passe dans chacun des Ètats dÈcrits ‡† la question 2 en fonction de la charge du rÈseau. L'expÈrience s'appuyant sur un temps de transport nÈgligeable, le temps que le jeton passe dans l'Ètat transmission est proche de 1 quelle que soit la charge du rÈseau.\\
 
+Les temps que le jeton passe en Ètant utilisÈ ou inutilisÈ suivent des courbes inverses. On observe que plus le temps passÈ entre les section critiques $\beta$ est faible plus le jeton est utilisÈ et inversement.
 
-\includegraphics[width=300]{Temps_etat_requesting.png}
 
 \section{Question 5 :}
 

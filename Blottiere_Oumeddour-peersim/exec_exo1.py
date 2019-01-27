@@ -106,7 +106,7 @@ def tokenStates():
 	analyseFiles(nbPoints, nbTests, listCharge)
 
 def main():
-	#nbMessages()
-	tokenStates()
+	nbMessages()
+	#tokenStates()
 
 main()

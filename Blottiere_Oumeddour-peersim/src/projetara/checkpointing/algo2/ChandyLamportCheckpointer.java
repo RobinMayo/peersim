@@ -220,9 +220,9 @@ public class ChandyLamportCheckpointer implements Checkpointer, EDProtocol, Tran
 					+saved_sent_messages.peek());
 
 			reciveToken = false;
-			chk.resume();
 			next_turn(host);
 		}
+		chk.resume();
 	}
 	
 	
