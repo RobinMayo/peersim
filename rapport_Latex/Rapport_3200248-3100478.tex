@@ -1,8 +1,8 @@
 \documentclass[11pt,a4paper]{report}
 \usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \usepackage[utf8]{inputenc}
-\usepackage[francais]{babel}
 \usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
 \usepackage{graphicx}
 \usepackage{blindtext}
 \usepackage{listings}
@@ -45,22 +45,22 @@
 
 \section{Question 1 :}
 
-L'algorithme de verrouillage utilis� dans la classe Application est un algorithme d��riv� de celui de Naimi-Tr�hel utilisant la notion de jeton.
+L'algorithme de verrouillage utilisé dans la classe Application est un algorithme dérivé de celui de Naimi-Tréhel utilisant la notion de jeton.
 
-Ainsi tous les sites se partagent le m�me jeton et seul le site poss�dant le jeton peut entrer en section critique. Dans la classe Application, les constantes initial\_owner et nil servent � discriminer le site possédant le jeton des autres.
+Ainsi tous les sites se partagent le même jeton et seul le site possédant le jeton peut entrer en section critique. Dans la classe Application, les constantes initial\_owner et nil servent à discriminer le site possédant le jeton des autres.
 
 Chaque noeud maintient sa propre liste de noeuds en attente de section critique (variable next) et son compteur global de sections critiques (variable global\_counter). Il possède également l'adresse du noeud dont il pense qu'il possède le jeton (variable last) ainsi que le nombre de sections critiques qu'il a lui-même effectuées (variable nb\_cs). Si un noeud veut une section critique, il envoie une demande pour avoir le jeton puis il se met en attente.
 
 Quand un noeud sort de section critique, il envoie le jeton au dernier noeud de la liste des noeuds demandant la section critique avec les informations qu'il possède du nombre de sections critiques réalisées et des noeuds en attente de section critique.
 
-Lorsqu'un noeud reçoit le jeton, il met à jour son compteur de sections critiques avec la valeur envoyée par le dernier noeud ayant été en section critique. Il compare également sa liste de noeuds en attente avec celle qu'il a reçue. Si des noeuds se trouvent dans les deux listes mais pas dans le même ordre, l'ordre envoyé par le dernier noeud en section critique est maintenu. Si des demandes sont absentes de la liste reçue, elles sont ajoutées en fin de liste.
+Lorsqu'un noeud reçoit le jeton, il met à  jour son compteur de sections critiques avec la valeur envoyée par le dernier noeud ayant été en section critique. Il compare également sa liste de noeuds en attente avec celle qu'il a reçue. Si des noeuds se trouvent dans les deux listes mais pas dans le même ordre, l'ordre envoyé par le dernier noeud en section critique est maintenu. Si des demandes sont absentes de la liste reçue, elles sont ajoutées en fin de liste.
 
 
 \section{Question 2 :}
 
 On considère trois états du jeton :
 \begin{enumerate}
-	\item Un noeud possède le jeton mais ne s’en sert pas (état tranquille).
+	\item Un noeud possède le jeton mais ne s'en sert pas (état tranquille).
 	\item Un noeud possède le jeton et est en section critique (état utilisé).
 	\item Le jeton est en transit (état enTransit).
 \end{enumerate}
@@ -74,15 +74,15 @@ enTransit $\rightarrow$ utilisé : receive\_token()\\
 	\begin{center}
 		\includegraphics[scale=0.4]{../Diagrammes/exercice_1-question_2.png} 
 	\end{center}
-	\caption{\label{etats du jeton} Diagramme des etats du jeton}
+	\caption{\label{états du jeton} Diagramme des états du jeton}
 \end{figure}
 
 
 \section{Question 3 :}
 
-$\alpha$ �tant le temps moyen qu'un processus passe en section critique et $\beta$ le temps pass� entre les sections critiques.
+$\alpha$ étant le temps moyen qu'un processus passe en section critique et $\beta$ le temps passé entre les sections critiques.
 
-Le ratio $\rho$ = $\alpha$ / $\beta$ repr�sente la charge du r�seau.
+Le ratio $\rho$ = $\alpha$ / $\beta$ représente la charge du réseau.
 
 Plus ce ratio est élevé plus le réseau est ralenti.
 
@@ -90,7 +90,7 @@ Plus ce ratio est élevé plus le réseau est ralenti.
 
 \textbf{Messages applicatifs}:
 
-Sur cette première courbe, on observe deux valeurs qui varient en fonction de la charge du réseau $\rho$. Il s'agit du nombre moyen de messages applicatifs par section critique. On différencie le nombre de messages requérant le jeton et le nombre de transmissions du jeton entre les noeuds. Ces r�sultats ont �t� obtenus en comptant le nombre d'appel � la m�thode send().\\
+Sur cette première courbe, on observe deux valeurs qui varient en fonction de la charge du réseau $\rho$. Il s'agit du nombre moyen de messages applicatifs par section critique. On différencie le nombre de messages requérant le jeton et le nombre de transmissions du jeton entre les noeuds. Ces résultats ont été obtenus en comptant le nombre d'appel à la méthode send().\\
 
 \begin{figure}
 	\begin{center}
@@ -101,38 +101,38 @@ Sur cette première courbe, on observe deux valeurs qui varient en fonction de l
 
 On observe que plus $\rho$ augmente, plus le nombre de messages applicatifs diminue. A la fin, il n'y a plus qu'un message et un envoi de jeton par section critique. En effet, plus le temps passé en section critique est grand par rapport au temps d'attente plus les noeuds savent quel est le noeud qui possède le jeton.\\
 
-Cela s'explique par le fait qu'un noeud ayant fini sa section critique va s'endormir pour un temps qui sera court étant donné les paramètres de l'expérience qui incluent un temps de transmission et un temps de repos court entre les sections critiques. En se réveillant, le noeud enverra une requête de section critique au noeud dont il pense qu'il possède le jeton. Ce noeud aura en effet toujours le jeton en sa possession car il n'aura probablement pas eu le temps de terminer sa section critique. Ainsi, une seule requête aura suffi au noeud pour être repertorié comme demandant l'accès à la section critique. C'est pourquoi on observe quasiment un envoi de requête par section critique.\\
+Cela s'explique par le fait qu'un noeud ayant fini sa section critique va s'endormir pour un temps qui sera court étant donné les paramètres de l'expérience qui incluent un temps de transmission et un temps de repos court entre les sections critiques. En se réveillant, le noeud enverra une requête de section critique au noeud dont il pense qu'il possède le jeton. Ce noeud aura en effet toujours le jeton en sa possession car il n'aura probablement pas eu le temps de terminer sa section critique. Ainsi, une seule requête aura suffi au noeud pour être répertorié comme demandant l'accès à  la section critique. C'est pourquoi on observe quasiment un envoi de requête par section critique.\\
 
-Cette explication est valable pour un temps d'exp�rience suffisament grand pour que les noeuds aient le temps de s'ordonner mutuellement.\\
+Cette explication est valable pour un temps d'expérience suffisamment grand pour que les noeuds aient le temps de s'ordonner mutuellement.\\
 
-\textbf{Temps pass� dans l'�tat requesting}:
+\textbf{Temps pass dans l'état requesting :}
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[scale=0.6]{Temps_etat_requesting.png}
 	\end{center}
-	\caption{\label{etat\_requesting} Temps pass�e dans l'e�tat requesting}
+	\caption{\label{etat\_requesting} Temps passé dans l'état requesting}
 \end{figure}
 
-Sur cette courbe, on observe le temps moyen qu'un noeud passe dans l'�tat requesting en fonction de la charge du r�seau. Les temps on �t� mesur�s � l'aide de la m�thode CommonState.getTime(). Les compteurs de temps ont �t�s plac�s � l'envoie et � la r�ception du token et � l'entr�e et la sortie de la section critique. Un compteur global a �t� utilis� afin de s'assurer que le temps n'�tait pas compt� en double.\\
+Sur cette courbe, on observe le temps moyen qu'un noeud passe dans l'état requesting en fonction de la charge du réseau. Les temps on été mesurés à l'aide de la méthode CommonState.getTime(). Les compteurs de temps ont étés placés à l'envoie et à la réception du token et à l'entrée et la sortie de la section critique. Un compteur global a été utilisé afin de s'assurer que le temps n'était pas compté en double.\\
 
-On peut voir que lorsque que le temps $\beta$ pass� entre les sections critiques est beaucoup plus grand que le temps $\alpha$ pass� en section critique, le temps moyen par section critique est tr�s faible. Lorsque $\rho$ s'approche de un, le temps pass� en section critique augmente tr�s rapidement. Apr�s cela, l'augmentation redevient proche voire inf�rieur à un sur une �chelle logarithmique.\\
+On peut voir que lorsque que le temps $\beta$ passé entre les sections critiques est beaucoup plus grand que le temps $\alpha$ passé en section critique, le temps moyen par section critique est très faible. Lorsque $\rho$ s'approche de un, le temps passé en section critique augmente très rapidement. Après cela, l'augmentation redevient proche voire inférieur à un sur une échelle logarithmique.\\
 
-Cette brusque augmentation peut s'expliquer par le fait qu'un temps $\alpha$ tr�s court peut faire qu'� un certain moment, aucun des cinquante noeuds du r�seau ne requiert la section critique. Lorsque la charge du r�seau sera suffisamment grande pour qu'il y ait en permanence un noeud demandant l'acc�s à la section critique, le temps passé dans l'état requesting augmentera lin�airement en fonction du temps où le jeton est utilisé par un processus en section critique.\\
+Cette brusque augmentation peut s'expliquer par le fait qu'un temps $\alpha$ très court peut faire qu'à  un certain moment, aucun des cinquante noeuds du réseau ne requiert la section critique. Lorsque la charge du réseau sera suffisamment grande pour qu'il y ait en permanence un noeud demandant l'accès à  la section critique, le temps passé dans l'état requesting augmentera linéairement en fonction du temps ou le jeton est utilisé par un processus en section critique.\\
 
 
-\textbf{Utilisation du jeton}:
+\textbf{Utilisation du jeton :}
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[scale=0.6]{Temps_token.png}
 	\end{center}
-	\caption{\label{Temps_token} Temps pass� par le jeton dans chacun de ses trois �tats}
+	\caption{\label{Temps_token} Temps passé par le jeton dans chacun de ses trois états}
 \end{figure}
 
-Sur cette troisi�me courbe, on observe le temps que le jeton passe dans chacun des �tats d�crits � la question 2 en fonction de la charge du r�seau. L'exp�rience s'appuyant sur un temps de transport n�gligeable, le temps que le jeton passe dans l'�tat transmission est proche de 1 quelle que soit la charge du r�seau.\\
+Sur cette troisième courbe, on observe le temps que le jeton passe dans chacun des états décrits à  la question 2 en fonction de la charge du réseau. L'expérience s'appuyant sur un temps de transport négligeable, le temps que le jeton passe dans l'état transmission est proche de 1 quelle que soit la charge du réseau.\\
 
-Les temps que le jeton passe en �tant utilis� ou inutilis� suivent des courbes inverses. On observe que plus le temps pass� entre les section critiques $\beta$ est faible plus le jeton est utilis� et inversement.
+Les temps que le jeton passe en étant utilisé ou inutilisé suivent des courbes inverses. On observe que plus le temps passé entre les section critiques $\beta$ est faible plus le jeton est utilisé et inversement.
 
 
 \section{Question 5 :}
@@ -154,7 +154,7 @@ Dans le détail, on voit que les premiers instants du fonctionnement du système
 
 En effet, à la réception d'un token, le noeud ajoute à sa liste personnelle de noeuds en attente d'exécution, la liste transmise. En sachant que la liste personnelle du noeud est toujours vidée à la fin de la section critique dans la méthode releaseCS.\\
 
-Si le noeud fautif possède une file next vide, n’est pointé par aucun last et si aucun message à sa destination n’est en transit soit :
+Si le noeud fautif possède une file next vide, n'est pointé par aucun last et si aucun message à sa destination n'est en transit soit :
  Il a fait une demande de section critique et est dans la liste des noeuds en attente du jeton. Dans ce cas le système finira par aboutir à un inter blocage.\\
 
  Il n'a pas fait de demande de section critique. Alors il disparaîtra du système sans impacter son exécution globale.\\
@@ -243,17 +243,17 @@ Lors de l'appel à la méthode recover de la classe CheckpointerImpl, on commenc
 
 \subsection{Deuxième phase, trouver les messages manquants :}
 
-On cherche à présent à retourner jusqu'à l'instant où l'application a planté. Les noeuds savent qu'ils se sont envoyés des messages qui ont dû être ignorés car postérieurs au point de sauvegarde.
+On cherche à présent à retourner jusqu'à  l'instant où l'application a planté. Les noeuds savent qu'ils se sont envoyés des messages qui ont dû être ignorés car postérieurs au point de sauvegarde.
 \begin{enumerate}
-\item Chaque noeud demande aux autres si il y a des messages manquants en envoyant le nombre de messages qu'il a reçus à son point de sauvegarde (méthode findMessagesToReplay).
+\item Chaque noeud demande aux autres si il y a des messages manquants en envoyant le nombre de messages qu'il a reçus à  son point de sauvegarde (méthode findMessagesToReplay).
 \item Les noeuds reçoivent le nombre de messages reçus par les autres noeuds, les comparent avec le nombre de messages qu'ils leur ont eux-même envoyés et renvoient les messages manquants (méthode receiveAskMissingMessMessage).
-\item Les noeuds ajoutent à la liste des messages qu'ils ont reçus les messages manquants (méthode receiveReplyAskMissingMessMessage puis stop\_recover).
+\item Les noeuds ajoutent à la liste des messages qu'ils ont reçus les messages manquants (méthode receiveReplyAskMissingMessMessage puis stop\_recover).
 \item Finalement, on restaure l'état des noeuds avec les valeurs contenues dans les points de sauvegarde sélectionnés comprenant le nombre de messages envoyés et reçus (méthode stop\_recover).
 \end{enumerate}
 
 \section{Question 9 :}
 
-Après des débats passionnés en cours, nous avons conclu que tel que le code est écrit, l'ordre FIFO n'est pas indispensable au bon fonctionnement de l'algorithme. En effet, les AskMissingMessMessage ne commencent à être envoyés qu'après la phase de findMessagesToReplay et les ReplyAskMissingMessMessage ne commencent à être envoyés qu'après la réception de tous les AskMissingMessMessage. Il y a donc des points de synchronisation de l'application avant et après les AskMissingMessMessage.\\
+Après des débats passionnés en cours, nous avons conclu que tel que le code est écrit, l'ordre FIFO n'est pas indispensable au bon fonctionnement de l'algorithme. En effet, les AskMissingMessMessage ne commencent à  à être envoyés qu'après la phase de findMessagesToReplay et les ReplyAskMissingMessMessage ne commencent à  être envoyés qu'après la réception de tous les AskMissingMessMessage. Il y a donc des points de synchronisation de l'application avant et après les AskMissingMessMessage.\\
 
 Si le noeud renvoyait lui-même les messages manquants, une absence de protocole FIFO pourrait provoquer une inversion des messages envoyés.\\
 
